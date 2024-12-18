@@ -1,4 +1,4 @@
-export { Thrift, copyList, copyMap };
+export {Thrift, copyList, copyMap};
 export let received;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -48,7 +48,7 @@ var Thrift = {
    * @const {string} Version
    * @memberof Thrift
    */
-  Version: "0.22.0",
+  Version: '0.22.0',
 
   /**
    * Thrift IDL type string to Id mapping.
@@ -132,7 +132,7 @@ var Thrift = {
     function F() {}
     F.prototype = superConstructor.prototype;
     constructor.prototype = new F();
-    constructor.prototype.name = name || "";
+    constructor.prototype.name = name || '';
   },
 };
 
@@ -146,7 +146,7 @@ var Thrift = {
 Thrift.TException = function (message) {
   this.message = message;
 };
-Thrift.inherits(Thrift.TException, Error, "TException");
+Thrift.inherits(Thrift.TException, Error, 'TException');
 
 /**
  * Returns the message set on the exception.
@@ -196,12 +196,12 @@ Thrift.TApplicationExceptionType = {
  */
 Thrift.TApplicationException = function (message, code) {
   this.message = message;
-  this.code = typeof code === "number" ? code : 0;
+  this.code = typeof code === 'number' ? code : 0;
 };
 Thrift.inherits(
   Thrift.TApplicationException,
   Thrift.TException,
-  "TApplicationException",
+  'TApplicationException',
 );
 
 /**
@@ -251,16 +251,16 @@ Thrift.TApplicationException.prototype.read = function (input) {
  * @param {object} output - The output protocol to write to.
  */
 Thrift.TApplicationException.prototype.write = function (output) {
-  output.writeStructBegin("TApplicationException");
+  output.writeStructBegin('TApplicationException');
 
   if (this.message) {
-    output.writeFieldBegin("message", Thrift.Type.STRING, 1);
+    output.writeFieldBegin('message', Thrift.Type.STRING, 1);
     output.writeString(this.getMessage());
     output.writeFieldEnd();
   }
 
   if (this.code) {
-    output.writeFieldBegin("type", Thrift.Type.I32, 2);
+    output.writeFieldBegin('type', Thrift.Type.I32, 2);
     output.writeI32(this.code);
     output.writeFieldEnd();
   }
@@ -300,7 +300,7 @@ Thrift.TProtocolException = function TProtocolException(type, message) {
 Thrift.inherits(
   Thrift.TProtocolException,
   Thrift.TException,
-  "TProtocolException",
+  'TProtocolException',
 );
 
 /**
@@ -327,8 +327,8 @@ Thrift.Transport = Thrift.TXHRTransport = function (url, options) {
       ? options.customHeaders
       : {}
     : {};
-  this.send_buf = "";
-  this.recv_buf = "";
+  this.send_buf = '';
+  this.recv_buf = '';
 };
 
 Thrift.TXHRTransport.prototype = {
@@ -341,10 +341,10 @@ Thrift.TXHRTransport.prototype = {
       return new XMLHttpRequest();
     } catch (e1) {}
     try {
-      return new ActiveXObject("Msxml2.XMLHTTP");
+      return new ActiveXObject('Msxml2.XMLHTTP');
     } catch (e2) {}
     try {
-      return new ActiveXObject("Microsoft.XMLHTTP");
+      return new ActiveXObject('Microsoft.XMLHTTP');
     } catch (e3) {}
 
     throw "Your browser doesn't support XHR.";
@@ -362,7 +362,7 @@ Thrift.TXHRTransport.prototype = {
    */
   flush: function (async, callback) {
     var self = this;
-    if ((async && !callback) || this.url === undefined || this.url === "") {
+    if ((async && !callback) || this.url === undefined || this.url === '') {
       return this.send_buf;
     }
 
@@ -370,7 +370,7 @@ Thrift.TXHRTransport.prototype = {
 
     if (xreq.overrideMimeType) {
       xreq.overrideMimeType(
-        "application/vnd.apache.thrift.json; charset=utf-8",
+        'application/vnd.apache.thrift.json; charset=utf-8',
       );
     }
 
@@ -396,7 +396,7 @@ Thrift.TXHRTransport.prototype = {
       })();
     }
 
-    xreq.open("POST", this.url, !!async);
+    xreq.open('POST', this.url, !!async);
 
     // add custom headers
     Object.keys(self.customHeaders).forEach(function (prop) {
@@ -405,12 +405,12 @@ Thrift.TXHRTransport.prototype = {
 
     if (xreq.setRequestHeader) {
       xreq.setRequestHeader(
-        "Accept",
-        "application/vnd.apache.thrift.json; charset=utf-8",
+        'Accept',
+        'application/vnd.apache.thrift.json; charset=utf-8',
       );
       xreq.setRequestHeader(
-        "Content-Type",
-        "application/vnd.apache.thrift.json; charset=utf-8",
+        'Content-Type',
+        'application/vnd.apache.thrift.json; charset=utf-8',
       );
     }
 
@@ -420,11 +420,11 @@ Thrift.TXHRTransport.prototype = {
     }
 
     if (xreq.readyState != 4) {
-      throw "encountered an unknown ajax ready state: " + xreq.readyState;
+      throw 'encountered an unknown ajax ready state: ' + xreq.readyState;
     }
 
     if (xreq.status != 200) {
-      throw "encountered a unknown request status: " + xreq.status;
+      throw 'encountered a unknown request status: ' + xreq.status;
     }
 
     this.recv_buf = xreq.responseText;
@@ -444,10 +444,10 @@ Thrift.TXHRTransport.prototype = {
    */
   jqRequest: function (client, postData, args, recv_method) {
     if (
-      typeof jQuery === "undefined" ||
-      typeof jQuery.Deferred === "undefined"
+      typeof jQuery === 'undefined' ||
+      typeof jQuery.Deferred === 'undefined'
     ) {
-      throw "Thrift.js requires jQuery 1.5+ to use asynchronous requests";
+      throw 'Thrift.js requires jQuery 1.5+ to use asynchronous requests';
     }
 
     var thriftTransport = this;
@@ -455,12 +455,12 @@ Thrift.TXHRTransport.prototype = {
     var jqXHR = jQuery.ajax({
       url: this.url,
       data: postData,
-      type: "POST",
+      type: 'POST',
       cache: false,
-      contentType: "application/vnd.apache.thrift.json; charset=utf-8",
-      dataType: "text thrift",
+      contentType: 'application/vnd.apache.thrift.json; charset=utf-8',
+      dataType: 'text thrift',
       converters: {
-        "text thrift": function (responseData) {
+        'text thrift': function (responseData) {
           thriftTransport.setRecvBuffer(responseData);
           var value = recv_method.call(client);
           return value;
@@ -518,7 +518,7 @@ Thrift.TXHRTransport.prototype = {
     var avail = this.wpos - this.rpos;
 
     if (avail === 0) {
-      return "";
+      return '';
     }
 
     var give = len;
@@ -581,8 +581,8 @@ Thrift.TWebSocketTransport.prototype = {
     this.socket = null; //The web socket
     this.callbacks = []; //Pending callbacks
     this.send_pending = []; //Buffers/Callback pairs waiting to be sent
-    this.send_buf = ""; //Outbound data, immutable until sent
-    this.recv_buf = ""; //Inbound data
+    this.send_buf = ''; //Outbound data, immutable until sent
+    this.recv_buf = ''; //Inbound data
     this.rb_wpos = 0; //Network write position in receive buffer
     this.rb_rpos = 0; //Client read position in receive buffer
   },
@@ -652,7 +652,7 @@ Thrift.TWebSocketTransport.prototype = {
   },
 
   __onError: function (evt) {
-    console.log("Thrift WebSocket Error: " + evt.toString());
+    console.log('Thrift WebSocket Error: ' + evt.toString());
     this.socket.close();
   },
 
@@ -709,7 +709,7 @@ Thrift.TWebSocketTransport.prototype = {
     var avail = this.wpos - this.rpos;
 
     if (avail === 0) {
-      return "";
+      return '';
     }
 
     var give = len;
@@ -848,7 +848,7 @@ Thrift.Protocol.prototype = {
     this.wobj = this.tstack.pop();
     this.wobj.push(obj);
 
-    this.wbuf = "[" + this.wobj.join(",") + "]";
+    this.wbuf = '[' + this.wobj.join(',') + ']';
 
     this.transport.write(this.wbuf);
   },
@@ -868,19 +868,19 @@ Thrift.Protocol.prototype = {
   writeStructEnd: function () {
     var p = this.tpos.pop();
     var struct = this.tstack[p];
-    var str = "{";
+    var str = '{';
     var first = true;
     for (var key in struct) {
       if (first) {
         first = false;
       } else {
-        str += ",";
+        str += ',';
       }
 
-      str += key + ":" + struct[key];
+      str += key + ':' + struct[key];
     }
 
-    str += "}";
+    str += '}';
     this.tstack[p] = str;
   },
 
@@ -906,7 +906,7 @@ Thrift.Protocol.prototype = {
     var fieldInfo = this.tstack.pop();
 
     this.tstack[this.tstack.length - 1][fieldInfo.fieldId] =
-      "{" + fieldInfo.fieldType + ":" + value + "}";
+      '{' + fieldInfo.fieldType + ':' + value + '}';
     this.tpos.pop();
   },
 
@@ -943,14 +943,14 @@ Thrift.Protocol.prototype = {
     }
 
     if ((this.tstack.length - p - 1) % 2 !== 0) {
-      this.tstack.push("");
+      this.tstack.push('');
     }
 
     var size = (this.tstack.length - p - 1) / 2;
 
     this.tstack[p][this.tstack[p].length - 1] = size;
 
-    var map = "}";
+    var map = '}';
     var first = true;
     while (this.tstack.length > p + 1) {
       var v = this.tstack.pop();
@@ -958,18 +958,18 @@ Thrift.Protocol.prototype = {
       if (first) {
         first = false;
       } else {
-        map = "," + map;
+        map = ',' + map;
       }
 
       if (!isNaN(k)) {
         k = '"' + k + '"';
       } //json "keys" need to be strings
-      map = k + ":" + v + map;
+      map = k + ':' + v + map;
     }
-    map = "{" + map;
+    map = '{' + map;
 
     this.tstack[p].push(map);
-    this.tstack[p] = "[" + this.tstack[p].join(",") + "]";
+    this.tstack[p] = '[' + this.tstack[p].join(',') + ']';
   },
 
   /**
@@ -994,7 +994,7 @@ Thrift.Protocol.prototype = {
       this.tstack[p].push(tmpVal);
     }
 
-    this.tstack[p] = "[" + this.tstack[p].join(",") + "]";
+    this.tstack[p] = '[' + this.tstack[p].join(',') + ']';
   },
 
   /**
@@ -1019,7 +1019,7 @@ Thrift.Protocol.prototype = {
       this.tstack[p].push(tmpVal);
     }
 
-    this.tstack[p] = "[" + this.tstack[p].join(",") + "]";
+    this.tstack[p] = '[' + this.tstack[p].join(',') + ']';
   },
 
   /** Serializes a boolean */
@@ -1044,7 +1044,7 @@ Thrift.Protocol.prototype = {
 
   /** Serializes a number */
   writeI64: function (i64) {
-    if (typeof i64 === "number") {
+    if (typeof i64 === 'number') {
       this.tstack.push(i64);
     } else {
       this.tstack.push(Int64Util.toDecimalString(i64));
@@ -1063,29 +1063,29 @@ Thrift.Protocol.prototype = {
       this.tstack.push(null);
     } else {
       // concat may be slower than building a byte buffer
-      var escapedString = "";
+      var escapedString = '';
       for (var i = 0; i < str.length; i++) {
         var ch = str.charAt(i); // a single double quote: "
         if (ch === '\"') {
           escapedString += '\\\"'; // write out as: \"
-        } else if (ch === "\\") {
+        } else if (ch === '\\') {
           // a single backslash
-          escapedString += "\\\\"; // write out as double backslash
-        } else if (ch === "\b") {
+          escapedString += '\\\\'; // write out as double backslash
+        } else if (ch === '\b') {
           // a single backspace: invisible
-          escapedString += "\\b"; // write out as: \b"
-        } else if (ch === "\f") {
+          escapedString += '\\b'; // write out as: \b"
+        } else if (ch === '\f') {
           // a single formfeed: invisible
-          escapedString += "\\f"; // write out as: \f"
-        } else if (ch === "\n") {
+          escapedString += '\\f'; // write out as: \f"
+        } else if (ch === '\n') {
           // a single newline: invisible
-          escapedString += "\\n"; // write out as: \n"
-        } else if (ch === "\r") {
+          escapedString += '\\n'; // write out as: \n"
+        } else if (ch === '\r') {
           // a single return: invisible
-          escapedString += "\\r"; // write out as: \r"
-        } else if (ch === "\t") {
+          escapedString += '\\r'; // write out as: \r"
+        } else if (ch === '\t') {
           // a single tab: invisible
-          escapedString += "\\t"; // write out as: \t"
+          escapedString += '\\t'; // write out as: \t"
         } else {
           escapedString += ch; // Else it need not be escaped
         }
@@ -1096,8 +1096,8 @@ Thrift.Protocol.prototype = {
 
   /** Serializes a string */
   writeBinary: function (binary) {
-    var str = "";
-    if (typeof binary == "string") {
+    var str = '';
+    if (typeof binary == 'string') {
       str = binary;
     } else if (binary instanceof Uint8Array) {
       var arr = binary;
@@ -1105,7 +1105,7 @@ Thrift.Protocol.prototype = {
         str += String.fromCharCode(arr[i]);
       }
     } else {
-      throw new TypeError("writeBinary only accepts String or Uint8Array.");
+      throw new TypeError('writeBinary only accepts String or Uint8Array.');
     }
     this.tstack.push('"' + btoa(str) + '"');
   },
@@ -1128,16 +1128,16 @@ Thrift.Protocol.prototype = {
     received = this.transport.readAll();
 
     if (
-      typeof JSONInt64 !== "undefined" &&
-      typeof JSONInt64.parse === "function"
+      typeof JSONInt64 !== 'undefined' &&
+      typeof JSONInt64.parse === 'function'
     ) {
       this.robj = JSONInt64.parse(received);
     } else if (
-      typeof JSON !== "undefined" &&
-      typeof JSON.parse === "function"
+      typeof JSON !== 'undefined' &&
+      typeof JSON.parse === 'function'
     ) {
       this.robj = JSON.parse(received);
-    } else if (typeof jQuery !== "undefined") {
+    } else if (typeof jQuery !== 'undefined') {
       this.robj = jQuery.parseJSON(received);
     } else {
       this.robj = eval(received);
@@ -1147,7 +1147,7 @@ Thrift.Protocol.prototype = {
     var version = this.robj.shift();
 
     if (version != Thrift.Protocol.Version) {
-      throw "Wrong thrift protocol version: " + version;
+      throw 'Wrong thrift protocol version: ' + version;
     }
 
     r.fname = this.robj.shift();
@@ -1170,7 +1170,7 @@ Thrift.Protocol.prototype = {
    */
   readStructBegin: function (name) {
     var r = {};
-    r.fname = "";
+    r.fname = '';
 
     //incase this is an array of structs
     if (this.rstack[this.rstack.length - 1] instanceof Array) {
@@ -1237,7 +1237,7 @@ Thrift.Protocol.prototype = {
       }
     }
 
-    r.fname = "";
+    r.fname = '';
     r.ftype = ftype;
     r.fid = fid;
 
@@ -1342,7 +1342,7 @@ Thrift.Protocol.prototype = {
   readBool: function () {
     var r = this.readI32();
 
-    if (r !== null && r.value == "1") {
+    if (r !== null && r.value == '1') {
       r.value = true;
     } else {
       r.value = false;
@@ -1423,7 +1423,7 @@ Thrift.Protocol.prototype = {
     } else if (f instanceof Object) {
       var int64Object = true;
       var objectKeys = Object.keys(f).sort();
-      var int64Keys = ["buffer", "offset"];
+      var int64Keys = ['buffer', 'offset'];
       if (objectKeys.length !== int64Keys.length) {
         int64Object = false;
       }
@@ -1559,7 +1559,7 @@ Thrift.MultiplexProtocol = function (srvName, trans, strictRead, strictWrite) {
   Thrift.Protocol.call(this, trans, strictRead, strictWrite);
   this.serviceName = srvName;
 };
-Thrift.inherits(Thrift.MultiplexProtocol, Thrift.Protocol, "multiplexProtocol");
+Thrift.inherits(Thrift.MultiplexProtocol, Thrift.Protocol, 'multiplexProtocol');
 
 /** Override writeMessageBegin method of prototype*/
 Thrift.MultiplexProtocol.prototype.writeMessageBegin = function (
@@ -1570,7 +1570,7 @@ Thrift.MultiplexProtocol.prototype.writeMessageBegin = function (
   if (type === Thrift.MessageType.CALL || type === Thrift.MessageType.ONEWAY) {
     Thrift.Protocol.prototype.writeMessageBegin.call(
       this,
-      this.serviceName + ":" + name,
+      this.serviceName + ':' + name,
       type,
       seqid,
     );

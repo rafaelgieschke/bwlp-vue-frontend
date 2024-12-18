@@ -1,4 +1,4 @@
-import { Thrift } from "../thrift/thrift.js";
+import {Thrift} from '../thrift/thrift.js';
 export let MasterServer_ping_args;
 export let MasterServer_ping_result;
 export let MasterServer_authenticate_args;
@@ -196,8 +196,8 @@ export let TInvocationException;
 //
 // DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
 //
-if (typeof Int64 === "undefined" && typeof require === "function") {
-  const Int64 = require("node-int64");
+if (typeof Int64 === 'undefined' && typeof require === 'function') {
+  const Int64 = require('node-int64');
 }
 
 //HELPER FUNCTIONS AND STRUCTURES
@@ -221,7 +221,7 @@ MasterServer_ping_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_ping_args");
+    output.writeStructBegin('MasterServer_ping_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -267,9 +267,9 @@ MasterServer_ping_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_ping_result");
+    output.writeStructBegin('MasterServer_ping_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.BOOL, 0);
+      output.writeFieldBegin('success', Thrift.Type.BOOL, 0);
       output.writeBool(this.success);
       output.writeFieldEnd();
     }
@@ -326,14 +326,14 @@ MasterServer_authenticate_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_authenticate_args");
+    output.writeStructBegin('MasterServer_authenticate_args');
     if (this.login !== null && this.login !== undefined) {
-      output.writeFieldBegin("login", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('login', Thrift.Type.STRING, 1);
       output.writeString(this.login);
       output.writeFieldEnd();
     }
     if (this.password !== null && this.password !== undefined) {
-      output.writeFieldBegin("password", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('password', Thrift.Type.STRING, 2);
       output.writeString(this.password);
       output.writeFieldEnd();
     }
@@ -412,19 +412,19 @@ MasterServer_authenticate_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_authenticate_result");
+    output.writeStructBegin('MasterServer_authenticate_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 2);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -481,14 +481,14 @@ MasterServer_localAccountLogin_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_localAccountLogin_args");
+    output.writeStructBegin('MasterServer_localAccountLogin_args');
     if (this.login !== null && this.login !== undefined) {
-      output.writeFieldBegin("login", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('login', Thrift.Type.STRING, 1);
       output.writeString(this.login);
       output.writeFieldEnd();
     }
     if (this.password !== null && this.password !== undefined) {
-      output.writeFieldBegin("password", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('password', Thrift.Type.STRING, 2);
       output.writeString(this.password);
       output.writeFieldEnd();
     }
@@ -567,19 +567,19 @@ MasterServer_localAccountLogin_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_localAccountLogin_result");
+    output.writeStructBegin('MasterServer_localAccountLogin_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 2);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -636,14 +636,14 @@ MasterServer_setUsedSatellite_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_setUsedSatellite_args");
+    output.writeStructBegin('MasterServer_setUsedSatellite_args');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
     if (this.satelliteName !== null && this.satelliteName !== undefined) {
-      output.writeFieldBegin("satelliteName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('satelliteName', Thrift.Type.STRING, 2);
       output.writeString(this.satelliteName);
       output.writeFieldEnd();
     }
@@ -671,7 +671,7 @@ MasterServer_setUsedSatellite_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_setUsedSatellite_result");
+    output.writeStructBegin('MasterServer_setUsedSatellite_result');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -736,19 +736,19 @@ MasterServer_findUser_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_findUser_args");
+    output.writeStructBegin('MasterServer_findUser_args');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
     if (this.organizationId !== null && this.organizationId !== undefined) {
-      output.writeFieldBegin("organizationId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('organizationId', Thrift.Type.STRING, 2);
       output.writeString(this.organizationId);
       output.writeFieldEnd();
     }
     if (this.searchTerm !== null && this.searchTerm !== undefined) {
-      output.writeFieldBegin("searchTerm", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('searchTerm', Thrift.Type.STRING, 3);
       output.writeString(this.searchTerm);
       output.writeFieldEnd();
     }
@@ -835,9 +835,9 @@ MasterServer_findUser_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_findUser_result");
+    output.writeStructBegin('MasterServer_findUser_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter269 in this.success) {
         if (this.success.hasOwnProperty(iter269)) {
@@ -849,12 +849,12 @@ MasterServer_findUser_result = class {
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 2);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -911,14 +911,14 @@ MasterServer_getPublicImages_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getPublicImages_args");
+    output.writeStructBegin('MasterServer_getPublicImages_args');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
     if (this.page !== null && this.page !== undefined) {
-      output.writeFieldBegin("page", Thrift.Type.I32, 2);
+      output.writeFieldBegin('page', Thrift.Type.I32, 2);
       output.writeI32(this.page);
       output.writeFieldEnd();
     }
@@ -1005,9 +1005,9 @@ MasterServer_getPublicImages_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getPublicImages_result");
+    output.writeStructBegin('MasterServer_getPublicImages_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter274 in this.success) {
         if (this.success.hasOwnProperty(iter274)) {
@@ -1019,12 +1019,12 @@ MasterServer_getPublicImages_result = class {
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 2);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -1081,14 +1081,14 @@ MasterServer_getImageDetails_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getImageDetails_args");
+    output.writeStructBegin('MasterServer_getImageDetails_args');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
@@ -1183,24 +1183,24 @@ MasterServer_getImageDetails_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getImageDetails_result");
+    output.writeStructBegin('MasterServer_getImageDetails_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -1257,14 +1257,14 @@ MasterServer_getUser_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getUser_args");
+    output.writeStructBegin('MasterServer_getUser_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.userId !== null && this.userId !== undefined) {
-      output.writeFieldBegin("userId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('userId', Thrift.Type.STRING, 2);
       output.writeString(this.userId);
       output.writeFieldEnd();
     }
@@ -1359,24 +1359,24 @@ MasterServer_getUser_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getUser_result");
+    output.writeStructBegin('MasterServer_getUser_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -1425,9 +1425,9 @@ MasterServer_invalidateSession_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_invalidateSession_args");
+    output.writeStructBegin('MasterServer_invalidateSession_args');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
@@ -1481,9 +1481,9 @@ MasterServer_invalidateSession_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_invalidateSession_result");
+    output.writeStructBegin('MasterServer_invalidateSession_result');
     if (this.ex !== null && this.ex !== undefined) {
-      output.writeFieldBegin("ex", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('ex', Thrift.Type.STRUCT, 1);
       this.ex.write(output);
       output.writeFieldEnd();
     }
@@ -1532,9 +1532,9 @@ MasterServer_getSessionFromAccessCode_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getSessionFromAccessCode_args");
+    output.writeStructBegin('MasterServer_getSessionFromAccessCode_args');
     if (this.accessCode !== null && this.accessCode !== undefined) {
-      output.writeFieldBegin("accessCode", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('accessCode', Thrift.Type.STRING, 1);
       output.writeString(this.accessCode);
       output.writeFieldEnd();
     }
@@ -1613,19 +1613,19 @@ MasterServer_getSessionFromAccessCode_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getSessionFromAccessCode_result");
+    output.writeStructBegin('MasterServer_getSessionFromAccessCode_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 1);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.auth !== null && this.auth !== undefined) {
-      output.writeFieldBegin("auth", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('auth', Thrift.Type.STRUCT, 2);
       this.auth.write(output);
       output.writeFieldEnd();
     }
@@ -1674,9 +1674,9 @@ MasterServer_getUserFromToken_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getUserFromToken_args");
+    output.writeStructBegin('MasterServer_getUserFromToken_args');
     if (this.token !== null && this.token !== undefined) {
-      output.writeFieldBegin("token", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('token', Thrift.Type.STRING, 1);
       output.writeString(this.token);
       output.writeFieldEnd();
     }
@@ -1739,14 +1739,14 @@ MasterServer_getUserFromToken_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getUserFromToken_result");
+    output.writeStructBegin('MasterServer_getUserFromToken_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
@@ -1795,9 +1795,9 @@ MasterServer_isServerAuthenticated_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_isServerAuthenticated_args");
+    output.writeStructBegin('MasterServer_isServerAuthenticated_args');
     if (this.serverSessionId !== null && this.serverSessionId !== undefined) {
-      output.writeFieldBegin("serverSessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('serverSessionId', Thrift.Type.STRING, 1);
       output.writeString(this.serverSessionId);
       output.writeFieldEnd();
     }
@@ -1846,9 +1846,9 @@ MasterServer_isServerAuthenticated_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_isServerAuthenticated_result");
+    output.writeStructBegin('MasterServer_isServerAuthenticated_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.BOOL, 0);
+      output.writeFieldBegin('success', Thrift.Type.BOOL, 0);
       output.writeBool(this.success);
       output.writeFieldEnd();
     }
@@ -1897,9 +1897,9 @@ MasterServer_startServerAuthentication_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_startServerAuthentication_args");
+    output.writeStructBegin('MasterServer_startServerAuthentication_args');
     if (this.satelliteId !== null && this.satelliteId !== undefined) {
-      output.writeFieldBegin("satelliteId", Thrift.Type.I32, 1);
+      output.writeFieldBegin('satelliteId', Thrift.Type.I32, 1);
       output.writeI32(this.satelliteId);
       output.writeFieldEnd();
     }
@@ -1977,19 +1977,19 @@ MasterServer_startServerAuthentication_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_startServerAuthentication_result");
+    output.writeStructBegin('MasterServer_startServerAuthentication_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRING, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRING, 0);
       output.writeBinary(this.success);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 2);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -2049,9 +2049,9 @@ MasterServer_serverAuthenticate_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_serverAuthenticate_args");
+    output.writeStructBegin('MasterServer_serverAuthenticate_args');
     if (this.satelliteId !== null && this.satelliteId !== undefined) {
-      output.writeFieldBegin("satelliteId", Thrift.Type.I32, 1);
+      output.writeFieldBegin('satelliteId', Thrift.Type.I32, 1);
       output.writeI32(this.satelliteId);
       output.writeFieldEnd();
     }
@@ -2059,7 +2059,7 @@ MasterServer_serverAuthenticate_args = class {
       this.challengeResponse !== null &&
       this.challengeResponse !== undefined
     ) {
-      output.writeFieldBegin("challengeResponse", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('challengeResponse', Thrift.Type.STRING, 2);
       output.writeBinary(this.challengeResponse);
       output.writeFieldEnd();
     }
@@ -2138,19 +2138,19 @@ MasterServer_serverAuthenticate_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_serverAuthenticate_result");
+    output.writeStructBegin('MasterServer_serverAuthenticate_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.errr !== null && this.errr !== undefined) {
-      output.writeFieldBegin("errr", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('errr', Thrift.Type.STRUCT, 2);
       this.errr.write(output);
       output.writeFieldEnd();
     }
@@ -2207,14 +2207,14 @@ MasterServer_getImageData_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getImageData_args");
+    output.writeStructBegin('MasterServer_getImageData_args');
     if (this.serverSessionId !== null && this.serverSessionId !== undefined) {
-      output.writeFieldBegin("serverSessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('serverSessionId', Thrift.Type.STRING, 1);
       output.writeString(this.serverSessionId);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
@@ -2309,24 +2309,24 @@ MasterServer_getImageData_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getImageData_result");
+    output.writeStructBegin('MasterServer_getImageData_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.failure2 !== null && this.failure2 !== undefined) {
-      output.writeFieldBegin("failure2", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('failure2', Thrift.Type.STRUCT, 2);
       this.failure2.write(output);
       output.writeFieldEnd();
     }
     if (this.f3 !== null && this.f3 !== undefined) {
-      output.writeFieldBegin("f3", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('f3', Thrift.Type.STRUCT, 3);
       this.f3.write(output);
       output.writeFieldEnd();
     }
@@ -2406,19 +2406,19 @@ MasterServer_submitImage_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_submitImage_args");
+    output.writeStructBegin('MasterServer_submitImage_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageDescription !== null && this.imageDescription !== undefined) {
-      output.writeFieldBegin("imageDescription", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('imageDescription', Thrift.Type.STRUCT, 2);
       this.imageDescription.write(output);
       output.writeFieldEnd();
     }
     if (this.blockHashes !== null && this.blockHashes !== undefined) {
-      output.writeFieldBegin("blockHashes", Thrift.Type.LIST, 3);
+      output.writeFieldBegin('blockHashes', Thrift.Type.LIST, 3);
       output.writeListBegin(Thrift.Type.STRING, this.blockHashes.length);
       for (let iter279 in this.blockHashes) {
         if (this.blockHashes.hasOwnProperty(iter279)) {
@@ -2520,24 +2520,24 @@ MasterServer_submitImage_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_submitImage_result");
+    output.writeStructBegin('MasterServer_submitImage_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.failure2 !== null && this.failure2 !== undefined) {
-      output.writeFieldBegin("failure2", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('failure2', Thrift.Type.STRUCT, 2);
       this.failure2.write(output);
       output.writeFieldEnd();
     }
     if (this.failure3 !== null && this.failure3 !== undefined) {
-      output.writeFieldBegin("failure3", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('failure3', Thrift.Type.STRUCT, 3);
       this.failure3.write(output);
       output.writeFieldEnd();
     }
@@ -2646,19 +2646,19 @@ MasterServer_registerSatellite_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_registerSatellite_args");
+    output.writeStructBegin('MasterServer_registerSatellite_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 6);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 6);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.displayName !== null && this.displayName !== undefined) {
-      output.writeFieldBegin("displayName", Thrift.Type.STRING, 5);
+      output.writeFieldBegin('displayName', Thrift.Type.STRING, 5);
       output.writeString(this.displayName);
       output.writeFieldEnd();
     }
     if (this.addresses !== null && this.addresses !== undefined) {
-      output.writeFieldBegin("addresses", Thrift.Type.LIST, 2);
+      output.writeFieldBegin('addresses', Thrift.Type.LIST, 2);
       output.writeListBegin(Thrift.Type.STRING, this.addresses.length);
       for (let iter284 in this.addresses) {
         if (this.addresses.hasOwnProperty(iter284)) {
@@ -2670,17 +2670,17 @@ MasterServer_registerSatellite_args = class {
       output.writeFieldEnd();
     }
     if (this.modulus !== null && this.modulus !== undefined) {
-      output.writeFieldBegin("modulus", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('modulus', Thrift.Type.STRING, 3);
       output.writeString(this.modulus);
       output.writeFieldEnd();
     }
     if (this.exponent !== null && this.exponent !== undefined) {
-      output.writeFieldBegin("exponent", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('exponent', Thrift.Type.STRING, 4);
       output.writeString(this.exponent);
       output.writeFieldEnd();
     }
     if (this.certsha256 !== null && this.certsha256 !== undefined) {
-      output.writeFieldBegin("certsha256", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('certsha256', Thrift.Type.STRING, 1);
       output.writeBinary(this.certsha256);
       output.writeFieldEnd();
     }
@@ -2742,14 +2742,14 @@ MasterServer_registerSatellite_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_registerSatellite_result");
+    output.writeStructBegin('MasterServer_registerSatellite_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.I32, 0);
+      output.writeFieldBegin('success', Thrift.Type.I32, 0);
       output.writeI32(this.success);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 1);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -2825,19 +2825,19 @@ MasterServer_updateSatellite_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_updateSatellite_args");
+    output.writeStructBegin('MasterServer_updateSatellite_args');
     if (this.serverSessionId !== null && this.serverSessionId !== undefined) {
-      output.writeFieldBegin("serverSessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('serverSessionId', Thrift.Type.STRING, 1);
       output.writeString(this.serverSessionId);
       output.writeFieldEnd();
     }
     if (this.displayName !== null && this.displayName !== undefined) {
-      output.writeFieldBegin("displayName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('displayName', Thrift.Type.STRING, 2);
       output.writeString(this.displayName);
       output.writeFieldEnd();
     }
     if (this.addresses !== null && this.addresses !== undefined) {
-      output.writeFieldBegin("addresses", Thrift.Type.LIST, 3);
+      output.writeFieldBegin('addresses', Thrift.Type.LIST, 3);
       output.writeListBegin(Thrift.Type.STRING, this.addresses.length);
       for (let iter289 in this.addresses) {
         if (this.addresses.hasOwnProperty(iter289)) {
@@ -2922,19 +2922,19 @@ MasterServer_updateSatellite_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_updateSatellite_result");
+    output.writeStructBegin('MasterServer_updateSatellite_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.BOOL, 0);
+      output.writeFieldBegin('success', Thrift.Type.BOOL, 0);
       output.writeBool(this.success);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 2);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -2991,14 +2991,14 @@ MasterServer_downloadImage_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_downloadImage_args");
+    output.writeStructBegin('MasterServer_downloadImage_args');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 2);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 1);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
@@ -3093,24 +3093,24 @@ MasterServer_downloadImage_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_downloadImage_result");
+    output.writeStructBegin('MasterServer_downloadImage_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.failure2 !== null && this.failure2 !== undefined) {
-      output.writeFieldBegin("failure2", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('failure2', Thrift.Type.STRUCT, 2);
       this.failure2.write(output);
       output.writeFieldEnd();
     }
     if (this.f3 !== null && this.f3 !== undefined) {
-      output.writeFieldBegin("f3", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('f3', Thrift.Type.STRUCT, 3);
       this.f3.write(output);
       output.writeFieldEnd();
     }
@@ -3138,7 +3138,7 @@ MasterServer_getOrganizations_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getOrganizations_args");
+    output.writeStructBegin('MasterServer_getOrganizations_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -3206,9 +3206,9 @@ MasterServer_getOrganizations_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getOrganizations_result");
+    output.writeStructBegin('MasterServer_getOrganizations_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter294 in this.success) {
         if (this.success.hasOwnProperty(iter294)) {
@@ -3220,7 +3220,7 @@ MasterServer_getOrganizations_result = class {
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 1);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -3248,7 +3248,7 @@ MasterServer_getOperatingSystems_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getOperatingSystems_args");
+    output.writeStructBegin('MasterServer_getOperatingSystems_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -3316,9 +3316,9 @@ MasterServer_getOperatingSystems_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getOperatingSystems_result");
+    output.writeStructBegin('MasterServer_getOperatingSystems_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter299 in this.success) {
         if (this.success.hasOwnProperty(iter299)) {
@@ -3330,7 +3330,7 @@ MasterServer_getOperatingSystems_result = class {
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 1);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -3358,7 +3358,7 @@ MasterServer_getVirtualizers_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getVirtualizers_args");
+    output.writeStructBegin('MasterServer_getVirtualizers_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -3426,9 +3426,9 @@ MasterServer_getVirtualizers_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getVirtualizers_result");
+    output.writeStructBegin('MasterServer_getVirtualizers_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter304 in this.success) {
         if (this.success.hasOwnProperty(iter304)) {
@@ -3440,7 +3440,7 @@ MasterServer_getVirtualizers_result = class {
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 1);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -3489,9 +3489,9 @@ MasterServer_getTags_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getTags_args");
+    output.writeStructBegin('MasterServer_getTags_args');
     if (this.startDate !== null && this.startDate !== undefined) {
-      output.writeFieldBegin("startDate", Thrift.Type.I64, 1);
+      output.writeFieldBegin('startDate', Thrift.Type.I64, 1);
       output.writeI64(this.startDate);
       output.writeFieldEnd();
     }
@@ -3562,9 +3562,9 @@ MasterServer_getTags_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getTags_result");
+    output.writeStructBegin('MasterServer_getTags_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter309 in this.success) {
         if (this.success.hasOwnProperty(iter309)) {
@@ -3576,7 +3576,7 @@ MasterServer_getTags_result = class {
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 1);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -3625,9 +3625,9 @@ MasterServer_getSoftware_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getSoftware_args");
+    output.writeStructBegin('MasterServer_getSoftware_args');
     if (this.startDate !== null && this.startDate !== undefined) {
-      output.writeFieldBegin("startDate", Thrift.Type.I64, 1);
+      output.writeFieldBegin('startDate', Thrift.Type.I64, 1);
       output.writeI64(this.startDate);
       output.writeFieldEnd();
     }
@@ -3698,9 +3698,9 @@ MasterServer_getSoftware_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_getSoftware_result");
+    output.writeStructBegin('MasterServer_getSoftware_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter314 in this.success) {
         if (this.success.hasOwnProperty(iter314)) {
@@ -3712,7 +3712,7 @@ MasterServer_getSoftware_result = class {
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 1);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -3761,9 +3761,9 @@ MasterServer_queryUploadStatus_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_queryUploadStatus_args");
+    output.writeStructBegin('MasterServer_queryUploadStatus_args');
     if (this.uploadToken !== null && this.uploadToken !== undefined) {
-      output.writeFieldBegin("uploadToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('uploadToken', Thrift.Type.STRING, 1);
       output.writeString(this.uploadToken);
       output.writeFieldEnd();
     }
@@ -3826,14 +3826,14 @@ MasterServer_queryUploadStatus_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterServer_queryUploadStatus_result");
+    output.writeStructBegin('MasterServer_queryUploadStatus_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.ex1 !== null && this.ex1 !== undefined) {
-      output.writeFieldBegin("ex1", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('ex1', Thrift.Type.STRUCT, 1);
       this.ex1.write(output);
       output.writeFieldEnd();
     }
@@ -3862,7 +3862,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_ping_args();
     try {
       this.output.writeMessageBegin(
-        "ping",
+        'ping',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -3880,7 +3880,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -3903,7 +3903,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "ping failed: unknown result";
+    throw 'ping failed: unknown result';
   }
 
   authenticate(login, password) {
@@ -3923,7 +3923,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_authenticate_args(params);
     try {
       this.output.writeMessageBegin(
-        "authenticate",
+        'authenticate',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -3941,7 +3941,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -3970,7 +3970,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "authenticate failed: unknown result";
+    throw 'authenticate failed: unknown result';
   }
 
   localAccountLogin(login, password) {
@@ -3990,7 +3990,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_localAccountLogin_args(params);
     try {
       this.output.writeMessageBegin(
-        "localAccountLogin",
+        'localAccountLogin',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4008,7 +4008,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4037,7 +4037,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "localAccountLogin failed: unknown result";
+    throw 'localAccountLogin failed: unknown result';
   }
 
   setUsedSatellite(sessionId, satelliteName) {
@@ -4057,7 +4057,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_setUsedSatellite_args(params);
     try {
       this.output.writeMessageBegin(
-        "setUsedSatellite",
+        'setUsedSatellite',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4075,7 +4075,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4121,7 +4121,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_findUser_args(params);
     try {
       this.output.writeMessageBegin(
-        "findUser",
+        'findUser',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4139,7 +4139,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4168,7 +4168,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "findUser failed: unknown result";
+    throw 'findUser failed: unknown result';
   }
 
   getPublicImages(sessionId, page) {
@@ -4188,7 +4188,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getPublicImages_args(params);
     try {
       this.output.writeMessageBegin(
-        "getPublicImages",
+        'getPublicImages',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4206,7 +4206,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4235,7 +4235,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getPublicImages failed: unknown result";
+    throw 'getPublicImages failed: unknown result';
   }
 
   getImageDetails(sessionId, imageBaseId) {
@@ -4255,7 +4255,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getImageDetails_args(params);
     try {
       this.output.writeMessageBegin(
-        "getImageDetails",
+        'getImageDetails',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4273,7 +4273,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4305,7 +4305,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getImageDetails failed: unknown result";
+    throw 'getImageDetails failed: unknown result';
   }
 
   getUser(userToken, userId) {
@@ -4325,7 +4325,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getUser_args(params);
     try {
       this.output.writeMessageBegin(
-        "getUser",
+        'getUser',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4343,7 +4343,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4375,7 +4375,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getUser failed: unknown result";
+    throw 'getUser failed: unknown result';
   }
 
   invalidateSession(sessionId) {
@@ -4394,7 +4394,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_invalidateSession_args(params);
     try {
       this.output.writeMessageBegin(
-        "invalidateSession",
+        'invalidateSession',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4412,7 +4412,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4454,7 +4454,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getSessionFromAccessCode_args(params);
     try {
       this.output.writeMessageBegin(
-        "getSessionFromAccessCode",
+        'getSessionFromAccessCode',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4472,7 +4472,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4501,7 +4501,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getSessionFromAccessCode failed: unknown result";
+    throw 'getSessionFromAccessCode failed: unknown result';
   }
 
   getUserFromToken(token) {
@@ -4520,7 +4520,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getUserFromToken_args(params);
     try {
       this.output.writeMessageBegin(
-        "getUserFromToken",
+        'getUserFromToken',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4538,7 +4538,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4564,7 +4564,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getUserFromToken failed: unknown result";
+    throw 'getUserFromToken failed: unknown result';
   }
 
   isServerAuthenticated(serverSessionId) {
@@ -4583,7 +4583,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_isServerAuthenticated_args(params);
     try {
       this.output.writeMessageBegin(
-        "isServerAuthenticated",
+        'isServerAuthenticated',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4601,7 +4601,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4624,7 +4624,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "isServerAuthenticated failed: unknown result";
+    throw 'isServerAuthenticated failed: unknown result';
   }
 
   startServerAuthentication(satelliteId) {
@@ -4643,7 +4643,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_startServerAuthentication_args(params);
     try {
       this.output.writeMessageBegin(
-        "startServerAuthentication",
+        'startServerAuthentication',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4661,7 +4661,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4690,7 +4690,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "startServerAuthentication failed: unknown result";
+    throw 'startServerAuthentication failed: unknown result';
   }
 
   serverAuthenticate(satelliteId, challengeResponse) {
@@ -4714,7 +4714,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_serverAuthenticate_args(params);
     try {
       this.output.writeMessageBegin(
-        "serverAuthenticate",
+        'serverAuthenticate',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4732,7 +4732,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4761,7 +4761,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "serverAuthenticate failed: unknown result";
+    throw 'serverAuthenticate failed: unknown result';
   }
 
   getImageData(serverSessionId, imageVersionId) {
@@ -4785,7 +4785,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getImageData_args(params);
     try {
       this.output.writeMessageBegin(
-        "getImageData",
+        'getImageData',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4803,7 +4803,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4835,7 +4835,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getImageData failed: unknown result";
+    throw 'getImageData failed: unknown result';
   }
 
   submitImage(userToken, imageDescription, blockHashes) {
@@ -4861,7 +4861,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_submitImage_args(params);
     try {
       this.output.writeMessageBegin(
-        "submitImage",
+        'submitImage',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4879,7 +4879,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -4911,7 +4911,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "submitImage failed: unknown result";
+    throw 'submitImage failed: unknown result';
   }
 
   registerSatellite(
@@ -4958,7 +4958,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_registerSatellite_args(params);
     try {
       this.output.writeMessageBegin(
-        "registerSatellite",
+        'registerSatellite',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -4976,7 +4976,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5002,7 +5002,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "registerSatellite failed: unknown result";
+    throw 'registerSatellite failed: unknown result';
   }
 
   updateSatellite(serverSessionId, displayName, addresses) {
@@ -5028,7 +5028,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_updateSatellite_args(params);
     try {
       this.output.writeMessageBegin(
-        "updateSatellite",
+        'updateSatellite',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5046,7 +5046,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5075,7 +5075,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "updateSatellite failed: unknown result";
+    throw 'updateSatellite failed: unknown result';
   }
 
   downloadImage(sessionId, imageVersionId) {
@@ -5095,7 +5095,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_downloadImage_args(params);
     try {
       this.output.writeMessageBegin(
-        "downloadImage",
+        'downloadImage',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5113,7 +5113,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5145,7 +5145,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "downloadImage failed: unknown result";
+    throw 'downloadImage failed: unknown result';
   }
 
   getOrganizations() {
@@ -5161,7 +5161,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getOrganizations_args();
     try {
       this.output.writeMessageBegin(
-        "getOrganizations",
+        'getOrganizations',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5179,7 +5179,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5205,7 +5205,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getOrganizations failed: unknown result";
+    throw 'getOrganizations failed: unknown result';
   }
 
   getOperatingSystems() {
@@ -5221,7 +5221,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getOperatingSystems_args();
     try {
       this.output.writeMessageBegin(
-        "getOperatingSystems",
+        'getOperatingSystems',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5239,7 +5239,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5265,7 +5265,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getOperatingSystems failed: unknown result";
+    throw 'getOperatingSystems failed: unknown result';
   }
 
   getVirtualizers() {
@@ -5281,7 +5281,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getVirtualizers_args();
     try {
       this.output.writeMessageBegin(
-        "getVirtualizers",
+        'getVirtualizers',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5299,7 +5299,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5325,7 +5325,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getVirtualizers failed: unknown result";
+    throw 'getVirtualizers failed: unknown result';
   }
 
   getTags(startDate) {
@@ -5344,7 +5344,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getTags_args(params);
     try {
       this.output.writeMessageBegin(
-        "getTags",
+        'getTags',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5362,7 +5362,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5388,7 +5388,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getTags failed: unknown result";
+    throw 'getTags failed: unknown result';
   }
 
   getSoftware(startDate) {
@@ -5407,7 +5407,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_getSoftware_args(params);
     try {
       this.output.writeMessageBegin(
-        "getSoftware",
+        'getSoftware',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5425,7 +5425,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5451,7 +5451,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getSoftware failed: unknown result";
+    throw 'getSoftware failed: unknown result';
   }
 
   queryUploadStatus(uploadToken) {
@@ -5470,7 +5470,7 @@ MasterServerClient = class MasterServerClient {
     const args = new MasterServer_queryUploadStatus_args(params);
     try {
       this.output.writeMessageBegin(
-        "queryUploadStatus",
+        'queryUploadStatus',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -5488,7 +5488,7 @@ MasterServerClient = class MasterServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -5514,7 +5514,7 @@ MasterServerClient = class MasterServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "queryUploadStatus failed: unknown result";
+    throw 'queryUploadStatus failed: unknown result';
   }
 };
 //
@@ -5522,8 +5522,8 @@ MasterServerClient = class MasterServerClient {
 //
 // DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
 //
-if (typeof Int64 === "undefined" && typeof require === "function") {
-  const Int64 = require("node-int64");
+if (typeof Int64 === 'undefined' && typeof require === 'function') {
+  const Int64 = require('node-int64');
 }
 
 //HELPER FUNCTIONS AND STRUCTURES
@@ -5568,9 +5568,9 @@ SatelliteServer_getVersion_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getVersion_args");
+    output.writeStructBegin('SatelliteServer_getVersion_args');
     if (this.clientVersion !== null && this.clientVersion !== undefined) {
-      output.writeFieldBegin("clientVersion", Thrift.Type.I64, 1);
+      output.writeFieldBegin('clientVersion', Thrift.Type.I64, 1);
       output.writeI64(this.clientVersion);
       output.writeFieldEnd();
     }
@@ -5619,9 +5619,9 @@ SatelliteServer_getVersion_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getVersion_result");
+    output.writeStructBegin('SatelliteServer_getVersion_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.I64, 0);
+      output.writeFieldBegin('success', Thrift.Type.I64, 0);
       output.writeI64(this.success);
       output.writeFieldEnd();
     }
@@ -5649,7 +5649,7 @@ SatelliteServer_getSupportedFeatures_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getSupportedFeatures_args");
+    output.writeStructBegin('SatelliteServer_getSupportedFeatures_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -5695,9 +5695,9 @@ SatelliteServer_getSupportedFeatures_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getSupportedFeatures_result");
+    output.writeStructBegin('SatelliteServer_getSupportedFeatures_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRING, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRING, 0);
       output.writeString(this.success);
       output.writeFieldEnd();
     }
@@ -5725,7 +5725,7 @@ SatelliteServer_getConfiguration_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getConfiguration_args");
+    output.writeStructBegin('SatelliteServer_getConfiguration_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -5772,9 +5772,9 @@ SatelliteServer_getConfiguration_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getConfiguration_result");
+    output.writeStructBegin('SatelliteServer_getConfiguration_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
@@ -5875,24 +5875,24 @@ SatelliteServer_requestImageVersionUpload_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_requestImageVersionUpload_args");
+    output.writeStructBegin('SatelliteServer_requestImageVersionUpload_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.fileSize !== null && this.fileSize !== undefined) {
-      output.writeFieldBegin("fileSize", Thrift.Type.I64, 3);
+      output.writeFieldBegin('fileSize', Thrift.Type.I64, 3);
       output.writeI64(this.fileSize);
       output.writeFieldEnd();
     }
     if (this.blockHashes !== null && this.blockHashes !== undefined) {
-      output.writeFieldBegin("blockHashes", Thrift.Type.LIST, 4);
+      output.writeFieldBegin('blockHashes', Thrift.Type.LIST, 4);
       output.writeListBegin(Thrift.Type.STRING, this.blockHashes.length);
       for (let iter191 in this.blockHashes) {
         if (this.blockHashes.hasOwnProperty(iter191)) {
@@ -5907,7 +5907,7 @@ SatelliteServer_requestImageVersionUpload_args = class {
       this.machineDescription !== null &&
       this.machineDescription !== undefined
     ) {
-      output.writeFieldBegin("machineDescription", Thrift.Type.STRING, 5);
+      output.writeFieldBegin('machineDescription', Thrift.Type.STRING, 5);
       output.writeBinary(this.machineDescription);
       output.writeFieldEnd();
     }
@@ -6018,29 +6018,29 @@ SatelliteServer_requestImageVersionUpload_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_requestImageVersionUpload_result");
+    output.writeStructBegin('SatelliteServer_requestImageVersionUpload_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.rejection !== null && this.rejection !== undefined) {
-      output.writeFieldBegin("rejection", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('rejection', Thrift.Type.STRUCT, 1);
       this.rejection.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 2);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.ffff !== null && this.ffff !== undefined) {
-      output.writeFieldBegin("ffff", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('ffff', Thrift.Type.STRUCT, 3);
       this.ffff.write(output);
       output.writeFieldEnd();
     }
     if (this.sdf !== null && this.sdf !== undefined) {
-      output.writeFieldBegin("sdf", Thrift.Type.STRUCT, 4);
+      output.writeFieldBegin('sdf', Thrift.Type.STRUCT, 4);
       this.sdf.write(output);
       output.writeFieldEnd();
     }
@@ -6116,14 +6116,14 @@ SatelliteServer_updateBlockHashes_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateBlockHashes_args");
+    output.writeStructBegin('SatelliteServer_updateBlockHashes_args');
     if (this.uploadToken !== null && this.uploadToken !== undefined) {
-      output.writeFieldBegin("uploadToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('uploadToken', Thrift.Type.STRING, 1);
       output.writeString(this.uploadToken);
       output.writeFieldEnd();
     }
     if (this.blockHashes !== null && this.blockHashes !== undefined) {
-      output.writeFieldBegin("blockHashes", Thrift.Type.LIST, 2);
+      output.writeFieldBegin('blockHashes', Thrift.Type.LIST, 2);
       output.writeListBegin(Thrift.Type.STRING, this.blockHashes.length);
       for (let iter196 in this.blockHashes) {
         if (this.blockHashes.hasOwnProperty(iter196)) {
@@ -6135,7 +6135,7 @@ SatelliteServer_updateBlockHashes_args = class {
       output.writeFieldEnd();
     }
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 3);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
@@ -6189,9 +6189,9 @@ SatelliteServer_updateBlockHashes_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateBlockHashes_result");
+    output.writeStructBegin('SatelliteServer_updateBlockHashes_result');
     if (this.ex1 !== null && this.ex1 !== undefined) {
-      output.writeFieldBegin("ex1", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('ex1', Thrift.Type.STRUCT, 1);
       this.ex1.write(output);
       output.writeFieldEnd();
     }
@@ -6260,19 +6260,19 @@ SatelliteServer_setUploadOptions_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setUploadOptions_args");
+    output.writeStructBegin('SatelliteServer_setUploadOptions_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.uploadToken !== null && this.uploadToken !== undefined) {
-      output.writeFieldBegin("uploadToken", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('uploadToken', Thrift.Type.STRING, 2);
       output.writeString(this.uploadToken);
       output.writeFieldEnd();
     }
     if (this.options !== null && this.options !== undefined) {
-      output.writeFieldBegin("options", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('options', Thrift.Type.STRUCT, 3);
       this.options.write(output);
       output.writeFieldEnd();
     }
@@ -6354,14 +6354,14 @@ SatelliteServer_setUploadOptions_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setUploadOptions_result");
+    output.writeStructBegin('SatelliteServer_setUploadOptions_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.frootloops !== null && this.frootloops !== undefined) {
-      output.writeFieldBegin("frootloops", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('frootloops', Thrift.Type.STRUCT, 1);
       this.frootloops.write(output);
       output.writeFieldEnd();
     }
@@ -6369,7 +6369,7 @@ SatelliteServer_setUploadOptions_result = class {
       this.imcyborgbutthatsok !== null &&
       this.imcyborgbutthatsok !== undefined
     ) {
-      output.writeFieldBegin("imcyborgbutthatsok", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('imcyborgbutthatsok', Thrift.Type.STRUCT, 2);
       this.imcyborgbutthatsok.write(output);
       output.writeFieldEnd();
     }
@@ -6418,9 +6418,9 @@ SatelliteServer_cancelUpload_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_cancelUpload_args");
+    output.writeStructBegin('SatelliteServer_cancelUpload_args');
     if (this.uploadToken !== null && this.uploadToken !== undefined) {
-      output.writeFieldBegin("uploadToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('uploadToken', Thrift.Type.STRING, 1);
       output.writeString(this.uploadToken);
       output.writeFieldEnd();
     }
@@ -6474,9 +6474,9 @@ SatelliteServer_cancelUpload_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_cancelUpload_result");
+    output.writeStructBegin('SatelliteServer_cancelUpload_result');
     if (this.ex1 !== null && this.ex1 !== undefined) {
-      output.writeFieldBegin("ex1", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('ex1', Thrift.Type.STRUCT, 1);
       this.ex1.write(output);
       output.writeFieldEnd();
     }
@@ -6525,9 +6525,9 @@ SatelliteServer_queryUploadStatus_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_queryUploadStatus_args");
+    output.writeStructBegin('SatelliteServer_queryUploadStatus_args');
     if (this.uploadToken !== null && this.uploadToken !== undefined) {
-      output.writeFieldBegin("uploadToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('uploadToken', Thrift.Type.STRING, 1);
       output.writeString(this.uploadToken);
       output.writeFieldEnd();
     }
@@ -6590,14 +6590,14 @@ SatelliteServer_queryUploadStatus_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_queryUploadStatus_result");
+    output.writeStructBegin('SatelliteServer_queryUploadStatus_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.ex1 !== null && this.ex1 !== undefined) {
-      output.writeFieldBegin("ex1", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('ex1', Thrift.Type.STRUCT, 1);
       this.ex1.write(output);
       output.writeFieldEnd();
     }
@@ -6654,14 +6654,14 @@ SatelliteServer_requestDownload_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_requestDownload_args");
+    output.writeStructBegin('SatelliteServer_requestDownload_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
@@ -6772,29 +6772,29 @@ SatelliteServer_requestDownload_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_requestDownload_result");
+    output.writeStructBegin('SatelliteServer_requestDownload_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.rejection !== null && this.rejection !== undefined) {
-      output.writeFieldBegin("rejection", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('rejection', Thrift.Type.STRUCT, 1);
       this.rejection.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 2);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.ffff !== null && this.ffff !== undefined) {
-      output.writeFieldBegin("ffff", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('ffff', Thrift.Type.STRUCT, 3);
       this.ffff.write(output);
       output.writeFieldEnd();
     }
     if (this.sdf !== null && this.sdf !== undefined) {
-      output.writeFieldBegin("sdf", Thrift.Type.STRUCT, 4);
+      output.writeFieldBegin('sdf', Thrift.Type.STRUCT, 4);
       this.sdf.write(output);
       output.writeFieldEnd();
     }
@@ -6843,9 +6843,9 @@ SatelliteServer_cancelDownload_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_cancelDownload_args");
+    output.writeStructBegin('SatelliteServer_cancelDownload_args');
     if (this.downloadToken !== null && this.downloadToken !== undefined) {
-      output.writeFieldBegin("downloadToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('downloadToken', Thrift.Type.STRING, 1);
       output.writeString(this.downloadToken);
       output.writeFieldEnd();
     }
@@ -6899,9 +6899,9 @@ SatelliteServer_cancelDownload_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_cancelDownload_result");
+    output.writeStructBegin('SatelliteServer_cancelDownload_result');
     if (this.ex1 !== null && this.ex1 !== undefined) {
-      output.writeFieldBegin("ex1", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('ex1', Thrift.Type.STRUCT, 1);
       this.ex1.write(output);
       output.writeFieldEnd();
     }
@@ -6950,9 +6950,9 @@ SatelliteServer_isAuthenticated_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_isAuthenticated_args");
+    output.writeStructBegin('SatelliteServer_isAuthenticated_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
@@ -7019,14 +7019,14 @@ SatelliteServer_isAuthenticated_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_isAuthenticated_result");
+    output.writeStructBegin('SatelliteServer_isAuthenticated_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -7075,9 +7075,9 @@ SatelliteServer_whoami_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_whoami_args");
+    output.writeStructBegin('SatelliteServer_whoami_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
@@ -7156,19 +7156,19 @@ SatelliteServer_whoami_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_whoami_result");
+    output.writeStructBegin('SatelliteServer_whoami_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -7217,9 +7217,9 @@ SatelliteServer_invalidateSession_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_invalidateSession_args");
+    output.writeStructBegin('SatelliteServer_invalidateSession_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
@@ -7273,9 +7273,9 @@ SatelliteServer_invalidateSession_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_invalidateSession_result");
+    output.writeStructBegin('SatelliteServer_invalidateSession_result');
     if (this.ex !== null && this.ex !== undefined) {
-      output.writeFieldBegin("ex", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('ex', Thrift.Type.STRUCT, 1);
       this.ex.write(output);
       output.writeFieldEnd();
     }
@@ -7332,14 +7332,14 @@ SatelliteServer_getUserList_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getUserList_args");
+    output.writeStructBegin('SatelliteServer_getUserList_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.page !== null && this.page !== undefined) {
-      output.writeFieldBegin("page", Thrift.Type.I32, 2);
+      output.writeFieldBegin('page', Thrift.Type.I32, 2);
       output.writeI32(this.page);
       output.writeFieldEnd();
     }
@@ -7426,9 +7426,9 @@ SatelliteServer_getUserList_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getUserList_result");
+    output.writeStructBegin('SatelliteServer_getUserList_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter201 in this.success) {
         if (this.success.hasOwnProperty(iter201)) {
@@ -7440,12 +7440,12 @@ SatelliteServer_getUserList_result = class {
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -7494,9 +7494,9 @@ SatelliteServer_getUserConfig_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getUserConfig_args");
+    output.writeStructBegin('SatelliteServer_getUserConfig_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
@@ -7575,19 +7575,19 @@ SatelliteServer_getUserConfig_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getUserConfig_result");
+    output.writeStructBegin('SatelliteServer_getUserConfig_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -7645,14 +7645,14 @@ SatelliteServer_setUserConfig_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setUserConfig_args");
+    output.writeStructBegin('SatelliteServer_setUserConfig_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.config !== null && this.config !== undefined) {
-      output.writeFieldBegin("config", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('config', Thrift.Type.STRUCT, 2);
       this.config.write(output);
       output.writeFieldEnd();
     }
@@ -7719,14 +7719,14 @@ SatelliteServer_setUserConfig_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setUserConfig_result");
+    output.writeStructBegin('SatelliteServer_setUserConfig_result');
     if (this.failure !== null && this.failure !== undefined) {
-      output.writeFieldBegin("failure", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('failure', Thrift.Type.STRUCT, 1);
       this.failure.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -7754,7 +7754,7 @@ SatelliteServer_getOperatingSystems_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getOperatingSystems_args");
+    output.writeStructBegin('SatelliteServer_getOperatingSystems_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -7809,9 +7809,9 @@ SatelliteServer_getOperatingSystems_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getOperatingSystems_result");
+    output.writeStructBegin('SatelliteServer_getOperatingSystems_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter206 in this.success) {
         if (this.success.hasOwnProperty(iter206)) {
@@ -7846,7 +7846,7 @@ SatelliteServer_getVirtualizers_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getVirtualizers_args");
+    output.writeStructBegin('SatelliteServer_getVirtualizers_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -7901,9 +7901,9 @@ SatelliteServer_getVirtualizers_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getVirtualizers_result");
+    output.writeStructBegin('SatelliteServer_getVirtualizers_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter211 in this.success) {
         if (this.success.hasOwnProperty(iter211)) {
@@ -7938,7 +7938,7 @@ SatelliteServer_getAllOrganizations_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getAllOrganizations_args");
+    output.writeStructBegin('SatelliteServer_getAllOrganizations_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -7993,9 +7993,9 @@ SatelliteServer_getAllOrganizations_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getAllOrganizations_result");
+    output.writeStructBegin('SatelliteServer_getAllOrganizations_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter216 in this.success) {
         if (this.success.hasOwnProperty(iter216)) {
@@ -8030,7 +8030,7 @@ SatelliteServer_getLocations_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLocations_args");
+    output.writeStructBegin('SatelliteServer_getLocations_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -8085,9 +8085,9 @@ SatelliteServer_getLocations_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLocations_result");
+    output.writeStructBegin('SatelliteServer_getLocations_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter221 in this.success) {
         if (this.success.hasOwnProperty(iter221)) {
@@ -8122,7 +8122,7 @@ SatelliteServer_getStatus_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getStatus_args");
+    output.writeStructBegin('SatelliteServer_getStatus_args');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -8169,9 +8169,9 @@ SatelliteServer_getStatus_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getStatus_result");
+    output.writeStructBegin('SatelliteServer_getStatus_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
@@ -8247,14 +8247,14 @@ SatelliteServer_getImageList_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImageList_args");
+    output.writeStructBegin('SatelliteServer_getImageList_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.tagSearch !== null && this.tagSearch !== undefined) {
-      output.writeFieldBegin("tagSearch", Thrift.Type.LIST, 2);
+      output.writeFieldBegin('tagSearch', Thrift.Type.LIST, 2);
       output.writeListBegin(Thrift.Type.STRING, this.tagSearch.length);
       for (let iter226 in this.tagSearch) {
         if (this.tagSearch.hasOwnProperty(iter226)) {
@@ -8266,7 +8266,7 @@ SatelliteServer_getImageList_args = class {
       output.writeFieldEnd();
     }
     if (this.page !== null && this.page !== undefined) {
-      output.writeFieldBegin("page", Thrift.Type.I32, 3);
+      output.writeFieldBegin('page', Thrift.Type.I32, 3);
       output.writeI32(this.page);
       output.writeFieldEnd();
     }
@@ -8353,9 +8353,9 @@ SatelliteServer_getImageList_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImageList_result");
+    output.writeStructBegin('SatelliteServer_getImageList_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter231 in this.success) {
         if (this.success.hasOwnProperty(iter231)) {
@@ -8367,12 +8367,12 @@ SatelliteServer_getImageList_result = class {
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -8429,14 +8429,14 @@ SatelliteServer_getImageDetails_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImageDetails_args");
+    output.writeStructBegin('SatelliteServer_getImageDetails_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
@@ -8531,24 +8531,24 @@ SatelliteServer_getImageDetails_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImageDetails_result");
+    output.writeStructBegin('SatelliteServer_getImageDetails_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -8605,14 +8605,14 @@ SatelliteServer_createImage_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_createImage_args");
+    output.writeStructBegin('SatelliteServer_createImage_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageName !== null && this.imageName !== undefined) {
-      output.writeFieldBegin("imageName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageName', Thrift.Type.STRING, 2);
       output.writeString(this.imageName);
       output.writeFieldEnd();
     }
@@ -8690,19 +8690,19 @@ SatelliteServer_createImage_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_createImage_result");
+    output.writeStructBegin('SatelliteServer_createImage_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRING, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRING, 0);
       output.writeString(this.success);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.error !== null && this.error !== undefined) {
-      output.writeFieldBegin("error", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('error', Thrift.Type.STRUCT, 2);
       this.error.write(output);
       output.writeFieldEnd();
     }
@@ -8771,19 +8771,19 @@ SatelliteServer_updateImageBase_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateImageBase_args");
+    output.writeStructBegin('SatelliteServer_updateImageBase_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.image !== null && this.image !== undefined) {
-      output.writeFieldBegin("image", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('image', Thrift.Type.STRUCT, 3);
       this.image.write(output);
       output.writeFieldEnd();
     }
@@ -8866,19 +8866,19 @@ SatelliteServer_updateImageBase_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateImageBase_result");
+    output.writeStructBegin('SatelliteServer_updateImageBase_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.imgError !== null && this.imgError !== undefined) {
-      output.writeFieldBegin("imgError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('imgError', Thrift.Type.STRUCT, 3);
       this.imgError.write(output);
       output.writeFieldEnd();
     }
@@ -8947,19 +8947,19 @@ SatelliteServer_updateImageVersion_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateImageVersion_args");
+    output.writeStructBegin('SatelliteServer_updateImageVersion_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
     if (this.image !== null && this.image !== undefined) {
-      output.writeFieldBegin("image", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('image', Thrift.Type.STRUCT, 3);
       this.image.write(output);
       output.writeFieldEnd();
     }
@@ -9042,19 +9042,19 @@ SatelliteServer_updateImageVersion_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateImageVersion_result");
+    output.writeStructBegin('SatelliteServer_updateImageVersion_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.imgError !== null && this.imgError !== undefined) {
-      output.writeFieldBegin("imgError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('imgError', Thrift.Type.STRUCT, 3);
       this.imgError.write(output);
       output.writeFieldEnd();
     }
@@ -9111,14 +9111,14 @@ SatelliteServer_deleteImageVersion_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_deleteImageVersion_args");
+    output.writeStructBegin('SatelliteServer_deleteImageVersion_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
@@ -9201,19 +9201,19 @@ SatelliteServer_deleteImageVersion_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_deleteImageVersion_result");
+    output.writeStructBegin('SatelliteServer_deleteImageVersion_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -9270,14 +9270,14 @@ SatelliteServer_deleteImageBase_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_deleteImageBase_args");
+    output.writeStructBegin('SatelliteServer_deleteImageBase_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
@@ -9360,19 +9360,19 @@ SatelliteServer_deleteImageBase_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_deleteImageBase_result");
+    output.writeStructBegin('SatelliteServer_deleteImageBase_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -9459,19 +9459,19 @@ SatelliteServer_writeImagePermissions_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_writeImagePermissions_args");
+    output.writeStructBegin('SatelliteServer_writeImagePermissions_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.permissions !== null && this.permissions !== undefined) {
-      output.writeFieldBegin("permissions", Thrift.Type.MAP, 3);
+      output.writeFieldBegin('permissions', Thrift.Type.MAP, 3);
       output.writeMapBegin(
         Thrift.Type.STRING,
         Thrift.Type.STRUCT,
@@ -9566,19 +9566,19 @@ SatelliteServer_writeImagePermissions_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_writeImagePermissions_result");
+    output.writeStructBegin('SatelliteServer_writeImagePermissions_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -9635,14 +9635,14 @@ SatelliteServer_getImagePermissions_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImagePermissions_args");
+    output.writeStructBegin('SatelliteServer_getImagePermissions_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
@@ -9755,9 +9755,9 @@ SatelliteServer_getImagePermissions_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImagePermissions_result");
+    output.writeStructBegin('SatelliteServer_getImagePermissions_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.MAP, 0);
+      output.writeFieldBegin('success', Thrift.Type.MAP, 0);
       output.writeMapBegin(
         Thrift.Type.STRING,
         Thrift.Type.STRUCT,
@@ -9774,17 +9774,17 @@ SatelliteServer_getImagePermissions_result = class {
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -9852,19 +9852,19 @@ SatelliteServer_setImageOwner_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setImageOwner_args");
+    output.writeStructBegin('SatelliteServer_setImageOwner_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.newOwnerId !== null && this.newOwnerId !== undefined) {
-      output.writeFieldBegin("newOwnerId", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('newOwnerId', Thrift.Type.STRING, 3);
       output.writeString(this.newOwnerId);
       output.writeFieldEnd();
     }
@@ -9947,19 +9947,19 @@ SatelliteServer_setImageOwner_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setImageOwner_result");
+    output.writeStructBegin('SatelliteServer_setImageOwner_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -10027,19 +10027,19 @@ SatelliteServer_setImageVersionExpiry_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setImageVersionExpiry_args");
+    output.writeStructBegin('SatelliteServer_setImageVersionExpiry_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 2);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.expireTime !== null && this.expireTime !== undefined) {
-      output.writeFieldBegin("expireTime", Thrift.Type.I64, 3);
+      output.writeFieldBegin('expireTime', Thrift.Type.I64, 3);
       output.writeI64(this.expireTime);
       output.writeFieldEnd();
     }
@@ -10138,24 +10138,24 @@ SatelliteServer_setImageVersionExpiry_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setImageVersionExpiry_result");
+    output.writeStructBegin('SatelliteServer_setImageVersionExpiry_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
     if (this.dateError !== null && this.dateError !== undefined) {
-      output.writeFieldBegin("dateError", Thrift.Type.STRUCT, 4);
+      output.writeFieldBegin('dateError', Thrift.Type.STRUCT, 4);
       this.dateError.write(output);
       output.writeFieldEnd();
     }
@@ -10212,14 +10212,14 @@ SatelliteServer_getImageVersionVirtConfig_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImageVersionVirtConfig_args");
+    output.writeStructBegin('SatelliteServer_getImageVersionVirtConfig_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
@@ -10313,24 +10313,24 @@ SatelliteServer_getImageVersionVirtConfig_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getImageVersionVirtConfig_result");
+    output.writeStructBegin('SatelliteServer_getImageVersionVirtConfig_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRING, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRING, 0);
       output.writeBinary(this.success);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -10398,19 +10398,19 @@ SatelliteServer_setImageVersionVirtConfig_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setImageVersionVirtConfig_args");
+    output.writeStructBegin('SatelliteServer_setImageVersionVirtConfig_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
     if (this.meta !== null && this.meta !== undefined) {
-      output.writeFieldBegin("meta", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('meta', Thrift.Type.STRING, 3);
       output.writeBinary(this.meta);
       output.writeFieldEnd();
     }
@@ -10493,19 +10493,19 @@ SatelliteServer_setImageVersionVirtConfig_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setImageVersionVirtConfig_result");
+    output.writeStructBegin('SatelliteServer_setImageVersionVirtConfig_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -10562,14 +10562,14 @@ SatelliteServer_requestImageReplication_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_requestImageReplication_args");
+    output.writeStructBegin('SatelliteServer_requestImageReplication_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
@@ -10663,24 +10663,24 @@ SatelliteServer_requestImageReplication_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_requestImageReplication_result");
+    output.writeStructBegin('SatelliteServer_requestImageReplication_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRING, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRING, 0);
       output.writeString(this.success);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -10737,14 +10737,14 @@ SatelliteServer_publishImageVersion_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_publishImageVersion_args");
+    output.writeStructBegin('SatelliteServer_publishImageVersion_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
@@ -10854,29 +10854,29 @@ SatelliteServer_publishImageVersion_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_publishImageVersion_result");
+    output.writeStructBegin('SatelliteServer_publishImageVersion_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRING, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRING, 0);
       output.writeString(this.success);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
     if (this.tre !== null && this.tre !== undefined) {
-      output.writeFieldBegin("tre", Thrift.Type.STRUCT, 4);
+      output.writeFieldBegin('tre', Thrift.Type.STRUCT, 4);
       this.tre.write(output);
       output.writeFieldEnd();
     }
@@ -10934,14 +10934,14 @@ SatelliteServer_createLecture_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_createLecture_args");
+    output.writeStructBegin('SatelliteServer_createLecture_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.lecture !== null && this.lecture !== undefined) {
-      output.writeFieldBegin("lecture", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('lecture', Thrift.Type.STRUCT, 2);
       this.lecture.write(output);
       output.writeFieldEnd();
     }
@@ -11051,29 +11051,29 @@ SatelliteServer_createLecture_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_createLecture_result");
+    output.writeStructBegin('SatelliteServer_createLecture_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRING, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRING, 0);
       output.writeString(this.success);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
     if (this.dateError !== null && this.dateError !== undefined) {
-      output.writeFieldBegin("dateError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('dateError', Thrift.Type.STRUCT, 3);
       this.dateError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 4);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 4);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
@@ -11142,19 +11142,19 @@ SatelliteServer_updateLecture_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateLecture_args");
+    output.writeStructBegin('SatelliteServer_updateLecture_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 2);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
     if (this.lecture !== null && this.lecture !== undefined) {
-      output.writeFieldBegin("lecture", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('lecture', Thrift.Type.STRUCT, 3);
       this.lecture.write(output);
       output.writeFieldEnd();
     }
@@ -11253,24 +11253,24 @@ SatelliteServer_updateLecture_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_updateLecture_result");
+    output.writeStructBegin('SatelliteServer_updateLecture_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
     if (this.dateError !== null && this.dateError !== undefined) {
-      output.writeFieldBegin("dateError", Thrift.Type.STRUCT, 4);
+      output.writeFieldBegin('dateError', Thrift.Type.STRUCT, 4);
       this.dateError.write(output);
       output.writeFieldEnd();
     }
@@ -11327,14 +11327,14 @@ SatelliteServer_getLectureList_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLectureList_args");
+    output.writeStructBegin('SatelliteServer_getLectureList_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.page !== null && this.page !== undefined) {
-      output.writeFieldBegin("page", Thrift.Type.I32, 2);
+      output.writeFieldBegin('page', Thrift.Type.I32, 2);
       output.writeI32(this.page);
       output.writeFieldEnd();
     }
@@ -11421,9 +11421,9 @@ SatelliteServer_getLectureList_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLectureList_result");
+    output.writeStructBegin('SatelliteServer_getLectureList_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.LIST, 0);
+      output.writeFieldBegin('success', Thrift.Type.LIST, 0);
       output.writeListBegin(Thrift.Type.STRUCT, this.success.length);
       for (let iter250 in this.success) {
         if (this.success.hasOwnProperty(iter250)) {
@@ -11435,12 +11435,12 @@ SatelliteServer_getLectureList_result = class {
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -11497,14 +11497,14 @@ SatelliteServer_getLectureDetails_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLectureDetails_args");
+    output.writeStructBegin('SatelliteServer_getLectureDetails_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 2);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
@@ -11599,24 +11599,24 @@ SatelliteServer_getLectureDetails_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLectureDetails_result");
+    output.writeStructBegin('SatelliteServer_getLectureDetails_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -11673,14 +11673,14 @@ SatelliteServer_deleteLecture_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_deleteLecture_args");
+    output.writeStructBegin('SatelliteServer_deleteLecture_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 2);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
@@ -11763,19 +11763,19 @@ SatelliteServer_deleteLecture_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_deleteLecture_result");
+    output.writeStructBegin('SatelliteServer_deleteLecture_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -11864,19 +11864,19 @@ SatelliteServer_writeLecturePermissions_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_writeLecturePermissions_args");
+    output.writeStructBegin('SatelliteServer_writeLecturePermissions_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 2);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
     if (this.permissions !== null && this.permissions !== undefined) {
-      output.writeFieldBegin("permissions", Thrift.Type.MAP, 3);
+      output.writeFieldBegin('permissions', Thrift.Type.MAP, 3);
       output.writeMapBegin(
         Thrift.Type.STRING,
         Thrift.Type.STRUCT,
@@ -11971,19 +11971,19 @@ SatelliteServer_writeLecturePermissions_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_writeLecturePermissions_result");
+    output.writeStructBegin('SatelliteServer_writeLecturePermissions_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -12040,14 +12040,14 @@ SatelliteServer_getLecturePermissions_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLecturePermissions_args");
+    output.writeStructBegin('SatelliteServer_getLecturePermissions_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 2);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
@@ -12160,9 +12160,9 @@ SatelliteServer_getLecturePermissions_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getLecturePermissions_result");
+    output.writeStructBegin('SatelliteServer_getLecturePermissions_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.MAP, 0);
+      output.writeFieldBegin('success', Thrift.Type.MAP, 0);
       output.writeMapBegin(
         Thrift.Type.STRING,
         Thrift.Type.STRUCT,
@@ -12179,17 +12179,17 @@ SatelliteServer_getLecturePermissions_result = class {
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -12257,19 +12257,19 @@ SatelliteServer_setLectureOwner_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setLectureOwner_args");
+    output.writeStructBegin('SatelliteServer_setLectureOwner_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 2);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
     if (this.newOwnerId !== null && this.newOwnerId !== undefined) {
-      output.writeFieldBegin("newOwnerId", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('newOwnerId', Thrift.Type.STRING, 3);
       output.writeString(this.newOwnerId);
       output.writeFieldEnd();
     }
@@ -12352,19 +12352,19 @@ SatelliteServer_setLectureOwner_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_setLectureOwner_result");
+    output.writeStructBegin('SatelliteServer_setLectureOwner_result');
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.notFound !== null && this.notFound !== undefined) {
-      output.writeFieldBegin("notFound", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('notFound', Thrift.Type.STRUCT, 2);
       this.notFound.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 3);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 3);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -12413,9 +12413,9 @@ SatelliteServer_getPredefinedData_args = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getPredefinedData_args");
+    output.writeStructBegin('SatelliteServer_getPredefinedData_args');
     if (this.userToken !== null && this.userToken !== undefined) {
-      output.writeFieldBegin("userToken", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userToken', Thrift.Type.STRING, 1);
       output.writeString(this.userToken);
       output.writeFieldEnd();
     }
@@ -12494,19 +12494,19 @@ SatelliteServer_getPredefinedData_result = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteServer_getPredefinedData_result");
+    output.writeStructBegin('SatelliteServer_getPredefinedData_result');
     if (this.success !== null && this.success !== undefined) {
-      output.writeFieldBegin("success", Thrift.Type.STRUCT, 0);
+      output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
       this.success.write(output);
       output.writeFieldEnd();
     }
     if (this.authError !== null && this.authError !== undefined) {
-      output.writeFieldBegin("authError", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('authError', Thrift.Type.STRUCT, 1);
       this.authError.write(output);
       output.writeFieldEnd();
     }
     if (this.serverError !== null && this.serverError !== undefined) {
-      output.writeFieldBegin("serverError", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('serverError', Thrift.Type.STRUCT, 2);
       this.serverError.write(output);
       output.writeFieldEnd();
     }
@@ -12538,7 +12538,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getVersion_args(params);
     try {
       this.output.writeMessageBegin(
-        "getVersion",
+        'getVersion',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -12556,7 +12556,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -12579,7 +12579,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getVersion failed: unknown result";
+    throw 'getVersion failed: unknown result';
   }
 
   getSupportedFeatures() {
@@ -12595,7 +12595,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getSupportedFeatures_args();
     try {
       this.output.writeMessageBegin(
-        "getSupportedFeatures",
+        'getSupportedFeatures',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -12613,7 +12613,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -12636,7 +12636,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getSupportedFeatures failed: unknown result";
+    throw 'getSupportedFeatures failed: unknown result';
   }
 
   getConfiguration() {
@@ -12652,7 +12652,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getConfiguration_args();
     try {
       this.output.writeMessageBegin(
-        "getConfiguration",
+        'getConfiguration',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -12670,7 +12670,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -12693,7 +12693,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getConfiguration failed: unknown result";
+    throw 'getConfiguration failed: unknown result';
   }
 
   requestImageVersionUpload(
@@ -12736,7 +12736,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_requestImageVersionUpload_args(params);
     try {
       this.output.writeMessageBegin(
-        "requestImageVersionUpload",
+        'requestImageVersionUpload',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -12754,7 +12754,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -12789,7 +12789,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "requestImageVersionUpload failed: unknown result";
+    throw 'requestImageVersionUpload failed: unknown result';
   }
 
   updateBlockHashes(uploadToken, blockHashes, userToken) {
@@ -12815,7 +12815,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_updateBlockHashes_args(params);
     try {
       this.output.writeMessageBegin(
-        "updateBlockHashes",
+        'updateBlockHashes',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -12833,7 +12833,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -12882,7 +12882,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_setUploadOptions_args(params);
     try {
       this.output.writeMessageBegin(
-        "setUploadOptions",
+        'setUploadOptions',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -12900,7 +12900,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -12929,7 +12929,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "setUploadOptions failed: unknown result";
+    throw 'setUploadOptions failed: unknown result';
   }
 
   cancelUpload(uploadToken) {
@@ -12948,7 +12948,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_cancelUpload_args(params);
     try {
       this.output.writeMessageBegin(
-        "cancelUpload",
+        'cancelUpload',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -12966,7 +12966,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13008,7 +13008,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_queryUploadStatus_args(params);
     try {
       this.output.writeMessageBegin(
-        "queryUploadStatus",
+        'queryUploadStatus',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13026,7 +13026,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13052,7 +13052,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "queryUploadStatus failed: unknown result";
+    throw 'queryUploadStatus failed: unknown result';
   }
 
   requestDownload(userToken, imageVersionId) {
@@ -13072,7 +13072,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_requestDownload_args(params);
     try {
       this.output.writeMessageBegin(
-        "requestDownload",
+        'requestDownload',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13090,7 +13090,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13125,7 +13125,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "requestDownload failed: unknown result";
+    throw 'requestDownload failed: unknown result';
   }
 
   cancelDownload(downloadToken) {
@@ -13144,7 +13144,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_cancelDownload_args(params);
     try {
       this.output.writeMessageBegin(
-        "cancelDownload",
+        'cancelDownload',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13162,7 +13162,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13204,7 +13204,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_isAuthenticated_args(params);
     try {
       this.output.writeMessageBegin(
-        "isAuthenticated",
+        'isAuthenticated',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13222,7 +13222,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13267,7 +13267,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_whoami_args(params);
     try {
       this.output.writeMessageBegin(
-        "whoami",
+        'whoami',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13285,7 +13285,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13314,7 +13314,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "whoami failed: unknown result";
+    throw 'whoami failed: unknown result';
   }
 
   invalidateSession(userToken) {
@@ -13333,7 +13333,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_invalidateSession_args(params);
     try {
       this.output.writeMessageBegin(
-        "invalidateSession",
+        'invalidateSession',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13351,7 +13351,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13394,7 +13394,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getUserList_args(params);
     try {
       this.output.writeMessageBegin(
-        "getUserList",
+        'getUserList',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13412,7 +13412,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13441,7 +13441,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getUserList failed: unknown result";
+    throw 'getUserList failed: unknown result';
   }
 
   getUserConfig(userToken) {
@@ -13460,7 +13460,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getUserConfig_args(params);
     try {
       this.output.writeMessageBegin(
-        "getUserConfig",
+        'getUserConfig',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13478,7 +13478,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13507,7 +13507,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getUserConfig failed: unknown result";
+    throw 'getUserConfig failed: unknown result';
   }
 
   setUserConfig(userToken, config) {
@@ -13527,7 +13527,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_setUserConfig_args(params);
     try {
       this.output.writeMessageBegin(
-        "setUserConfig",
+        'setUserConfig',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13545,7 +13545,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13587,7 +13587,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getOperatingSystems_args();
     try {
       this.output.writeMessageBegin(
-        "getOperatingSystems",
+        'getOperatingSystems',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13605,7 +13605,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13628,7 +13628,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getOperatingSystems failed: unknown result";
+    throw 'getOperatingSystems failed: unknown result';
   }
 
   getVirtualizers() {
@@ -13644,7 +13644,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getVirtualizers_args();
     try {
       this.output.writeMessageBegin(
-        "getVirtualizers",
+        'getVirtualizers',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13662,7 +13662,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13685,7 +13685,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getVirtualizers failed: unknown result";
+    throw 'getVirtualizers failed: unknown result';
   }
 
   getAllOrganizations() {
@@ -13701,7 +13701,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getAllOrganizations_args();
     try {
       this.output.writeMessageBegin(
-        "getAllOrganizations",
+        'getAllOrganizations',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13719,7 +13719,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13742,7 +13742,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getAllOrganizations failed: unknown result";
+    throw 'getAllOrganizations failed: unknown result';
   }
 
   getLocations() {
@@ -13758,7 +13758,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getLocations_args();
     try {
       this.output.writeMessageBegin(
-        "getLocations",
+        'getLocations',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13776,7 +13776,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13799,7 +13799,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getLocations failed: unknown result";
+    throw 'getLocations failed: unknown result';
   }
 
   getStatus() {
@@ -13815,7 +13815,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getStatus_args();
     try {
       this.output.writeMessageBegin(
-        "getStatus",
+        'getStatus',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13833,7 +13833,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13856,7 +13856,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getStatus failed: unknown result";
+    throw 'getStatus failed: unknown result';
   }
 
   getImageList(userToken, tagSearch, page) {
@@ -13877,7 +13877,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getImageList_args(params);
     try {
       this.output.writeMessageBegin(
-        "getImageList",
+        'getImageList',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13895,7 +13895,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13924,7 +13924,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getImageList failed: unknown result";
+    throw 'getImageList failed: unknown result';
   }
 
   getImageDetails(userToken, imageBaseId) {
@@ -13944,7 +13944,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getImageDetails_args(params);
     try {
       this.output.writeMessageBegin(
-        "getImageDetails",
+        'getImageDetails',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -13962,7 +13962,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -13994,7 +13994,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getImageDetails failed: unknown result";
+    throw 'getImageDetails failed: unknown result';
   }
 
   createImage(userToken, imageName) {
@@ -14014,7 +14014,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_createImage_args(params);
     try {
       this.output.writeMessageBegin(
-        "createImage",
+        'createImage',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14032,7 +14032,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14061,7 +14061,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "createImage failed: unknown result";
+    throw 'createImage failed: unknown result';
   }
 
   updateImageBase(userToken, imageBaseId, image) {
@@ -14087,7 +14087,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_updateImageBase_args(params);
     try {
       this.output.writeMessageBegin(
-        "updateImageBase",
+        'updateImageBase',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14105,7 +14105,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14160,7 +14160,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_updateImageVersion_args(params);
     try {
       this.output.writeMessageBegin(
-        "updateImageVersion",
+        'updateImageVersion',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14178,7 +14178,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14231,7 +14231,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_deleteImageVersion_args(params);
     try {
       this.output.writeMessageBegin(
-        "deleteImageVersion",
+        'deleteImageVersion',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14249,7 +14249,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14298,7 +14298,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_deleteImageBase_args(params);
     try {
       this.output.writeMessageBegin(
-        "deleteImageBase",
+        'deleteImageBase',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14316,7 +14316,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14371,7 +14371,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_writeImagePermissions_args(params);
     try {
       this.output.writeMessageBegin(
-        "writeImagePermissions",
+        'writeImagePermissions',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14389,7 +14389,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14438,7 +14438,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getImagePermissions_args(params);
     try {
       this.output.writeMessageBegin(
-        "getImagePermissions",
+        'getImagePermissions',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14456,7 +14456,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14488,7 +14488,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getImagePermissions failed: unknown result";
+    throw 'getImagePermissions failed: unknown result';
   }
 
   setImageOwner(userToken, imageBaseId, newOwnerId) {
@@ -14514,7 +14514,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_setImageOwner_args(params);
     try {
       this.output.writeMessageBegin(
-        "setImageOwner",
+        'setImageOwner',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14532,7 +14532,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14587,7 +14587,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_setImageVersionExpiry_args(params);
     try {
       this.output.writeMessageBegin(
-        "setImageVersionExpiry",
+        'setImageVersionExpiry',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14605,7 +14605,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14661,7 +14661,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getImageVersionVirtConfig_args(params);
     try {
       this.output.writeMessageBegin(
-        "getImageVersionVirtConfig",
+        'getImageVersionVirtConfig',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14679,7 +14679,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14711,7 +14711,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getImageVersionVirtConfig failed: unknown result";
+    throw 'getImageVersionVirtConfig failed: unknown result';
   }
 
   setImageVersionVirtConfig(userToken, imageVersionId, meta) {
@@ -14737,7 +14737,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_setImageVersionVirtConfig_args(params);
     try {
       this.output.writeMessageBegin(
-        "setImageVersionVirtConfig",
+        'setImageVersionVirtConfig',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14755,7 +14755,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14808,7 +14808,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_requestImageReplication_args(params);
     try {
       this.output.writeMessageBegin(
-        "requestImageReplication",
+        'requestImageReplication',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14826,7 +14826,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14858,7 +14858,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "requestImageReplication failed: unknown result";
+    throw 'requestImageReplication failed: unknown result';
   }
 
   publishImageVersion(userToken, imageVersionId) {
@@ -14882,7 +14882,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_publishImageVersion_args(params);
     try {
       this.output.writeMessageBegin(
-        "publishImageVersion",
+        'publishImageVersion',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14900,7 +14900,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -14935,7 +14935,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "publishImageVersion failed: unknown result";
+    throw 'publishImageVersion failed: unknown result';
   }
 
   createLecture(userToken, lecture) {
@@ -14955,7 +14955,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_createLecture_args(params);
     try {
       this.output.writeMessageBegin(
-        "createLecture",
+        'createLecture',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -14973,7 +14973,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15008,7 +15008,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "createLecture failed: unknown result";
+    throw 'createLecture failed: unknown result';
   }
 
   updateLecture(userToken, lectureId, lecture) {
@@ -15034,7 +15034,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_updateLecture_args(params);
     try {
       this.output.writeMessageBegin(
-        "updateLecture",
+        'updateLecture',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15052,7 +15052,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15104,7 +15104,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getLectureList_args(params);
     try {
       this.output.writeMessageBegin(
-        "getLectureList",
+        'getLectureList',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15122,7 +15122,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15151,7 +15151,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getLectureList failed: unknown result";
+    throw 'getLectureList failed: unknown result';
   }
 
   getLectureDetails(userToken, lectureId) {
@@ -15171,7 +15171,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getLectureDetails_args(params);
     try {
       this.output.writeMessageBegin(
-        "getLectureDetails",
+        'getLectureDetails',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15189,7 +15189,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15221,7 +15221,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getLectureDetails failed: unknown result";
+    throw 'getLectureDetails failed: unknown result';
   }
 
   deleteLecture(userToken, lectureId) {
@@ -15241,7 +15241,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_deleteLecture_args(params);
     try {
       this.output.writeMessageBegin(
-        "deleteLecture",
+        'deleteLecture',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15259,7 +15259,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15314,7 +15314,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_writeLecturePermissions_args(params);
     try {
       this.output.writeMessageBegin(
-        "writeLecturePermissions",
+        'writeLecturePermissions',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15332,7 +15332,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15381,7 +15381,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getLecturePermissions_args(params);
     try {
       this.output.writeMessageBegin(
-        "getLecturePermissions",
+        'getLecturePermissions',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15399,7 +15399,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15431,7 +15431,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getLecturePermissions failed: unknown result";
+    throw 'getLecturePermissions failed: unknown result';
   }
 
   setLectureOwner(userToken, lectureId, newOwnerId) {
@@ -15457,7 +15457,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_setLectureOwner_args(params);
     try {
       this.output.writeMessageBegin(
-        "setLectureOwner",
+        'setLectureOwner',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15475,7 +15475,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15523,7 +15523,7 @@ SatelliteServerClient = class SatelliteServerClient {
     const args = new SatelliteServer_getPredefinedData_args(params);
     try {
       this.output.writeMessageBegin(
-        "getPredefinedData",
+        'getPredefinedData',
         Thrift.MessageType.CALL,
         this.seqid,
       );
@@ -15541,7 +15541,7 @@ SatelliteServerClient = class SatelliteServerClient {
         callback(error, result);
       });
     } catch (e) {
-      if (typeof this.output.getTransport().reset === "function") {
+      if (typeof this.output.getTransport().reset === 'function') {
         this.output.getTransport().reset();
       }
       throw e;
@@ -15570,7 +15570,7 @@ SatelliteServerClient = class SatelliteServerClient {
     if (null !== result.success) {
       return result.success;
     }
-    throw "getPredefinedData failed: unknown result";
+    throw 'getPredefinedData failed: unknown result';
   }
 };
 //
@@ -15578,104 +15578,104 @@ SatelliteServerClient = class SatelliteServerClient {
 //
 // DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
 //
-if (typeof Int64 === "undefined" && typeof require === "function") {
-  const Int64 = require("node-int64");
+if (typeof Int64 === 'undefined' && typeof require === 'function') {
+  const Int64 = require('node-int64');
 }
 
 AuthorizationError = {
-  0: "GENERIC_ERROR",
+  0: 'GENERIC_ERROR',
   GENERIC_ERROR: 0,
-  1: "NOT_AUTHENTICATED",
+  1: 'NOT_AUTHENTICATED',
   NOT_AUTHENTICATED: 1,
-  2: "NO_PERMISSION",
+  2: 'NO_PERMISSION',
   NO_PERMISSION: 2,
-  3: "ACCOUNT_SUSPENDED",
+  3: 'ACCOUNT_SUSPENDED',
   ACCOUNT_SUSPENDED: 3,
-  4: "ORGANIZATION_SUSPENDED",
+  4: 'ORGANIZATION_SUSPENDED',
   ORGANIZATION_SUSPENDED: 4,
-  5: "INVALID_CREDENTIALS",
+  5: 'INVALID_CREDENTIALS',
   INVALID_CREDENTIALS: 5,
-  6: "INVALID_ORGANIZATION",
+  6: 'INVALID_ORGANIZATION',
   INVALID_ORGANIZATION: 6,
-  7: "INVALID_KEY",
+  7: 'INVALID_KEY',
   INVALID_KEY: 7,
-  8: "INVALID_TOKEN",
+  8: 'INVALID_TOKEN',
   INVALID_TOKEN: 8,
-  9: "CHALLENGE_FAILED",
+  9: 'CHALLENGE_FAILED',
   CHALLENGE_FAILED: 9,
-  10: "BANNED_NETWORK",
+  10: 'BANNED_NETWORK',
   BANNED_NETWORK: 10,
 };
 InvocationError = {
-  0: "MISSING_DATA",
+  0: 'MISSING_DATA',
   MISSING_DATA: 0,
-  1: "INVALID_DATA",
+  1: 'INVALID_DATA',
   INVALID_DATA: 1,
-  2: "UNKNOWN_IMAGE",
+  2: 'UNKNOWN_IMAGE',
   UNKNOWN_IMAGE: 2,
-  3: "UNKNOWN_USER",
+  3: 'UNKNOWN_USER',
   UNKNOWN_USER: 3,
-  4: "UNKNOWN_LECTURE",
+  4: 'UNKNOWN_LECTURE',
   UNKNOWN_LECTURE: 4,
-  5: "INVALID_SHARE_MODE",
+  5: 'INVALID_SHARE_MODE',
   INVALID_SHARE_MODE: 5,
-  6: "INTERNAL_SERVER_ERROR",
+  6: 'INTERNAL_SERVER_ERROR',
   INTERNAL_SERVER_ERROR: 6,
 };
 ShareMode = {
-  0: "LOCAL",
+  0: 'LOCAL',
   LOCAL: 0,
-  1: "PUBLISH",
+  1: 'PUBLISH',
   PUBLISH: 1,
-  2: "DOWNLOAD",
+  2: 'DOWNLOAD',
   DOWNLOAD: 2,
-  3: "FROZEN",
+  3: 'FROZEN',
   FROZEN: 3,
 };
 NetDirection = {
-  0: "IN",
+  0: 'IN',
   IN: 0,
-  1: "OUT",
+  1: 'OUT',
   OUT: 1,
 };
 Role = {
-  0: "STUDENT",
+  0: 'STUDENT',
   STUDENT: 0,
-  1: "TUTOR",
+  1: 'TUTOR',
   TUTOR: 1,
 };
 TransferState = {
-  0: "IDLE",
+  0: 'IDLE',
   IDLE: 0,
-  1: "WORKING",
+  1: 'WORKING',
   WORKING: 1,
-  2: "FINISHED",
+  2: 'FINISHED',
   FINISHED: 2,
-  3: "ERROR",
+  3: 'ERROR',
   ERROR: 3,
 };
 DateParamError = {
-  0: "TOO_LOW",
+  0: 'TOO_LOW',
   TOO_LOW: 0,
-  1: "TOO_HIGH",
+  1: 'TOO_HIGH',
   TOO_HIGH: 1,
-  2: "NEGATIVE_RANGE",
+  2: 'NEGATIVE_RANGE',
   NEGATIVE_RANGE: 2,
 };
 NetShareAuth = {
-  0: "LOGIN_USER",
+  0: 'LOGIN_USER',
   LOGIN_USER: 0,
-  1: "OTHER_USER",
+  1: 'OTHER_USER',
   OTHER_USER: 1,
 };
 SscMode = {
-  0: "OFF",
+  0: 'OFF',
   OFF: 0,
-  1: "ON",
+  1: 'ON',
   ON: 1,
-  2: "AUTO",
+  2: 'AUTO',
   AUTO: 2,
-  3: "USER",
+  3: 'USER',
   USER: 3,
 };
 UserInfo = class {
@@ -15770,34 +15770,34 @@ UserInfo = class {
   }
 
   write(output) {
-    output.writeStructBegin("UserInfo");
+    output.writeStructBegin('UserInfo');
     if (this.userId !== null && this.userId !== undefined) {
-      output.writeFieldBegin("userId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('userId', Thrift.Type.STRING, 1);
       output.writeString(this.userId);
       output.writeFieldEnd();
     }
     if (this.firstName !== null && this.firstName !== undefined) {
-      output.writeFieldBegin("firstName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('firstName', Thrift.Type.STRING, 2);
       output.writeString(this.firstName);
       output.writeFieldEnd();
     }
     if (this.lastName !== null && this.lastName !== undefined) {
-      output.writeFieldBegin("lastName", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('lastName', Thrift.Type.STRING, 3);
       output.writeString(this.lastName);
       output.writeFieldEnd();
     }
     if (this.eMail !== null && this.eMail !== undefined) {
-      output.writeFieldBegin("eMail", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('eMail', Thrift.Type.STRING, 4);
       output.writeString(this.eMail);
       output.writeFieldEnd();
     }
     if (this.organizationId !== null && this.organizationId !== undefined) {
-      output.writeFieldBegin("organizationId", Thrift.Type.STRING, 5);
+      output.writeFieldBegin('organizationId', Thrift.Type.STRING, 5);
       output.writeString(this.organizationId);
       output.writeFieldEnd();
     }
     if (this.role !== null && this.role !== undefined) {
-      output.writeFieldBegin("role", Thrift.Type.I32, 6);
+      output.writeFieldBegin('role', Thrift.Type.I32, 6);
       output.writeI32(this.role);
       output.writeFieldEnd();
     }
@@ -15866,19 +15866,19 @@ WhoamiInfo = class {
   }
 
   write(output) {
-    output.writeStructBegin("WhoamiInfo");
+    output.writeStructBegin('WhoamiInfo');
     if (this.user !== null && this.user !== undefined) {
-      output.writeFieldBegin("user", Thrift.Type.STRUCT, 1);
+      output.writeFieldBegin('user', Thrift.Type.STRUCT, 1);
       this.user.write(output);
       output.writeFieldEnd();
     }
     if (this.isSuperUser !== null && this.isSuperUser !== undefined) {
-      output.writeFieldBegin("isSuperUser", Thrift.Type.BOOL, 2);
+      output.writeFieldBegin('isSuperUser', Thrift.Type.BOOL, 2);
       output.writeBool(this.isSuperUser);
       output.writeFieldEnd();
     }
     if (this.canListImages !== null && this.canListImages !== undefined) {
-      output.writeFieldBegin("canListImages", Thrift.Type.BOOL, 3);
+      output.writeFieldBegin('canListImages', Thrift.Type.BOOL, 3);
       output.writeBool(this.canListImages);
       output.writeFieldEnd();
     }
@@ -15965,24 +15965,24 @@ Organization = class {
   }
 
   write(output) {
-    output.writeStructBegin("Organization");
+    output.writeStructBegin('Organization');
     if (this.organizationId !== null && this.organizationId !== undefined) {
-      output.writeFieldBegin("organizationId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('organizationId', Thrift.Type.STRING, 1);
       output.writeString(this.organizationId);
       output.writeFieldEnd();
     }
     if (this.displayName !== null && this.displayName !== undefined) {
-      output.writeFieldBegin("displayName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('displayName', Thrift.Type.STRING, 2);
       output.writeString(this.displayName);
       output.writeFieldEnd();
     }
     if (this.ecpUrl !== null && this.ecpUrl !== undefined) {
-      output.writeFieldBegin("ecpUrl", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('ecpUrl', Thrift.Type.STRING, 3);
       output.writeString(this.ecpUrl);
       output.writeFieldEnd();
     }
     if (this.suffixList !== null && this.suffixList !== undefined) {
-      output.writeFieldBegin("suffixList", Thrift.Type.LIST, 4);
+      output.writeFieldBegin('suffixList', Thrift.Type.LIST, 4);
       output.writeListBegin(Thrift.Type.STRING, this.suffixList.length);
       for (let iter4 in this.suffixList) {
         if (this.suffixList.hasOwnProperty(iter4)) {
@@ -16065,9 +16065,9 @@ Satellite = class {
   }
 
   write(output) {
-    output.writeStructBegin("Satellite");
+    output.writeStructBegin('Satellite');
     if (this.addressList !== null && this.addressList !== undefined) {
-      output.writeFieldBegin("addressList", Thrift.Type.LIST, 1);
+      output.writeFieldBegin('addressList', Thrift.Type.LIST, 1);
       output.writeListBegin(Thrift.Type.STRING, this.addressList.length);
       for (let iter9 in this.addressList) {
         if (this.addressList.hasOwnProperty(iter9)) {
@@ -16079,12 +16079,12 @@ Satellite = class {
       output.writeFieldEnd();
     }
     if (this.displayName !== null && this.displayName !== undefined) {
-      output.writeFieldBegin("displayName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('displayName', Thrift.Type.STRING, 2);
       output.writeString(this.displayName);
       output.writeFieldEnd();
     }
     if (this.certSha256 !== null && this.certSha256 !== undefined) {
-      output.writeFieldBegin("certSha256", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('certSha256', Thrift.Type.STRING, 3);
       output.writeBinary(this.certSha256);
       output.writeFieldEnd();
     }
@@ -16152,19 +16152,19 @@ SessionData = class {
   }
 
   write(output) {
-    output.writeStructBegin("SessionData");
+    output.writeStructBegin('SessionData');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
     if (this.authToken !== null && this.authToken !== undefined) {
-      output.writeFieldBegin("authToken", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('authToken', Thrift.Type.STRING, 2);
       output.writeString(this.authToken);
       output.writeFieldEnd();
     }
     if (this.serverAddress !== null && this.serverAddress !== undefined) {
-      output.writeFieldBegin("serverAddress", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('serverAddress', Thrift.Type.STRING, 3);
       output.writeString(this.serverAddress);
       output.writeFieldEnd();
     }
@@ -16253,19 +16253,19 @@ ClientSessionData = class {
   }
 
   write(output) {
-    output.writeStructBegin("ClientSessionData");
+    output.writeStructBegin('ClientSessionData');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
     if (this.authToken !== null && this.authToken !== undefined) {
-      output.writeFieldBegin("authToken", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('authToken', Thrift.Type.STRING, 2);
       output.writeString(this.authToken);
       output.writeFieldEnd();
     }
     if (this.satellites !== null && this.satellites !== undefined) {
-      output.writeFieldBegin("satellites", Thrift.Type.LIST, 3);
+      output.writeFieldBegin('satellites', Thrift.Type.LIST, 3);
       output.writeListBegin(Thrift.Type.STRUCT, this.satellites.length);
       for (let iter14 in this.satellites) {
         if (this.satellites.hasOwnProperty(iter14)) {
@@ -16277,7 +16277,7 @@ ClientSessionData = class {
       output.writeFieldEnd();
     }
     if (this.userInfo !== null && this.userInfo !== undefined) {
-      output.writeFieldBegin("userInfo", Thrift.Type.STRUCT, 4);
+      output.writeFieldBegin('userInfo', Thrift.Type.STRUCT, 4);
       this.userInfo.write(output);
       output.writeFieldEnd();
     }
@@ -16326,9 +16326,9 @@ ServerSessionData = class {
   }
 
   write(output) {
-    output.writeStructBegin("ServerSessionData");
+    output.writeStructBegin('ServerSessionData');
     if (this.sessionId !== null && this.sessionId !== undefined) {
-      output.writeFieldBegin("sessionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('sessionId', Thrift.Type.STRING, 1);
       output.writeString(this.sessionId);
       output.writeFieldEnd();
     }
@@ -16385,14 +16385,14 @@ Virtualizer = class {
   }
 
   write(output) {
-    output.writeStructBegin("Virtualizer");
+    output.writeStructBegin('Virtualizer');
     if (this.virtId !== null && this.virtId !== undefined) {
-      output.writeFieldBegin("virtId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('virtId', Thrift.Type.STRING, 1);
       output.writeString(this.virtId);
       output.writeFieldEnd();
     }
     if (this.virtName !== null && this.virtName !== undefined) {
-      output.writeFieldBegin("virtName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('virtName', Thrift.Type.STRING, 2);
       output.writeString(this.virtName);
       output.writeFieldEnd();
     }
@@ -16511,19 +16511,19 @@ OperatingSystem = class {
   }
 
   write(output) {
-    output.writeStructBegin("OperatingSystem");
+    output.writeStructBegin('OperatingSystem');
     if (this.osId !== null && this.osId !== undefined) {
-      output.writeFieldBegin("osId", Thrift.Type.I32, 1);
+      output.writeFieldBegin('osId', Thrift.Type.I32, 1);
       output.writeI32(this.osId);
       output.writeFieldEnd();
     }
     if (this.osName !== null && this.osName !== undefined) {
-      output.writeFieldBegin("osName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('osName', Thrift.Type.STRING, 2);
       output.writeString(this.osName);
       output.writeFieldEnd();
     }
     if (this.virtualizerOsId !== null && this.virtualizerOsId !== undefined) {
-      output.writeFieldBegin("virtualizerOsId", Thrift.Type.MAP, 3);
+      output.writeFieldBegin('virtualizerOsId', Thrift.Type.MAP, 3);
       output.writeMapBegin(
         Thrift.Type.STRING,
         Thrift.Type.STRING,
@@ -16540,17 +16540,17 @@ OperatingSystem = class {
       output.writeFieldEnd();
     }
     if (this.architecture !== null && this.architecture !== undefined) {
-      output.writeFieldBegin("architecture", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('architecture', Thrift.Type.STRING, 4);
       output.writeString(this.architecture);
       output.writeFieldEnd();
     }
     if (this.maxMemMb !== null && this.maxMemMb !== undefined) {
-      output.writeFieldBegin("maxMemMb", Thrift.Type.I32, 5);
+      output.writeFieldBegin('maxMemMb', Thrift.Type.I32, 5);
       output.writeI32(this.maxMemMb);
       output.writeFieldEnd();
     }
     if (this.maxCores !== null && this.maxCores !== undefined) {
-      output.writeFieldBegin("maxCores", Thrift.Type.I32, 6);
+      output.writeFieldBegin('maxCores', Thrift.Type.I32, 6);
       output.writeI32(this.maxCores);
       output.writeFieldEnd();
     }
@@ -16629,24 +16629,24 @@ ImagePermissions = class {
   }
 
   write(output) {
-    output.writeStructBegin("ImagePermissions");
+    output.writeStructBegin('ImagePermissions');
     if (this.link !== null && this.link !== undefined) {
-      output.writeFieldBegin("link", Thrift.Type.BOOL, 1);
+      output.writeFieldBegin('link', Thrift.Type.BOOL, 1);
       output.writeBool(this.link);
       output.writeFieldEnd();
     }
     if (this.download !== null && this.download !== undefined) {
-      output.writeFieldBegin("download", Thrift.Type.BOOL, 2);
+      output.writeFieldBegin('download', Thrift.Type.BOOL, 2);
       output.writeBool(this.download);
       output.writeFieldEnd();
     }
     if (this.edit !== null && this.edit !== undefined) {
-      output.writeFieldBegin("edit", Thrift.Type.BOOL, 3);
+      output.writeFieldBegin('edit', Thrift.Type.BOOL, 3);
       output.writeBool(this.edit);
       output.writeFieldEnd();
     }
     if (this.admin !== null && this.admin !== undefined) {
-      output.writeFieldBegin("admin", Thrift.Type.BOOL, 4);
+      output.writeFieldBegin('admin', Thrift.Type.BOOL, 4);
       output.writeBool(this.admin);
       output.writeFieldEnd();
     }
@@ -16703,14 +16703,14 @@ LecturePermissions = class {
   }
 
   write(output) {
-    output.writeStructBegin("LecturePermissions");
+    output.writeStructBegin('LecturePermissions');
     if (this.edit !== null && this.edit !== undefined) {
-      output.writeFieldBegin("edit", Thrift.Type.BOOL, 1);
+      output.writeFieldBegin('edit', Thrift.Type.BOOL, 1);
       output.writeBool(this.edit);
       output.writeFieldEnd();
     }
     if (this.admin !== null && this.admin !== undefined) {
-      output.writeFieldBegin("admin", Thrift.Type.BOOL, 2);
+      output.writeFieldBegin('admin', Thrift.Type.BOOL, 2);
       output.writeBool(this.admin);
       output.writeFieldEnd();
     }
@@ -16864,29 +16864,29 @@ ImageBaseWrite = class {
   }
 
   write(output) {
-    output.writeStructBegin("ImageBaseWrite");
+    output.writeStructBegin('ImageBaseWrite');
     if (this.imageName !== null && this.imageName !== undefined) {
-      output.writeFieldBegin("imageName", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('imageName', Thrift.Type.STRING, 1);
       output.writeString(this.imageName);
       output.writeFieldEnd();
     }
     if (this.description !== null && this.description !== undefined) {
-      output.writeFieldBegin("description", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('description', Thrift.Type.STRING, 2);
       output.writeString(this.description);
       output.writeFieldEnd();
     }
     if (this.osId !== null && this.osId !== undefined) {
-      output.writeFieldBegin("osId", Thrift.Type.I32, 3);
+      output.writeFieldBegin('osId', Thrift.Type.I32, 3);
       output.writeI32(this.osId);
       output.writeFieldEnd();
     }
     if (this.virtId !== null && this.virtId !== undefined) {
-      output.writeFieldBegin("virtId", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('virtId', Thrift.Type.STRING, 4);
       output.writeString(this.virtId);
       output.writeFieldEnd();
     }
     if (this.isTemplate !== null && this.isTemplate !== undefined) {
-      output.writeFieldBegin("isTemplate", Thrift.Type.BOOL, 5);
+      output.writeFieldBegin('isTemplate', Thrift.Type.BOOL, 5);
       output.writeBool(this.isTemplate);
       output.writeFieldEnd();
     }
@@ -16894,17 +16894,17 @@ ImageBaseWrite = class {
       this.defaultPermissions !== null &&
       this.defaultPermissions !== undefined
     ) {
-      output.writeFieldBegin("defaultPermissions", Thrift.Type.STRUCT, 6);
+      output.writeFieldBegin('defaultPermissions', Thrift.Type.STRUCT, 6);
       this.defaultPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.shareMode !== null && this.shareMode !== undefined) {
-      output.writeFieldBegin("shareMode", Thrift.Type.I32, 7);
+      output.writeFieldBegin('shareMode', Thrift.Type.I32, 7);
       output.writeI32(this.shareMode);
       output.writeFieldEnd();
     }
     if (this.addTags !== null && this.addTags !== undefined) {
-      output.writeFieldBegin("addTags", Thrift.Type.LIST, 8);
+      output.writeFieldBegin('addTags', Thrift.Type.LIST, 8);
       output.writeListBegin(Thrift.Type.STRING, this.addTags.length);
       for (let iter30 in this.addTags) {
         if (this.addTags.hasOwnProperty(iter30)) {
@@ -16916,7 +16916,7 @@ ImageBaseWrite = class {
       output.writeFieldEnd();
     }
     if (this.remTags !== null && this.remTags !== undefined) {
-      output.writeFieldBegin("remTags", Thrift.Type.LIST, 9);
+      output.writeFieldBegin('remTags', Thrift.Type.LIST, 9);
       output.writeListBegin(Thrift.Type.STRING, this.remTags.length);
       for (let iter31 in this.remTags) {
         if (this.remTags.hasOwnProperty(iter31)) {
@@ -16972,9 +16972,9 @@ ImageVersionWrite = class {
   }
 
   write(output) {
-    output.writeStructBegin("ImageVersionWrite");
+    output.writeStructBegin('ImageVersionWrite');
     if (this.isRestricted !== null && this.isRestricted !== undefined) {
-      output.writeFieldBegin("isRestricted", Thrift.Type.BOOL, 2);
+      output.writeFieldBegin('isRestricted', Thrift.Type.BOOL, 2);
       output.writeBool(this.isRestricted);
       output.writeFieldEnd();
     }
@@ -17256,94 +17256,94 @@ ImageSummaryRead = class {
   }
 
   write(output) {
-    output.writeStructBegin("ImageSummaryRead");
+    output.writeStructBegin('ImageSummaryRead');
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 1);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.latestVersionId !== null && this.latestVersionId !== undefined) {
-      output.writeFieldBegin("latestVersionId", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('latestVersionId', Thrift.Type.STRING, 3);
       output.writeString(this.latestVersionId);
       output.writeFieldEnd();
     }
     if (this.imageName !== null && this.imageName !== undefined) {
-      output.writeFieldBegin("imageName", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('imageName', Thrift.Type.STRING, 4);
       output.writeString(this.imageName);
       output.writeFieldEnd();
     }
     if (this.description !== null && this.description !== undefined) {
-      output.writeFieldBegin("description", Thrift.Type.STRING, 23);
+      output.writeFieldBegin('description', Thrift.Type.STRING, 23);
       output.writeString(this.description);
       output.writeFieldEnd();
     }
     if (this.osId !== null && this.osId !== undefined) {
-      output.writeFieldBegin("osId", Thrift.Type.I32, 5);
+      output.writeFieldBegin('osId', Thrift.Type.I32, 5);
       output.writeI32(this.osId);
       output.writeFieldEnd();
     }
     if (this.virtId !== null && this.virtId !== undefined) {
-      output.writeFieldBegin("virtId", Thrift.Type.STRING, 6);
+      output.writeFieldBegin('virtId', Thrift.Type.STRING, 6);
       output.writeString(this.virtId);
       output.writeFieldEnd();
     }
     if (this.createTime !== null && this.createTime !== undefined) {
-      output.writeFieldBegin("createTime", Thrift.Type.I64, 7);
+      output.writeFieldBegin('createTime', Thrift.Type.I64, 7);
       output.writeI64(this.createTime);
       output.writeFieldEnd();
     }
     if (this.updateTime !== null && this.updateTime !== undefined) {
-      output.writeFieldBegin("updateTime", Thrift.Type.I64, 8);
+      output.writeFieldBegin('updateTime', Thrift.Type.I64, 8);
       output.writeI64(this.updateTime);
       output.writeFieldEnd();
     }
     if (this.uploadTime !== null && this.uploadTime !== undefined) {
-      output.writeFieldBegin("uploadTime", Thrift.Type.I64, 20);
+      output.writeFieldBegin('uploadTime', Thrift.Type.I64, 20);
       output.writeI64(this.uploadTime);
       output.writeFieldEnd();
     }
     if (this.expireTime !== null && this.expireTime !== undefined) {
-      output.writeFieldBegin("expireTime", Thrift.Type.I64, 9);
+      output.writeFieldBegin('expireTime', Thrift.Type.I64, 9);
       output.writeI64(this.expireTime);
       output.writeFieldEnd();
     }
     if (this.ownerId !== null && this.ownerId !== undefined) {
-      output.writeFieldBegin("ownerId", Thrift.Type.STRING, 10);
+      output.writeFieldBegin('ownerId', Thrift.Type.STRING, 10);
       output.writeString(this.ownerId);
       output.writeFieldEnd();
     }
     if (this.uploaderId !== null && this.uploaderId !== undefined) {
-      output.writeFieldBegin("uploaderId", Thrift.Type.STRING, 11);
+      output.writeFieldBegin('uploaderId', Thrift.Type.STRING, 11);
       output.writeString(this.uploaderId);
       output.writeFieldEnd();
     }
     if (this.shareMode !== null && this.shareMode !== undefined) {
-      output.writeFieldBegin("shareMode", Thrift.Type.I32, 12);
+      output.writeFieldBegin('shareMode', Thrift.Type.I32, 12);
       output.writeI32(this.shareMode);
       output.writeFieldEnd();
     }
     if (this.fileSize !== null && this.fileSize !== undefined) {
-      output.writeFieldBegin("fileSize", Thrift.Type.I64, 13);
+      output.writeFieldBegin('fileSize', Thrift.Type.I64, 13);
       output.writeI64(this.fileSize);
       output.writeFieldEnd();
     }
     if (this.isRestricted !== null && this.isRestricted !== undefined) {
-      output.writeFieldBegin("isRestricted", Thrift.Type.BOOL, 14);
+      output.writeFieldBegin('isRestricted', Thrift.Type.BOOL, 14);
       output.writeBool(this.isRestricted);
       output.writeFieldEnd();
     }
     if (this.isValid !== null && this.isValid !== undefined) {
-      output.writeFieldBegin("isValid", Thrift.Type.BOOL, 15);
+      output.writeFieldBegin('isValid', Thrift.Type.BOOL, 15);
       output.writeBool(this.isValid);
       output.writeFieldEnd();
     }
     if (this.isProcessed !== null && this.isProcessed !== undefined) {
-      output.writeFieldBegin("isProcessed", Thrift.Type.BOOL, 16);
+      output.writeFieldBegin('isProcessed', Thrift.Type.BOOL, 16);
       output.writeBool(this.isProcessed);
       output.writeFieldEnd();
     }
     if (this.isTemplate !== null && this.isTemplate !== undefined) {
-      output.writeFieldBegin("isTemplate", Thrift.Type.BOOL, 17);
+      output.writeFieldBegin('isTemplate', Thrift.Type.BOOL, 17);
       output.writeBool(this.isTemplate);
       output.writeFieldEnd();
     }
@@ -17351,22 +17351,22 @@ ImageSummaryRead = class {
       this.defaultPermissions !== null &&
       this.defaultPermissions !== undefined
     ) {
-      output.writeFieldBegin("defaultPermissions", Thrift.Type.STRUCT, 18);
+      output.writeFieldBegin('defaultPermissions', Thrift.Type.STRUCT, 18);
       this.defaultPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.userPermissions !== null && this.userPermissions !== undefined) {
-      output.writeFieldBegin("userPermissions", Thrift.Type.STRUCT, 19);
+      output.writeFieldBegin('userPermissions', Thrift.Type.STRUCT, 19);
       this.userPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.fileSizeSum !== null && this.fileSizeSum !== undefined) {
-      output.writeFieldBegin("fileSizeSum", Thrift.Type.I64, 21);
+      output.writeFieldBegin('fileSizeSum', Thrift.Type.I64, 21);
       output.writeI64(this.fileSizeSum);
       output.writeFieldEnd();
     }
     if (this.versionCount !== null && this.versionCount !== undefined) {
-      output.writeFieldBegin("versionCount", Thrift.Type.I32, 22);
+      output.writeFieldBegin('versionCount', Thrift.Type.I32, 22);
       output.writeI32(this.versionCount);
       output.writeFieldEnd();
     }
@@ -17508,49 +17508,49 @@ ImageVersionDetails = class {
   }
 
   write(output) {
-    output.writeStructBegin("ImageVersionDetails");
+    output.writeStructBegin('ImageVersionDetails');
     if (this.versionId !== null && this.versionId !== undefined) {
-      output.writeFieldBegin("versionId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('versionId', Thrift.Type.STRING, 1);
       output.writeString(this.versionId);
       output.writeFieldEnd();
     }
     if (this.createTime !== null && this.createTime !== undefined) {
-      output.writeFieldBegin("createTime", Thrift.Type.I64, 2);
+      output.writeFieldBegin('createTime', Thrift.Type.I64, 2);
       output.writeI64(this.createTime);
       output.writeFieldEnd();
     }
     if (this.expireTime !== null && this.expireTime !== undefined) {
-      output.writeFieldBegin("expireTime", Thrift.Type.I64, 3);
+      output.writeFieldBegin('expireTime', Thrift.Type.I64, 3);
       output.writeI64(this.expireTime);
       output.writeFieldEnd();
     }
     if (this.fileSize !== null && this.fileSize !== undefined) {
-      output.writeFieldBegin("fileSize", Thrift.Type.I64, 4);
+      output.writeFieldBegin('fileSize', Thrift.Type.I64, 4);
       output.writeI64(this.fileSize);
       output.writeFieldEnd();
     }
     if (this.uploaderId !== null && this.uploaderId !== undefined) {
-      output.writeFieldBegin("uploaderId", Thrift.Type.STRING, 5);
+      output.writeFieldBegin('uploaderId', Thrift.Type.STRING, 5);
       output.writeString(this.uploaderId);
       output.writeFieldEnd();
     }
     if (this.isRestricted !== null && this.isRestricted !== undefined) {
-      output.writeFieldBegin("isRestricted", Thrift.Type.BOOL, 7);
+      output.writeFieldBegin('isRestricted', Thrift.Type.BOOL, 7);
       output.writeBool(this.isRestricted);
       output.writeFieldEnd();
     }
     if (this.isValid !== null && this.isValid !== undefined) {
-      output.writeFieldBegin("isValid", Thrift.Type.BOOL, 8);
+      output.writeFieldBegin('isValid', Thrift.Type.BOOL, 8);
       output.writeBool(this.isValid);
       output.writeFieldEnd();
     }
     if (this.isProcessed !== null && this.isProcessed !== undefined) {
-      output.writeFieldBegin("isProcessed", Thrift.Type.BOOL, 9);
+      output.writeFieldBegin('isProcessed', Thrift.Type.BOOL, 9);
       output.writeBool(this.isProcessed);
       output.writeFieldEnd();
     }
     if (this.software !== null && this.software !== undefined) {
-      output.writeFieldBegin("software", Thrift.Type.LIST, 10);
+      output.writeFieldBegin('software', Thrift.Type.LIST, 10);
       output.writeListBegin(Thrift.Type.STRING, this.software.length);
       for (let iter36 in this.software) {
         if (this.software.hasOwnProperty(iter36)) {
@@ -17790,19 +17790,19 @@ ImageDetailsRead = class {
   }
 
   write(output) {
-    output.writeStructBegin("ImageDetailsRead");
+    output.writeStructBegin('ImageDetailsRead');
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 1);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.latestVersionId !== null && this.latestVersionId !== undefined) {
-      output.writeFieldBegin("latestVersionId", Thrift.Type.STRING, 17);
+      output.writeFieldBegin('latestVersionId', Thrift.Type.STRING, 17);
       output.writeString(this.latestVersionId);
       output.writeFieldEnd();
     }
     if (this.versions !== null && this.versions !== undefined) {
-      output.writeFieldBegin("versions", Thrift.Type.LIST, 3);
+      output.writeFieldBegin('versions', Thrift.Type.LIST, 3);
       output.writeListBegin(Thrift.Type.STRUCT, this.versions.length);
       for (let iter45 in this.versions) {
         if (this.versions.hasOwnProperty(iter45)) {
@@ -17814,17 +17814,17 @@ ImageDetailsRead = class {
       output.writeFieldEnd();
     }
     if (this.imageName !== null && this.imageName !== undefined) {
-      output.writeFieldBegin("imageName", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('imageName', Thrift.Type.STRING, 4);
       output.writeString(this.imageName);
       output.writeFieldEnd();
     }
     if (this.description !== null && this.description !== undefined) {
-      output.writeFieldBegin("description", Thrift.Type.STRING, 5);
+      output.writeFieldBegin('description', Thrift.Type.STRING, 5);
       output.writeString(this.description);
       output.writeFieldEnd();
     }
     if (this.tags !== null && this.tags !== undefined) {
-      output.writeFieldBegin("tags", Thrift.Type.LIST, 6);
+      output.writeFieldBegin('tags', Thrift.Type.LIST, 6);
       output.writeListBegin(Thrift.Type.STRING, this.tags.length);
       for (let iter46 in this.tags) {
         if (this.tags.hasOwnProperty(iter46)) {
@@ -17836,42 +17836,42 @@ ImageDetailsRead = class {
       output.writeFieldEnd();
     }
     if (this.osId !== null && this.osId !== undefined) {
-      output.writeFieldBegin("osId", Thrift.Type.I32, 8);
+      output.writeFieldBegin('osId', Thrift.Type.I32, 8);
       output.writeI32(this.osId);
       output.writeFieldEnd();
     }
     if (this.virtId !== null && this.virtId !== undefined) {
-      output.writeFieldBegin("virtId", Thrift.Type.STRING, 9);
+      output.writeFieldBegin('virtId', Thrift.Type.STRING, 9);
       output.writeString(this.virtId);
       output.writeFieldEnd();
     }
     if (this.createTime !== null && this.createTime !== undefined) {
-      output.writeFieldBegin("createTime", Thrift.Type.I64, 10);
+      output.writeFieldBegin('createTime', Thrift.Type.I64, 10);
       output.writeI64(this.createTime);
       output.writeFieldEnd();
     }
     if (this.updateTime !== null && this.updateTime !== undefined) {
-      output.writeFieldBegin("updateTime", Thrift.Type.I64, 11);
+      output.writeFieldBegin('updateTime', Thrift.Type.I64, 11);
       output.writeI64(this.updateTime);
       output.writeFieldEnd();
     }
     if (this.ownerId !== null && this.ownerId !== undefined) {
-      output.writeFieldBegin("ownerId", Thrift.Type.STRING, 12);
+      output.writeFieldBegin('ownerId', Thrift.Type.STRING, 12);
       output.writeString(this.ownerId);
       output.writeFieldEnd();
     }
     if (this.updaterId !== null && this.updaterId !== undefined) {
-      output.writeFieldBegin("updaterId", Thrift.Type.STRING, 13);
+      output.writeFieldBegin('updaterId', Thrift.Type.STRING, 13);
       output.writeString(this.updaterId);
       output.writeFieldEnd();
     }
     if (this.shareMode !== null && this.shareMode !== undefined) {
-      output.writeFieldBegin("shareMode", Thrift.Type.I32, 14);
+      output.writeFieldBegin('shareMode', Thrift.Type.I32, 14);
       output.writeI32(this.shareMode);
       output.writeFieldEnd();
     }
     if (this.isTemplate !== null && this.isTemplate !== undefined) {
-      output.writeFieldBegin("isTemplate", Thrift.Type.BOOL, 15);
+      output.writeFieldBegin('isTemplate', Thrift.Type.BOOL, 15);
       output.writeBool(this.isTemplate);
       output.writeFieldEnd();
     }
@@ -17879,12 +17879,12 @@ ImageDetailsRead = class {
       this.defaultPermissions !== null &&
       this.defaultPermissions !== undefined
     ) {
-      output.writeFieldBegin("defaultPermissions", Thrift.Type.STRUCT, 16);
+      output.writeFieldBegin('defaultPermissions', Thrift.Type.STRUCT, 16);
       this.defaultPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.userPermissions !== null && this.userPermissions !== undefined) {
-      output.writeFieldBegin("userPermissions", Thrift.Type.STRUCT, 18);
+      output.writeFieldBegin('userPermissions', Thrift.Type.STRUCT, 18);
       this.userPermissions.write(output);
       output.writeFieldEnd();
     }
@@ -18094,44 +18094,44 @@ ImagePublishData = class {
   }
 
   write(output) {
-    output.writeStructBegin("ImagePublishData");
+    output.writeStructBegin('ImagePublishData');
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 1);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 2);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
     if (this.imageName !== null && this.imageName !== undefined) {
-      output.writeFieldBegin("imageName", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('imageName', Thrift.Type.STRING, 3);
       output.writeString(this.imageName);
       output.writeFieldEnd();
     }
     if (this.description !== null && this.description !== undefined) {
-      output.writeFieldBegin("description", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('description', Thrift.Type.STRING, 4);
       output.writeString(this.description);
       output.writeFieldEnd();
     }
     if (this.createTime !== null && this.createTime !== undefined) {
-      output.writeFieldBegin("createTime", Thrift.Type.I64, 5);
+      output.writeFieldBegin('createTime', Thrift.Type.I64, 5);
       output.writeI64(this.createTime);
       output.writeFieldEnd();
     }
     if (this.uploader !== null && this.uploader !== undefined) {
-      output.writeFieldBegin("uploader", Thrift.Type.STRUCT, 6);
+      output.writeFieldBegin('uploader', Thrift.Type.STRUCT, 6);
       this.uploader.write(output);
       output.writeFieldEnd();
     }
     if (this.fileSize !== null && this.fileSize !== undefined) {
-      output.writeFieldBegin("fileSize", Thrift.Type.I64, 7);
+      output.writeFieldBegin('fileSize', Thrift.Type.I64, 7);
       output.writeI64(this.fileSize);
       output.writeFieldEnd();
     }
     if (this.software !== null && this.software !== undefined) {
-      output.writeFieldBegin("software", Thrift.Type.LIST, 8);
+      output.writeFieldBegin('software', Thrift.Type.LIST, 8);
       output.writeListBegin(Thrift.Type.STRING, this.software.length);
       for (let iter55 in this.software) {
         if (this.software.hasOwnProperty(iter55)) {
@@ -18143,7 +18143,7 @@ ImagePublishData = class {
       output.writeFieldEnd();
     }
     if (this.tags !== null && this.tags !== undefined) {
-      output.writeFieldBegin("tags", Thrift.Type.LIST, 9);
+      output.writeFieldBegin('tags', Thrift.Type.LIST, 9);
       output.writeListBegin(Thrift.Type.STRING, this.tags.length);
       for (let iter56 in this.tags) {
         if (this.tags.hasOwnProperty(iter56)) {
@@ -18155,22 +18155,22 @@ ImagePublishData = class {
       output.writeFieldEnd();
     }
     if (this.osId !== null && this.osId !== undefined) {
-      output.writeFieldBegin("osId", Thrift.Type.I32, 10);
+      output.writeFieldBegin('osId', Thrift.Type.I32, 10);
       output.writeI32(this.osId);
       output.writeFieldEnd();
     }
     if (this.virtId !== null && this.virtId !== undefined) {
-      output.writeFieldBegin("virtId", Thrift.Type.STRING, 11);
+      output.writeFieldBegin('virtId', Thrift.Type.STRING, 11);
       output.writeString(this.virtId);
       output.writeFieldEnd();
     }
     if (this.isTemplate !== null && this.isTemplate !== undefined) {
-      output.writeFieldBegin("isTemplate", Thrift.Type.BOOL, 12);
+      output.writeFieldBegin('isTemplate', Thrift.Type.BOOL, 12);
       output.writeBool(this.isTemplate);
       output.writeFieldEnd();
     }
     if (this.owner !== null && this.owner !== undefined) {
-      output.writeFieldBegin("owner", Thrift.Type.STRUCT, 13);
+      output.writeFieldBegin('owner', Thrift.Type.STRUCT, 13);
       this.owner.write(output);
       output.writeFieldEnd();
     }
@@ -18178,7 +18178,7 @@ ImagePublishData = class {
       this.machineDescription !== null &&
       this.machineDescription !== undefined
     ) {
-      output.writeFieldBegin("machineDescription", Thrift.Type.STRING, 14);
+      output.writeFieldBegin('machineDescription', Thrift.Type.STRING, 14);
       output.writeBinary(this.machineDescription);
       output.writeFieldEnd();
     }
@@ -18246,19 +18246,19 @@ NetRule = class {
   }
 
   write(output) {
-    output.writeStructBegin("NetRule");
+    output.writeStructBegin('NetRule');
     if (this.direction !== null && this.direction !== undefined) {
-      output.writeFieldBegin("direction", Thrift.Type.I32, 2);
+      output.writeFieldBegin('direction', Thrift.Type.I32, 2);
       output.writeI32(this.direction);
       output.writeFieldEnd();
     }
     if (this.host !== null && this.host !== undefined) {
-      output.writeFieldBegin("host", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('host', Thrift.Type.STRING, 3);
       output.writeString(this.host);
       output.writeFieldEnd();
     }
     if (this.port !== null && this.port !== undefined) {
-      output.writeFieldBegin("port", Thrift.Type.I32, 4);
+      output.writeFieldBegin('port', Thrift.Type.I32, 4);
       output.writeI32(this.port);
       output.writeFieldEnd();
     }
@@ -18370,39 +18370,39 @@ NetShare = class {
   }
 
   write(output) {
-    output.writeStructBegin("NetShare");
+    output.writeStructBegin('NetShare');
     if (this.auth !== null && this.auth !== undefined) {
-      output.writeFieldBegin("auth", Thrift.Type.I32, 4);
+      output.writeFieldBegin('auth', Thrift.Type.I32, 4);
       output.writeI32(this.auth);
       output.writeFieldEnd();
     }
     if (this.path !== null && this.path !== undefined) {
-      output.writeFieldBegin("path", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('path', Thrift.Type.STRING, 1);
       output.writeString(this.path);
       output.writeFieldEnd();
     }
     if (this.displayname !== null && this.displayname !== undefined) {
-      output.writeFieldBegin("displayname", Thrift.Type.STRING, 5);
+      output.writeFieldBegin('displayname', Thrift.Type.STRING, 5);
       output.writeString(this.displayname);
       output.writeFieldEnd();
     }
     if (this.mountpoint !== null && this.mountpoint !== undefined) {
-      output.writeFieldBegin("mountpoint", Thrift.Type.STRING, 6);
+      output.writeFieldBegin('mountpoint', Thrift.Type.STRING, 6);
       output.writeString(this.mountpoint);
       output.writeFieldEnd();
     }
     if (this.username !== null && this.username !== undefined) {
-      output.writeFieldBegin("username", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('username', Thrift.Type.STRING, 2);
       output.writeString(this.username);
       output.writeFieldEnd();
     }
     if (this.password !== null && this.password !== undefined) {
-      output.writeFieldBegin("password", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('password', Thrift.Type.STRING, 3);
       output.writeString(this.password);
       output.writeFieldEnd();
     }
     if (this.shareId !== null && this.shareId !== undefined) {
-      output.writeFieldBegin("shareId", Thrift.Type.I32, 7);
+      output.writeFieldBegin('shareId', Thrift.Type.I32, 7);
       output.writeI32(this.shareId);
       output.writeFieldEnd();
     }
@@ -18481,24 +18481,24 @@ LdapFilter = class {
   }
 
   write(output) {
-    output.writeStructBegin("LdapFilter");
+    output.writeStructBegin('LdapFilter');
     if (this.attribute !== null && this.attribute !== undefined) {
-      output.writeFieldBegin("attribute", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('attribute', Thrift.Type.STRING, 1);
       output.writeString(this.attribute);
       output.writeFieldEnd();
     }
     if (this.value !== null && this.value !== undefined) {
-      output.writeFieldBegin("value", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('value', Thrift.Type.STRING, 2);
       output.writeString(this.value);
       output.writeFieldEnd();
     }
     if (this.filterId !== null && this.filterId !== undefined) {
-      output.writeFieldBegin("filterId", Thrift.Type.I32, 3);
+      output.writeFieldBegin('filterId', Thrift.Type.I32, 3);
       output.writeI32(this.filterId);
       output.writeFieldEnd();
     }
     if (this.title !== null && this.title !== undefined) {
-      output.writeFieldBegin("title", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('title', Thrift.Type.STRING, 4);
       output.writeString(this.title);
       output.writeFieldEnd();
     }
@@ -18574,19 +18574,19 @@ PresetRunScript = class {
   }
 
   write(output) {
-    output.writeStructBegin("PresetRunScript");
+    output.writeStructBegin('PresetRunScript');
     if (this.scriptId !== null && this.scriptId !== undefined) {
-      output.writeFieldBegin("scriptId", Thrift.Type.I32, 1);
+      output.writeFieldBegin('scriptId', Thrift.Type.I32, 1);
       output.writeI32(this.scriptId);
       output.writeFieldEnd();
     }
     if (this.displayname !== null && this.displayname !== undefined) {
-      output.writeFieldBegin("displayname", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('displayname', Thrift.Type.STRING, 2);
       output.writeString(this.displayname);
       output.writeFieldEnd();
     }
     if (this.osIds !== null && this.osIds !== undefined) {
-      output.writeFieldBegin("osIds", Thrift.Type.LIST, 3);
+      output.writeFieldBegin('osIds', Thrift.Type.LIST, 3);
       output.writeListBegin(Thrift.Type.I32, this.osIds.length);
       for (let iter61 in this.osIds) {
         if (this.osIds.hasOwnProperty(iter61)) {
@@ -18670,19 +18670,19 @@ PresetNetRule = class {
   }
 
   write(output) {
-    output.writeStructBegin("PresetNetRule");
+    output.writeStructBegin('PresetNetRule');
     if (this.ruleId !== null && this.ruleId !== undefined) {
-      output.writeFieldBegin("ruleId", Thrift.Type.I32, 1);
+      output.writeFieldBegin('ruleId', Thrift.Type.I32, 1);
       output.writeI32(this.ruleId);
       output.writeFieldEnd();
     }
     if (this.displayName !== null && this.displayName !== undefined) {
-      output.writeFieldBegin("displayName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('displayName', Thrift.Type.STRING, 2);
       output.writeString(this.displayName);
       output.writeFieldEnd();
     }
     if (this.netRules !== null && this.netRules !== undefined) {
-      output.writeFieldBegin("netRules", Thrift.Type.LIST, 3);
+      output.writeFieldBegin('netRules', Thrift.Type.LIST, 3);
       output.writeListBegin(Thrift.Type.STRUCT, this.netRules.length);
       for (let iter66 in this.netRules) {
         if (this.netRules.hasOwnProperty(iter66)) {
@@ -18809,9 +18809,9 @@ PredefinedData = class {
   }
 
   write(output) {
-    output.writeStructBegin("PredefinedData");
+    output.writeStructBegin('PredefinedData');
     if (this.netShares !== null && this.netShares !== undefined) {
-      output.writeFieldBegin("netShares", Thrift.Type.LIST, 1);
+      output.writeFieldBegin('netShares', Thrift.Type.LIST, 1);
       output.writeListBegin(Thrift.Type.STRUCT, this.netShares.length);
       for (let iter83 in this.netShares) {
         if (this.netShares.hasOwnProperty(iter83)) {
@@ -18823,7 +18823,7 @@ PredefinedData = class {
       output.writeFieldEnd();
     }
     if (this.ldapFilter !== null && this.ldapFilter !== undefined) {
-      output.writeFieldBegin("ldapFilter", Thrift.Type.LIST, 2);
+      output.writeFieldBegin('ldapFilter', Thrift.Type.LIST, 2);
       output.writeListBegin(Thrift.Type.STRUCT, this.ldapFilter.length);
       for (let iter84 in this.ldapFilter) {
         if (this.ldapFilter.hasOwnProperty(iter84)) {
@@ -18835,7 +18835,7 @@ PredefinedData = class {
       output.writeFieldEnd();
     }
     if (this.runScripts !== null && this.runScripts !== undefined) {
-      output.writeFieldBegin("runScripts", Thrift.Type.LIST, 3);
+      output.writeFieldBegin('runScripts', Thrift.Type.LIST, 3);
       output.writeListBegin(Thrift.Type.STRUCT, this.runScripts.length);
       for (let iter85 in this.runScripts) {
         if (this.runScripts.hasOwnProperty(iter85)) {
@@ -18850,7 +18850,7 @@ PredefinedData = class {
       this.networkExceptions !== null &&
       this.networkExceptions !== undefined
     ) {
-      output.writeFieldBegin("networkExceptions", Thrift.Type.LIST, 4);
+      output.writeFieldBegin('networkExceptions', Thrift.Type.LIST, 4);
       output.writeListBegin(Thrift.Type.STRUCT, this.networkExceptions.length);
       for (let iter86 in this.networkExceptions) {
         if (this.networkExceptions.hasOwnProperty(iter86)) {
@@ -19246,49 +19246,49 @@ LectureWrite = class {
   }
 
   write(output) {
-    output.writeStructBegin("LectureWrite");
+    output.writeStructBegin('LectureWrite');
     if (this.lectureName !== null && this.lectureName !== undefined) {
-      output.writeFieldBegin("lectureName", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('lectureName', Thrift.Type.STRING, 1);
       output.writeString(this.lectureName);
       output.writeFieldEnd();
     }
     if (this.description !== null && this.description !== undefined) {
-      output.writeFieldBegin("description", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('description', Thrift.Type.STRING, 2);
       output.writeString(this.description);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 3);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
     if (this.autoUpdate !== null && this.autoUpdate !== undefined) {
-      output.writeFieldBegin("autoUpdate", Thrift.Type.BOOL, 4);
+      output.writeFieldBegin('autoUpdate', Thrift.Type.BOOL, 4);
       output.writeBool(this.autoUpdate);
       output.writeFieldEnd();
     }
     if (this.isEnabled !== null && this.isEnabled !== undefined) {
-      output.writeFieldBegin("isEnabled", Thrift.Type.BOOL, 5);
+      output.writeFieldBegin('isEnabled', Thrift.Type.BOOL, 5);
       output.writeBool(this.isEnabled);
       output.writeFieldEnd();
     }
     if (this.startTime !== null && this.startTime !== undefined) {
-      output.writeFieldBegin("startTime", Thrift.Type.I64, 6);
+      output.writeFieldBegin('startTime', Thrift.Type.I64, 6);
       output.writeI64(this.startTime);
       output.writeFieldEnd();
     }
     if (this.endTime !== null && this.endTime !== undefined) {
-      output.writeFieldBegin("endTime", Thrift.Type.I64, 7);
+      output.writeFieldBegin('endTime', Thrift.Type.I64, 7);
       output.writeI64(this.endTime);
       output.writeFieldEnd();
     }
     if (this.runscript !== null && this.runscript !== undefined) {
-      output.writeFieldBegin("runscript", Thrift.Type.STRING, 9);
+      output.writeFieldBegin('runscript', Thrift.Type.STRING, 9);
       output.writeString(this.runscript);
       output.writeFieldEnd();
     }
     if (this.nics !== null && this.nics !== undefined) {
-      output.writeFieldBegin("nics", Thrift.Type.LIST, 10);
+      output.writeFieldBegin('nics', Thrift.Type.LIST, 10);
       output.writeListBegin(Thrift.Type.STRING, this.nics.length);
       for (let iter123 in this.nics) {
         if (this.nics.hasOwnProperty(iter123)) {
@@ -19303,7 +19303,7 @@ LectureWrite = class {
       this.networkExceptions !== null &&
       this.networkExceptions !== undefined
     ) {
-      output.writeFieldBegin("networkExceptions", Thrift.Type.LIST, 12);
+      output.writeFieldBegin('networkExceptions', Thrift.Type.LIST, 12);
       output.writeListBegin(Thrift.Type.STRUCT, this.networkExceptions.length);
       for (let iter124 in this.networkExceptions) {
         if (this.networkExceptions.hasOwnProperty(iter124)) {
@@ -19315,7 +19315,7 @@ LectureWrite = class {
       output.writeFieldEnd();
     }
     if (this.isExam !== null && this.isExam !== undefined) {
-      output.writeFieldBegin("isExam", Thrift.Type.BOOL, 13);
+      output.writeFieldBegin('isExam', Thrift.Type.BOOL, 13);
       output.writeBool(this.isExam);
       output.writeFieldEnd();
     }
@@ -19323,7 +19323,7 @@ LectureWrite = class {
       this.hasInternetAccess !== null &&
       this.hasInternetAccess !== undefined
     ) {
-      output.writeFieldBegin("hasInternetAccess", Thrift.Type.BOOL, 14);
+      output.writeFieldBegin('hasInternetAccess', Thrift.Type.BOOL, 14);
       output.writeBool(this.hasInternetAccess);
       output.writeFieldEnd();
     }
@@ -19331,12 +19331,12 @@ LectureWrite = class {
       this.defaultPermissions !== null &&
       this.defaultPermissions !== undefined
     ) {
-      output.writeFieldBegin("defaultPermissions", Thrift.Type.STRUCT, 15);
+      output.writeFieldBegin('defaultPermissions', Thrift.Type.STRUCT, 15);
       this.defaultPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.addAllowedUsers !== null && this.addAllowedUsers !== undefined) {
-      output.writeFieldBegin("addAllowedUsers", Thrift.Type.LIST, 11);
+      output.writeFieldBegin('addAllowedUsers', Thrift.Type.LIST, 11);
       output.writeListBegin(Thrift.Type.STRING, this.addAllowedUsers.length);
       for (let iter125 in this.addAllowedUsers) {
         if (this.addAllowedUsers.hasOwnProperty(iter125)) {
@@ -19348,7 +19348,7 @@ LectureWrite = class {
       output.writeFieldEnd();
     }
     if (this.remAllowedUsers !== null && this.remAllowedUsers !== undefined) {
-      output.writeFieldBegin("remAllowedUsers", Thrift.Type.LIST, 16);
+      output.writeFieldBegin('remAllowedUsers', Thrift.Type.LIST, 16);
       output.writeListBegin(Thrift.Type.STRING, this.remAllowedUsers.length);
       for (let iter126 in this.remAllowedUsers) {
         if (this.remAllowedUsers.hasOwnProperty(iter126)) {
@@ -19360,7 +19360,7 @@ LectureWrite = class {
       output.writeFieldEnd();
     }
     if (this.locationIds !== null && this.locationIds !== undefined) {
-      output.writeFieldBegin("locationIds", Thrift.Type.LIST, 17);
+      output.writeFieldBegin('locationIds', Thrift.Type.LIST, 17);
       output.writeListBegin(Thrift.Type.I32, this.locationIds.length);
       for (let iter127 in this.locationIds) {
         if (this.locationIds.hasOwnProperty(iter127)) {
@@ -19372,7 +19372,7 @@ LectureWrite = class {
       output.writeFieldEnd();
     }
     if (this.limitToLocations !== null && this.limitToLocations !== undefined) {
-      output.writeFieldBegin("limitToLocations", Thrift.Type.BOOL, 18);
+      output.writeFieldBegin('limitToLocations', Thrift.Type.BOOL, 18);
       output.writeBool(this.limitToLocations);
       output.writeFieldEnd();
     }
@@ -19380,17 +19380,17 @@ LectureWrite = class {
       this.limitToAllowedUsers !== null &&
       this.limitToAllowedUsers !== undefined
     ) {
-      output.writeFieldBegin("limitToAllowedUsers", Thrift.Type.BOOL, 19);
+      output.writeFieldBegin('limitToAllowedUsers', Thrift.Type.BOOL, 19);
       output.writeBool(this.limitToAllowedUsers);
       output.writeFieldEnd();
     }
     if (this.hasUsbAccess !== null && this.hasUsbAccess !== undefined) {
-      output.writeFieldBegin("hasUsbAccess", Thrift.Type.BOOL, 20);
+      output.writeFieldBegin('hasUsbAccess', Thrift.Type.BOOL, 20);
       output.writeBool(this.hasUsbAccess);
       output.writeFieldEnd();
     }
     if (this.networkShares !== null && this.networkShares !== undefined) {
-      output.writeFieldBegin("networkShares", Thrift.Type.LIST, 21);
+      output.writeFieldBegin('networkShares', Thrift.Type.LIST, 21);
       output.writeListBegin(Thrift.Type.STRUCT, this.networkShares.length);
       for (let iter128 in this.networkShares) {
         if (this.networkShares.hasOwnProperty(iter128)) {
@@ -19402,7 +19402,7 @@ LectureWrite = class {
       output.writeFieldEnd();
     }
     if (this.ldapFilters !== null && this.ldapFilters !== undefined) {
-      output.writeFieldBegin("ldapFilters", Thrift.Type.LIST, 22);
+      output.writeFieldBegin('ldapFilters', Thrift.Type.LIST, 22);
       output.writeListBegin(Thrift.Type.STRUCT, this.ldapFilters.length);
       for (let iter129 in this.ldapFilters) {
         if (this.ldapFilters.hasOwnProperty(iter129)) {
@@ -19414,7 +19414,7 @@ LectureWrite = class {
       output.writeFieldEnd();
     }
     if (this.presetScriptIds !== null && this.presetScriptIds !== undefined) {
-      output.writeFieldBegin("presetScriptIds", Thrift.Type.LIST, 23);
+      output.writeFieldBegin('presetScriptIds', Thrift.Type.LIST, 23);
       output.writeListBegin(Thrift.Type.I32, this.presetScriptIds.length);
       for (let iter130 in this.presetScriptIds) {
         if (this.presetScriptIds.hasOwnProperty(iter130)) {
@@ -19429,7 +19429,7 @@ LectureWrite = class {
       this.presetNetworkExceptionIds !== null &&
       this.presetNetworkExceptionIds !== undefined
     ) {
-      output.writeFieldBegin("presetNetworkExceptionIds", Thrift.Type.LIST, 24);
+      output.writeFieldBegin('presetNetworkExceptionIds', Thrift.Type.LIST, 24);
       output.writeListBegin(
         Thrift.Type.I32,
         this.presetNetworkExceptionIds.length,
@@ -19685,69 +19685,69 @@ LectureSummary = class {
   }
 
   write(output) {
-    output.writeStructBegin("LectureSummary");
+    output.writeStructBegin('LectureSummary');
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 1);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
     if (this.lectureName !== null && this.lectureName !== undefined) {
-      output.writeFieldBegin("lectureName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureName', Thrift.Type.STRING, 2);
       output.writeString(this.lectureName);
       output.writeFieldEnd();
     }
     if (this.description !== null && this.description !== undefined) {
-      output.writeFieldBegin("description", Thrift.Type.STRING, 18);
+      output.writeFieldBegin('description', Thrift.Type.STRING, 18);
       output.writeString(this.description);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 3);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 4);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 4);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.isEnabled !== null && this.isEnabled !== undefined) {
-      output.writeFieldBegin("isEnabled", Thrift.Type.BOOL, 5);
+      output.writeFieldBegin('isEnabled', Thrift.Type.BOOL, 5);
       output.writeBool(this.isEnabled);
       output.writeFieldEnd();
     }
     if (this.startTime !== null && this.startTime !== undefined) {
-      output.writeFieldBegin("startTime", Thrift.Type.I64, 6);
+      output.writeFieldBegin('startTime', Thrift.Type.I64, 6);
       output.writeI64(this.startTime);
       output.writeFieldEnd();
     }
     if (this.endTime !== null && this.endTime !== undefined) {
-      output.writeFieldBegin("endTime", Thrift.Type.I64, 7);
+      output.writeFieldBegin('endTime', Thrift.Type.I64, 7);
       output.writeI64(this.endTime);
       output.writeFieldEnd();
     }
     if (this.lastUsed !== null && this.lastUsed !== undefined) {
-      output.writeFieldBegin("lastUsed", Thrift.Type.I64, 8);
+      output.writeFieldBegin('lastUsed', Thrift.Type.I64, 8);
       output.writeI64(this.lastUsed);
       output.writeFieldEnd();
     }
     if (this.useCount !== null && this.useCount !== undefined) {
-      output.writeFieldBegin("useCount", Thrift.Type.I32, 9);
+      output.writeFieldBegin('useCount', Thrift.Type.I32, 9);
       output.writeI32(this.useCount);
       output.writeFieldEnd();
     }
     if (this.ownerId !== null && this.ownerId !== undefined) {
-      output.writeFieldBegin("ownerId", Thrift.Type.STRING, 10);
+      output.writeFieldBegin('ownerId', Thrift.Type.STRING, 10);
       output.writeString(this.ownerId);
       output.writeFieldEnd();
     }
     if (this.updaterId !== null && this.updaterId !== undefined) {
-      output.writeFieldBegin("updaterId", Thrift.Type.STRING, 11);
+      output.writeFieldBegin('updaterId', Thrift.Type.STRING, 11);
       output.writeString(this.updaterId);
       output.writeFieldEnd();
     }
     if (this.isExam !== null && this.isExam !== undefined) {
-      output.writeFieldBegin("isExam", Thrift.Type.BOOL, 12);
+      output.writeFieldBegin('isExam', Thrift.Type.BOOL, 12);
       output.writeBool(this.isExam);
       output.writeFieldEnd();
     }
@@ -19755,7 +19755,7 @@ LectureSummary = class {
       this.hasInternetAccess !== null &&
       this.hasInternetAccess !== undefined
     ) {
-      output.writeFieldBegin("hasInternetAccess", Thrift.Type.BOOL, 13);
+      output.writeFieldBegin('hasInternetAccess', Thrift.Type.BOOL, 13);
       output.writeBool(this.hasInternetAccess);
       output.writeFieldEnd();
     }
@@ -19763,12 +19763,12 @@ LectureSummary = class {
       this.defaultPermissions !== null &&
       this.defaultPermissions !== undefined
     ) {
-      output.writeFieldBegin("defaultPermissions", Thrift.Type.STRUCT, 14);
+      output.writeFieldBegin('defaultPermissions', Thrift.Type.STRUCT, 14);
       this.defaultPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.userPermissions !== null && this.userPermissions !== undefined) {
-      output.writeFieldBegin("userPermissions", Thrift.Type.STRUCT, 15);
+      output.writeFieldBegin('userPermissions', Thrift.Type.STRUCT, 15);
       this.userPermissions.write(output);
       output.writeFieldEnd();
     }
@@ -19776,12 +19776,12 @@ LectureSummary = class {
       this.isImageVersionUsable !== null &&
       this.isImageVersionUsable !== undefined
     ) {
-      output.writeFieldBegin("isImageVersionUsable", Thrift.Type.BOOL, 16);
+      output.writeFieldBegin('isImageVersionUsable', Thrift.Type.BOOL, 16);
       output.writeBool(this.isImageVersionUsable);
       output.writeFieldEnd();
     }
     if (this.hasUsbAccess !== null && this.hasUsbAccess !== undefined) {
-      output.writeFieldBegin("hasUsbAccess", Thrift.Type.BOOL, 17);
+      output.writeFieldBegin('hasUsbAccess', Thrift.Type.BOOL, 17);
       output.writeBool(this.hasUsbAccess);
       output.writeFieldEnd();
     }
@@ -20299,89 +20299,89 @@ LectureRead = class {
   }
 
   write(output) {
-    output.writeStructBegin("LectureRead");
+    output.writeStructBegin('LectureRead');
     if (this.lectureId !== null && this.lectureId !== undefined) {
-      output.writeFieldBegin("lectureId", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('lectureId', Thrift.Type.STRING, 1);
       output.writeString(this.lectureId);
       output.writeFieldEnd();
     }
     if (this.lectureName !== null && this.lectureName !== undefined) {
-      output.writeFieldBegin("lectureName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('lectureName', Thrift.Type.STRING, 2);
       output.writeString(this.lectureName);
       output.writeFieldEnd();
     }
     if (this.description !== null && this.description !== undefined) {
-      output.writeFieldBegin("description", Thrift.Type.STRING, 3);
+      output.writeFieldBegin('description', Thrift.Type.STRING, 3);
       output.writeString(this.description);
       output.writeFieldEnd();
     }
     if (this.imageVersionId !== null && this.imageVersionId !== undefined) {
-      output.writeFieldBegin("imageVersionId", Thrift.Type.STRING, 23);
+      output.writeFieldBegin('imageVersionId', Thrift.Type.STRING, 23);
       output.writeString(this.imageVersionId);
       output.writeFieldEnd();
     }
     if (this.imageBaseId !== null && this.imageBaseId !== undefined) {
-      output.writeFieldBegin("imageBaseId", Thrift.Type.STRING, 24);
+      output.writeFieldBegin('imageBaseId', Thrift.Type.STRING, 24);
       output.writeString(this.imageBaseId);
       output.writeFieldEnd();
     }
     if (this.autoUpdate !== null && this.autoUpdate !== undefined) {
-      output.writeFieldBegin("autoUpdate", Thrift.Type.BOOL, 5);
+      output.writeFieldBegin('autoUpdate', Thrift.Type.BOOL, 5);
       output.writeBool(this.autoUpdate);
       output.writeFieldEnd();
     }
     if (this.isEnabled !== null && this.isEnabled !== undefined) {
-      output.writeFieldBegin("isEnabled", Thrift.Type.BOOL, 6);
+      output.writeFieldBegin('isEnabled', Thrift.Type.BOOL, 6);
       output.writeBool(this.isEnabled);
       output.writeFieldEnd();
     }
     if (this.startTime !== null && this.startTime !== undefined) {
-      output.writeFieldBegin("startTime", Thrift.Type.I64, 7);
+      output.writeFieldBegin('startTime', Thrift.Type.I64, 7);
       output.writeI64(this.startTime);
       output.writeFieldEnd();
     }
     if (this.endTime !== null && this.endTime !== undefined) {
-      output.writeFieldBegin("endTime", Thrift.Type.I64, 8);
+      output.writeFieldBegin('endTime', Thrift.Type.I64, 8);
       output.writeI64(this.endTime);
       output.writeFieldEnd();
     }
     if (this.lastUsed !== null && this.lastUsed !== undefined) {
-      output.writeFieldBegin("lastUsed", Thrift.Type.I64, 9);
+      output.writeFieldBegin('lastUsed', Thrift.Type.I64, 9);
       output.writeI64(this.lastUsed);
       output.writeFieldEnd();
     }
     if (this.useCount !== null && this.useCount !== undefined) {
-      output.writeFieldBegin("useCount", Thrift.Type.I32, 10);
+      output.writeFieldBegin('useCount', Thrift.Type.I32, 10);
       output.writeI32(this.useCount);
       output.writeFieldEnd();
     }
     if (this.createTime !== null && this.createTime !== undefined) {
-      output.writeFieldBegin("createTime", Thrift.Type.I64, 20);
+      output.writeFieldBegin('createTime', Thrift.Type.I64, 20);
       output.writeI64(this.createTime);
       output.writeFieldEnd();
     }
     if (this.updateTime !== null && this.updateTime !== undefined) {
-      output.writeFieldBegin("updateTime", Thrift.Type.I64, 21);
+      output.writeFieldBegin('updateTime', Thrift.Type.I64, 21);
       output.writeI64(this.updateTime);
       output.writeFieldEnd();
     }
     if (this.ownerId !== null && this.ownerId !== undefined) {
-      output.writeFieldBegin("ownerId", Thrift.Type.STRING, 11);
+      output.writeFieldBegin('ownerId', Thrift.Type.STRING, 11);
       output.writeString(this.ownerId);
       output.writeFieldEnd();
     }
     if (this.updaterId !== null && this.updaterId !== undefined) {
-      output.writeFieldBegin("updaterId", Thrift.Type.STRING, 12);
+      output.writeFieldBegin('updaterId', Thrift.Type.STRING, 12);
       output.writeString(this.updaterId);
       output.writeFieldEnd();
     }
     if (this.runscript !== null && this.runscript !== undefined) {
-      output.writeFieldBegin("runscript", Thrift.Type.STRING, 13);
+      output.writeFieldBegin('runscript', Thrift.Type.STRING, 13);
       output.writeString(this.runscript);
       output.writeFieldEnd();
     }
     if (this.nics !== null && this.nics !== undefined) {
-      output.writeFieldBegin("nics", Thrift.Type.LIST, 14);
+      output.writeFieldBegin('nics', Thrift.Type.LIST, 14);
       output.writeListBegin(Thrift.Type.STRING, this.nics.length);
       for (let iter172 in this.nics) {
         if (this.nics.hasOwnProperty(iter172)) {
@@ -20393,7 +20393,7 @@ LectureRead = class {
       output.writeFieldEnd();
     }
     if (this.allowedUsers !== null && this.allowedUsers !== undefined) {
-      output.writeFieldBegin("allowedUsers", Thrift.Type.LIST, 15);
+      output.writeFieldBegin('allowedUsers', Thrift.Type.LIST, 15);
       output.writeListBegin(Thrift.Type.STRING, this.allowedUsers.length);
       for (let iter173 in this.allowedUsers) {
         if (this.allowedUsers.hasOwnProperty(iter173)) {
@@ -20408,7 +20408,7 @@ LectureRead = class {
       this.networkExceptions !== null &&
       this.networkExceptions !== undefined
     ) {
-      output.writeFieldBegin("networkExceptions", Thrift.Type.LIST, 16);
+      output.writeFieldBegin('networkExceptions', Thrift.Type.LIST, 16);
       output.writeListBegin(Thrift.Type.STRUCT, this.networkExceptions.length);
       for (let iter174 in this.networkExceptions) {
         if (this.networkExceptions.hasOwnProperty(iter174)) {
@@ -20420,7 +20420,7 @@ LectureRead = class {
       output.writeFieldEnd();
     }
     if (this.isExam !== null && this.isExam !== undefined) {
-      output.writeFieldBegin("isExam", Thrift.Type.BOOL, 17);
+      output.writeFieldBegin('isExam', Thrift.Type.BOOL, 17);
       output.writeBool(this.isExam);
       output.writeFieldEnd();
     }
@@ -20428,7 +20428,7 @@ LectureRead = class {
       this.hasInternetAccess !== null &&
       this.hasInternetAccess !== undefined
     ) {
-      output.writeFieldBegin("hasInternetAccess", Thrift.Type.BOOL, 18);
+      output.writeFieldBegin('hasInternetAccess', Thrift.Type.BOOL, 18);
       output.writeBool(this.hasInternetAccess);
       output.writeFieldEnd();
     }
@@ -20436,17 +20436,17 @@ LectureRead = class {
       this.defaultPermissions !== null &&
       this.defaultPermissions !== undefined
     ) {
-      output.writeFieldBegin("defaultPermissions", Thrift.Type.STRUCT, 19);
+      output.writeFieldBegin('defaultPermissions', Thrift.Type.STRUCT, 19);
       this.defaultPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.userPermissions !== null && this.userPermissions !== undefined) {
-      output.writeFieldBegin("userPermissions", Thrift.Type.STRUCT, 22);
+      output.writeFieldBegin('userPermissions', Thrift.Type.STRUCT, 22);
       this.userPermissions.write(output);
       output.writeFieldEnd();
     }
     if (this.locationIds !== null && this.locationIds !== undefined) {
-      output.writeFieldBegin("locationIds", Thrift.Type.LIST, 25);
+      output.writeFieldBegin('locationIds', Thrift.Type.LIST, 25);
       output.writeListBegin(Thrift.Type.I32, this.locationIds.length);
       for (let iter175 in this.locationIds) {
         if (this.locationIds.hasOwnProperty(iter175)) {
@@ -20458,7 +20458,7 @@ LectureRead = class {
       output.writeFieldEnd();
     }
     if (this.limitToLocations !== null && this.limitToLocations !== undefined) {
-      output.writeFieldBegin("limitToLocations", Thrift.Type.BOOL, 26);
+      output.writeFieldBegin('limitToLocations', Thrift.Type.BOOL, 26);
       output.writeBool(this.limitToLocations);
       output.writeFieldEnd();
     }
@@ -20466,17 +20466,17 @@ LectureRead = class {
       this.limitToAllowedUsers !== null &&
       this.limitToAllowedUsers !== undefined
     ) {
-      output.writeFieldBegin("limitToAllowedUsers", Thrift.Type.BOOL, 27);
+      output.writeFieldBegin('limitToAllowedUsers', Thrift.Type.BOOL, 27);
       output.writeBool(this.limitToAllowedUsers);
       output.writeFieldEnd();
     }
     if (this.hasUsbAccess !== null && this.hasUsbAccess !== undefined) {
-      output.writeFieldBegin("hasUsbAccess", Thrift.Type.BOOL, 28);
+      output.writeFieldBegin('hasUsbAccess', Thrift.Type.BOOL, 28);
       output.writeBool(this.hasUsbAccess);
       output.writeFieldEnd();
     }
     if (this.networkShares !== null && this.networkShares !== undefined) {
-      output.writeFieldBegin("networkShares", Thrift.Type.LIST, 29);
+      output.writeFieldBegin('networkShares', Thrift.Type.LIST, 29);
       output.writeListBegin(Thrift.Type.STRUCT, this.networkShares.length);
       for (let iter176 in this.networkShares) {
         if (this.networkShares.hasOwnProperty(iter176)) {
@@ -20488,7 +20488,7 @@ LectureRead = class {
       output.writeFieldEnd();
     }
     if (this.ldapFilters !== null && this.ldapFilters !== undefined) {
-      output.writeFieldBegin("ldapFilters", Thrift.Type.LIST, 30);
+      output.writeFieldBegin('ldapFilters', Thrift.Type.LIST, 30);
       output.writeListBegin(Thrift.Type.STRUCT, this.ldapFilters.length);
       for (let iter177 in this.ldapFilters) {
         if (this.ldapFilters.hasOwnProperty(iter177)) {
@@ -20500,7 +20500,7 @@ LectureRead = class {
       output.writeFieldEnd();
     }
     if (this.presetScriptIds !== null && this.presetScriptIds !== undefined) {
-      output.writeFieldBegin("presetScriptIds", Thrift.Type.LIST, 31);
+      output.writeFieldBegin('presetScriptIds', Thrift.Type.LIST, 31);
       output.writeListBegin(Thrift.Type.I32, this.presetScriptIds.length);
       for (let iter178 in this.presetScriptIds) {
         if (this.presetScriptIds.hasOwnProperty(iter178)) {
@@ -20515,7 +20515,7 @@ LectureRead = class {
       this.presetNetworkShares !== null &&
       this.presetNetworkShares !== undefined
     ) {
-      output.writeFieldBegin("presetNetworkShares", Thrift.Type.LIST, 32);
+      output.writeFieldBegin('presetNetworkShares', Thrift.Type.LIST, 32);
       output.writeListBegin(Thrift.Type.I32, this.presetNetworkShares.length);
       for (let iter179 in this.presetNetworkShares) {
         if (this.presetNetworkShares.hasOwnProperty(iter179)) {
@@ -20530,7 +20530,7 @@ LectureRead = class {
       this.presetLdapFilters !== null &&
       this.presetLdapFilters !== undefined
     ) {
-      output.writeFieldBegin("presetLdapFilters", Thrift.Type.LIST, 33);
+      output.writeFieldBegin('presetLdapFilters', Thrift.Type.LIST, 33);
       output.writeListBegin(Thrift.Type.I32, this.presetLdapFilters.length);
       for (let iter180 in this.presetLdapFilters) {
         if (this.presetLdapFilters.hasOwnProperty(iter180)) {
@@ -20545,7 +20545,7 @@ LectureRead = class {
       this.presetNetworkExceptionIds !== null &&
       this.presetNetworkExceptionIds !== undefined
     ) {
-      output.writeFieldBegin("presetNetworkExceptionIds", Thrift.Type.LIST, 34);
+      output.writeFieldBegin('presetNetworkExceptionIds', Thrift.Type.LIST, 34);
       output.writeListBegin(
         Thrift.Type.I32,
         this.presetNetworkExceptionIds.length,
@@ -20612,14 +20612,14 @@ MasterTag = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterTag");
+    output.writeStructBegin('MasterTag');
     if (this.tag !== null && this.tag !== undefined) {
-      output.writeFieldBegin("tag", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('tag', Thrift.Type.STRING, 1);
       output.writeString(this.tag);
       output.writeFieldEnd();
     }
     if (this.createTime !== null && this.createTime !== undefined) {
-      output.writeFieldBegin("createTime", Thrift.Type.I64, 2);
+      output.writeFieldBegin('createTime', Thrift.Type.I64, 2);
       output.writeI64(this.createTime);
       output.writeFieldEnd();
     }
@@ -20687,19 +20687,19 @@ MasterSoftware = class {
   }
 
   write(output) {
-    output.writeStructBegin("MasterSoftware");
+    output.writeStructBegin('MasterSoftware');
     if (this.software !== null && this.software !== undefined) {
-      output.writeFieldBegin("software", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('software', Thrift.Type.STRING, 1);
       output.writeString(this.software);
       output.writeFieldEnd();
     }
     if (this.isRestricted !== null && this.isRestricted !== undefined) {
-      output.writeFieldBegin("isRestricted", Thrift.Type.BOOL, 2);
+      output.writeFieldBegin('isRestricted', Thrift.Type.BOOL, 2);
       output.writeBool(this.isRestricted);
       output.writeFieldEnd();
     }
     if (this.createTime !== null && this.createTime !== undefined) {
-      output.writeFieldBegin("createTime", Thrift.Type.I64, 3);
+      output.writeFieldBegin('createTime', Thrift.Type.I64, 3);
       output.writeI64(this.createTime);
       output.writeFieldEnd();
     }
@@ -20800,24 +20800,24 @@ TransferInformation = class {
   }
 
   write(output) {
-    output.writeStructBegin("TransferInformation");
+    output.writeStructBegin('TransferInformation');
     if (this.token !== null && this.token !== undefined) {
-      output.writeFieldBegin("token", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('token', Thrift.Type.STRING, 1);
       output.writeString(this.token);
       output.writeFieldEnd();
     }
     if (this.plainPort !== null && this.plainPort !== undefined) {
-      output.writeFieldBegin("plainPort", Thrift.Type.I32, 2);
+      output.writeFieldBegin('plainPort', Thrift.Type.I32, 2);
       output.writeI32(this.plainPort);
       output.writeFieldEnd();
     }
     if (this.sslPort !== null && this.sslPort !== undefined) {
-      output.writeFieldBegin("sslPort", Thrift.Type.I32, 3);
+      output.writeFieldBegin('sslPort', Thrift.Type.I32, 3);
       output.writeI32(this.sslPort);
       output.writeFieldEnd();
     }
     if (this.blockHashes !== null && this.blockHashes !== undefined) {
-      output.writeFieldBegin("blockHashes", Thrift.Type.LIST, 4);
+      output.writeFieldBegin('blockHashes', Thrift.Type.LIST, 4);
       output.writeListBegin(Thrift.Type.STRING, this.blockHashes.length);
       for (let iter186 in this.blockHashes) {
         if (this.blockHashes.hasOwnProperty(iter186)) {
@@ -20832,7 +20832,7 @@ TransferInformation = class {
       this.machineDescription !== null &&
       this.machineDescription !== undefined
     ) {
-      output.writeFieldBegin("machineDescription", Thrift.Type.STRING, 5);
+      output.writeFieldBegin('machineDescription', Thrift.Type.STRING, 5);
       output.writeBinary(this.machineDescription);
       output.writeFieldEnd();
     }
@@ -20889,14 +20889,14 @@ TransferStatus = class {
   }
 
   write(output) {
-    output.writeStructBegin("TransferStatus");
+    output.writeStructBegin('TransferStatus');
     if (this.blockStatus !== null && this.blockStatus !== undefined) {
-      output.writeFieldBegin("blockStatus", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('blockStatus', Thrift.Type.STRING, 1);
       output.writeBinary(this.blockStatus);
       output.writeFieldEnd();
     }
     if (this.state !== null && this.state !== undefined) {
-      output.writeFieldBegin("state", Thrift.Type.I32, 2);
+      output.writeFieldBegin('state', Thrift.Type.I32, 2);
       output.writeI32(this.state);
       output.writeFieldEnd();
     }
@@ -20948,12 +20948,12 @@ UploadOptions = class {
   }
 
   write(output) {
-    output.writeStructBegin("UploadOptions");
+    output.writeStructBegin('UploadOptions');
     if (
       this.serverSideCopying !== null &&
       this.serverSideCopying !== undefined
     ) {
-      output.writeFieldBegin("serverSideCopying", Thrift.Type.BOOL, 1);
+      output.writeFieldBegin('serverSideCopying', Thrift.Type.BOOL, 1);
       output.writeBool(this.serverSideCopying);
       output.writeFieldEnd();
     }
@@ -21150,9 +21150,9 @@ SatelliteConfig = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteConfig");
+    output.writeStructBegin('SatelliteConfig');
     if (this.pageSize !== null && this.pageSize !== undefined) {
-      output.writeFieldBegin("pageSize", Thrift.Type.I32, 1);
+      output.writeFieldBegin('pageSize', Thrift.Type.I32, 1);
       output.writeI32(this.pageSize);
       output.writeFieldEnd();
     }
@@ -21160,7 +21160,7 @@ SatelliteConfig = class {
       this.defaultImagePermissions !== null &&
       this.defaultImagePermissions !== undefined
     ) {
-      output.writeFieldBegin("defaultImagePermissions", Thrift.Type.STRUCT, 2);
+      output.writeFieldBegin('defaultImagePermissions', Thrift.Type.STRUCT, 2);
       this.defaultImagePermissions.write(output);
       output.writeFieldEnd();
     }
@@ -21169,7 +21169,7 @@ SatelliteConfig = class {
       this.defaultLecturePermissions !== undefined
     ) {
       output.writeFieldBegin(
-        "defaultLecturePermissions",
+        'defaultLecturePermissions',
         Thrift.Type.STRUCT,
         3,
       );
@@ -21180,7 +21180,7 @@ SatelliteConfig = class {
       this.maxImageValidityDays !== null &&
       this.maxImageValidityDays !== undefined
     ) {
-      output.writeFieldBegin("maxImageValidityDays", Thrift.Type.I32, 4);
+      output.writeFieldBegin('maxImageValidityDays', Thrift.Type.I32, 4);
       output.writeI32(this.maxImageValidityDays);
       output.writeFieldEnd();
     }
@@ -21188,12 +21188,12 @@ SatelliteConfig = class {
       this.maxLectureValidityDays !== null &&
       this.maxLectureValidityDays !== undefined
     ) {
-      output.writeFieldBegin("maxLectureValidityDays", Thrift.Type.I32, 5);
+      output.writeFieldBegin('maxLectureValidityDays', Thrift.Type.I32, 5);
       output.writeI32(this.maxLectureValidityDays);
       output.writeFieldEnd();
     }
     if (this.maxTransfers !== null && this.maxTransfers !== undefined) {
-      output.writeFieldBegin("maxTransfers", Thrift.Type.I32, 6);
+      output.writeFieldBegin('maxTransfers', Thrift.Type.I32, 6);
       output.writeI32(this.maxTransfers);
       output.writeFieldEnd();
     }
@@ -21201,7 +21201,7 @@ SatelliteConfig = class {
       this.maxConnectionsPerTransfer !== null &&
       this.maxConnectionsPerTransfer !== undefined
     ) {
-      output.writeFieldBegin("maxConnectionsPerTransfer", Thrift.Type.I32, 7);
+      output.writeFieldBegin('maxConnectionsPerTransfer', Thrift.Type.I32, 7);
       output.writeI32(this.maxConnectionsPerTransfer);
       output.writeFieldEnd();
     }
@@ -21209,7 +21209,7 @@ SatelliteConfig = class {
       this.maxLocationsPerLecture !== null &&
       this.maxLocationsPerLecture !== undefined
     ) {
-      output.writeFieldBegin("maxLocationsPerLecture", Thrift.Type.I32, 8);
+      output.writeFieldBegin('maxLocationsPerLecture', Thrift.Type.I32, 8);
       output.writeI32(this.maxLocationsPerLecture);
       output.writeFieldEnd();
     }
@@ -21217,12 +21217,12 @@ SatelliteConfig = class {
       this.allowLoginByDefault !== null &&
       this.allowLoginByDefault !== undefined
     ) {
-      output.writeFieldBegin("allowLoginByDefault", Thrift.Type.BOOL, 9);
+      output.writeFieldBegin('allowLoginByDefault', Thrift.Type.BOOL, 9);
       output.writeBool(this.allowLoginByDefault);
       output.writeFieldEnd();
     }
     if (this.serverSideCopy !== null && this.serverSideCopy !== undefined) {
-      output.writeFieldBegin("serverSideCopy", Thrift.Type.I32, 10);
+      output.writeFieldBegin('serverSideCopy', Thrift.Type.I32, 10);
       output.writeI32(this.serverSideCopy);
       output.writeFieldEnd();
     }
@@ -21230,12 +21230,12 @@ SatelliteConfig = class {
       this.allowStudentDownload !== null &&
       this.allowStudentDownload !== undefined
     ) {
-      output.writeFieldBegin("allowStudentDownload", Thrift.Type.BOOL, 11);
+      output.writeFieldBegin('allowStudentDownload', Thrift.Type.BOOL, 11);
       output.writeBool(this.allowStudentDownload);
       output.writeFieldEnd();
     }
     if (this.vmSizeLimit !== null && this.vmSizeLimit !== undefined) {
-      output.writeFieldBegin("vmSizeLimit", Thrift.Type.I64, 12);
+      output.writeFieldBegin('vmSizeLimit', Thrift.Type.I64, 12);
       output.writeI64(this.vmSizeLimit);
       output.writeFieldEnd();
     }
@@ -21295,17 +21295,17 @@ SatelliteStatus = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteStatus");
+    output.writeStructBegin('SatelliteStatus');
     if (
       this.availableStorageBytes !== null &&
       this.availableStorageBytes !== undefined
     ) {
-      output.writeFieldBegin("availableStorageBytes", Thrift.Type.I64, 1);
+      output.writeFieldBegin('availableStorageBytes', Thrift.Type.I64, 1);
       output.writeI64(this.availableStorageBytes);
       output.writeFieldEnd();
     }
     if (this.serverTime !== null && this.serverTime !== undefined) {
-      output.writeFieldBegin("serverTime", Thrift.Type.I64, 2);
+      output.writeFieldBegin('serverTime', Thrift.Type.I64, 2);
       output.writeI64(this.serverTime);
       output.writeFieldEnd();
     }
@@ -21357,12 +21357,12 @@ SatelliteUserConfig = class {
   }
 
   write(output) {
-    output.writeStructBegin("SatelliteUserConfig");
+    output.writeStructBegin('SatelliteUserConfig');
     if (
       this.emailNotifications !== null &&
       this.emailNotifications !== undefined
     ) {
-      output.writeFieldBegin("emailNotifications", Thrift.Type.BOOL, 1);
+      output.writeFieldBegin('emailNotifications', Thrift.Type.BOOL, 1);
       output.writeBool(this.emailNotifications);
       output.writeFieldEnd();
     }
@@ -21433,19 +21433,19 @@ Location = class {
   }
 
   write(output) {
-    output.writeStructBegin("Location");
+    output.writeStructBegin('Location');
     if (this.locationId !== null && this.locationId !== undefined) {
-      output.writeFieldBegin("locationId", Thrift.Type.I32, 1);
+      output.writeFieldBegin('locationId', Thrift.Type.I32, 1);
       output.writeI32(this.locationId);
       output.writeFieldEnd();
     }
     if (this.locationName !== null && this.locationName !== undefined) {
-      output.writeFieldBegin("locationName", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('locationName', Thrift.Type.STRING, 2);
       output.writeString(this.locationName);
       output.writeFieldEnd();
     }
     if (this.parentLocationId !== null && this.parentLocationId !== undefined) {
-      output.writeFieldBegin("parentLocationId", Thrift.Type.I32, 3);
+      output.writeFieldBegin('parentLocationId', Thrift.Type.I32, 3);
       output.writeI32(this.parentLocationId);
       output.writeFieldEnd();
     }
@@ -21494,9 +21494,9 @@ TTransferRejectedException = class {
   }
 
   write(output) {
-    output.writeStructBegin("TTransferRejectedException");
+    output.writeStructBegin('TTransferRejectedException');
     if (this.message !== null && this.message !== undefined) {
-      output.writeFieldBegin("message", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('message', Thrift.Type.STRING, 1);
       output.writeString(this.message);
       output.writeFieldEnd();
     }
@@ -21553,14 +21553,14 @@ TAuthorizationException = class {
   }
 
   write(output) {
-    output.writeStructBegin("TAuthorizationException");
+    output.writeStructBegin('TAuthorizationException');
     if (this.number !== null && this.number !== undefined) {
-      output.writeFieldBegin("number", Thrift.Type.I32, 1);
+      output.writeFieldBegin('number', Thrift.Type.I32, 1);
       output.writeI32(this.number);
       output.writeFieldEnd();
     }
     if (this.message !== null && this.message !== undefined) {
-      output.writeFieldBegin("message", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('message', Thrift.Type.STRING, 2);
       output.writeString(this.message);
       output.writeFieldEnd();
     }
@@ -21588,7 +21588,7 @@ TInvalidTokenException = class {
   }
 
   write(output) {
-    output.writeStructBegin("TInvalidTokenException");
+    output.writeStructBegin('TInvalidTokenException');
     output.writeFieldStop();
     output.writeStructEnd();
     return;
@@ -21634,9 +21634,9 @@ TNotFoundException = class {
   }
 
   write(output) {
-    output.writeStructBegin("TNotFoundException");
+    output.writeStructBegin('TNotFoundException');
     if (this.message !== null && this.message !== undefined) {
-      output.writeFieldBegin("message", Thrift.Type.STRING, 1);
+      output.writeFieldBegin('message', Thrift.Type.STRING, 1);
       output.writeString(this.message);
       output.writeFieldEnd();
     }
@@ -21693,14 +21693,14 @@ TInvalidDateParam = class {
   }
 
   write(output) {
-    output.writeStructBegin("TInvalidDateParam");
+    output.writeStructBegin('TInvalidDateParam');
     if (this.number !== null && this.number !== undefined) {
-      output.writeFieldBegin("number", Thrift.Type.I32, 1);
+      output.writeFieldBegin('number', Thrift.Type.I32, 1);
       output.writeI32(this.number);
       output.writeFieldEnd();
     }
     if (this.message !== null && this.message !== undefined) {
-      output.writeFieldBegin("message", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('message', Thrift.Type.STRING, 2);
       output.writeString(this.message);
       output.writeFieldEnd();
     }
@@ -21757,14 +21757,14 @@ TInvocationException = class {
   }
 
   write(output) {
-    output.writeStructBegin("TInvocationException");
+    output.writeStructBegin('TInvocationException');
     if (this.number !== null && this.number !== undefined) {
-      output.writeFieldBegin("number", Thrift.Type.I32, 1);
+      output.writeFieldBegin('number', Thrift.Type.I32, 1);
       output.writeI32(this.number);
       output.writeFieldEnd();
     }
     if (this.message !== null && this.message !== undefined) {
-      output.writeFieldBegin("message", Thrift.Type.STRING, 2);
+      output.writeFieldBegin('message', Thrift.Type.STRING, 2);
       output.writeString(this.message);
       output.writeFieldEnd();
     }

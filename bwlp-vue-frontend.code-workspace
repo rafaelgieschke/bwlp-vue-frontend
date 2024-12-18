@@ -6,6 +6,9 @@
     {
       "path": "../bwlp-frontend",
     },
+    {
+      "path": "../kho-vue-components",
+    },
   ],
   "settings": {
     "explorer.fileNesting.patterns": {
@@ -13,5 +16,7 @@
       "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
       "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig",
     },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 }
