@@ -3,6 +3,7 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import LoginView from '@/views/LoginView.vue';
 import ListView from '@/views/ListView.vue';
+import LectureView from '@/views/LectureView.vue';
 
 const routes = [
   {
@@ -12,7 +13,7 @@ const routes = [
 
       if (authStore.authToken) {
         // If logged in, redirect to list
-        next('/list');
+        next('/image-list');
       } else {
         // If not logged in, redirect to login
         next('/login');
@@ -28,21 +29,27 @@ const routes = [
 
       if (authStore.authToken) {
         // If already logged in, redirect to list
-        next('/list');
+        next('/image-list');
       } else {
         next();
       }
     },
   },
   {
-    path: '/list',
-    name: 'List',
+    path: '/image-list',
+    name: 'ImageList',
     component: ListView,
     meta: {requiresAuth: true},
   },
   {
+    path: '/lecture-list',
+    name: 'LectureList',
+    component: LectureView,
+    meta: {requiresAuth: true},
+  },
+  {
     path: '/:pathMatch(.*)*',
-    redirect: '/list',
+    redirect: '/image-list',
   },
 ];
 

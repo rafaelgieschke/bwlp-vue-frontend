@@ -1,30 +1,26 @@
 <template>
   <div class="list-view">
-    <section class="list" v-if="imageList.length > 0">
+    <section class="list" v-if="lectureList.length > 0">
       <table>
         <thead>
           <tr>
-            <th>Image Name</th>
-            <th>Creation Time</th>
-            <th>File Size</th>
-            <th>Owner</th>
-            <th class="aber-hidden">Actions</th>
+            <th>Lecture Name</th>
+            <th>Description</th>
+            <th>End Time</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr v-for="image in imageList" :key="image">
-            <td>{{ image.imageName }}</td>
-            <td>{{ new Date(image.createTime * 1000).toJSON() }}</td>
-            <td>{{ image.fileSize }}</td>
-            <td>{{ image.ownerId }}</td>
-            <td><button disabled>Delete</button></td>
+          <tr v-for="lecture in lectureList" :key="lecture">
+            <td>{{ lecture.lectureName }}</td>
+            <td>{{ lecture.description }}</td>
+            <td>{{ new Date(lecture.endTime * 1000).toJSON() }}</td>
           </tr>
         </tbody>
 
         <tfoot>
           <tr>
-            <th colspan="100%">Total Images: {{ imageList.length }}</th>
+            <th colspan="100%">Total lectures: {{ lectureList.length }}</th>
           </tr>
         </tfoot>
       </table>
@@ -52,21 +48,21 @@ const proto2 = new Thrift.Protocol(
 );
 const sat = new SatelliteServerClient(proto2);
 
-const imageList = ref([]);
+const lectureList = ref([]);
 const error = ref('');
 
 onMounted(() => {
   if (!authStore.authToken) {
     router.push('/login');
   } else {
-    fetchImages();
+    fetchLectures();
   }
 });
 
-const fetchImages = async () => {
+const fetchLectures = async () => {
   try {
-    const response = await sat.getImageList(authStore.authToken, [], 0);
-    imageList.value = response;
+    const response = await sat.getLectureList(authStore.authToken, 0);
+    lectureList.value = response;
   } catch (e) {
     error.value = e.message;
   }
@@ -124,10 +120,6 @@ tfoot th {
 th,
 td {
   padding: 10px;
-}
-
-.aber-hidden {
-  display: none;
 }
 
 button {
