@@ -1,38 +1,34 @@
 <template>
   <header>
     <h1>Baden-Württemberg Lehrpool</h1>
+    <button v-if="authToken !== ''" @click="logout">Logout</button>
   </header>
 
-  <main>
-    <article>
-      <FormComponent v-if="!authToken" @login-success="handleLoginSuccess" />
-      <TableComponent v-if="authToken" :auth-token="authToken" />
-    </article>
-  </main>
+  <router-view></router-view>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import FormComponent from './components/FormComponent.vue';
-import TableComponent from './components/TableComponent.vue';
+import { useRouter } from 'vue-router';
 
-const authToken = ref('');
+const router = useRouter();
 
-const handleLoginSuccess = response => {
-  authToken.value = response.authToken;
+let authToken = ref(localStorage.getItem('authToken') || '');
+
+const logout = () => {
+  localStorage.removeItem('authToken');
+  authToken.value = '';
+  router.push('/login');
 };
 </script>
 
 <style scoped>
-header,
-main {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
   max-width: 1280px;
   margin: 0 auto;
-}
-
-main article {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
 }
 </style>

@@ -49,24 +49,12 @@ const login = async () => {
     );
     authToken.value = response.authToken;
     userInfo.value = response.userInfo;
-    saveLoginData();
+    // saveLoginData();
     props.onLoginSuccess(response);
   } catch (e) {
     error.value = e.message;
   }
 };
-
-const saveLoginData = () => {
-  localStorage.setItem('username', username.value);
-  localStorage.setItem('password', password.value);
-};
-
-// Auto-login if credentials exist
-if (localStorage.getItem('username')) {
-  username.value = localStorage.getItem('username');
-  password.value = localStorage.getItem('password');
-  login();
-}
 </script>
 
 <style scoped>
