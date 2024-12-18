@@ -49,7 +49,6 @@ const login = async () => {
     );
     authToken.value = response.authToken;
     userInfo.value = response.userInfo;
-    // saveLoginData();
     props.onLoginSuccess(response);
   } catch (e) {
     error.value = e.message;

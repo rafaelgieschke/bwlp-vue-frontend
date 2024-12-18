@@ -12,7 +12,6 @@ import TableComponent from '@/components/TableComponent.vue';
 const router = useRouter();
 const authToken = ref(localStorage.getItem('authToken') || '');
 
-// Redirect if no token
 onMounted(() => {
   if (!authToken.value) {
     router.push('/login');
