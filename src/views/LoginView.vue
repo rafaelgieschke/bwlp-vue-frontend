@@ -12,6 +12,7 @@
         <input type="password" id="password" v-model="password" required />
       </div>
       <button type="submit">Login</button>
+
       <p v-if="error" class="error-message">{{ error }}</p>
     </form>
   </div>
@@ -62,9 +63,7 @@ const login = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
-  padding: 2rem;
 }
 
 form {

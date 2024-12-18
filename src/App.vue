@@ -23,18 +23,17 @@ const logout = () => {
 </script>
 
 <style scoped>
+main,
+header {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1280px;
-  margin: 0 auto;
   margin-bottom: 1rem;
-}
-
-main {
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 button {
