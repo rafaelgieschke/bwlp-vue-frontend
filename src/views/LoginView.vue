@@ -71,35 +71,30 @@ form {
   width: 100%;
   max-width: 300px;
   gap: 1rem;
-}
 
-form div {
-  display: grid;
-}
+  div {
+    display: grid;
+  }
 
-form input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-}
+  input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
 
-form button {
-  justify-self: center;
-  width: 8rem;
-  min-width: fit-content;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  background-color: #f0f0f0;
-  cursor: pointer;
-}
+  button {
+    justify-self: center;
+    width: 8rem;
+    min-width: fit-content;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #f0f0f0;
+    cursor: pointer;
 
-form button:hover {
-  background-color: #e0e0e0;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
 }
 </style>

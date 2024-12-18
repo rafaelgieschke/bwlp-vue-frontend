@@ -71,19 +71,9 @@ const fetchImages = async () => {
     error.value = e.message;
   }
 };
-
-const logout = () => {
-  localStorage.removeItem('authToken');
-  router.push('/login');
-};
 </script>
 
 <style scoped>
-.error-message {
-  color: red;
-  text-align: center;
-}
-
 thead,
 tfoot {
   background: url(@/assets/img/leopardskin.jpg);

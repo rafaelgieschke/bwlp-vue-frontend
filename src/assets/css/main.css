@@ -1,6 +1,10 @@
 @layer reset-fonts-root, baselayout, components, utilities;
 
 @layer components {
+  .error-message {
+    color: red;
+    text-align: center;
+  }
 }
 
 @layer baselayout {
