@@ -18,12 +18,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/auth-store';
+import {ref} from 'vue';
+import {useRouter} from 'vue-router';
+import {useAuthStore} from '@/stores/auth-store';
 
-import { MasterServerClient } from '@/assets/js/bwlp/bwlp.js';
-import { Thrift } from '@/assets/js/thrift/thrift.js';
+import {MasterServerClient} from '@/assets/js/bwlp/bwlp.js';
+import {Thrift} from '@/assets/js/thrift/thrift.js';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -69,9 +69,9 @@ const login = async () => {
 
 form {
   display: grid;
-  gap: 1rem;
   width: 100%;
   max-width: 300px;
+  gap: 1rem;
 }
 
 form div {

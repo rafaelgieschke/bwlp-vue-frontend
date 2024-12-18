@@ -18,7 +18,7 @@
             <td>{{ new Date(image.createTime * 1000).toJSON() }}</td>
             <td>{{ image.fileSize }}</td>
             <td>{{ image.ownerId }}</td>
-            <td><button @click="deleteImage(image)">Delete</button></td>
+            <td><button disabled>Delete</button></td>
           </tr>
         </tbody>
 
@@ -35,12 +35,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/auth-store';
+import {ref, onMounted} from 'vue';
+import {useRouter} from 'vue-router';
+import {useAuthStore} from '@/stores/auth-store';
 
-import { SatelliteServerClient } from '@/assets/js/bwlp/bwlp.js';
-import { Thrift } from '@/assets/js/thrift/thrift.js';
+import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
+import {Thrift} from '@/assets/js/thrift/thrift.js';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -79,18 +79,6 @@ const logout = () => {
 </script>
 
 <style scoped>
-.list-view {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
 .error-message {
   color: red;
   text-align: center;
@@ -123,8 +111,8 @@ tbody tr {
 }
 
 table {
-  background-color: #ff33cc;
   width: 100%;
+  background-color: #ff33cc;
 }
 
 th {
@@ -154,9 +142,9 @@ td {
 
 button {
   padding: 0.25rem 0.5rem;
-  background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
+  background-color: #f0f0f0;
   cursor: pointer;
 }
 

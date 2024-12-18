@@ -4,12 +4,14 @@
     <button v-if="authStore.authToken" @click="logout">Logout</button>
   </header>
 
-  <router-view></router-view>
+  <main>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/auth-store';
+import {useRouter} from 'vue-router';
+import {useAuthStore} from '@/stores/auth-store';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -23,22 +25,27 @@ const logout = () => {
 <style scoped>
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+main {
   max-width: 1280px;
   margin: 0 auto;
 }
 
 button {
   padding: 0.5rem 1rem;
-  background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
+  background-color: #f0f0f0;
   cursor: pointer;
-}
 
-button:hover {
-  background-color: #e0e0e0;
+  &:hover {
+    background-color: #e0e0e0;
+  }
 }
 </style>
