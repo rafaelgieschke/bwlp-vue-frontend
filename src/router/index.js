@@ -2,8 +2,8 @@ import {createRouter, createWebHistory} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import LoginView from '@/views/LoginView.vue';
-import ListView from '@/views/ListView.vue';
-import LectureView from '@/views/LectureView.vue';
+import ImageListView from '@/views/ImageListView.vue';
+import LectureListView from '@/views/LectureListView.vue';
 
 const routes = [
   {
@@ -38,13 +38,13 @@ const routes = [
   {
     path: '/image-list',
     name: 'ImageList',
-    component: ListView,
+    component: ImageListView,
     meta: {requiresAuth: true},
   },
   {
     path: '/lecture-list',
     name: 'LectureList',
-    component: LectureView,
+    component: LectureListView,
     meta: {requiresAuth: true},
   },
   {

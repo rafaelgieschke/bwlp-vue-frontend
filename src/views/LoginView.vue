@@ -87,14 +87,6 @@ form {
     width: 8rem;
     min-width: fit-content;
     padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    background-color: #f0f0f0;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #e0e0e0;
-    }
   }
 }
 </style>
