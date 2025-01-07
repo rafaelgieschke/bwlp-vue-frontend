@@ -21,7 +21,6 @@
     container-name: main;
     container-type: inline-size;
     padding-bottom: 0.5rem;
-    padding-inline: 1rem;
   }
 }
 
