@@ -13,6 +13,8 @@
         </p>
       </section>
 
+      <mdui-divider></mdui-divider>
+
       <section class="pp-section">
         <h4>Was wird gesammelt?</h4>
         <p class="big-paragraph">
@@ -24,6 +26,8 @@
           (beispielsweise wenn Sie eine VM hochladen oder löschen).
         </p>
       </section>
+
+      <mdui-divider></mdui-divider>
 
       <section class="pp-section">
         <h4>Wozu werden diese Daten gesammelt?</h4>
@@ -39,6 +43,8 @@
           vermuten, dass diese von jemandem fälschlicherweise gelöscht wurde.
         </p>
       </section>
+
+      <mdui-divider></mdui-divider>
 
       <section class="pp-section">
         <h4>Mit wem werden diese Daten geteilt?</h4>
@@ -60,6 +66,8 @@
           (Kontakt-)Daten einsehen.
         </p>
       </section>
+
+      <mdui-divider></mdui-divider>
 
       <section class="pp-section">
         <h4>Wie lange werden Daten gespeicher?</h4>
@@ -96,15 +104,9 @@ import Card from '@/components/Card.vue';
 <style scoped>
 .pp-section {
   padding-block: 1rem;
-  border-bottom: 1px solid #4d4d4d;
-
-  &:first-of-type {
-    padding-top: 0;
-  }
 
   &:last-of-type {
     padding-bottom: 0;
-    border-bottom: none;
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>Baden-Württemberg Lehrpool</h1>
-    <button v-if="authStore.authToken" @click="logout">Logout</button>
+    <mdui-button v-if="authStore.authToken" @click="logout">Logout</mdui-button>
   </header>
 
   <main>

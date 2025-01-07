@@ -1,5 +1,5 @@
 <template>
-  <div
+  <mdui-dialog
     v-if="isOpen"
     class="modal-overlay"
     @click="closeOnBackdrop && $emit('close')"
@@ -9,20 +9,13 @@
         <h3>
           <slot name="header">{{ title }}</slot>
         </h3>
-        <button class="close-button" @click="$emit('close')">&times;</button>
       </header>
 
       <div class="modal-body">
         <slot></slot>
       </div>
-
-      <footer class="modal-footer">
-        <slot name="footer">
-          <button @click="$emit('close')">Close</button>
-        </slot>
-      </footer>
     </div>
-  </div>
+  </mdui-dialog>
 </template>
 
 <script setup>
@@ -59,14 +52,13 @@ defineEmits(['close']);
 }
 
 .modal-content {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   width: 90%;
   max-width: 500px;
   max-height: 90vh;
   padding: 1rem;
-  border-radius: 8px;
-  background: white;
+  border-radius: 8px; */
 }
 
 .modal-header {

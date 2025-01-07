@@ -1,7 +1,7 @@
 <template>
   <div class="list-view">
     <section class="list" v-if="imageList.length > 0">
-      <table>
+      <table class="mdui-table">
         <thead>
           <tr>
             <th>Image Name</th>
@@ -23,7 +23,7 @@
             <td>{{ new Date(image.createTime * 1000).toJSON() }}</td>
             <td>{{ image.fileSize }}</td>
             <td>{{ image.ownerId }}</td>
-            <td><button>Delete</button></td>
+            <td><mdui-button>Delete</mdui-button></td>
           </tr>
         </tbody>
 
@@ -103,7 +103,7 @@ const openModal = image => {
 </script>
 
 <style scoped>
-thead,
+/* thead,
 tfoot {
   background: url(@/assets/img/leopardskin.jpg);
   color: white;
@@ -157,5 +157,5 @@ td {
 
 .aber-hidden {
   display: none;
-}
+} */
 </style>

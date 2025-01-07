@@ -1,7 +1,7 @@
 <template>
   <div class="list-view">
     <section class="list" v-if="lectureList.length > 0">
-      <table>
+      <table class="mdui-table">
         <thead>
           <tr>
             <th>Lecture Name</th>
@@ -103,7 +103,7 @@ const openModal = lecture => {
 </script>
 
 <style scoped>
-thead,
+/* thead,
 tfoot {
   background: url(@/assets/img/leopardskin.jpg);
   color: white;
@@ -153,5 +153,5 @@ tfoot th {
 th,
 td {
   padding: 10px;
-}
+} */
 </style>

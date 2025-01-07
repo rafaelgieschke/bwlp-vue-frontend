@@ -61,6 +61,10 @@ import Card from '@/components/Card.vue';
   margin: 0;
   font-weight: bold;
 
+  &:first-child {
+    margin-top: 1rem;
+  }
+
   &:first-child + & {
     margin-bottom: 1rem;
   }
