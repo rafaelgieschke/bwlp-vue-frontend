@@ -10,6 +10,7 @@
         required
       />
       <mdui-text-field
+        type="password"
         label="Password"
         id="password"
         v-model="password"
@@ -74,22 +75,5 @@ form {
   width: 100%;
   max-width: 300px;
   gap: 1rem;
-
-  div {
-    display: grid;
-  }
-
-  input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-  }
-
-  button {
-    justify-self: center;
-    width: 8rem;
-    min-width: fit-content;
-    padding: 0.5rem 1rem;
-  }
 }
 </style>
