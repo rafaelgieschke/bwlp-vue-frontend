@@ -20,7 +20,11 @@
             :id="image.imageBaseId"
           >
             <td>{{ image.imageName }}</td>
-            <td>{{ new Date(image.createTime * 1000).toJSON() }}</td>
+            <td>
+              {{
+                $dayjs(image.createTime * 1000).format('DD.MM.YYYY HH:mm:ss')
+              }}
+            </td>
             <td>{{ image.fileSize }}</td>
             <td>{{ image.ownerId }}</td>
             <td><mdui-button>Delete</mdui-button></td>
@@ -44,7 +48,11 @@
         <p><strong>Image Name:</strong> {{ selectedImage.imageName }}</p>
         <p>
           <strong>Creation Time:</strong>
-          {{ new Date(selectedImage.createTime * 1000).toJSON() }}
+          {{
+            $dayjs(selectedImage.createTime * 1000).format(
+              'DD.MM.YYYY HH:mm:ss',
+            )
+          }}
         </p>
         <p><strong>File Size:</strong> {{ selectedImage.fileSize }}</p>
         <p><strong>Owner:</strong> {{ selectedImage.ownerId }}</p>
@@ -103,59 +111,7 @@ const openModal = image => {
 </script>
 
 <style scoped>
-/* thead,
-tfoot {
-  background: url(@/assets/img/leopardskin.jpg);
-  color: white;
-  text-shadow: 1px 1px 1px black;
-}
-
-thead th,
-tfoot th,
-tfoot td {
-  border: 3px solid purple;
-  background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #ff33cc;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #e495e4;
-}
-
-tbody tr {
-  background-image: url(@/assets/img/noise.png);
-}
-
-table {
-  width: 100%;
-  background-color: #ff33cc;
-}
-
-th {
-  letter-spacing: 2px;
-}
-
-td {
-  letter-spacing: 1px;
-}
-
-tbody td {
-  text-align: center;
-}
-
-tfoot th {
-  text-align: center;
-}
-
-th,
-td {
-  padding: 10px;
-}
-
 .aber-hidden {
   display: none;
-} */
+}
 </style>

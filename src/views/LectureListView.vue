@@ -19,7 +19,9 @@
           >
             <td>{{ lecture.lectureName }}</td>
             <td>{{ lecture.description }}</td>
-            <td>{{ new Date(lecture.endTime * 1000).toJSON() }}</td>
+            <td>
+              {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
+            </td>
           </tr>
         </tbody>
 
@@ -41,7 +43,9 @@
         <p><strong>Description</strong> {{ selectedLecture.description }}</p>
         <p>
           <strong>End Time:</strong>
-          {{ new Date(selectedLecture.endTime * 1000).toJSON() }}
+          {{
+            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
+          }}
         </p>
       </div>
     </DetailModalComponent>
@@ -101,57 +105,3 @@ const openModal = lecture => {
   showModal.value = true;
 };
 </script>
-
-<style scoped>
-/* thead,
-tfoot {
-  background: url(@/assets/img/leopardskin.jpg);
-  color: white;
-  text-shadow: 1px 1px 1px black;
-}
-
-thead th,
-tfoot th,
-tfoot td {
-  border: 3px solid purple;
-  background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #ff33cc;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #e495e4;
-}
-
-tbody tr {
-  background-image: url(@/assets/img/noise.png);
-}
-
-table {
-  width: 100%;
-  background-color: #ff33cc;
-}
-
-th {
-  letter-spacing: 2px;
-}
-
-td {
-  letter-spacing: 1px;
-}
-
-tbody td {
-  text-align: center;
-}
-
-tfoot th {
-  text-align: center;
-}
-
-th,
-td {
-  padding: 10px;
-} */
-</style>

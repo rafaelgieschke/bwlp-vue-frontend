@@ -1,6 +1,7 @@
 import '@/assets/css/main.css';
 import 'mdui/mdui.css';
 import 'mdui';
+import dayjs from 'dayjs';
 
 import {createApp} from 'vue';
 import {createPinia} from 'pinia';
@@ -12,5 +13,6 @@ const pinia = createPinia();
 
 app.use(pinia);
 app.use(router);
+app.config.globalProperties.$dayjs = dayjs;
 
 app.mount('#app');
