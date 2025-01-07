@@ -53,6 +53,7 @@ import Card from '@/components/Card.vue';
 <style scoped>
 .subtitle {
   margin: 0;
+  font-weight: bold;
 
   &:first-child + & {
     margin-bottom: 1rem;
