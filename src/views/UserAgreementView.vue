@@ -1,7 +1,7 @@
 <template>
   <Card>
-    <template v-slot:header>Nutzungsvereinbarung</template>
-    <template v-slot:content>
+    <template #header>Nutzungsvereinbarung</template>
+    <template #content>
       <p class="subtitle">bwLehrpool-Suite (Dozentenmodul)</p>
       <p class="subtitle">Copyright © 2016 Universität Freiburg</p>
 
