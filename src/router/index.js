@@ -4,6 +4,7 @@ import {useAuthStore} from '@/stores/auth-store';
 import LoginView from '@/views/LoginView.vue';
 import ImageListView from '@/views/ImageListView.vue';
 import LectureListView from '@/views/LectureListView.vue';
+import UserAgreementView from '@/views/UserAgreementView.vue';
 
 const routes = [
   {
@@ -43,9 +44,11 @@ const routes = [
   },
   {
     path: '/lecture-list',
-    name: 'LectureList',
-    component: LectureListView,
-    meta: {requiresAuth: true},
+  },
+  {
+    path: '/user-agreement',
+    name: 'UserAgreementView',
+    component: UserAgreementView,
   },
   {
     path: '/:pathMatch(.*)*',
