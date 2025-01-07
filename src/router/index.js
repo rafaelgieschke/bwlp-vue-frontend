@@ -5,6 +5,7 @@ import LoginView from '@/views/LoginView.vue';
 import ImageListView from '@/views/ImageListView.vue';
 import LectureListView from '@/views/LectureListView.vue';
 import UserAgreementView from '@/views/UserAgreementView.vue';
+import PrivacyPolicyView from '@/views/PrivacyPolicyView.vue';
 
 const routes = [
   {
@@ -44,11 +45,21 @@ const routes = [
   },
   {
     path: '/lecture-list',
+    name: 'LectureList',
+    component: LectureListView,
+    meta: {requiresAuth: true},
   },
   {
     path: '/user-agreement',
     name: 'UserAgreementView',
     component: UserAgreementView,
+    meta: {requiresAuth: true},
+  },
+  {
+    path: '/privacy-policy',
+    name: 'PrivacyPolicyView',
+    component: PrivacyPolicyView,
+    meta: {requiresAuth: true},
   },
   {
     path: '/:pathMatch(.*)*',
