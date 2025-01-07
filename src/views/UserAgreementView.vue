@@ -27,7 +27,13 @@
         Dieses Programm ist freie Software. Es kann unter den Bedingungen der
         GNU General Public License (GPL) Version 2 verändert und weitergegeben
         werden. Der vollständige Text der GNU General Public Licence der Version
-        2 (GPL2) kann hier http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+        2 (GPL2) kann hier
+        <a
+          href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          >https://www.gnu.org/licenses/old-licenses/gpl-2.0.html</a
+        >
         eingesehen werden.
       </p>
       <p class="big-paragraph">
@@ -66,5 +72,14 @@ import Card from '@/components/Card.vue';
 
 .big-paragraph {
   margin-bottom: 1rem;
+
+  a {
+    color: #ffcc00;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 </style>
