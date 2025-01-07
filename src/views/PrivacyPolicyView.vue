@@ -78,8 +78,11 @@
           Kontaktieren Sie als erstes Ihr Rechenzentrum. In der Regel wird dort
           der Satellitenserver, mit dem sich Ihre bwLehrpool-Suite standardmäßig
           verbindet, betrieben. Falls Sie dort keinen Ansprechpartner finden,
-          können Sie sich an das Entwickler-Team von bwLehrpool
-          (bwlehrpool@hs-offenburg.de) wenden.
+          können Sie sich an das
+          <a href="mailto:bwlehrpool@hs-offenburg.de"
+            >Entwickler-Team von bwLehrpool</a
+          >
+          wenden.
         </p>
       </section>
     </template>
