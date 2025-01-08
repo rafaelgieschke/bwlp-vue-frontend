@@ -8,7 +8,6 @@
             <th>Creation Time</th>
             <th>File Size</th>
             <th>Owner</th>
-            <th class="aber-hidden">Actions</th>
           </tr>
         </thead>
 
@@ -27,7 +26,6 @@
             </td>
             <td>{{ image.fileSize }}</td>
             <td>{{ image.ownerId }}</td>
-            <td><mdui-button>Delete</mdui-button></td>
           </tr>
         </tbody>
 
@@ -109,9 +107,3 @@ const openModal = image => {
   showModal.value = true;
 };
 </script>
-
-<style scoped>
-.aber-hidden {
-  display: none;
-}
-</style>
