@@ -7,7 +7,7 @@
     <mdui-top-app-bar slot="header">
       <mdui-top-app-bar-title>{{ title }}</mdui-top-app-bar-title>
       <mdui-button-icon @click="$emit('close')"
-        ><mdui-icon-close--rounded></mdui-icon-close--rounded
+        ><mdui-icon-close></mdui-icon-close
       ></mdui-button-icon>
     </mdui-top-app-bar>
     <div class="modal-content" @click.stop>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import '@mdui/icons/close--rounded.js';
+import '@mdui/icons/close.js';
 
 defineProps({
   isOpen: {
