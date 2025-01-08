@@ -21,6 +21,14 @@
     container-name: main;
     container-type: inline-size;
     padding-bottom: 0.5rem;
+
+    /* This is because MDUI randomly and pointlessly
+     adds 64px of padding-top to the body
+     when opening a dialog and no other method I've tried
+     actually removes it, so since this works shrug */
+    &:has(.modal-overlay) {
+      margin-top: -64px;
+    }
   }
 }
 
