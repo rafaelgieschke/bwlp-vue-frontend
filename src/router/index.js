@@ -2,10 +2,10 @@ import {createRouter, createWebHistory} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import LoginView from '@/views/LoginView.vue';
-import ImageListView from '@/views/ImageListView.vue';
-import LectureListView from '@/views/LectureListView.vue';
-import UserAgreementView from '@/views/UserAgreementView.vue';
-import PrivacyPolicyView from '@/views/PrivacyPolicyView.vue';
+import ImageListView from '@/views/lists/ImageListView.vue';
+import LectureListView from '@/views/lists/LectureListView.vue';
+import UserAgreementView from '@/views/legal-views/UserAgreementView.vue';
+import PrivacyPolicyView from '@/views/legal-views/PrivacyPolicyView.vue';
 
 const routes = [
   {
