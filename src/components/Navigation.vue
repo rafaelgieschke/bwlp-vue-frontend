@@ -1,24 +1,30 @@
 <template>
-  <div class="example-modal">
+  <div class="nav-modal">
     <mdui-navigation-drawer modal close-on-esc close-on-overlay-click>
       <mdui-button class="close">Close Navigation Drawer</mdui-button>
 
-      <section class="links-list">
-        <ul>
+      <div class="drawer-content">
+        <ul class="top-links">
           <li class="li-link">
             <RouterLink to="/image-list">Image List</RouterLink>
           </li>
           <li class="li-link">
             <RouterLink to="/lecture-list">Lecture List</RouterLink>
           </li>
-          <li class="li-link">
-            <RouterLink to="/privacy-policy">Datenschutzerklärung</RouterLink>
-          </li>
-          <li class="li-link">
-            <RouterLink to="/user-agreement">Nutzungsvereinbarung</RouterLink>
-          </li>
         </ul>
-      </section>
+
+        <div class="bottom-section">
+          <h3 class="legal-title">Rechtlicher Kram</h3>
+          <ul class="force-bottom">
+            <li class="li-link">
+              <RouterLink to="/privacy-policy">Datenschutzerklärung</RouterLink>
+            </li>
+            <li class="li-link">
+              <RouterLink to="/user-agreement">Nutzungsvereinbarung</RouterLink>
+            </li>
+          </ul>
+        </div>
+      </div>
     </mdui-navigation-drawer>
 
     <div class="open-button-container">
@@ -26,13 +32,12 @@
     </div>
   </div>
 </template>
-
 <script setup>
 import {onMounted} from 'vue';
 import {RouterLink} from 'vue-router';
 
 onMounted(() => {
-  const example = document.querySelector('.example-modal');
+  const example = document.querySelector('.nav-modal');
   const navigationDrawer = example.querySelector('mdui-navigation-drawer');
   const openButton = example.querySelector('.open');
   const closeButton = example.querySelector('.close');
@@ -43,14 +48,37 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.example-modal {
+.nav-modal {
   display: flex;
   position: relative;
-  overflow: hidden;
+  flex-direction: column;
+  height: 100vh;
 }
 
-ul {
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 5rem);
+  margin-top: 1rem;
+}
+
+.top-links {
   padding-left: 1rem;
+}
+
+.bottom-section {
+  margin-top: auto;
+  padding-left: 1rem;
+}
+
+.legal-title {
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.force-bottom {
+  padding-left: 0;
 }
 
 .li-link {
