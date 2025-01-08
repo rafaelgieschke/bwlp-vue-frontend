@@ -12,10 +12,10 @@
             <RouterLink to="/lecture-list">Lecture List</RouterLink>
           </li>
           <li class="li-link">
-            <RouterLink to="/privacy-policy">Privacy Policy</RouterLink>
+            <RouterLink to="/privacy-policy">Datenschutzerklärung</RouterLink>
           </li>
           <li class="li-link">
-            <RouterLink to="/user-agreement">User Agreement</RouterLink>
+            <RouterLink to="/user-agreement">Nutzungsvereinbarung</RouterLink>
           </li>
         </ul>
       </section>
