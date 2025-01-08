@@ -109,13 +109,4 @@ import Card from '@/components/Card.vue';
     padding-bottom: 0;
   }
 }
-
-.big-paragraph a {
-  color: #ffcc00;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
 </style>

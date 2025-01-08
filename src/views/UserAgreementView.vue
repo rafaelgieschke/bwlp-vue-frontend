@@ -76,14 +76,5 @@ import Card from '@/components/Card.vue';
 
 .big-paragraph {
   margin-bottom: 1rem;
-
-  a {
-    color: #ffcc00;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 </style>
