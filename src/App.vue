@@ -1,20 +1,23 @@
 <template>
-  <div class="app-container">
-    <Navigation />
+  <mdui-layout>
+    <mdui-top-app-bar class="example-top-app-bar">
+      <mdui-top-app-bar-title>
+        Baden-Württemberg Lehrpool
+      </mdui-top-app-bar-title>
 
-    <div class="content-container">
-      <header>
-        <h1>Baden-Württemberg Lehrpool</h1>
-        <mdui-button v-if="authStore.authToken" @click="logout"
-          >Logout</mdui-button
-        >
-      </header>
+      <mdui-button v-if="authStore.authToken" @click="logout">
+        Logout
+      </mdui-button>
+    </mdui-top-app-bar>
 
-      <main>
-        <router-view></router-view>
-      </main>
-    </div>
-  </div>
+    <mdui-navigation-drawer open class="example-navigation-drawer">
+      <Navigation />
+    </mdui-navigation-drawer>
+
+    <mdui-layout-main class="example-layout-main">
+      <router-view></router-view>
+    </mdui-layout-main>
+  </mdui-layout>
 </template>
 
 <script setup>
@@ -30,26 +33,3 @@ const logout = () => {
   router.push('/login');
 };
 </script>
-
-<style scoped>
-.app-container {
-  display: flex;
-}
-
-.content-container {
-  flex-grow: 1;
-}
-
-main,
-header {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-</style>

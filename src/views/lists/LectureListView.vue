@@ -1,57 +1,53 @@
 <template>
-  <div class="list-view">
-    <section class="list" v-if="lectureList.length > 0">
-      <table class="mdui-table">
-        <thead>
-          <tr>
-            <th>Lecture Name</th>
-            <th>Description</th>
-            <th>End Time</th>
-          </tr>
-        </thead>
+  <table class="mdui-table" v-if="lectureList.length > 0">
+    <thead>
+      <tr>
+        <th>Lecture Name</th>
+        <th>Description</th>
+        <th>End Time</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          <tr
-            v-for="lecture in lectureList"
-            @click="openModal(lecture)"
-            :key="lecture.lectureId"
-            :id="lecture.lectureId"
-          >
-            <td>{{ lecture.lectureName }}</td>
-            <td>{{ lecture.description }}</td>
-            <td>
-              {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
-            </td>
-          </tr>
-        </tbody>
+    <tbody>
+      <tr
+        v-for="lecture in lectureList"
+        @click="openModal(lecture)"
+        :key="lecture.lectureId"
+        :id="lecture.lectureId"
+      >
+        <td>{{ lecture.lectureName }}</td>
+        <td>{{ lecture.description }}</td>
+        <td>
+          {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
+        </td>
+      </tr>
+    </tbody>
 
-        <tfoot>
-          <tr>
-            <th colspan="100%">Total lectures: {{ lectureList.length }}</th>
-          </tr>
-        </tfoot>
-      </table>
-    </section>
+    <tfoot>
+      <tr>
+        <th colspan="100%">Total lectures: {{ lectureList.length }}</th>
+      </tr>
+    </tfoot>
+  </table>
 
-    <DetailModalComponent
-      :is-open="showModal"
-      :title="selectedLecture?.lectureName || ''"
-      @close="showModal = false"
-    >
-      <div v-if="selectedLecture">
-        <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
-        <p><strong>Description</strong> {{ selectedLecture.description }}</p>
-        <p>
-          <strong>End Time:</strong>
-          {{
-            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
-          }}
-        </p>
-      </div>
-    </DetailModalComponent>
+  <DetailModalComponent
+    :is-open="showModal"
+    :title="selectedLecture?.lectureName || ''"
+    @close="showModal = false"
+  >
+    <div v-if="selectedLecture">
+      <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
+      <p><strong>Description</strong> {{ selectedLecture.description }}</p>
+      <p>
+        <strong>End Time:</strong>
+        {{
+          $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
+        }}
+      </p>
+    </div>
+  </DetailModalComponent>
 
-    <p v-if="error" class="error-message">{{ error }}</p>
-  </div>
+  <p v-if="error" class="error-message">{{ error }}</p>
 </template>
 
 <script setup>

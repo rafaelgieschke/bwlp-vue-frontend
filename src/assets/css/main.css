@@ -5,6 +5,10 @@
     color: red;
     text-align: center;
   }
+
+  .mdui-table {
+    margin-top: 0 !important;
+  }
 }
 
 @layer baselayout {
@@ -18,9 +22,15 @@
   }
 
   body {
-    container-name: main;
-    container-type: inline-size;
-    padding-bottom: 0.5rem;
+    margin-right: 0.5rem;
+
+    /* This rule with the margin-right: 0.5rem on the body are
+    because MDUI is a bit weird and can't process margins
+    the same way on all views they probably used a
+    shit load of !important or something */
+    .example-top-app-bar {
+      padding-right: 0;
+    }
 
     /* This is because MDUI randomly and pointlessly
      adds 64px of padding-top to the body
@@ -29,6 +39,10 @@
     &:has(.modal-overlay) {
       margin-top: -64px;
     }
+
+    /* Let's say it here, MDUI COULD be better lmao
+    whatever
+    Have fun debugging future me:)))))))))) (<-- Isabela spoke through me) */
   }
 }
 
