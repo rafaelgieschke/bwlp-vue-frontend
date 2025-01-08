@@ -1,8 +1,8 @@
 <template>
-  <mdui-card>
+  <mdui-card variant="filled">
     <article class="bw-card">
-      <header>
-        <h3>
+      <header class="header">
+        <h3 class="card-h3">
           <slot name="header"></slot>
         </h3>
       </header>
@@ -20,11 +20,11 @@
 .bw-card {
   padding: 1rem;
 
-  header {
+  .header {
     margin-bottom: 1rem;
   }
 
-  h3 {
+  .card-h3 {
     font-size: 1.75rem;
   }
 }
