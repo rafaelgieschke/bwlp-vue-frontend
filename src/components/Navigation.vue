@@ -24,4 +24,8 @@ import {RouterLink} from 'vue-router';
 a {
   text-decoration: none;
 }
+
+mdui-list {
+  margin-right: 1rem;
+}
 </style>
