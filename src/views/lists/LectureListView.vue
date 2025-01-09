@@ -30,10 +30,9 @@
     </tfoot>
   </table>
 
-  <DetailModalComponent
+  <DetailDialog
     :is-open="showModal"
     :title="selectedLecture?.lectureName || ''"
-    @close="showModal = false"
   >
     <div v-if="selectedLecture">
       <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
@@ -45,7 +44,7 @@
         }}
       </p>
     </div>
-  </DetailModalComponent>
+  </DetailDialog>
 
   <p v-if="error" class="error-message">{{ error }}</p>
 </template>
@@ -57,7 +56,7 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
-import DetailModalComponent from '@/components/DetailModalComponent.vue';
+import DetailDialog from '@/components/DetailDialog.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -96,8 +95,12 @@ const fetchLectures = async () => {
   }
 };
 
-const openModal = lecture => {
+const openModal = async lecture => {
+  // First set the selected lecture data
   selectedLecture.value = lecture;
-  showModal.value = true;
+
+  // Then open the dialog
+  const dialog = document.querySelector('dialog');
+  dialog.showModal();
 };
 </script>

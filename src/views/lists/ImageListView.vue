@@ -32,11 +32,7 @@
     </tfoot>
   </table>
 
-  <DetailModalComponent
-    :is-open="showModal"
-    :title="selectedImage?.imageName || ''"
-    @close="showModal = false"
-  >
+  <DetailDialog :is-open="showModal" :title="selectedImage?.imageName || ''">
     <div v-if="selectedImage">
       <p><strong>Image Name:</strong> {{ selectedImage.imageName }}</p>
       <p>
@@ -48,7 +44,7 @@
       <p><strong>File Size:</strong> {{ selectedImage.fileSize }}</p>
       <p><strong>Owner:</strong> {{ selectedImage.ownerId }}</p>
     </div>
-  </DetailModalComponent>
+  </DetailDialog>
 
   <p v-if="error" class="error-message">{{ error }}</p>
 </template>
@@ -60,7 +56,7 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
-import DetailModalComponent from '@/components/DetailModalComponent.vue';
+import DetailDialog from '@/components/DetailDialog.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -94,8 +90,12 @@ const fetchImages = async () => {
   }
 };
 
-const openModal = image => {
+const openModal = async image => {
+  // First set the selected image data
   selectedImage.value = image;
-  showModal.value = true;
+
+  // Then open the dialog
+  const dialog = document.querySelector('dialog');
+  dialog.showModal();
 };
 </script>
