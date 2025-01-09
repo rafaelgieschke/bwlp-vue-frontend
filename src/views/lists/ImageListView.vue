@@ -1,5 +1,5 @@
 <template>
-  <table v-if="imageList.length > 0">
+  <table v-if="imageList.length > 0" class="stripes">
     <thead>
       <tr>
         <th>Image Name</th>

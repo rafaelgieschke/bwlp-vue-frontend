@@ -1,10 +1,10 @@
 <template>
-  <table v-if="lectureList.length > 0">
+  <table v-if="lectureList.length > 0" class="stripes">
     <thead>
       <tr>
         <th>Lecture Name</th>
         <th>Description</th>
-        <th>End Time</th>
+        <th class="min">End Time</th>
       </tr>
     </thead>
 
@@ -17,7 +17,7 @@
       >
         <td>{{ lecture.lectureName }}</td>
         <td>{{ lecture.description }}</td>
-        <td>
+        <td class="min">
           {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
         </td>
       </tr>
