@@ -6,7 +6,7 @@
       </h3>
     </header>
 
-    <hr />
+    <hr class="small" />
 
     <div>
       <slot name="content"></slot>

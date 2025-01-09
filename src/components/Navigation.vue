@@ -1,5 +1,5 @@
 <template>
-  <nav class="drawer">
+  <nav class="left drawer">
     <header>
       <nav>
         <img class="circle" src="@/assets/img/leopardskin.jpg" />
@@ -15,7 +15,7 @@
       <span>Lecture List</span>
     </RouterLink>
 
-    <hr />
+    <hr class="small" />
 
     <label>Labels</label>
     <RouterLink to="/privacy-policy">
@@ -36,9 +36,5 @@ import {RouterLink} from 'vue-router';
 <style scoped>
 .router-link-active {
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-hr {
-  margin: 0.5rem 0;
 }
 </style>
