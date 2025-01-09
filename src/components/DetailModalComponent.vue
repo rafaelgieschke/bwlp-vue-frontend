@@ -6,7 +6,9 @@
   >
     <section slot="header">
       <h1>{{ title }}</h1>
-      <button @click="$emit('close')">CLOSE MOTHERFUCKER</button>
+      <button @click="$emit('close')" class="circle transparent">
+        <i>close</i>
+      </button>
     </section>
     <div class="modal-content" @click.stop>
       <div class="modal-body">
