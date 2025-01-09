@@ -32,3 +32,13 @@
 <script setup>
 import {RouterLink} from 'vue-router';
 </script>
+
+<style scoped>
+.router-link-active {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+hr {
+  margin: 0.5rem 0;
+}
+</style>
