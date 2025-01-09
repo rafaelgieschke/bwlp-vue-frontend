@@ -35,6 +35,11 @@ import {RouterLink} from 'vue-router';
 
 <style scoped>
 .router-link-active {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  color: var(--on-primary);
+
+  &:hover {
+    color: var(--on-primary-container);
+  }
 }
 </style>
