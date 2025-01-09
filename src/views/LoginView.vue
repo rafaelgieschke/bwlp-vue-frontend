@@ -3,14 +3,14 @@
     <h2>Login</h2>
 
     <form @submit.prevent="login">
-      <input label="Username" id="username" v-model="username" required />
-      <input
-        type="password"
-        label="Password"
-        id="password"
-        v-model="password"
-        required
-      />
+      <div class="field label round border">
+        <input type="text" id="username" v-model="username" required />
+        <label>Username</label>
+      </div>
+      <div class="field label round border">
+        <input type="password" id="password" v-model="password" required />
+        <label>Password</label>
+      </div>
       <button type="submit">Login</button>
 
       <p v-if="error" class="error-message">{{ error }}</p>
@@ -63,12 +63,19 @@ const login = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 320px;
+  margin-inline: auto;
+
+  button {
+    display: flex;
+    margin-inline: auto;
+  }
 }
 
-form {
+/* form {
   display: grid;
   width: 100%;
   max-width: 300px;
   gap: 1rem;
-}
+} */
 </style>
