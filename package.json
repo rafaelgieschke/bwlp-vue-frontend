@@ -21,8 +21,8 @@
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "prettier": "^3.4.2",
     "prettier-plugin-css-order": "^2.1.2",
-    "vite": "^6.0.1",
-    "vite-plugin-vue-devtools": "^7.6.5"
+    "vite": "^6.0.7",
+    "vite-plugin-vue-devtools": "^7.7.0"
   },
   "prettier": {
     "bracketSpacing": false,
