@@ -1,23 +1,22 @@
 <template>
-  <mdui-layout>
-    <mdui-top-app-bar class="example-top-app-bar">
-      <mdui-top-app-bar-title>
-        Baden-Württemberg Lehrpool
-      </mdui-top-app-bar-title>
+  <header>
+    <nav>
+      <button class="circle transparent">
+        <i>menu</i>
+      </button>
+      <h5 class="max center-align">Baden-Württemberg Lehrpool</h5>
+      <button class="circle transparent">
+        <img class="responsive" src="@/assets/img/leopardskin.jpg" />
+      </button>
+      <button v-if="authStore.authToken" @click="logout">Logout</button>
+    </nav>
+  </header>
 
-      <mdui-button v-if="authStore.authToken" @click="logout">
-        Logout
-      </mdui-button>
-    </mdui-top-app-bar>
+  <Navigation />
 
-    <mdui-navigation-drawer open class="example-navigation-drawer">
-      <Navigation />
-    </mdui-navigation-drawer>
-
-    <mdui-layout-main class="example-layout-main">
-      <router-view></router-view>
-    </mdui-layout-main>
-  </mdui-layout>
+  <main class="example-layout-main">
+    <router-view></router-view>
+  </main>
 </template>
 
 <script setup>

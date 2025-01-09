@@ -1,5 +1,5 @@
 <template>
-  <table class="mdui-table" v-if="imageList.length > 0">
+  <table v-if="imageList.length > 0">
     <thead>
       <tr>
         <th>Image Name</th>

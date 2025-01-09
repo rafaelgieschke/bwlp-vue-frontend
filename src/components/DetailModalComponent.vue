@@ -1,26 +1,22 @@
 <template>
-  <mdui-dialog
+  <section
     v-if="isOpen"
     class="modal-overlay"
     @click="closeOnBackdrop && $emit('close')"
   >
-    <mdui-top-app-bar slot="header">
-      <mdui-top-app-bar-title>{{ title }}</mdui-top-app-bar-title>
-      <mdui-button-icon @click="$emit('close')"
-        ><mdui-icon-close></mdui-icon-close
-      ></mdui-button-icon>
-    </mdui-top-app-bar>
+    <section slot="header">
+      <h1>{{ title }}</h1>
+      <button @click="$emit('close')">CLOSE MOTHERFUCKER</button>
+    </section>
     <div class="modal-content" @click.stop>
       <div class="modal-body">
         <slot></slot>
       </div>
     </div>
-  </mdui-dialog>
+  </section>
 </template>
 
 <script setup>
-import '@mdui/icons/close.js';
-
 defineProps({
   isOpen: {
     type: Boolean,

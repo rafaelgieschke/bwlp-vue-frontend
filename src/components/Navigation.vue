@@ -1,31 +1,34 @@
 <template>
-  <mdui-list>
+  <nav class="drawer">
+    <header>
+      <nav>
+        <img class="circle" src="@/assets/img/leopardskin.jpg" />
+        <h6>BW Lehrpool</h6>
+      </nav>
+    </header>
     <RouterLink to="/image-list">
-      <mdui-list-item>Image List</mdui-list-item>
+      <i>inbox</i>
+      <span class="max">Image List</span>
     </RouterLink>
     <RouterLink to="/lecture-list">
-      <mdui-list-item>Lecture List</mdui-list-item>
+      <i>send</i>
+      <span>Lecture List</span>
     </RouterLink>
 
+    <hr />
+
+    <label>Labels</label>
     <RouterLink to="/privacy-policy">
-      <mdui-list-item>Datenschutzerklärung</mdui-list-item>
+      <i>favorite</i>
+      <span>Datenschutzerklärung</span>
     </RouterLink>
     <RouterLink to="/user-agreement">
-      <mdui-list-item>Nutzungsvereinbarung</mdui-list-item>
+      <i>delete</i>
+      <span>Nutzungsvereinbarung</span>
     </RouterLink>
-  </mdui-list>
+  </nav>
 </template>
 
 <script setup>
 import {RouterLink} from 'vue-router';
 </script>
-
-<style scoped>
-a {
-  text-decoration: none;
-}
-
-mdui-list {
-  margin-right: 1rem;
-}
-</style>

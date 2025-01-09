@@ -1,5 +1,5 @@
 <template>
-  <table class="mdui-table" v-if="lectureList.length > 0">
+  <table v-if="lectureList.length > 0">
     <thead>
       <tr>
         <th>Lecture Name</th>

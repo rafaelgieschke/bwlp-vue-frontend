@@ -13,7 +13,7 @@
         </p>
       </section>
 
-      <mdui-divider></mdui-divider>
+      <hr />
 
       <section class="pp-section">
         <h4>Was wird gesammelt?</h4>
@@ -27,7 +27,7 @@
         </p>
       </section>
 
-      <mdui-divider></mdui-divider>
+      <hr />
 
       <section class="pp-section">
         <h4>Wozu werden diese Daten gesammelt?</h4>
@@ -44,7 +44,7 @@
         </p>
       </section>
 
-      <mdui-divider></mdui-divider>
+      <hr />
 
       <section class="pp-section">
         <h4>Mit wem werden diese Daten geteilt?</h4>
@@ -67,7 +67,7 @@
         </p>
       </section>
 
-      <mdui-divider></mdui-divider>
+      <hr />
 
       <section class="pp-section">
         <h4>Wie lange werden Daten gespeicher?</h4>

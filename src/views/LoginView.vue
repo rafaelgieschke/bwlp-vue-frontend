@@ -3,20 +3,15 @@
     <h2>Login</h2>
 
     <form @submit.prevent="login">
-      <mdui-text-field
-        label="Username"
-        id="username"
-        v-model="username"
-        required
-      />
-      <mdui-text-field
+      <input label="Username" id="username" v-model="username" required />
+      <input
         type="password"
         label="Password"
         id="password"
         v-model="password"
         required
       />
-      <mdui-button type="submit">Login</mdui-button>
+      <button type="submit">Login</button>
 
       <p v-if="error" class="error-message">{{ error }}</p>
     </form>
