@@ -1,7 +1,6 @@
 <template>
-  <HeaderComponent />
-
   <Navigation />
+  <HeaderComponent />
 
   <main class="responsive">
     <router-view></router-view>
