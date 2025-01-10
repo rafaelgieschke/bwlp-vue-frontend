@@ -1,14 +1,16 @@
 <template>
   <header>
     <nav>
-      <h5 class="max center-align">Baden-Württemberg Lehrpool</h5>
+      <h5 class="l max center-align">Baden-Württemberg Lehrpool</h5>
+      <div class="m max center-align"></div>
+      <h5 class="s max center-align">BW Lehrpool</h5>
       <!-- <button data-ui="#theme-dialog" class="circle transparent">
         <i>palette</i>
       </button> -->
-      <button @click="mode()" class="chip circle small">
+      <button @click="mode()" class="m l chip circle small">
         <i>light_mode</i>
       </button>
-      <button>
+      <button class="m l">
         Menu
         <i>arrow_drop_down</i>
         <menu>

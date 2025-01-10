@@ -1,34 +1,34 @@
 <template>
-  <table v-if="lectureList.length > 0" class="stripes">
-    <thead>
-      <tr>
-        <th>Lecture Name</th>
-        <th>Description</th>
-        <th class="min">End Time</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr
-        v-for="lecture in lectureList"
-        @click="openModal(lecture)"
-        :key="lecture.lectureId"
-        :id="lecture.lectureId"
-      >
-        <td>{{ lecture.lectureName }}</td>
-        <td>{{ lecture.description }}</td>
-        <td class="min">
-          {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
-        </td>
-      </tr>
-    </tbody>
-
-    <tfoot>
-      <tr>
-        <th colspan="100%">Total lectures: {{ lectureList.length }}</th>
-      </tr>
-    </tfoot>
-  </table>
+  <section class="scroll">
+    <table v-if="lectureList.length > 0" class="stripes">
+      <thead>
+        <tr>
+          <th>Lecture Name</th>
+          <th>Description</th>
+          <th class="min">End Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="lecture in lectureList"
+          @click="openModal(lecture)"
+          :key="lecture.lectureId"
+          :id="lecture.lectureId"
+        >
+          <td>{{ lecture.lectureName }}</td>
+          <td>{{ lecture.description }}</td>
+          <td class="min">
+            {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="100%">Total lectures: {{ lectureList.length }}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
 
   <DetailDialog
     :is-open="showModal"

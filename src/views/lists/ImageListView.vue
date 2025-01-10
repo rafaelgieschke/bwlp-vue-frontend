@@ -1,36 +1,36 @@
 <template>
-  <table v-if="imageList.length > 0" class="stripes">
-    <thead>
-      <tr>
-        <th>Image Name</th>
-        <th>Creation Time</th>
-        <th>File Size</th>
-        <th>Owner</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr
-        v-for="image in imageList"
-        @click="openModal(image)"
-        :key="image.imageBaseId"
-        :id="image.imageBaseId"
-      >
-        <td>{{ image.imageName }}</td>
-        <td>
-          {{ $dayjs(image.createTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
-        </td>
-        <td>{{ image.fileSize }}</td>
-        <td>{{ image.ownerId }}</td>
-      </tr>
-    </tbody>
-
-    <tfoot>
-      <tr>
-        <th colspan="100%">Total Images: {{ imageList.length }}</th>
-      </tr>
-    </tfoot>
-  </table>
+  <section class="scroll">
+    <table v-if="imageList.length > 0" class="stripes">
+      <thead>
+        <tr>
+          <th>Image Name</th>
+          <th>Creation Time</th>
+          <th>File Size</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="image in imageList"
+          @click="openModal(image)"
+          :key="image.imageBaseId"
+          :id="image.imageBaseId"
+        >
+          <td>{{ image.imageName }}</td>
+          <td>
+            {{ $dayjs(image.createTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
+          </td>
+          <td>{{ image.fileSize }}</td>
+          <td>{{ image.ownerId }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="100%">Total Images: {{ imageList.length }}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
 
   <DetailDialog :is-open="showModal" :title="selectedImage?.imageName || ''">
     <div v-if="selectedImage">

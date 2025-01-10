@@ -1,5 +1,5 @@
 <template>
-  <nav class="left drawer">
+  <nav class="m l left drawer">
     <header>
       <nav>
         <img class="circle" src="@/assets/img/leopardskin.jpg" />
