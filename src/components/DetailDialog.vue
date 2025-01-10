@@ -10,7 +10,32 @@
     </header>
 
     <article class="medium padding">
-      <slot></slot>
+      <!-- TODO: rename the tabs and shit -->
+      <div>
+        <div class="tabs">
+          <a data-ui="#page1" class="active">
+            <i>home</i>
+            <span>Tab 1</span>
+          </a>
+          <a data-ui="#page2">
+            <i>home</i>
+            <span>Tab 2</span>
+          </a>
+          <a data-ui="#page3">
+            <i>home</i>
+            <span>Tab 3</span>
+          </a>
+        </div>
+        <div id="page1" class="page padding right active">
+          <slot name="page1"></slot>
+        </div>
+        <div id="page2" class="page padding right">
+          <slot name="page2"></slot>
+        </div>
+        <div id="page3" class="page padding right">
+          <slot name="page3"></slot>
+        </div>
+      </div>
     </article>
 
     <footer class="border-top right-align">

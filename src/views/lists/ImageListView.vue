@@ -33,17 +33,51 @@
   </section>
 
   <DetailDialog :is-open="showModal" :title="selectedImage?.imageName || ''">
-    <div v-if="selectedImage">
-      <p><strong>Image Name:</strong> {{ selectedImage.imageName }}</p>
-      <p>
-        <strong>Creation Time:</strong>
-        {{
-          $dayjs(selectedImage.createTime * 1000).format('DD.MM.YYYY HH:mm:ss')
-        }}
-      </p>
-      <p><strong>File Size:</strong> {{ selectedImage.fileSize }}</p>
-      <p><strong>Owner:</strong> {{ selectedImage.ownerId }}</p>
-    </div>
+    <template #page1>
+      <div v-if="selectedImage">
+        <p><strong>Image Name:</strong> {{ selectedImage.imageName }}</p>
+        <p>
+          <strong>Creation Time:</strong>
+          {{
+            $dayjs(selectedImage.createTime * 1000).format(
+              'DD.MM.YYYY HH:mm:ss',
+            )
+          }}
+        </p>
+        <p><strong>File Size:</strong> {{ selectedImage.fileSize }}</p>
+        <p><strong>Owner:</strong> {{ selectedImage.ownerId }}</p>
+      </div>
+    </template>
+    <template #page2>
+      <div v-if="selectedImage">
+        <p><strong>Image Name:</strong> {{ selectedImage.imageName }}</p>
+        <p>
+          <strong>Creation Time:</strong>
+          {{
+            $dayjs(selectedImage.createTime * 1000).format(
+              'DD.MM.YYYY HH:mm:ss',
+            )
+          }}
+        </p>
+        <p><strong>File Size:</strong> {{ selectedImage.fileSize }}</p>
+        <p><strong>Owner:</strong> {{ selectedImage.ownerId }}</p>
+      </div>
+    </template>
+    <template #page3>
+      <div v-if="selectedImage">
+        <p><strong>Image Name:</strong> {{ selectedImage.imageName }}</p>
+        <p>
+          <strong>Creation Time:</strong>
+          {{
+            $dayjs(selectedImage.createTime * 1000).format(
+              'DD.MM.YYYY HH:mm:ss',
+            )
+          }}
+        </p>
+        <p><strong>File Size:</strong> {{ selectedImage.fileSize }}</p>
+        <p><strong>Owner:</strong> {{ selectedImage.ownerId }}</p>
+      </div>
+    </template>
   </DetailDialog>
 
   <p v-if="error" class="error-message">{{ error }}</p>

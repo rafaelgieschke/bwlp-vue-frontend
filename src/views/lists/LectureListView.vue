@@ -34,16 +34,42 @@
     :is-open="showModal"
     :title="selectedLecture?.lectureName || ''"
   >
-    <div v-if="selectedLecture">
-      <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
-      <p><strong>Description</strong> {{ selectedLecture.description }}</p>
-      <p>
-        <strong>End Time:</strong>
-        {{
-          $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
-        }}
-      </p>
-    </div>
+    <template #page1>
+      <div v-if="selectedLecture">
+        <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
+        <p><strong>Description</strong> {{ selectedLecture.description }}</p>
+        <p>
+          <strong>End Time:</strong>
+          {{
+            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
+          }}
+        </p>
+      </div>
+    </template>
+    <template #page2>
+      <div v-if="selectedLecture">
+        <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
+        <p><strong>Description</strong> {{ selectedLecture.description }}</p>
+        <p>
+          <strong>End Time:</strong>
+          {{
+            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
+          }}
+        </p>
+      </div>
+    </template>
+    <template #page3>
+      <div v-if="selectedLecture">
+        <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
+        <p><strong>Description</strong> {{ selectedLecture.description }}</p>
+        <p>
+          <strong>End Time:</strong>
+          {{
+            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
+          }}
+        </p>
+      </div>
+    </template>
   </DetailDialog>
 
   <p v-if="error" class="error-message">{{ error }}</p>
