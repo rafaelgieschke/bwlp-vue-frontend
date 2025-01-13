@@ -1,7 +1,5 @@
 <template>
   <div v-if="lecture">
-    <pre class="scroll">{{ JSON.stringify(lecture, null, 2) }}</pre>
-
     <table class="stripes">
       <tbody>
         <tr>

@@ -44,6 +44,13 @@
         component: LectureDetailsTab,
         props: {lecture: selectedLecture},
       },
+      {
+        id: 'TooManyDetails',
+        icon: 'info',
+        label: 'TooManyDetails',
+        component: LectureTooManyDetailsTab,
+        props: {lecture: selectedLecture},
+      },
     ]"
   />
 
@@ -60,6 +67,7 @@ import {Thrift} from '@/assets/js/thrift/thrift.js';
 
 import DetailDialog from '@/components/DetailDialog.vue';
 import LectureDetailsTab from '@/components/DialogTabs/LectureTabs/LectureDetailsTab.vue';
+import LectureTooManyDetailsTab from '@/components/DialogTabs/LectureTabs/LectureTooManyDetailsTab.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
