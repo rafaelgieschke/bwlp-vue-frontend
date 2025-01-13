@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^12.4.0",
     "beercss": "^3.8.0",
     "dayjs": "^1.11.13",
     "material-dynamic-colors": "^1.1.2",

@@ -21,6 +21,7 @@
             {{ $dayjs(image.createTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
           </td>
           <td>{{ image.fileSize }}</td>
+
           <td>{{ image.ownerId }}</td>
         </tr>
       </tbody>
@@ -32,7 +33,72 @@
     </table>
   </section>
 
-  <DetailDialog :is-open="showModal" :title="selectedImage?.imageName || ''">
+  <DetailDialog
+    :title="selectedImage?.imageName"
+    :is-open="showModal"
+    :tabs="[
+      {
+        id: 'details',
+        icon: 'home',
+        label: 'Details',
+        component: ImageDetails,
+        props: {image: selectedImage},
+      },
+      {
+        id: 'versions',
+        icon: 'history',
+        label: 'Versions',
+        component: ImageVersions,
+        props: {versions: selectedImage?.versions},
+      },
+      {
+        id: 'permissions',
+        icon: 'lock',
+        label: 'Permissions',
+        component: ImagePermissions,
+        props: {
+          permissions: imagePermissions,
+          defaultPermissions: selectedImage?.defaultPermissions,
+        },
+      },
+    ]"
+    @close="showModal = false"
+  />
+  <!-- :show-save="hasPermission('edit')"
+    :show-footer="true"
+   -->
+  <DetailDialog
+    :title="selectedImage?.imageName"
+    :is-open="showModal"
+    :tabs="[
+      {
+        id: 'details',
+        icon: 'info',
+        label: 'Details',
+        component: ImageDetailsTab,
+        props: {image: selectedImage},
+      },
+      {
+        id: 'versions',
+        icon: 'history',
+        label: 'Versions',
+        component: ImageVersionsTab,
+        props: {versions: selectedImage?.versions},
+      },
+      {
+        id: 'permissions',
+        icon: 'lock',
+        label: 'Permissions',
+        component: ImagePermissionsTab,
+        props: {
+          permissions: imagePermissions,
+          defaultPermissions: selectedImage?.defaultPermissions,
+        },
+      },
+    ]"
+  />
+  <!-- @close="handleClose" @save="handleSave" -->
+  <!-- <DetailDialog :is-open="showModal" :title="selectedImage?.imageName || ''">
     <template #page1>
       <div v-if="selectedImage">
         <table class="stripes">
@@ -43,7 +109,6 @@
             </tr>
             <tr>
               <td>Besitzer</td>
-              <!-- Get owner name here -->
               <td colspan="3">{{ selectedImage.ownerId }}</td>
             </tr>
             <tr>
@@ -67,7 +132,6 @@
               </td>
 
               <td>durch</td>
-              <!-- Get updater name here -->
               <td>{{ selectedImage.updaterId }}</td>
             </tr>
             <tr>
@@ -186,7 +250,7 @@
         </section>
       </div>
     </template>
-  </DetailDialog>
+  </DetailDialog> -->
 
   <p v-if="error" class="error-message">{{ error }}</p>
 </template>
@@ -199,6 +263,9 @@ import {useAuthStore} from '@/stores/auth-store';
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
 import DetailDialog from '@/components/DetailDialog.vue';
+import ImageDetailsTab from '@/components/DialogTabs/ImageDetailsTab.vue';
+import ImageVersionsTab from '@/components/DialogTabs/ImageVersionsTab.vue';
+import ImagePermissionsTab from '@/components/DialogTabs/ImagePermissionsTab.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
