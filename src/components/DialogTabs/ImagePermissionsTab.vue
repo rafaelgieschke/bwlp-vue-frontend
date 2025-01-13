@@ -15,11 +15,7 @@
           <td class="max">{{ user_info }}</td>
           <td v-for="permission in user" :key="permission" class="min">
             <label class="checkbox">
-              <input
-                type="checkbox"
-                :checked="permission"
-                @change="handlePermissionChange(user_info, permission)"
-              />
+              <input type="checkbox" :checked="permission" disabled />
               <span></span>
             </label>
           </td>
@@ -38,11 +34,7 @@
         :key="label"
         class="checkbox"
       >
-        <input
-          type="checkbox"
-          :checked="defaultPermission"
-          @change="handleDefaultPermissionChange(label)"
-        />
+        <input type="checkbox" :checked="defaultPermission" disabled />
         <span class="capitalize">{{ label }}</span>
       </label>
     </section>
@@ -50,8 +42,6 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
-
 const props = defineProps({
   permissions: {
     type: Object,
@@ -62,26 +52,4 @@ const props = defineProps({
     required: true,
   },
 });
-
-const emit = defineEmits(['update:modelValue']);
-
-const modifiedPermissions = ref({...props.permissions});
-const modifiedDefaultPermissions = ref({...props.defaultPermissions});
-
-const handlePermissionChange = (userInfo, permission) => {
-  modifiedPermissions.value[userInfo] = {
-    ...modifiedPermissions.value[userInfo],
-    [permission]: !modifiedPermissions.value[userInfo][permission],
-  };
-  emit('update:modelValue', modifiedPermissions.value);
-};
-
-const handleDefaultPermissionChange = label => {
-  modifiedDefaultPermissions.value[label] =
-    !modifiedDefaultPermissions.value[label];
-  emit('update:modelValue', {
-    permissions: modifiedPermissions.value,
-    defaultPermissions: modifiedDefaultPermissions.value,
-  });
-};
 </script>

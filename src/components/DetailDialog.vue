@@ -30,18 +30,12 @@
           class="page padding right"
           :class="{active: activeTab === tab.id}"
         >
-          <Transition name="fade" mode="out-in">
-            <component
-              :is="tab.component"
-              v-bind="tab.props"
-              @update:modelValue="handleTabUpdate"
-            />
-          </Transition>
+          <component :is="tab.component" v-bind="tab.props" />
         </div>
       </div>
     </article>
 
-    <!-- <footer v-if="showFooter" class="fixed">
+    <footer v-if="showFooter" class="fixed">
       <div class="max"></div>
       <div class="right">
         <button v-if="showCancel" class="secondary" @click="closeDialog">
@@ -51,12 +45,12 @@
           Save Changes
         </button>
       </div>
-    </footer> -->
+    </footer>
   </dialog>
 </template>
 
 <script setup>
-import {ref, watch, onMounted, onUnmounted} from 'vue';
+import {ref, watch, onMounted} from 'vue';
 import {useEventListener} from '@vueuse/core';
 
 const props = defineProps({
@@ -114,40 +108,40 @@ useEventListener('keydown', e => {
   }
 });
 
-// // Handle click outside
-// useEventListener('click', e => {
-//   if (dialogRef.value && !dialogRef.value.contains(e.target)) {
-//     closeDialog();
-//   }
-// });
+// Handle click outside
+useEventListener('click', e => {
+  if (dialogRef.value && !dialogRef.value.contains(e.target)) {
+    closeDialog();
+  }
+});
 
 const setActiveTab = tabId => {
   activeTab.value = tabId;
 };
 
-// const closeDialog = () => {
-//   if (hasChanges.value) {
-//     if (confirm('You have unsaved changes. Are you sure you want to close?')) {
-//       handleClose();
-//     }
-//   } else {
-//     handleClose();
-//   }
-// };
-
-// const handleClose = () => {
-//   const dialog = dialogRef.value;
-//   if (dialog) {
-//     dialog.close();
-//   }
-//   emit('close');
-//   hasChanges.value = false;
-// };
-
-const handleTabUpdate = value => {
-  hasChanges.value = true;
-  emit('update:modelValue', value);
+const closeDialog = () => {
+  if (hasChanges.value) {
+    if (confirm('You have unsaved changes. Are you sure you want to close?')) {
+      handleClose();
+    }
+  } else {
+    handleClose();
+  }
 };
+
+const handleClose = () => {
+  const dialog = dialogRef.value;
+  if (dialog) {
+    dialog.close();
+  }
+  emit('close');
+  hasChanges.value = false;
+};
+
+// const handleTabUpdate = value => {
+//   hasChanges.value = true;
+//   emit('update:modelValue', value);
+// };
 
 // const handleSave = () => {
 //   emit('save');
@@ -168,31 +162,3 @@ watch(
   },
 );
 </script>
-
-<style scoped>
-/* .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.15s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-dialog {
-  max-width: 90vw;
-  max-height: 90vh;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-} */
-</style>
