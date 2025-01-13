@@ -78,9 +78,9 @@ import {useAuthStore} from '@/stores/auth-store';
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
 import DetailDialog from '@/components/DetailDialog.vue';
-import ImageDetailsTab from '@/components/DialogTabs/ImageDetailsTab.vue';
-import ImageVersionsTab from '@/components/DialogTabs/ImageVersionsTab.vue';
-import ImagePermissionsTab from '@/components/DialogTabs/ImagePermissionsTab.vue';
+import ImageDetailsTab from '@/components/DialogTabs/ImageTabs/ImageDetailsTab.vue';
+import ImageVersionsTab from '@/components/DialogTabs/ImageTabs/ImageVersionsTab.vue';
+import ImagePermissionsTab from '@/components/DialogTabs/ImageTabs/ImagePermissionsTab.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
