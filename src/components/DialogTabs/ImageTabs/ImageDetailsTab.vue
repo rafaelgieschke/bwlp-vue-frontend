@@ -21,7 +21,7 @@
           <td>
             {{ $dayjs(image.updateTime * 1000).format('DD.MM.YYYY, HH:mm') }}
           </td>
-          <td>durch</td>
+          <td><strong>durch</strong></td>
           <td>{{ image.updaterId }}</td>
         </tr>
         <tr>
