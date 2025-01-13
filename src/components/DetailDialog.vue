@@ -1,15 +1,15 @@
 <template>
-  <dialog class="medium">
-    <header class="border-bottom">
+  <dialog class="top">
+    <header class="fixed">
       <nav>
-        <h5>{{ title }}</h5>
+        <h5 class="max">{{ title }}</h5>
         <button class="transparent circle small" @click="closeDialog">
           <i>close</i>
         </button>
       </nav>
     </header>
 
-    <article class="medium padding">
+    <article class="scroll padding">
       <!-- TODO: rename the tabs and shit -->
       <div>
         <div class="tabs">
@@ -25,6 +25,10 @@
             <i>home</i>
             <span>Tab 3</span>
           </a>
+          <a data-ui="#page4">
+            <i>home</i>
+            <span>Tab 4</span>
+          </a>
         </div>
         <div id="page1" class="page padding right active">
           <slot name="page1"></slot>
@@ -35,12 +39,11 @@
         <div id="page3" class="page padding right">
           <slot name="page3"></slot>
         </div>
+        <div id="page4" class="page padding right">
+          <slot name="page4"></slot>
+        </div>
       </div>
     </article>
-
-    <footer class="border-top right-align">
-      <button class="border" @click="closeDialog">Close</button>
-    </footer>
   </dialog>
 </template>
 
@@ -60,3 +63,9 @@ const closeDialog = () => {
   emit('close');
 };
 </script>
+
+<style scoped>
+:slotted(table tbody tr td:first-child) {
+  font-weight: bold;
+}
+</style>

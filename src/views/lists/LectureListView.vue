@@ -122,10 +122,17 @@ const fetchLectures = async () => {
 };
 
 const openModal = async lecture => {
-  // First set the selected lecture data
-  selectedLecture.value = lecture;
+  try {
+    selectedLecture.value = await sat.getLectureDetails(
+      authStore.authToken,
+      lecture.lectureId,
+    );
+  } catch (e) {
+    error.value = e.message;
+  }
 
-  // Then open the dialog
+  showModal.value = true;
+
   const dialog = document.querySelector('dialog');
   dialog.showModal();
 };
