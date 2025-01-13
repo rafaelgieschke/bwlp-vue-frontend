@@ -34,6 +34,7 @@
   </section>
 
   <DetailDialog
+    v-if="selectedImage"
     :title="selectedImage?.imageName"
     :is-open="showModal"
     :show-save="false"
@@ -95,7 +96,7 @@ const imageList = ref([]);
 const error = ref('');
 const showModal = ref(false);
 const selectedImage = ref(null);
-const imagePermissions = ref(null);
+const imagePermissions = ref({});
 
 onMounted(() => {
   if (!authStore.authToken) {
@@ -120,6 +121,7 @@ const openModal = async image => {
       authStore.authToken,
       image.imageBaseId,
     );
+
     imagePermissions.value = await sat.getImagePermissions(
       authStore.authToken,
       image.imageBaseId,
