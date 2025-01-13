@@ -25,10 +25,6 @@
             <i>home</i>
             <span>Tab 3</span>
           </a>
-          <a data-ui="#page4">
-            <i>home</i>
-            <span>Tab 4</span>
-          </a>
         </div>
         <div id="page1" class="page padding right active">
           <slot name="page1"></slot>
@@ -38,9 +34,6 @@
         </div>
         <div id="page3" class="page padding right">
           <slot name="page3"></slot>
-        </div>
-        <div id="page4" class="page padding right">
-          <slot name="page4"></slot>
         </div>
       </div>
     </article>

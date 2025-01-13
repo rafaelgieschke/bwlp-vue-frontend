@@ -186,11 +186,6 @@
         </section>
       </div>
     </template>
-    <template #page4>
-      <div v-if="selectedImage">
-        {{ selectedImage }}
-      </div>
-    </template>
   </DetailDialog>
 
   <p v-if="error" class="error-message">{{ error }}</p>
