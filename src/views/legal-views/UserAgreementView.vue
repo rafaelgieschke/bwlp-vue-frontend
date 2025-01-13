@@ -57,24 +57,29 @@ import Card from '@/components/Card.vue';
 </script>
 
 <style scoped>
-.subtitle {
-  margin: 0;
-  font-weight: bold;
-
-  &:first-child {
-    margin-top: 1rem;
-  }
-
-  &:first-child + & {
-    margin-bottom: 1rem;
-  }
-
-  & + .big-paragraph {
-    margin-bottom: 0;
-  }
+.subtitle,
+.big-paragraph {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .big-paragraph {
-  margin-bottom: 1rem;
+  margin-block-start: 1rem;
+
+  & + & {
+    margin-block-start: 0rem;
+  }
+
+  & + .subtitle {
+    margin-block-start: 1rem;
+  }
+}
+
+.subtitle {
+  font-weight: bold;
+
+  &:nth-of-type(n + 3) + .big-paragraph {
+    margin-block-start: 0rem;
+  }
 }
 </style>

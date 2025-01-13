@@ -80,6 +80,8 @@
         </p>
       </section>
 
+      <hr class="small" />
+
       <section class="pp-section">
         <h4>Wohin kann ich mich bei Fragen wenden?</h4>
         <p class="big-paragraph">
