@@ -31,46 +31,21 @@
   </section>
 
   <DetailDialog
+    v-if="selectedLecture"
+    :title="selectedLecture?.lectureName"
     :is-open="showModal"
-    :title="selectedLecture?.lectureName || ''"
-  >
-    <template #page1>
-      <div v-if="selectedLecture">
-        <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
-        <p><strong>Description</strong> {{ selectedLecture.description }}</p>
-        <p>
-          <strong>End Time:</strong>
-          {{
-            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
-          }}
-        </p>
-      </div>
-    </template>
-    <template #page2>
-      <div v-if="selectedLecture">
-        <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
-        <p><strong>Description</strong> {{ selectedLecture.description }}</p>
-        <p>
-          <strong>End Time:</strong>
-          {{
-            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
-          }}
-        </p>
-      </div>
-    </template>
-    <template #page3>
-      <div v-if="selectedLecture">
-        <p><strong>Lecture Name:</strong> {{ selectedLecture.lectureName }}</p>
-        <p><strong>Description</strong> {{ selectedLecture.description }}</p>
-        <p>
-          <strong>End Time:</strong>
-          {{
-            $dayjs(selectedLecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss')
-          }}
-        </p>
-      </div>
-    </template>
-  </DetailDialog>
+    :show-save="false"
+    :show-footer="false"
+    :tabs="[
+      {
+        id: 'details',
+        icon: 'info',
+        label: 'Details',
+        component: LectureDetailsTab,
+        props: {lecture: selectedLecture},
+      },
+    ]"
+  />
 
   <p v-if="error" class="error-message">{{ error }}</p>
 </template>
@@ -82,7 +57,9 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
+
 import DetailDialog from '@/components/DetailDialog.vue';
+import LectureDetailsTab from '@/components/DialogTabs/LectureTabs/LectureDetailsTab.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();

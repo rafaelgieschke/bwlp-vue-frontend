@@ -77,6 +77,7 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
+
 import DetailDialog from '@/components/DetailDialog.vue';
 import ImageDetailsTab from '@/components/DialogTabs/ImageTabs/ImageDetailsTab.vue';
 import ImageVersionsTab from '@/components/DialogTabs/ImageTabs/ImageVersionsTab.vue';
