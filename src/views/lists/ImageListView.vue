@@ -33,7 +33,6 @@
             {{ $dayjs(image.createTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
           </td>
           <td>{{ humanFileSize(image.fileSize) }}</td>
-
           <td>{{ image.ownerId }}</td>
         </tr>
       </tbody>
