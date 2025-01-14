@@ -78,8 +78,8 @@ import Card from '@/components/Card.vue';
 .subtitle {
   font-weight: bold;
 
-  &:nth-of-type(n + 3) + .big-paragraph {
-    margin-block-start: 0rem;
+  &:not(:has(~ .subtitle)) + .big-paragraph {
+    margin-block-start: 0;
   }
 }
 </style>
