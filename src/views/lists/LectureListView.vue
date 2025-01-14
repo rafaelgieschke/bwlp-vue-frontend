@@ -3,14 +3,23 @@
     <table v-if="lectureList.length > 0" class="stripes">
       <thead>
         <tr>
-          <th>Lecture Name</th>
-          <th>Description</th>
-          <th class="min">End Time</th>
+          <th @click="sort('lectureName')" class="sortable">
+            Lecture Name
+            <span class="sort-icon">{{ getSortIcon('lectureName') }}</span>
+          </th>
+          <th @click="sort('description')" class="sortable">
+            Description
+            <span class="sort-icon">{{ getSortIcon('description') }}</span>
+          </th>
+          <th @click="sort('endTime')" class="sortable min">
+            End Time
+            <span class="sort-icon">{{ getSortIcon('endTime') }}</span>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="lecture in lectureList"
+          v-for="lecture in sortedLectures"
           @click="openModal(lecture)"
           :key="lecture.lectureId"
           :id="lecture.lectureId"
@@ -58,7 +67,7 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
+import {ref, onMounted, computed} from 'vue';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
@@ -84,6 +93,40 @@ const error = ref('');
 const showModal = ref(false);
 const selectedLecture = ref(null);
 
+// Sorting state
+const sortField = ref('lectureName');
+const sortOrder = ref('asc');
+
+const getSortIcon = field => {
+  if (sortField.value !== field) return '⇕';
+  return sortOrder.value === 'asc' ? '↑' : '↓';
+};
+
+const sort = field => {
+  if (sortField.value === field) {
+    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
+  } else {
+    sortField.value = field;
+    sortOrder.value = 'asc';
+  }
+};
+
+const sortedLectures = computed(() => {
+  return [...lectureList.value].sort((a, b) => {
+    let compareValue = 0;
+
+    if (sortField.value === 'endTime') {
+      compareValue = a.endTime - b.endTime;
+    } else {
+      const aValue = a[sortField.value]?.toLowerCase() || '';
+      const bValue = b[sortField.value]?.toLowerCase() || '';
+      compareValue = aValue.localeCompare(bValue);
+    }
+
+    return sortOrder.value === 'asc' ? compareValue : -compareValue;
+  });
+});
+
 onMounted(() => {
   if (!authStore.authToken) {
     router.push('/login');
@@ -94,11 +137,6 @@ onMounted(() => {
 
 const fetchLectures = async () => {
   try {
-    // For Julien after the holidays, as you can see, with getLectureList, we have to pass it (authToken, 0) as parameters
-    // But with getImageList, we have to pass it (authToken, [], 0) as parameters
-    // So if it doesn't work, just print the shit out of what you're getting out of thin air and if it gives you empty that means
-    // Go check the declaration to see what it requires
-    // Could be a decent idea to make it the same for them all if there's an easy way to do it.
     const response = await sat.getLectureList(authStore.authToken, 0);
     lectureList.value = response;
   } catch (e) {
@@ -122,3 +160,19 @@ const openModal = async lecture => {
   dialog.showModal();
 };
 </script>
+
+<style scoped>
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+}
+</style>

@@ -3,15 +3,27 @@
     <table v-if="imageList.length > 0" class="stripes">
       <thead>
         <tr>
-          <th>Image Name</th>
-          <th>Creation Time</th>
-          <th>File Size</th>
-          <th>Owner</th>
+          <th @click="sort('imageName')" class="sortable">
+            Image Name
+            <span class="sort-icon">{{ getSortIcon('imageName') }}</span>
+          </th>
+          <th @click="sort('createTime')" class="sortable">
+            Creation Time
+            <span class="sort-icon">{{ getSortIcon('createTime') }}</span>
+          </th>
+          <th @click="sort('fileSize')" class="sortable min">
+            File Size
+            <span class="sort-icon">{{ getSortIcon('fileSize') }}</span>
+          </th>
+          <th @click="sort('ownerId')" class="sortable min">
+            Owner
+            <span class="sort-icon">{{ getSortIcon('ownerId') }}</span>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="image in imageList"
+          v-for="image in sortedImages"
           @click="openModal(image)"
           :key="image.imageBaseId"
           :id="image.imageBaseId"
@@ -20,7 +32,7 @@
           <td class="min">
             {{ $dayjs(image.createTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
           </td>
-          <td>{{ image.fileSize }}</td>
+          <td>{{ humanFileSize(image.fileSize) }}</td>
 
           <td>{{ image.ownerId }}</td>
         </tr>
@@ -71,7 +83,7 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
+import {ref, onMounted, computed} from 'vue';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
@@ -82,6 +94,8 @@ import DetailDialog from '@/components/DetailDialog.vue';
 import ImageDetailsTab from '@/components/DialogTabs/ImageTabs/ImageDetailsTab.vue';
 import ImageVersionsTab from '@/components/DialogTabs/ImageTabs/ImageVersionsTab.vue';
 import ImagePermissionsTab from '@/components/DialogTabs/ImageTabs/ImagePermissionsTab.vue';
+
+import {humanFileSize} from '@/utils/fileSize';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -98,6 +112,42 @@ const error = ref('');
 const showModal = ref(false);
 const selectedImage = ref(null);
 const imagePermissions = ref({});
+
+// Sorting state
+const sortField = ref('imageName');
+const sortOrder = ref('asc');
+
+const getSortIcon = field => {
+  if (sortField.value !== field) return '⇕';
+  return sortOrder.value === 'asc' ? '↑' : '↓';
+};
+
+const sort = field => {
+  if (sortField.value === field) {
+    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
+  } else {
+    sortField.value = field;
+    sortOrder.value = 'asc';
+  }
+};
+
+const sortedImages = computed(() => {
+  return [...imageList.value].sort((a, b) => {
+    let compareValue = 0;
+
+    if (sortField.value === 'createTime') {
+      compareValue = a.createTime - b.createTime;
+    } else if (sortField.value === 'fileSize') {
+      compareValue = a.fileSize - b.fileSize;
+    } else {
+      const aValue = a[sortField.value]?.toLowerCase() || '';
+      const bValue = b[sortField.value]?.toLowerCase() || '';
+      compareValue = aValue.localeCompare(bValue);
+    }
+
+    return sortOrder.value === 'asc' ? compareValue : -compareValue;
+  });
+});
 
 onMounted(() => {
   if (!authStore.authToken) {
@@ -137,3 +187,19 @@ const openModal = async image => {
   dialog.showModal();
 };
 </script>
+
+<style scoped>
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+}
+</style>
