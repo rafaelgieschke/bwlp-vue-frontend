@@ -19,7 +19,11 @@
     <i>delete</i>
     <span>Nutzungsvereinbarung</span>
   </RouterLink>
-  <a href="https://www.bwlehrpool.de/wiki/doku.php/start">
+  <a
+    href="https://www.bwlehrpool.de/wiki/doku.php/start"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <i>park</i>
     <span>bwLehrpool Wiki</span>
   </a>
