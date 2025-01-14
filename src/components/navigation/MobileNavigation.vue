@@ -1,9 +1,12 @@
 <template>
-  <button data-ui="#dialog" class="s circle transparent">
+  <button
+    data-ui="#mobile-navigation-dialog"
+    id="mobile-navigation-dialog-button"
+    class="s circle transparent"
+  >
     <i>menu</i>
   </button>
-  <!-- Hide this when changing screen size -->
-  <dialog id="dialog" class="left no-padding">
+  <dialog id="mobile-navigation-dialog" class="left no-padding">
     <nav class="drawer">
       <NavigationHeader />
       <ListOfPages />
@@ -15,3 +18,12 @@
 import ListOfPages from '@/components/navigation/ListOfPages.vue';
 import NavigationHeader from '@/components/navigation/NavigationHeader.vue';
 </script>
+
+<style scoped>
+@media (min-width: 601px) {
+  #mobile-navigation-dialog.active,
+  :global([data-ui='#mobile-navigation-dialog'].active + .overlay.active) {
+    display: none;
+  }
+}
+</style>
