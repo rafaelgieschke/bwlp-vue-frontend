@@ -191,7 +191,7 @@ const openModal = async image => {
 
   showModal.value = true;
 
-  const dialog = document.querySelector('dialog');
+  const dialog = document.querySelector('#data-dialog');
   dialog.showModal();
 };
 </script>
