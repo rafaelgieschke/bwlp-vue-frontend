@@ -114,17 +114,22 @@ const selectedImage = ref(null);
 const imagePermissions = ref({});
 
 // Sorting state
-const sortField = ref('imageName');
+const sortField = ref('default');
 const sortOrder = ref('asc');
 
 const getSortIcon = field => {
-  if (sortField.value !== field) return '⇕';
+  if (sortField.value === 'default' || sortField.value !== field) return '⇕';
   return sortOrder.value === 'asc' ? '↑' : '↓';
 };
 
 const sort = field => {
   if (sortField.value === field) {
-    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
+    if (sortOrder.value === 'asc') {
+      sortOrder.value = 'desc';
+    } else if (sortOrder.value === 'desc') {
+      sortField.value = 'default';
+      sortOrder.value = 'asc';
+    }
   } else {
     sortField.value = field;
     sortOrder.value = 'asc';
@@ -132,6 +137,10 @@ const sort = field => {
 };
 
 const sortedImages = computed(() => {
+  if (sortField.value === 'default') {
+    return imageList.value;
+  }
+
   return [...imageList.value].sort((a, b) => {
     let compareValue = 0;
 

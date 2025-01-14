@@ -94,17 +94,22 @@ const showModal = ref(false);
 const selectedLecture = ref(null);
 
 // Sorting state
-const sortField = ref('lectureName');
+const sortField = ref('default');
 const sortOrder = ref('asc');
 
 const getSortIcon = field => {
-  if (sortField.value !== field) return '⇕';
+  if (sortField.value === 'default' || sortField.value !== field) return '⇕';
   return sortOrder.value === 'asc' ? '↑' : '↓';
 };
 
 const sort = field => {
   if (sortField.value === field) {
-    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
+    if (sortOrder.value === 'asc') {
+      sortOrder.value = 'desc';
+    } else if (sortOrder.value === 'desc') {
+      sortField.value = 'default';
+      sortOrder.value = 'asc';
+    }
   } else {
     sortField.value = field;
     sortOrder.value = 'asc';
@@ -112,6 +117,10 @@ const sort = field => {
 };
 
 const sortedLectures = computed(() => {
+  if (sortField.value === 'default') {
+    return lectureList.value;
+  }
+
   return [...lectureList.value].sort((a, b) => {
     let compareValue = 0;
 
