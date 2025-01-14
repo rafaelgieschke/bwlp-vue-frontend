@@ -89,10 +89,10 @@ import {useAuthStore} from '@/stores/auth-store';
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
 
-import DetailDialog from '@/components/DetailDialog.vue';
-import ImageDetailsTab from '@/components/DialogTabs/ImageTabs/ImageDetailsTab.vue';
-import ImageVersionsTab from '@/components/DialogTabs/ImageTabs/ImageVersionsTab.vue';
-import ImagePermissionsTab from '@/components/DialogTabs/ImageTabs/ImagePermissionsTab.vue';
+import DetailDialog from '@/components/dialog/DetailDialog.vue';
+import ImageDetailsTab from '@/components/dialog/ImageTabs/ImageDetailsTab.vue';
+import ImageVersionsTab from '@/components/dialog/ImageTabs/ImageVersionsTab.vue';
+import ImagePermissionsTab from '@/components/dialog/ImageTabs/ImagePermissionsTab.vue';
 
 import {humanFileSize} from '@/utils/fileSize';
 

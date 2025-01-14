@@ -1,6 +1,7 @@
 <template>
   <header>
     <nav>
+      <MobileNavigation />
       <h5 class="l max center-align">Baden-Württemberg Lehrpool</h5>
       <div class="m max center-align"></div>
       <h5 class="s max center-align">BW Lehrpool</h5>
@@ -69,6 +70,8 @@
 <script setup>
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
+
+import MobileNavigation from '@/components/navigation/MobileNavigation.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();

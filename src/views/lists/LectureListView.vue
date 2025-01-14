@@ -74,9 +74,9 @@ import {useAuthStore} from '@/stores/auth-store';
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
 
-import DetailDialog from '@/components/DetailDialog.vue';
-import LectureDetailsTab from '@/components/DialogTabs/LectureTabs/LectureDetailsTab.vue';
-import LectureTooManyDetailsTab from '@/components/DialogTabs/LectureTabs/LectureTooManyDetailsTab.vue';
+import DetailDialog from '@/components/dialog/DetailDialog.vue';
+import LectureDetailsTab from '@/components/dialog/LectureTabs/LectureDetailsTab.vue';
+import LectureTooManyDetailsTab from '@/components/dialog/LectureTabs/LectureTooManyDetailsTab.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
