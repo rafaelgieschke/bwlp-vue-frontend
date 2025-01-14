@@ -11,6 +11,7 @@ This app uses [Vue.js](https://vuejs.org), [Vite](https://vite.dev) and [Beer CS
 - Vue is Vue
 - Vite is Vite
 - and Beer CSS is a [Material UI](https://m3.material.io) CSS Library, it allows for quick Material designing, and it supports [Material You](https://m3.material.io/blog/announcing-material-you) customisation (theming color based off images and stuff like that, it's pointless, but cool for the user)
+- The icons can be found at [Google Fonts](https://fonts.google.com/icons)
 
 ## Recommended IDE Setup
 
