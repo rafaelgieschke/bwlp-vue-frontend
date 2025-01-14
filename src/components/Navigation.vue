@@ -17,7 +17,7 @@
 
     <hr class="small" />
 
-    <label>Labels</label>
+    <label>Legal Bullshit</label>
     <RouterLink to="/privacy-policy">
       <i>favorite</i>
       <span>Datenschutzerklärung</span>
