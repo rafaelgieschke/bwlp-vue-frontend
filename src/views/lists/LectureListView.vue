@@ -41,6 +41,7 @@
 
   <DetailDialog
     v-if="selectedLecture"
+    id="lecture-dialog"
     :title="selectedLecture?.lectureName"
     :is-open="showModal"
     :show-save="false"
@@ -165,7 +166,7 @@ const openModal = async lecture => {
 
   showModal.value = true;
 
-  const dialog = document.querySelector('#data-dialog');
+  const dialog = document.querySelector('#lecture-dialog');
   dialog.showModal();
 };
 </script>

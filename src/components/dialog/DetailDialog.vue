@@ -1,5 +1,5 @@
 <template>
-  <dialog ref="dialogRef" id="data-dialog" class="top">
+  <dialog ref="dialogRef" class="top">
     <header class="fixed">
       <nav>
         <h5 class="max">{{ title }}</h5>

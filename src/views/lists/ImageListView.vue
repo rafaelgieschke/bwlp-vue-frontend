@@ -46,6 +46,7 @@
 
   <DetailDialog
     v-if="selectedImage"
+    id="image-dialog"
     :title="selectedImage?.imageName"
     :is-open="showModal"
     :show-save="false"
@@ -191,7 +192,7 @@ const openModal = async image => {
 
   showModal.value = true;
 
-  const dialog = document.querySelector('#data-dialog');
+  const dialog = document.querySelector('#image-dialog');
   dialog.showModal();
 };
 </script>
