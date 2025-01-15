@@ -160,6 +160,9 @@ const openModal = async lecture => {
       authStore.authToken,
       lecture.lectureId,
     );
+
+    // This fixes the issue where the dialog is not shown because data not finished loading or sum
+    await sat.getLectureDetails(authStore.authToken, lecture.lectureId);
   } catch (e) {
     error.value = e.message;
   }
