@@ -42,7 +42,7 @@
         icon: 'info',
         label: 'Raumauswahl',
         component: LectureRoomSelectionTab,
-        props: {lecture: selectedLecture},
+        props: {lecture: selectedLecture, locations: lectureLocations},
       },
       {
         id: 'vm-start',
@@ -92,10 +92,7 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import $dayjs from 'dayjs';
 
-import {
-  LecturePermissions,
-  SatelliteServerClient,
-} from '@/assets/js/bwlp/bwlp.js';
+import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
 
 import SortableTable from '@/components/SortableTable.vue';
@@ -142,6 +139,7 @@ const lectureList = ref([]);
 const error = ref('');
 const showModal = ref(false);
 const selectedLecture = ref(null);
+const lectureLocations = ref(null);
 
 onMounted(() => {
   if (!authStore.authToken) {
@@ -165,6 +163,10 @@ const openModal = async lecture => {
     selectedLecture.value = await sat.getLectureDetails(
       authStore.authToken,
       lecture.lectureId,
+    );
+    lectureLocations.value = await sat.getLocations(
+      authStore.authToken,
+      lecture.imageBaseId,
     );
 
     // This fixes the issue where the dialog is not shown because data not finished loading or sum

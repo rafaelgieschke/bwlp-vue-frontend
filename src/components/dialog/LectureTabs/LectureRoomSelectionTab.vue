@@ -1,8 +1,37 @@
-<template>Not yet implemented</template>
+<template>
+  This tab needs work
+  <div v-for="location in locations">
+    <label class="checkbox">
+      <input type="checkbox" disabled />
+      <span>{{ location.locationName }}</span>
+    </label>
+  </div>
+  <div>
+    <label class="radio">
+      <input type="radio" name="radio1_" />
+      <span>
+        Veranstaltung ausschließlich in den ausgewählten Räumen anzeigen
+      </span>
+    </label>
+  </div>
+
+  <div>
+    <label class="radio">
+      <input type="radio" name="radio1_" />
+      <span>
+        Veranstaltung mit höherer Priorität in den ausgewählten Räumen anzeigen
+      </span>
+    </label>
+  </div>
+</template>
 
 <script setup>
 defineProps({
   lecture: {
+    type: Object,
+    required: true,
+  },
+  locations: {
     type: Object,
     required: true,
   },
