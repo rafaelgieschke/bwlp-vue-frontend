@@ -19,8 +19,57 @@
       {
         id: 'details',
         icon: 'info',
-        label: 'Details',
+        label: 'Allgemein',
         component: LectureDetailsTab,
+        props: {lecture: selectedLecture},
+      },
+      {
+        id: 'restrictions',
+        icon: 'info',
+        label: 'Beschränkungen',
+        component: LectureRestrictionsTab,
+        props: {lecture: selectedLecture},
+      },
+      {
+        id: 'firewall',
+        icon: 'info',
+        label: 'Firewall',
+        component: LectureFirewallTab,
+        props: {lecture: selectedLecture},
+      },
+      {
+        id: 'room-selection',
+        icon: 'info',
+        label: 'Raumauswahl',
+        component: LectureRoomSelectionTab,
+        props: {lecture: selectedLecture},
+      },
+      {
+        id: 'vm-start',
+        icon: 'info',
+        label: 'VM-Start',
+        component: LectureVMStartTab,
+        props: {lecture: selectedLecture},
+      },
+      {
+        id: 'permissions',
+        icon: 'lock',
+        label: 'Berechtigungen',
+        component: LecturePermissionsTab,
+        props: {lecture: selectedLecture},
+      },
+      {
+        id: 'network-drives',
+        icon: 'info',
+        label: 'Netzlaufwerke',
+        component: LectureNetworkDrivesTab,
+        props: {lecture: selectedLecture},
+      },
+      {
+        id: 'ldap-filter',
+        icon: 'info',
+        label: 'LDAP-Filter',
+        component: LectureLDAPFilterTab,
         props: {lecture: selectedLecture},
       },
       {
@@ -43,7 +92,10 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import $dayjs from 'dayjs';
 
-import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
+import {
+  LecturePermissions,
+  SatelliteServerClient,
+} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
 
 import SortableTable from '@/components/SortableTable.vue';
@@ -67,6 +119,13 @@ const columns = [
 
 import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import LectureDetailsTab from '@/components/dialog/LectureTabs/LectureDetailsTab.vue';
+import LectureRestrictionsTab from '@/components/dialog/LectureTabs/LectureRestrictionsTab.vue';
+import LectureFirewallTab from '@/components/dialog/LectureTabs/LectureFirewallTab.vue';
+import LectureRoomSelectionTab from '@/components/dialog/LectureTabs/LectureRoomSelectionTab.vue';
+import LectureVMStartTab from '@/components/dialog/LectureTabs/LectureVMStartTab.vue';
+import LecturePermissionsTab from '@/components/dialog/LectureTabs/LecturePermissionsTab.vue';
+import LectureNetworkDrivesTab from '@/components/dialog/LectureTabs/LectureNetworkDrivesTab.vue';
+import LectureLDAPFilterTab from '@/components/dialog/LectureTabs/LectureLDAPFilterTab.vue';
 import LectureTooManyDetailsTab from '@/components/dialog/LectureTabs/LectureTooManyDetailsTab.vue';
 
 const router = useRouter();
