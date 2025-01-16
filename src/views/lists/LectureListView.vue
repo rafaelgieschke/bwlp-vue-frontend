@@ -56,7 +56,10 @@
         icon: 'lock',
         label: 'Berechtigungen',
         component: LecturePermissionsTab,
-        props: {lecture: selectedLecture},
+        props: {
+          permissions: lecturePermissions,
+          defaultPermissions: selectedLecture?.defaultPermissions,
+        },
       },
       {
         id: 'network-drives',
@@ -139,7 +142,8 @@ const lectureList = ref([]);
 const error = ref('');
 const showModal = ref(false);
 const selectedLecture = ref(null);
-const lectureLocations = ref(null);
+const lectureLocations = ref({});
+const lecturePermissions = ref({});
 
 onMounted(() => {
   if (!authStore.authToken) {
@@ -166,11 +170,12 @@ const openModal = async lecture => {
     );
     lectureLocations.value = await sat.getLocations(
       authStore.authToken,
-      lecture.imageBaseId,
+      lecture.lectureId,
     );
-
-    // This fixes the issue where the dialog is not shown because data not finished loading or sum
-    await sat.getLectureDetails(authStore.authToken, lecture.lectureId);
+    lecturePermissions.value = await sat.getLecturePermissions(
+      authStore.authToken,
+      lecture.lectureId,
+    );
   } catch (e) {
     error.value = e.message;
   }
