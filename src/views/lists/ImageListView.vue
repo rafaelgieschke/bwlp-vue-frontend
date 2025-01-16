@@ -1,47 +1,13 @@
 <template>
   <section class="scroll">
-    <table v-if="imageList.length > 0" class="stripes">
-      <thead>
-        <tr>
-          <th @click="sort('imageName')" class="sortable">
-            Image Name
-            <span class="sort-icon">{{ getSortIcon('imageName') }}</span>
-          </th>
-          <th @click="sort('createTime')" class="sortable">
-            Creation Time
-            <span class="sort-icon">{{ getSortIcon('createTime') }}</span>
-          </th>
-          <th @click="sort('fileSize')" class="sortable min">
-            File Size
-            <span class="sort-icon">{{ getSortIcon('fileSize') }}</span>
-          </th>
-          <th @click="sort('ownerId')" class="sortable min">
-            Owner
-            <span class="sort-icon">{{ getSortIcon('ownerId') }}</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="image in sortedImages"
-          @click="openModal(image)"
-          :key="image.imageBaseId"
-          :id="image.imageBaseId"
-        >
-          <td>{{ image.imageName }}</td>
-          <td class="min">
-            {{ $dayjs(image.createTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
-          </td>
-          <td>{{ humanFileSize(image.fileSize) }}</td>
-          <td>{{ image.ownerId }}</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th colspan="100%">Total Images: {{ imageList.length }}</th>
-        </tr>
-      </tfoot>
-    </table>
+    <SortableTable
+      v-if="imageList.length > 0"
+      :items="imageList"
+      :columns="columns"
+      item-key="imageBaseId"
+      item-label="Images"
+      @row-click="openModal"
+    />
   </section>
 
   <DetailDialog
@@ -83,19 +49,45 @@
 </template>
 
 <script setup>
-import {ref, onMounted, computed} from 'vue';
+import {ref, onMounted} from 'vue';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
+import $dayjs from 'dayjs';
+import {humanFileSize} from '@/utils/fileSize';
+
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
+
+import SortableTable from '@/components/SortableTable.vue';
+
+const columns = [
+  {
+    field: 'imageName',
+    label: 'Image Name',
+  },
+  {
+    field: 'createTime',
+    label: 'Creation Time',
+    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY HH:mm:ss'),
+  },
+  {
+    field: 'fileSize',
+    label: 'File Size',
+    class: 'min',
+    formatter: value => humanFileSize(value),
+  },
+  {
+    field: 'ownerId',
+    label: 'Owner',
+    class: 'min',
+  },
+];
 
 import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import ImageDetailsTab from '@/components/dialog/ImageTabs/ImageDetailsTab.vue';
 import ImageVersionsTab from '@/components/dialog/ImageTabs/ImageVersionsTab.vue';
 import ImagePermissionsTab from '@/components/dialog/ImageTabs/ImagePermissionsTab.vue';
-
-import {humanFileSize} from '@/utils/fileSize';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -112,51 +104,6 @@ const error = ref('');
 const showModal = ref(false);
 const selectedImage = ref(null);
 const imagePermissions = ref({});
-
-// Sorting state
-const sortField = ref('default');
-const sortOrder = ref('asc');
-
-const getSortIcon = field => {
-  if (sortField.value === 'default' || sortField.value !== field) return '⇕';
-  return sortOrder.value === 'asc' ? '↑' : '↓';
-};
-
-const sort = field => {
-  if (sortField.value === field) {
-    if (sortOrder.value === 'asc') {
-      sortOrder.value = 'desc';
-    } else if (sortOrder.value === 'desc') {
-      sortField.value = 'default';
-      sortOrder.value = 'asc';
-    }
-  } else {
-    sortField.value = field;
-    sortOrder.value = 'asc';
-  }
-};
-
-const sortedImages = computed(() => {
-  if (sortField.value === 'default') {
-    return imageList.value;
-  }
-
-  return [...imageList.value].sort((a, b) => {
-    let compareValue = 0;
-
-    if (sortField.value === 'createTime') {
-      compareValue = a.createTime - b.createTime;
-    } else if (sortField.value === 'fileSize') {
-      compareValue = a.fileSize - b.fileSize;
-    } else {
-      const aValue = a[sortField.value]?.toLowerCase() || '';
-      const bValue = b[sortField.value]?.toLowerCase() || '';
-      compareValue = aValue.localeCompare(bValue);
-    }
-
-    return sortOrder.value === 'asc' ? compareValue : -compareValue;
-  });
-});
 
 onMounted(() => {
   if (!authStore.authToken) {
@@ -196,19 +143,3 @@ const openModal = async image => {
   dialog.showModal();
 };
 </script>
-
-<style scoped>
-.sortable {
-  cursor: pointer;
-  user-select: none;
-}
-
-.sortable:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.sort-icon {
-  display: inline-block;
-  margin-left: 4px;
-}
-</style>

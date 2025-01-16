@@ -1,42 +1,13 @@
 <template>
   <section class="scroll">
-    <table v-if="lectureList.length > 0" class="stripes">
-      <thead>
-        <tr>
-          <th @click="sort('lectureName')" class="sortable">
-            Lecture Name
-            <span class="sort-icon">{{ getSortIcon('lectureName') }}</span>
-          </th>
-          <th @click="sort('description')" class="sortable">
-            Description
-            <span class="sort-icon">{{ getSortIcon('description') }}</span>
-          </th>
-          <th @click="sort('endTime')" class="sortable min">
-            End Time
-            <span class="sort-icon">{{ getSortIcon('endTime') }}</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="lecture in sortedLectures"
-          @click="openModal(lecture)"
-          :key="lecture.lectureId"
-          :id="lecture.lectureId"
-        >
-          <td>{{ lecture.lectureName }}</td>
-          <td>{{ lecture.description }}</td>
-          <td class="min">
-            {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY HH:mm:ss') }}
-          </td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th colspan="100%">Total lectures: {{ lectureList.length }}</th>
-        </tr>
-      </tfoot>
-    </table>
+    <SortableTable
+      v-if="lectureList.length > 0"
+      :items="lectureList"
+      :columns="columns"
+      item-key="lectureId"
+      item-label="lectures"
+      @row-click="openModal"
+    />
   </section>
 
   <DetailDialog
@@ -68,12 +39,33 @@
 </template>
 
 <script setup>
-import {ref, onMounted, computed} from 'vue';
+import {ref, onMounted} from 'vue';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
+import $dayjs from 'dayjs';
+
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
+
+import SortableTable from '@/components/SortableTable.vue';
+
+const columns = [
+  {
+    field: 'lectureName',
+    label: 'Lecture Name',
+  },
+  {
+    field: 'description',
+    label: 'Description',
+  },
+  {
+    field: 'endTime',
+    label: 'End Time',
+    class: 'min',
+    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm'),
+  },
+];
 
 import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import LectureDetailsTab from '@/components/dialog/LectureTabs/LectureDetailsTab.vue';
@@ -93,49 +85,6 @@ const lectureList = ref([]);
 const error = ref('');
 const showModal = ref(false);
 const selectedLecture = ref(null);
-
-// Sorting state
-const sortField = ref('default');
-const sortOrder = ref('asc');
-
-const getSortIcon = field => {
-  if (sortField.value === 'default' || sortField.value !== field) return '⇕';
-  return sortOrder.value === 'asc' ? '↑' : '↓';
-};
-
-const sort = field => {
-  if (sortField.value === field) {
-    if (sortOrder.value === 'asc') {
-      sortOrder.value = 'desc';
-    } else if (sortOrder.value === 'desc') {
-      sortField.value = 'default';
-      sortOrder.value = 'asc';
-    }
-  } else {
-    sortField.value = field;
-    sortOrder.value = 'asc';
-  }
-};
-
-const sortedLectures = computed(() => {
-  if (sortField.value === 'default') {
-    return lectureList.value;
-  }
-
-  return [...lectureList.value].sort((a, b) => {
-    let compareValue = 0;
-
-    if (sortField.value === 'endTime') {
-      compareValue = a.endTime - b.endTime;
-    } else {
-      const aValue = a[sortField.value]?.toLowerCase() || '';
-      const bValue = b[sortField.value]?.toLowerCase() || '';
-      compareValue = aValue.localeCompare(bValue);
-    }
-
-    return sortOrder.value === 'asc' ? compareValue : -compareValue;
-  });
-});
 
 onMounted(() => {
   if (!authStore.authToken) {
@@ -173,19 +122,3 @@ const openModal = async lecture => {
   dialog.showModal();
 };
 </script>
-
-<style scoped>
-.sortable {
-  cursor: pointer;
-  user-select: none;
-}
-
-.sortable:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.sort-icon {
-  display: inline-block;
-  margin-left: 4px;
-}
-</style>
