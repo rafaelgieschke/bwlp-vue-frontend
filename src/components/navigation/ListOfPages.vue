@@ -12,11 +12,11 @@
 
   <label>Legal Bullshit</label>
   <RouterLink to="/privacy-policy">
-    <i>favorite</i>
+    <i>policy</i>
     <span>Datenschutzerklärung</span>
   </RouterLink>
   <RouterLink to="/user-agreement">
-    <i>delete</i>
+    <i>handshake</i>
     <span>Nutzungsvereinbarung</span>
   </RouterLink>
   <a
@@ -24,7 +24,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <i>park</i>
+    <i>developer_guide</i>
     <span>bwLehrpool Wiki</span>
   </a>
 </template>
