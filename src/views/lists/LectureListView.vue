@@ -1,14 +1,12 @@
 <template>
-  <section class="scroll">
-    <SortableTable
-      v-if="lectureList.length > 0"
-      :items="lectureList"
-      :columns="columns"
-      item-key="lectureId"
-      item-label="lectures"
-      @row-click="openModal"
-    />
-  </section>
+  <SortableTable
+    v-if="lectureList.length > 0"
+    :items="lectureList"
+    :columns="columns"
+    item-key="lectureId"
+    item-label="lectures"
+    @row-click="openModal"
+  />
 
   <DetailDialog
     v-if="selectedLecture"

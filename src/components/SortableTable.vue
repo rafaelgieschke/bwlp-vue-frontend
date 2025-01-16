@@ -1,41 +1,47 @@
 <template>
-  <table v-if="items.length > 0" class="stripes">
-    <thead>
-      <tr>
-        <th
-          v-for="column in columns"
-          :key="column.field"
-          @click="sort(column.field)"
-          :class="['sortable', column.class]"
+  <section class="scroll">
+    <table v-if="items.length > 0" class="stripes">
+      <thead>
+        <tr>
+          <th
+            v-for="column in columns"
+            :key="column.field"
+            @click="sort(column.field)"
+            :class="['sortable', column.class]"
+          >
+            {{ column.label }}
+            <span class="sort-icon">{{ getSortIcon(column.field) }}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="item in sortedItems"
+          :key="getItemKey(item)"
+          :id="getItemKey(item)"
+          @click="$emit('row-click', item)"
         >
-          {{ column.label }}
-          <span class="sort-icon">{{ getSortIcon(column.field) }}</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="item in sortedItems"
-        :key="getItemKey(item)"
-        :id="getItemKey(item)"
-        @click="$emit('row-click', item)"
-      >
-        <td v-for="column in columns" :key="column.field" :class="column.class">
-          <template v-if="column.formatter">
-            {{ column.formatter(item[column.field], item) }}
-          </template>
-          <template v-else>
-            {{ item[column.field] }}
-          </template>
-        </td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th colspan="100%">Total {{ itemLabel }}: {{ items.length }}</th>
-      </tr>
-    </tfoot>
-  </table>
+          <td
+            v-for="column in columns"
+            :key="column.field"
+            :class="column.class"
+          >
+            <template v-if="column.formatter">
+              {{ column.formatter(item[column.field], item) }}
+            </template>
+            <template v-else>
+              {{ item[column.field] }}
+            </template>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="100%">Total {{ itemLabel }}: {{ items.length }}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
 </template>
 
 <script setup>

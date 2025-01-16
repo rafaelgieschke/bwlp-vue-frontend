@@ -1,10 +1,12 @@
 <template>
   <header>
     <nav>
-      <MobileNavigation />
+      <MobileNavigation v-if="authStore.authToken" />
+
       <h5 class="l max center-align">Baden-Württemberg Lehrpool</h5>
       <div class="m max center-align"></div>
       <h5 class="s max center-align">BW Lehrpool</h5>
+
       <!-- <button data-ui="#theme-dialog" class="circle transparent">
         <i>palette</i>
       </button> -->

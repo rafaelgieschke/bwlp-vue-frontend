@@ -13,3 +13,9 @@
     </div>
   </article>
 </template>
+
+<style scoped>
+h3 {
+  overflow-wrap: break-word;
+}
+</style>

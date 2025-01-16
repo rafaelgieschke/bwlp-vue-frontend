@@ -71,11 +71,4 @@ const login = async () => {
     margin-inline: auto;
   }
 }
-
-/* form {
-  display: grid;
-  width: 100%;
-  max-width: 300px;
-  gap: 1rem;
-} */
 </style>

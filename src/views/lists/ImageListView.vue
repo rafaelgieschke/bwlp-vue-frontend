@@ -1,14 +1,12 @@
 <template>
-  <section class="scroll">
-    <SortableTable
-      v-if="imageList.length > 0"
-      :items="imageList"
-      :columns="columns"
-      item-key="imageBaseId"
-      item-label="Images"
-      @row-click="openModal"
-    />
-  </section>
+  <SortableTable
+    v-if="imageList.length > 0"
+    :items="imageList"
+    :columns="columns"
+    item-key="imageBaseId"
+    item-label="Images"
+    @row-click="openModal"
+  />
 
   <DetailDialog
     v-if="selectedImage"
