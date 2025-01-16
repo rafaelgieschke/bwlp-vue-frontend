@@ -1,4 +1,3 @@
-<!-- SortableTable.vue -->
 <template>
   <table v-if="items.length > 0" class="stripes">
     <thead>
