@@ -34,7 +34,7 @@
         id: 'permissions',
         icon: 'lock',
         label: 'Permissions',
-        component: ImagePermissionsTab,
+        component: ImageLecturePermissionsTab,
         props: {
           permissions: imagePermissions,
           defaultPermissions: selectedImage?.defaultPermissions,
@@ -85,7 +85,7 @@ const columns = [
 import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import ImageDetailsTab from '@/components/dialog/ImageTabs/ImageDetailsTab.vue';
 import ImageVersionsTab from '@/components/dialog/ImageTabs/ImageVersionsTab.vue';
-import ImagePermissionsTab from '@/components/dialog/ImageTabs/ImagePermissionsTab.vue';
+import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();

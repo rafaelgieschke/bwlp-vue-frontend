@@ -55,7 +55,7 @@
         id: 'permissions',
         icon: 'lock',
         label: 'Berechtigungen',
-        component: LecturePermissionsTab,
+        component: ImageLecturePermissionsTab,
         props: {
           permissions: lecturePermissions,
           defaultPermissions: selectedLecture?.defaultPermissions,
@@ -123,10 +123,10 @@ import LectureRestrictionsTab from '@/components/dialog/LectureTabs/LectureRestr
 import LectureFirewallTab from '@/components/dialog/LectureTabs/LectureFirewallTab.vue';
 import LectureRoomSelectionTab from '@/components/dialog/LectureTabs/LectureRoomSelectionTab.vue';
 import LectureVMStartTab from '@/components/dialog/LectureTabs/LectureVMStartTab.vue';
-import LecturePermissionsTab from '@/components/dialog/LectureTabs/LecturePermissionsTab.vue';
 import LectureNetworkDrivesTab from '@/components/dialog/LectureTabs/LectureNetworkDrivesTab.vue';
 import LectureLDAPFilterTab from '@/components/dialog/LectureTabs/LectureLDAPFilterTab.vue';
 import LectureTooManyDetailsTab from '@/components/dialog/LectureTabs/LectureTooManyDetailsTab.vue';
+import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
