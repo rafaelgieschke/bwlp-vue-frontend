@@ -1,5 +1,9 @@
 <template>
-  This tab needs work
+  <div>This tab needs work</div>
+  <div>
+    if anyone understands the original code, that would really help lmao, that
+    shit's NASTY
+  </div>
   <div v-for="location in locations">
     <label class="checkbox">
       <input type="checkbox" disabled />

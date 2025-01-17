@@ -1,4 +1,6 @@
 <template>
+  <p v-if="error" class="error-message">{{ error }}</p>
+
   <SortableTable
     v-if="imageList.length > 0"
     :items="imageList"
@@ -42,8 +44,6 @@
       },
     ]"
   />
-
-  <p v-if="error" class="error-message">{{ error }}</p>
 </template>
 
 <script setup>
@@ -131,13 +131,10 @@ const openModal = async image => {
       authStore.authToken,
       image.imageBaseId,
     );
+
+    showModal.value = true;
   } catch (e) {
     error.value = e.message;
   }
-
-  showModal.value = true;
-
-  const dialog = document.querySelector('#image-dialog');
-  dialog.showModal();
 };
 </script>

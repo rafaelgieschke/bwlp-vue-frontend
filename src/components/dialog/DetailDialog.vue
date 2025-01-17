@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import {ref, watch, onMounted} from 'vue';
+import {ref, watch, onMounted, useTemplateRef} from 'vue';
 import {useEventListener} from '@vueuse/core';
 
 const props = defineProps({
@@ -83,7 +83,8 @@ const props = defineProps({
 
 const emit = defineEmits(['close', 'save', 'update:modelValue']);
 
-const dialogRef = ref(null);
+// const dialogRef = ref(null);
+const dialogRef = useTemplateRef('dialogRef');
 const activeTab = ref('');
 const hasChanges = ref(false);
 const originalData = ref({});
@@ -99,6 +100,8 @@ onMounted(() => {
       originalData.value[tab.id] = JSON.stringify(tab.props);
     }
   });
+
+  toggleDOM(props.isOpen);
 });
 
 // Handle escape key
@@ -130,12 +133,8 @@ const closeDialog = () => {
 };
 
 const handleClose = () => {
-  const dialog = dialogRef.value;
-  if (dialog) {
-    dialog.close();
-  }
-  emit('close');
   hasChanges.value = false;
+  toggleDOM(false);
 };
 
 // const handleTabUpdate = value => {
@@ -148,17 +147,20 @@ const handleClose = () => {
 //   hasChanges.value = false;
 // };
 
-watch(
-  () => props.isOpen,
-  newVal => {
-    const dialog = dialogRef.value;
-    if (dialog) {
-      if (newVal) {
-        dialog.showModal();
-      } else {
-        dialog.close();
-      }
-    }
-  },
-);
+const toggleDOM = show => {
+  const dialog = dialogRef.value;
+
+  if (!dialog) {
+    return;
+  }
+
+  if (show) {
+    dialog.showModal();
+  } else {
+    dialog.close();
+    emit('close');
+  }
+};
+
+watch(() => props.isOpen, toggleDOM);
 </script>

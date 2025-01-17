@@ -1,4 +1,6 @@
 <template>
+  <p v-if="error" class="error-message">{{ error }}</p>
+
   <SortableTable
     v-if="lectureList.length > 0"
     :items="lectureList"
@@ -84,8 +86,6 @@
       },
     ]"
   />
-
-  <p v-if="error" class="error-message">{{ error }}</p>
 </template>
 
 <script setup>
@@ -176,13 +176,10 @@ const openModal = async lecture => {
       authStore.authToken,
       lecture.lectureId,
     );
+
+    showModal.value = true;
   } catch (e) {
     error.value = e.message;
   }
-
-  showModal.value = true;
-
-  const dialog = document.querySelector('#lecture-dialog');
-  dialog.showModal();
 };
 </script>
