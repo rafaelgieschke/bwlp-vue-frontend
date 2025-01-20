@@ -1,5 +1,5 @@
 <template>
-  <EmptyTest />
+  <EmptyTest text="Not yet implemented" />
 </template>
 
 <script setup>
