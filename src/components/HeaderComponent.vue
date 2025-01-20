@@ -46,7 +46,7 @@ const logout = () => {
 };
 
 const mode = () => {
-  let newMode = ui('mode') == 'dark' ? 'light' : 'dark';
+  let newMode = ui('mode') === 'dark' ? 'light' : 'dark';
   ui('mode', newMode);
 };
 </script>
