@@ -14,9 +14,6 @@
         <h5>BW Lehrpool</h5>
       </nav>
 
-      <!-- <button data-ui="#theme-dialog" class="circle transparent">
-        <i>palette</i>
-      </button> -->
       <button @click="mode()" class="m l chip circle small">
         <i>light_mode</i>
       </button>
@@ -47,10 +44,6 @@ const logout = () => {
   authStore.clearToken();
   router.push('/login');
 };
-
-// const theme = async from => {
-//   await ui('theme', from);
-// };
 
 const mode = () => {
   let newMode = ui('mode') == 'dark' ? 'light' : 'dark';
