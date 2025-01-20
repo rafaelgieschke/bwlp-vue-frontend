@@ -62,19 +62,11 @@ const emit = defineEmits(['close']);
 // const dialogRef = ref(null);
 const dialogRef = useTemplateRef('dialogRef');
 const activeTab = ref('');
-const originalData = ref({});
 
 onMounted(() => {
   if (props.tabs.length > 0) {
     activeTab.value = props.tabs[0].id;
   }
-
-  // Store original data for change detection
-  props.tabs.forEach(tab => {
-    if (tab.props) {
-      originalData.value[tab.id] = JSON.stringify(tab.props);
-    }
-  });
 
   toggleDOM(props.isOpen);
 });
