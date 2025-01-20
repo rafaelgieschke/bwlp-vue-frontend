@@ -113,8 +113,4 @@ const toggleDOM = show => {
 };
 
 watch(() => props.isOpen, toggleDOM);
-
-const handleComponentError = error => {
-  console.error(`Error in tab component: ${error}`);
-};
 </script>
