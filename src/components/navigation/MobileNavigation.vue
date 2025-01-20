@@ -2,6 +2,7 @@
   <button data-ui="#mobile-navigation-dialog" class="s circle transparent">
     <i>menu</i>
   </button>
+
   <dialog id="mobile-navigation-dialog" class="left no-padding">
     <nav class="drawer">
       <NavigationHeader />

@@ -5,7 +5,14 @@
 
       <h5 class="l max center-align">Baden-Württemberg Lehrpool</h5>
       <div class="m max center-align"></div>
-      <h5 class="s max center-align">BW Lehrpool</h5>
+      <nav class="s max center-align">
+        <img
+          class="small"
+          src="@/assets/img/bwLogo/bwLehrpool_small.png"
+          alt="BWLP Logo"
+        />
+        <h5>BW Lehrpool</h5>
+      </nav>
 
       <!-- <button data-ui="#theme-dialog" class="circle transparent">
         <i>palette</i>
