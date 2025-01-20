@@ -9,9 +9,9 @@
       </nav>
     </header>
 
-    <article class="scroll padding">
+    <article class="padding">
       <div>
-        <div class="tabs">
+        <nav class="tabbed">
           <a
             v-for="tab in tabs"
             :key="tab.id"
@@ -22,12 +22,12 @@
             <i>{{ tab.icon }}</i>
             <span>{{ tab.label }}</span>
           </a>
-        </div>
+        </nav>
         <div
           v-for="tab in tabs"
           :key="tab.id"
           :id="tab.id"
-          class="page padding right"
+          class="page padding"
           :class="{active: activeTab === tab.id}"
         >
           <component :is="tab.component" v-bind="tab.props" />
