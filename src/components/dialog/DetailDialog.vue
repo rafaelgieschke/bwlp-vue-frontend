@@ -88,7 +88,7 @@ const setActiveTab = tabId => {
   activeTab.value = tabId;
 };
 
-const sendCloseEvent = () => emit('closeWanted');
+const sendCloseEvent = () => emit('close-wanted');
 
 const toggleDOM = show => {
   const dialog = dialogRef.value;
@@ -108,7 +108,7 @@ const toggleDOM = show => {
     }
   } catch (error) {
     console.error('Dialog state sync error:', error);
-    emit('closeWanted');
+    sendCloseEvent();
   }
 };
 
