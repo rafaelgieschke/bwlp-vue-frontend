@@ -15,8 +15,6 @@
     id="lecture-dialog"
     :title="selectedLecture?.lectureName"
     :is-open="showModal"
-    :show-save="false"
-    :show-footer="false"
     :tabs="[
       {
         id: 'details',
@@ -85,6 +83,7 @@
         props: {lecture: selectedLecture},
       },
     ]"
+    @close="showModal = false"
   />
 </template>
 

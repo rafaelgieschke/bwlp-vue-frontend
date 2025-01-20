@@ -34,18 +34,6 @@
         </div>
       </div>
     </article>
-
-    <footer v-if="showFooter" class="fixed">
-      <div class="max"></div>
-      <div class="right">
-        <button v-if="showCancel" class="secondary" @click="closeDialog">
-          Cancel
-        </button>
-        <button v-if="showSave" :disabled="!hasChanges" @click="handleSave">
-          Save Changes
-        </button>
-      </div>
-    </footer>
   </dialog>
 </template>
 
@@ -67,26 +55,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  showFooter: {
-    type: Boolean,
-    default: false,
-  },
-  showSave: {
-    type: Boolean,
-    default: false,
-  },
-  showCancel: {
-    type: Boolean,
-    default: true,
-  },
 });
 
-const emit = defineEmits(['close', 'save', 'update:modelValue']);
+const emit = defineEmits(['close']);
 
 // const dialogRef = ref(null);
 const dialogRef = useTemplateRef('dialogRef');
 const activeTab = ref('');
-const hasChanges = ref(false);
 const originalData = ref({});
 
 onMounted(() => {
@@ -123,29 +98,8 @@ const setActiveTab = tabId => {
 };
 
 const closeDialog = () => {
-  if (hasChanges.value) {
-    if (confirm('You have unsaved changes. Are you sure you want to close?')) {
-      handleClose();
-    }
-  } else {
-    handleClose();
-  }
-};
-
-const handleClose = () => {
-  hasChanges.value = false;
   toggleDOM(false);
 };
-
-// const handleTabUpdate = value => {
-//   hasChanges.value = true;
-//   emit('update:modelValue', value);
-// };
-
-// const handleSave = () => {
-//   emit('save');
-//   hasChanges.value = false;
-// };
 
 const toggleDOM = show => {
   const dialog = dialogRef.value;

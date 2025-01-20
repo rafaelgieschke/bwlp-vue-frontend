@@ -15,8 +15,6 @@
     id="image-dialog"
     :title="selectedImage?.imageName"
     :is-open="showModal"
-    :show-save="false"
-    :show-footer="false"
     :tabs="[
       {
         id: 'details',
@@ -43,6 +41,7 @@
         },
       },
     ]"
+    @close="showModal = false"
   />
 </template>
 
