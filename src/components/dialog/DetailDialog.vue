@@ -3,7 +3,7 @@
     <header class="fixed">
       <nav>
         <h5 class="max">{{ title }}</h5>
-        <button class="transparent circle small" @click="closeDialog">
+        <button class="transparent circle small" @click="sendCloseEvent">
           <i>close</i>
         </button>
       </nav>
@@ -57,7 +57,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['close']);
+const emit = defineEmits(['closeWanted']);
 
 // const dialogRef = ref(null);
 const dialogRef = useTemplateRef('dialogRef');
@@ -74,14 +74,14 @@ onMounted(() => {
 // Handle escape key
 useEventListener('keydown', e => {
   if (e.key === 'Escape' && props.isOpen) {
-    closeDialog();
+    sendCloseEvent();
   }
 });
 
 // Handle click outside
 useEventListener('click', e => {
   if (dialogRef.value && !dialogRef.value.contains(e.target)) {
-    closeDialog();
+    sendCloseEvent();
   }
 });
 
@@ -89,9 +89,7 @@ const setActiveTab = tabId => {
   activeTab.value = tabId;
 };
 
-const closeDialog = () => {
-  toggleDOM(false);
-};
+const sendCloseEvent = () => emit('closeWanted');
 
 const toggleDOM = show => {
   const dialog = dialogRef.value;
@@ -104,7 +102,6 @@ const toggleDOM = show => {
     dialog.showModal();
   } else {
     dialog.close();
-    emit('close');
   }
 };
 

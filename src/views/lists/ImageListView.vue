@@ -41,7 +41,7 @@
         },
       },
     ]"
-    @close="showModal = false"
+    @close-wanted="showModal = false"
   />
 </template>
 
