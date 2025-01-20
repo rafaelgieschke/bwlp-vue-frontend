@@ -10,6 +10,7 @@
 
   <hr class="small" />
 
+  <!-- We use a Label despite it being a weird choice because this is how Beer CSS does it for some reason ¯\_(ツ)_/¯ -->
   <label>Legal Bullshit</label>
   <RouterLink to="/privacy-policy">
     <i>policy</i>

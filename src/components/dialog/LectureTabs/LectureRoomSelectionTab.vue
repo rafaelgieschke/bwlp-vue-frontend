@@ -4,9 +4,14 @@
     if anyone understands the original code, that would really help lmao, that
     shit's NASTY
   </div>
-  <div v-for="location in locations">
+  <div v-for="(location, index) in locations">
     <label class="checkbox">
-      <input type="checkbox" disabled />
+      <input
+        type="checkbox"
+        :id="`location-${index}-${location.locationName}`"
+        :name="`location-${index}-${location.locationName}`"
+        disabled
+      />
       <span>{{ location.locationName }}</span>
     </label>
   </div>

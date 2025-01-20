@@ -45,7 +45,13 @@
           </td>
           <td>
             <label class="checkbox">
-              <input type="checkbox" :checked="lecture.isEnabled" disabled />
+              <input
+                type="checkbox"
+                :checked="lecture.isEnabled"
+                :id="`event_is_active-${lecture.lectureId}`"
+                :name="`event_is_active-${lecture.lectureId}`"
+                disabled
+              />
               <span>Veranstaltung aktiv</span>
             </label>
           </td>
@@ -54,7 +60,13 @@
           <td>VM-Version</td>
           <td colspan="3">
             <label class="checkbox">
-              <input type="checkbox" :checked="lecture.autoUpdate" disabled />
+              <input
+                type="checkbox"
+                :checked="lecture.autoUpdate"
+                :id="`always_use_latest-${lecture.lectureId}`"
+                :name="`always_use_latest-${lecture.lectureId}`"
+                disabled
+              />
               <span>Immer aktuellste Version verwenden</span>
             </label>
           </td>

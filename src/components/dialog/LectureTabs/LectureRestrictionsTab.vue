@@ -6,7 +6,13 @@
     </strong>
   </p>
   <label class="checkbox">
-    <input type="checkbox" :checked="lecture.hasUsbAccess" disabled />
+    <input
+      type="checkbox"
+      :checked="lecture.hasUsbAccess"
+      :id="`has_usb_access-${lecture.lectureId}`"
+      :name="`has_usb_access-${lecture.lectureId}`"
+      disabled
+    />
     <span>Externe Speichermedien zulassen</span>
   </label>
 
@@ -18,7 +24,13 @@
     Leerpool.nrw-Administrator.
   </p>
   <label class="checkbox">
-    <input type="checkbox" :checked="lecture.isExam" disabled />
+    <input
+      type="checkbox"
+      :checked="lecture.isExam"
+      :id="`is_exam-${lecture.lectureId}`"
+      :name="`is_exam-${lecture.lectureId}`"
+      disabled
+    />
     <span>Externe Speichermedien zulassen</span>
   </label>
 </template>

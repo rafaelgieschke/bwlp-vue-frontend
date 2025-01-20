@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="version in versions" :key="version.versionId">
+        <tr v-for="(version, index) in versions" :key="version.versionId">
           <td>
             {{ $dayjs(version.createTime * 1000).format('DD.MM.YYYY, HH:mm') }}
           </td>
@@ -22,7 +22,13 @@
           <td>{{ version.uploaderId }}</td>
           <td>
             <label class="checkbox">
-              <input type="checkbox" :checked="version.isRestricted" disabled />
+              <input
+                type="checkbox"
+                :checked="version.isRestricted"
+                :id="`version-${version.versionId}-${index}`"
+                :name="`version-${version.versionId}-${index}`"
+                disabled
+              />
               <span>{{
                 version.isRestricted ? 'Verwendbar' : 'Nicht verwendbar'
               }}</span>

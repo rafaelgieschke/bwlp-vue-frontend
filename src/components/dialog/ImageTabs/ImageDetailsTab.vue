@@ -33,7 +33,13 @@
           <td colspan="2">{{ image.shareMode }}</td>
           <td>
             <label class="checkbox">
-              <input type="checkbox" :checked="image.isShared" disabled />
+              <input
+                type="checkbox"
+                :checked="image.isShared"
+                :id="`image_is_shared-${image.imageBaseId}`"
+                :name="`image_is_shared-${image.imageBaseId}`"
+                disabled
+              />
               <span>Vorlage</span>
             </label>
           </td>

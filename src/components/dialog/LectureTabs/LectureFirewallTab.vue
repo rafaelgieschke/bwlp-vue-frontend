@@ -7,7 +7,13 @@
     </strong>
   </p>
   <label class="checkbox">
-    <input type="checkbox" :checked="lecture.hasInternetAccess" disabled />
+    <input
+      type="checkbox"
+      :checked="lecture.hasInternetAccess"
+      :id="`has_internet_access-${lecture.lectureId}`"
+      :name="`has_internet_access-${lecture.lectureId}`"
+      disabled
+    />
     <span>Externe Speichermedien zulassen</span>
   </label>
 

@@ -12,9 +12,15 @@
     <tbody>
       <tr v-for="(user, user_info) in permissions" :key="user_info">
         <td class="max">{{ user_info }}</td>
-        <td v-for="permission in user" :key="permission" class="min">
+        <td v-for="(permission, index) in user" :key="permission" class="min">
           <label class="checkbox">
-            <input type="checkbox" :checked="permission" disabled />
+            <input
+              type="checkbox"
+              :checked="permission"
+              :id="`permission-${user_info}-${index}`"
+              :name="`permission-${user_info}-${index}`"
+              disabled
+            />
             <span></span>
           </label>
         </td>
@@ -29,11 +35,17 @@
       festlegen
     </p>
     <label
-      v-for="(defaultPermission, label) in defaultPermissions"
+      v-for="(defaultPermission, label, index) in defaultPermissions"
       :key="label"
       class="checkbox"
     >
-      <input type="checkbox" :checked="defaultPermission" disabled />
+      <input
+        type="checkbox"
+        :checked="defaultPermission"
+        :id="`defaultPermission-${index}`"
+        :name="`defaultPermission-${index}`"
+        disabled
+      />
       <span class="capitalize">{{ label }}</span>
     </label>
   </section>
