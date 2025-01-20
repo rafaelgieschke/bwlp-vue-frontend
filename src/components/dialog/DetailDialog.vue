@@ -57,9 +57,8 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['closeWanted']);
+const emit = defineEmits(['close-wanted']);
 
-// const dialogRef = ref(null);
 const dialogRef = useTemplateRef('dialogRef');
 const activeTab = ref('');
 
@@ -93,17 +92,29 @@ const sendCloseEvent = () => emit('closeWanted');
 
 const toggleDOM = show => {
   const dialog = dialogRef.value;
+  if (!dialog) return;
 
-  if (!dialog) {
-    return;
-  }
-
-  if (show) {
-    dialog.showModal();
-  } else {
-    dialog.close();
+  try {
+    if (show) {
+      dialog.showModal();
+      if (!dialog.open) {
+        throw new Error('Failed to open dialog');
+      }
+    } else {
+      dialog.close();
+      if (dialog.open) {
+        throw new Error('Failed to close dialog');
+      }
+    }
+  } catch (error) {
+    console.error('Dialog state sync error:', error);
+    emit('closeWanted');
   }
 };
 
 watch(() => props.isOpen, toggleDOM);
+
+const handleComponentError = error => {
+  console.error(`Error in tab component: ${error}`);
+};
 </script>
