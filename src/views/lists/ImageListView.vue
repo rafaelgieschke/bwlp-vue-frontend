@@ -32,7 +32,7 @@
       },
       {
         id: 'permissions',
-        icon: 'lock',
+        icon: 'key',
         label: 'Permissions',
         component: ImageLecturePermissionsTab,
         props: {
