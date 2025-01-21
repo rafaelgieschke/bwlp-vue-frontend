@@ -1,7 +1,7 @@
 <template>
-  <div v-if="versions">
+  <div v-if="versions" class="auto-height surface scroll">
     <table class="stripes">
-      <thead>
+      <thead class="fixed">
         <tr>
           <th>Erstellungszeitpunkt</th>
           <th>Ablaufszeitpunkt</th>

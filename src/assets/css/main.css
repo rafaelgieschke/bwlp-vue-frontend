@@ -4,8 +4,36 @@
 }
 
 @layer baselayout {
+  /* Style main scrollbar */
   html {
     overflow-y: scroll;
+    scrollbar-color: var(--surface) var(--on-surface);
+
+    &::-webkit-scrollbar-track {
+      background: var(--surface);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--on-surface);
+    }
+  }
+
+  /* Reset other scrollbars to Beer CSS defaults */
+  * {
+    scrollbar-color: initial;
+  }
+
+  /* Exclude main scrollbar from reset */
+  html:not(*) {
+    scrollbar-color: var(--surface) var(--on-surface);
+
+    &::-webkit-scrollbar-track {
+      background: var(--surface);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--on-surface);
+    }
   }
 }
 

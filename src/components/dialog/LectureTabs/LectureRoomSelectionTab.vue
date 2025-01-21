@@ -4,17 +4,20 @@
     if anyone understands the original code, that would really help lmao, that
     shit's NASTY
   </div>
-  <div v-for="(location, index) in locations">
-    <label class="checkbox">
-      <input
-        type="checkbox"
-        :id="`location-${index}-${location.locationName}`"
-        :name="`location-${index}-${location.locationName}`"
-        disabled
-      />
-      <span>{{ location.locationName }}</span>
-    </label>
+  <div class="medium-height surface scroll">
+    <div v-for="(location, index) in locations">
+      <label class="checkbox">
+        <input
+          type="checkbox"
+          :id="`location-${index}-${location.locationName}`"
+          :name="`location-${index}-${location.locationName}`"
+          disabled
+        />
+        <span>{{ location.locationName }}</span>
+      </label>
+    </div>
   </div>
+
   <div>
     <label class="radio">
       <input type="radio" name="radio1_" />

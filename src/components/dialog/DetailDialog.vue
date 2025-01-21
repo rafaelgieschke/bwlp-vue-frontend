@@ -11,7 +11,7 @@
 
     <article class="padding">
       <div>
-        <nav class="tabbed">
+        <div class="tabs scroll">
           <a
             v-for="tab in tabs"
             :key="tab.id"
@@ -22,7 +22,7 @@
             <i>{{ tab.icon }}</i>
             <span>{{ tab.label }}</span>
           </a>
-        </nav>
+        </div>
         <div
           v-for="tab in tabs"
           :key="tab.id"

@@ -1,7 +1,7 @@
 <template>
-  <section class="scroll">
+  <section class="large-height surface scroll">
     <table v-if="items.length > 0" class="stripes">
-      <thead>
+      <thead class="fixed">
         <tr>
           <th
             v-for="column in columns"
@@ -35,7 +35,7 @@
           </td>
         </tr>
       </tbody>
-      <tfoot>
+      <tfoot class="fixed">
         <tr>
           <th colspan="100%">Total {{ itemLabel }}: {{ items.length }}</th>
         </tr>

@@ -1,7 +1,9 @@
 <template>
   <div v-if="lecture">
     Temporary tab just to show the lecture object:
-    <pre class="scroll">{{ JSON.stringify(lecture, null, 2) }}</pre>
+    <div class="medium-height surface scroll">
+      <pre>{{ JSON.stringify(lecture, null, 2) }}</pre>
+    </div>
   </div>
 </template>
 
