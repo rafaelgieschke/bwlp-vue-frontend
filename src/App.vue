@@ -8,10 +8,17 @@
 </template>
 
 <script setup>
+import {onMounted} from 'vue';
 import {useAuthStore} from '@/stores/auth-store';
+import {useThemeStore} from '@/stores/theme';
 
 import Navigation from '@/components/navigation/Navigation.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 
 const authStore = useAuthStore();
+const themeStore = useThemeStore();
+
+onMounted(() => {
+  themeStore.loadPersistedState();
+});
 </script>
