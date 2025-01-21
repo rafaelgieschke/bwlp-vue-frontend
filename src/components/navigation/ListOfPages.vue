@@ -8,7 +8,7 @@
     <span>Lecture List</span>
   </RouterLink>
 
-  <SeparatingLabel text="Legal Bullshit" />
+  <SeparatingLabel text="Legal stuff" />
   <RouterLink to="/privacy-policy">
     <i>policy</i>
     <span>Datenschutzerklärung</span>
