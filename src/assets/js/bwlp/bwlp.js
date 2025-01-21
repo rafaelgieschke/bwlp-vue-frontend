@@ -1,4 +1,4 @@
-import {Thrift} from '../thrift/thrift.js';
+import {Thrift} from '@/assets/js/thrift/thrift.js';
 export let MasterServer_ping_args;
 export let MasterServer_ping_result;
 export let MasterServer_authenticate_args;
