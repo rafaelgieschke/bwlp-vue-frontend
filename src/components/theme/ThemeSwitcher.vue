@@ -23,6 +23,7 @@
       :key="name"
       :class="['circle', 'small', name]"
       @click="store.setTheme(name)"
+      data-ui="#theme-dialog"
     ></button>
   </nav>
 </template>

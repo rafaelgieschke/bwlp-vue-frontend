@@ -31,7 +31,15 @@
   </header>
 
   <dialog id="theme-dialog" class="medium right">
-    <h5>Themes</h5>
+    <header class="fixed">
+      <nav>
+        <h5 class="max">Themes</h5>
+        <button class="transparent circle small" data-ui="#theme-dialog">
+          <i>close</i>
+        </button>
+      </nav>
+    </header>
+
     <ThemeSwitcher />
   </dialog>
 </template>

@@ -5,8 +5,8 @@
 
   <dialog id="mobile-navigation-dialog" class="left no-padding">
     <nav class="drawer">
-      <NavigationHeader />
-      <ListOfPages />
+      <NavigationHeader :mobile_nav="true" />
+      <ListOfPages :mobile_nav="true" />
     </nav>
   </dialog>
 </template>
