@@ -8,10 +8,7 @@
     <span>Lecture List</span>
   </RouterLink>
 
-  <hr class="small" />
-
-  <!-- We use a Label despite it being a weird choice because this is how Beer CSS does it for some reason ¯\_(ツ)_/¯ -->
-  <label>Legal Bullshit</label>
+  <SeparatingLabel text="Legal Bullshit" />
   <RouterLink to="/privacy-policy">
     <i>policy</i>
     <span>Datenschutzerklärung</span>
@@ -20,6 +17,8 @@
     <i>handshake</i>
     <span>Nutzungsvereinbarung</span>
   </RouterLink>
+
+  <SeparatingLabel text="Miscellaneous" />
   <a
     href="https://www.bwlehrpool.de/wiki/doku.php/start"
     target="_blank"
@@ -32,6 +31,7 @@
 
 <script setup>
 import {RouterLink} from 'vue-router';
+import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
 </script>
 
 <style scoped>
