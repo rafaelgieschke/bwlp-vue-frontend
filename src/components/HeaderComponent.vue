@@ -13,10 +13,10 @@
         />
         <h5>BW Lehrpool</h5>
       </nav>
-
-      <button @click="mode()" class="m l chip circle small">
-        <i>light_mode</i>
+      <button data-ui="#theme-dialog" class="circle transparent">
+        <i>palette</i>
       </button>
+
       <button class="m l">
         Menu
         <i>arrow_drop_down</i>
@@ -29,6 +29,11 @@
       </button>
     </nav>
   </header>
+
+  <dialog id="theme-dialog" class="medium right">
+    <h5>Themes</h5>
+    <ThemeSwitcher />
+  </dialog>
 </template>
 
 <script setup>
@@ -36,6 +41,7 @@ import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import MobileNavigation from '@/components/navigation/MobileNavigation.vue';
+import ThemeSwitcher from '@/components/theme/ThemeSwitcher.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -43,10 +49,5 @@ const authStore = useAuthStore();
 const logout = () => {
   authStore.clearToken();
   router.push('/login');
-};
-
-const mode = () => {
-  let newMode = ui('mode') === 'dark' ? 'light' : 'dark';
-  ui('mode', newMode);
 };
 </script>
