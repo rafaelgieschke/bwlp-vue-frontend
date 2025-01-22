@@ -20,6 +20,7 @@
 
   <div>
     <label class="radio">
+      <!-- TODO: Give another name (radio1_ isn't good enough) -->
       <input type="radio" name="radio1_" />
       <span>
         Veranstaltung ausschließlich in den ausgewählten Räumen anzeigen
