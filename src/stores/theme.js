@@ -94,19 +94,23 @@ export const useThemeStore = defineStore('theme', {
         this.isDark = data.isDark;
         this.customColor = data.customColor;
         this.customImage = data.customImage;
-
-        // Reapply the saved theme
-        if (this.customColor) {
-          theme(this.customColor);
-        } else if (this.customImage) {
-          theme(this.customImage);
-        } else {
-          theme(this.colors[this.currentTheme]);
-        }
-
-        // Reapply the saved mode
-        ui('mode', this.isDark ? 'dark' : 'light');
+      } else {
+        // Set defaults based on OS preference
+        this.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        this.currentTheme = this.isDark ? 'amber' : 'red';
       }
+
+      // Reapply theme
+      if (this.customColor) {
+        theme(this.customColor);
+      } else if (this.customImage) {
+        theme(this.customImage);
+      } else {
+        theme(this.colors[this.currentTheme]);
+      }
+
+      // Reapply mode
+      ui('mode', this.isDark ? 'dark' : 'light');
     },
   },
 });
