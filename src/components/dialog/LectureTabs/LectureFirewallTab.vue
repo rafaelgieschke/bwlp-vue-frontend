@@ -14,7 +14,7 @@
       :name="`has_internet_access-${lecture.lectureId}`"
       disabled
     />
-    <span>Externe Speichermedien zulassen</span>
+    <span class="wrap">Externe Speichermedien zulassen</span>
   </label>
 
   <p><strong>Netzwerkregeln</strong></p>

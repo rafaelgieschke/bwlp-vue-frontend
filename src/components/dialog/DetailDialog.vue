@@ -28,7 +28,7 @@
           v-for="tab in tabs"
           :key="tab.id"
           :id="tab.id"
-          class="page padding"
+          class="page padding scroll"
           :class="{active: activeTab === tab.id}"
         >
           <component :is="tab.component" v-bind="tab.props" />
