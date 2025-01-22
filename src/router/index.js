@@ -41,25 +41,25 @@ const routes = [
     path: '/image-list',
     name: 'ImageList',
     component: ImageListView,
-    meta: {requiresAuth: true},
+    meta: {requiresAuth: true, title: 'Image List'},
   },
   {
     path: '/lecture-list',
     name: 'LectureList',
     component: LectureListView,
-    meta: {requiresAuth: true},
+    meta: {requiresAuth: true, title: 'Lecture List'},
   },
   {
     path: '/user-agreement',
     name: 'UserAgreementView',
     component: UserAgreementView,
-    meta: {requiresAuth: true},
+    meta: {requiresAuth: true, title: 'User Agreement'},
   },
   {
     path: '/privacy-policy',
     name: 'PrivacyPolicyView',
     component: PrivacyPolicyView,
-    meta: {requiresAuth: true},
+    meta: {requiresAuth: true, title: 'Privacy Policy'},
   },
   {
     path: '/:pathMatch(.*)*',
@@ -80,6 +80,7 @@ router.beforeEach((to, from, next) => {
     // Redirect to login if trying to access authenticated routes
     next('/login');
   } else {
+    document.title = 'BWLP • ' + to.meta.title;
     next();
   }
 });
