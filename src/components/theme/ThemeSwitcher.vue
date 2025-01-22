@@ -1,56 +1,67 @@
 <template>
+  <h6 class="small">Actions</h6>
   <nav class="wrap">
-    <button @click="store.toggleMode()" class="m l chip circle small">
+    <button @click="store.toggleMode()" class="s circle small border">
       <i>{{ store.isDark ? 'light_mode' : 'dark_mode' }}</i>
-      <div class="tooltip bottom">Set Mode</div>
+    </button>
+    <button @click="store.toggleMode()" class="m l border small">
+      <i class="small">{{ store.isDark ? 'light_mode' : 'dark_mode' }}</i>
+      <span>Set mode</span>
     </button>
 
-    <button class="chip circle">
+    <button class="s circle small border">
       <i>palette</i>
       <input
         type="color"
         :value="store.currentColor"
         @input="handleColorPick"
       />
-      <div class="tooltip bottom">Color Picker</div>
+    </button>
+    <button class="m l border small">
+      <i class="small">palette</i>
+      <input
+        type="color"
+        :value="store.currentColor"
+        @input="handleColorPick"
+      />
+      <span>Color picker</span>
     </button>
 
-    <button class="chip circle">
+    <button class="s circle small border">
       <i>upload</i>
       <input type="file" accept="image/*" @change="handleFileUpload" />
-      <div class="tooltip bottom">Image Upload</div>
+    </button>
+    <button class="m l small border">
+      <i class="small">upload</i>
+      <input type="file" accept="image/*" @change="handleFileUpload" />
+      <span>Image upload</span>
+    </button>
+  </nav>
+  <hr class="small" />
+
+  <h6 class="small">Recommended themes</h6>
+  <nav class="wrap">
+    <button @click="setLightRed" class="red">
+      <i>light_mode</i>
+      <span>Light Red</span>
     </button>
 
-    <button
-      v-for="(color, name) in store.colors"
-      :key="name"
-      :class="['circle', 'small', name]"
-      @click="store.setTheme(name)"
-      data-ui="#theme-dialog"
-    ></button>
+    <button @click="setDarkAmber" class="amber">
+      <i>dark_mode</i>
+      <span>Dark Amber</span>
+    </button>
   </nav>
 
   <hr class="small" />
 
-  <h6 class="small">Recommended themes</h6>
-  <nav>
+  <h6 class="small">Themes</h6>
+  <nav class="wrap">
     <button
-      @click="setLightRed"
-      class="chip circle small"
-      data-ui="#theme-dialog"
-    >
-      <i>light_mode</i>
-      <div class="tooltip bottom">Light Red</div>
-    </button>
-
-    <button
-      @click="setDarkAmber"
-      class="chip circle small"
-      data-ui="#theme-dialog"
-    >
-      <i>dark_mode</i>
-      <div class="tooltip bottom">Dark Amber</div>
-    </button>
+      v-for="(color, name) in store.colors"
+      :key="name"
+      :class="['circle', 'small', 'border', name]"
+      @click="store.setTheme(name)"
+    ></button>
   </nav>
 </template>
 
@@ -90,3 +101,9 @@ onMounted(() => {
   store.loadPersistedState();
 });
 </script>
+
+<style scoped>
+h6.small:first-of-type {
+  margin-top: 0;
+}
+</style>

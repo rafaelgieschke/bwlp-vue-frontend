@@ -30,8 +30,6 @@ export const useThemeStore = defineStore('theme', {
       brown: '#795548',
       grey: '#9E9E9E',
       'blue-grey': '#607D8B',
-      black: '#000000',
-      white: '#FFFFFF',
     },
   }),
 
