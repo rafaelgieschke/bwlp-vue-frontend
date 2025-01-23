@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <h2>Edit {{ itemData.lectureName }}</h2>
-    <form @submit.prevent="saveItem">
-      <div class="field label border">
-        <input v-model="itemData.lectureName" />
-        <label>Label</label>
-      </div>
+  <h2>Edit {{ itemData.lectureName }}</h2>
+  <form @submit.prevent="saveItem">
+    <div class="field label border">
+      <input v-model="itemData.lectureName" />
+      <label>Label</label>
+    </div>
 
-      <button type="submit">Save</button>
-    </form>
-  </div>
+    <button type="submit">Save</button>
+  </form>
 </template>
 
 <script setup>
@@ -36,7 +34,6 @@ const sat = new SatelliteServerClient(proto2);
 const itemData = ref({});
 
 onMounted(async () => {
-  // Fetch item data based on ID
   itemData.value = await sat.getLectureDetails(
     authStore.authToken,
     route.params.id,
@@ -45,6 +42,6 @@ onMounted(async () => {
 
 const saveItem = async () => {
   await updateItem(itemData.value);
-  router.push('/items'); // Return to list
+  router.push('/items');
 };
 </script>
