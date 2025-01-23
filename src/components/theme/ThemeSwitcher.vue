@@ -41,14 +41,14 @@
 
   <h6 class="small">Recommended themes</h6>
   <nav class="wrap">
-    <button @click="setLightRed" class="red">
-      <i>light_mode</i>
-      <span>Light Red</span>
-    </button>
-
     <button @click="setDarkAmber" class="amber">
       <i>dark_mode</i>
       <span>Dark Amber</span>
+    </button>
+
+    <button @click="setLightRed" class="red">
+      <i>light_mode</i>
+      <span>Light Red</span>
     </button>
   </nav>
 
