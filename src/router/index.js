@@ -2,8 +2,13 @@ import {createRouter, createWebHistory} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import LoginView from '@/views/LoginView.vue';
+
 import ImageListView from '@/views/lists/ImageListView.vue';
 import LectureListView from '@/views/lists/LectureListView.vue';
+
+import ImageEditView from '@/views/edit/ImageEditView.vue';
+import LectureEditView from '@/views/edit/LectureEditView.vue';
+
 import UserAgreementView from '@/views/legal-views/UserAgreementView.vue';
 import PrivacyPolicyView from '@/views/legal-views/PrivacyPolicyView.vue';
 
@@ -60,6 +65,20 @@ const routes = [
     name: 'PrivacyPolicyView',
     component: PrivacyPolicyView,
     meta: {requiresAuth: true, title: 'Privacy Policy'},
+  },
+  {
+    path: '/image/:id/edit',
+    name: 'ImageEdit',
+    component: ImageEditView,
+    props: true,
+    meta: {requiresAuth: true, title: 'Edit Image'},
+  },
+  {
+    path: '/lecture/:id/edit',
+    name: 'LectureEdit',
+    component: LectureEditView,
+    props: true,
+    meta: {requiresAuth: true, title: 'Edit Lecture'},
   },
   {
     path: '/:pathMatch(.*)*',

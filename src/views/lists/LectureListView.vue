@@ -14,6 +14,10 @@
     v-if="selectedLecture"
     id="lecture-dialog"
     :title="selectedLecture?.lectureName"
+    :editRoute="{
+      name: 'LectureEdit',
+      params: {id: selectedLecture?.lectureId},
+    }"
     :is-open="showModal"
     :tabs="[
       {
@@ -130,7 +134,8 @@ import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissi
 const router = useRouter();
 const authStore = useAuthStore();
 
-const sat1Server = 'bwlp-pxe.ruf.uni-freiburg.de';
+// const sat1Server = 'bwlp-pxe.ruf.uni-freiburg.de';
+const sat1Server = '10.4.9.57';
 
 const proto2 = new Thrift.Protocol(
   new Thrift.Transport(`https://${sat1Server}/thrift/`),

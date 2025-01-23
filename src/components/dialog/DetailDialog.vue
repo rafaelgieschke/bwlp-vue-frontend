@@ -3,6 +3,15 @@
     <header class="fixed">
       <nav>
         <h5 class="max">{{ title }}</h5>
+
+        <RouterLink
+          v-if="editRoute"
+          :to="editRoute"
+          class="transparent circle small"
+        >
+          <i>edit</i>
+        </RouterLink>
+
         <button class="transparent circle small" @click="sendCloseEvent">
           <i>close</i>
         </button>
@@ -55,6 +64,10 @@ const props = defineProps({
   isOpen: {
     type: Boolean,
     default: false,
+  },
+  editRoute: {
+    type: [String, Object],
+    default: null,
   },
 });
 
