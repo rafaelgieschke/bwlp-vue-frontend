@@ -1,13 +1,14 @@
 <template>
-  <h2>Edit {{ itemData.lectureName }}</h2>
-  <form @submit.prevent="saveItem">
-    <div class="field label border">
-      <input v-model="itemData.lectureName" />
-      <label>Label</label>
-    </div>
-
-    <button type="submit">Save</button>
-  </form>
+  <div>
+    <h2>Edit {{ itemData.lectureName }}</h2>
+    <form @submit.prevent="saveItem">
+      <div class="field label border">
+        <input v-model="itemData.lectureName" />
+        <label>Label</label>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -41,7 +42,7 @@ onMounted(async () => {
 });
 
 const saveItem = async () => {
-  await updateItem(itemData.value);
+  await sat.updateLecture(itemData.value, route.params.id);
   router.push('/items');
 };
 </script>

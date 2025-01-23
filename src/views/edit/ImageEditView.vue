@@ -1,13 +1,14 @@
 <template>
-  <h2>Edit {{ itemData.imageName }}</h2>
-  <form @submit.prevent="saveItem">
-    <div class="field label border">
-      <input v-model="itemData.imageName" />
-      <label>Label</label>
-    </div>
-
-    <button type="submit">Save</button>
-  </form>
+  <div>
+    <h2>Edit {{ itemData.imageName }}</h2>
+    <form @submit.prevent="saveItem">
+      <div class="field label border">
+        <input v-model="itemData.imageName" />
+        <label>Label</label>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+  </div>
 </template>
 
 <script setup>
