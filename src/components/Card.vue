@@ -1,5 +1,5 @@
 <template>
-  <article class="bw-card">
+  <article>
     <header class="header">
       <h3>
         <slot name="header"></slot>
