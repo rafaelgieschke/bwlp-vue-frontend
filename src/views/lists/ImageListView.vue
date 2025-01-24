@@ -1,6 +1,10 @@
 <template>
   <template v-if="$route.name === 'ImageList'">
-    <p v-if="error" class="error-message">{{ error }}</p>
+    <ErrorMessage
+      v-if="error"
+      :error="error"
+      default-message="There's been an error of some kind"
+    />
 
     <SortableTable
       v-if="imageList.length > 0"
@@ -45,6 +49,8 @@ import {humanFileSize} from '@/utils/fileSize';
 
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
+
+import ErrorMessage from '@/components/error/ErrorMessage.vue';
 
 import SortableTable from '@/components/SortableTable.vue';
 

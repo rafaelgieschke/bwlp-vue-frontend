@@ -1,13 +1,13 @@
 <template>
   <article v-if="error" class="large-text bold error center-align">
-    {{ error.message || defaultMessage }}
+    {{ error?.message || defaultMessage }}
   </article>
 </template>
 
 <script setup>
 const props = defineProps({
   error: {
-    type: Object,
+    type: [Object, String],
     required: true,
   },
   defaultMessage: {

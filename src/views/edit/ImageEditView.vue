@@ -1,8 +1,9 @@
 <template>
   <div>
     <ErrorMessage
+      v-if="error"
       :error="error"
-      defaultMessage="Unable to load or update image"
+      default-message="Unable to load or update image"
     />
 
     <h1>Edit {{ itemData.imageName }}</h1>

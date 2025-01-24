@@ -1,8 +1,9 @@
 <template>
   <div>
     <ErrorMessage
+      v-if="error"
       :error="error"
-      defaultMessage="Unable to load or update lecture"
+      default-message="Unable to load or update lecture"
     />
 
     <pre>{{ itemData }}</pre>
