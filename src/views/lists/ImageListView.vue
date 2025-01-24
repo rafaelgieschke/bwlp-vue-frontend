@@ -1,52 +1,38 @@
 <template>
-  <p v-if="error" class="error-message">{{ error }}</p>
+  <template v-if="$route.name === 'ImageList'">
+    <p v-if="error" class="error-message">{{ error }}</p>
 
-  <SortableTable
-    v-if="imageList.length > 0"
-    :items="imageList"
-    :columns="columns"
-    item-key="imageBaseId"
-    item-label="Images"
-    @row-click="openModal"
-  />
+    <SortableTable
+      v-if="imageList.length > 0"
+      :items="imageList"
+      :columns="columns"
+      item-key="imageBaseId"
+      item-label="Images"
+      @row-click="openModal"
+    />
 
-  <DetailDialog
-    v-if="selectedImage"
-    id="image-dialog"
-    :title="selectedImage?.imageName"
-    :editRoute="{
-      name: 'ImageEdit',
-      params: {id: selectedImage?.imageBaseId},
-    }"
-    :is-open="showModal"
-    :tabs="[
-      {
-        id: 'details',
-        icon: 'info',
-        label: 'Details',
-        component: ImageDetailsTab,
-        props: {image: selectedImage},
-      },
-      {
-        id: 'versions',
-        icon: 'history',
-        label: 'Versions',
-        component: ImageVersionsTab,
-        props: {versions: selectedImage?.versions},
-      },
-      {
-        id: 'permissions',
-        icon: 'key',
-        label: 'Permissions',
-        component: ImageLecturePermissionsTab,
-        props: {
-          permissions: imagePermissions,
-          defaultPermissions: selectedImage?.defaultPermissions,
-        },
-      },
-    ]"
-    @close-wanted="showModal = false"
-  />
+    <DetailDialog
+      v-if="selectedImage"
+      id="image-dialog"
+      :title="selectedImage?.imageName"
+      :editRoute="{
+        name: 'ImageEdit',
+        params: {id: selectedImage?.imageBaseId},
+      }"
+      :is-open="showModal"
+      :tabs="
+        imageTabs.map(tab => ({
+          ...tab,
+          props: tab.props(selectedImage, imagePermissions),
+        }))
+      "
+      @close-wanted="showModal = false"
+    />
+  </template>
+
+  <template v-if="$route.name === 'ImageEdit'">
+    <router-view></router-view>
+  </template>
 </template>
 
 <script setup>
@@ -89,6 +75,33 @@ import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import ImageDetailsTab from '@/components/dialog/ImageTabs/ImageDetailsTab.vue';
 import ImageVersionsTab from '@/components/dialog/ImageTabs/ImageVersionsTab.vue';
 import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
+
+const imageTabs = [
+  {
+    id: 'details',
+    icon: 'info',
+    label: 'Details',
+    component: ImageDetailsTab,
+    props: image => ({image}),
+  },
+  {
+    id: 'versions',
+    icon: 'history',
+    label: 'Versions',
+    component: ImageVersionsTab,
+    props: image => ({versions: image?.versions}),
+  },
+  {
+    id: 'permissions',
+    icon: 'key',
+    label: 'Permissions',
+    component: ImageLecturePermissionsTab,
+    props: (image, imagePermissions) => ({
+      permissions: imagePermissions,
+      defaultPermissions: image?.defaultPermissions,
+    }),
+  },
+];
 
 const router = useRouter();
 const authStore = useAuthStore();

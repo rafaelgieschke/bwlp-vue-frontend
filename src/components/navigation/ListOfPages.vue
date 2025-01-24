@@ -1,13 +1,13 @@
 <template>
   <RouterLink
-    to="/image-list"
+    to="/image"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>inbox</i>
     <span class="max">Image List</span>
   </RouterLink>
   <RouterLink
-    to="/lecture-list"
+    to="/lecture"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>send</i>

@@ -14,7 +14,10 @@
         <input v-model="itemData.lectureName" />
         <label>Lecture Name</label>
       </div>
-
+      <div class="field label border">
+        <input v-model="itemData.description" />
+        <label>Lecture Name</label>
+      </div>
       <button type="submit">Save</button>
     </form>
   </div>

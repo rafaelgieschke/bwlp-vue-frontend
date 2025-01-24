@@ -64,7 +64,7 @@ const saveItem = async () => {
       itemData.value.imageBaseId,
       itemData.value,
     );
-    router.push('/image-list');
+    router.push('/image');
   } catch (err) {
     console.error('Failed to update image:', err);
     error.value = err;

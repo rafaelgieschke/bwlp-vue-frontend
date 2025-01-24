@@ -1,94 +1,42 @@
 <template>
-  <p v-if="error" class="error-message">{{ error }}</p>
+  <template v-if="$route.name === 'LectureList'">
+    <p v-if="error" class="error-message">{{ error }}</p>
 
-  <SortableTable
-    v-if="lectureList.length > 0"
-    :items="lectureList"
-    :columns="columns"
-    item-key="lectureId"
-    item-label="lectures"
-    @row-click="openModal"
-  />
+    <SortableTable
+      v-if="lectureList.length > 0"
+      :items="lectureList"
+      :columns="columns"
+      item-key="lectureId"
+      item-label="lectures"
+      @row-click="openModal"
+    />
 
-  <DetailDialog
-    v-if="selectedLecture"
-    id="lecture-dialog"
-    :title="selectedLecture?.lectureName"
-    :editRoute="{
-      name: 'LectureEdit',
-      params: {id: selectedLecture?.lectureId},
-    }"
-    :is-open="showModal"
-    :tabs="[
-      {
-        id: 'details',
-        icon: 'info',
-        label: 'Allgemein',
-        component: LectureDetailsTab,
-        props: {lecture: selectedLecture},
-      },
-      {
-        id: 'restrictions',
-        icon: 'folder_limited',
-        label: 'Beschränkungen',
-        component: LectureRestrictionsTab,
-        props: {lecture: selectedLecture},
-      },
-      {
-        id: 'firewall',
-        icon: 'local_fire_department',
-        label: 'Firewall',
-        component: LectureFirewallTab,
-        props: {lecture: selectedLecture},
-      },
-      {
-        id: 'room-selection',
-        icon: 'room_preferences',
-        label: 'Raumauswahl',
-        component: LectureRoomSelectionTab,
-        props: {lecture: selectedLecture, locations: lectureLocations},
-      },
-      {
-        id: 'vm-start',
-        icon: 'line_start_circle',
-        label: 'VM-Start',
-        component: LectureVMStartTab,
-        props: {lecture: selectedLecture},
-      },
-      {
-        id: 'permissions',
-        icon: 'key',
-        label: 'Berechtigungen',
-        component: ImageLecturePermissionsTab,
-        props: {
-          permissions: lecturePermissions,
-          defaultPermissions: selectedLecture?.defaultPermissions,
-        },
-      },
-      {
-        id: 'network-drives',
-        icon: 'cloud',
-        label: 'Netzlaufwerke',
-        component: LectureNetworkDrivesTab,
-        props: {lecture: selectedLecture},
-      },
-      {
-        id: 'ldap-filter',
-        icon: 'filter_alt',
-        label: 'LDAP-Filter',
-        component: LectureLDAPFilterTab,
-        props: {lecture: selectedLecture},
-      },
-      {
-        id: 'TooManyDetails',
-        icon: 'info',
-        label: 'TooManyDetails',
-        component: LectureTooManyDetailsTab,
-        props: {lecture: selectedLecture},
-      },
-    ]"
-    @close-wanted="showModal = false"
-  />
+    <DetailDialog
+      v-if="selectedLecture"
+      id="lecture-dialog"
+      :title="selectedLecture?.lectureName"
+      :editRoute="{
+        name: 'LectureEdit',
+        params: {id: selectedLecture?.lectureId},
+      }"
+      :is-open="showModal"
+      :tabs="
+        lectureTabs.map(tab => ({
+          ...tab,
+          props: tab.props(
+            selectedLecture,
+            lectureLocations,
+            lecturePermissions,
+          ),
+        }))
+      "
+      @close-wanted="showModal = false"
+    />
+  </template>
+
+  <template v-if="$route.name === 'LectureEdit'">
+    <router-view></router-view>
+  </template>
 </template>
 
 <script setup>
@@ -120,6 +68,7 @@ const columns = [
   },
 ];
 
+// #region Tabs
 import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import LectureDetailsTab from '@/components/dialog/LectureTabs/LectureDetailsTab.vue';
 import LectureRestrictionsTab from '@/components/dialog/LectureTabs/LectureRestrictionsTab.vue';
@@ -130,6 +79,76 @@ import LectureNetworkDrivesTab from '@/components/dialog/LectureTabs/LectureNetw
 import LectureLDAPFilterTab from '@/components/dialog/LectureTabs/LectureLDAPFilterTab.vue';
 import LectureTooManyDetailsTab from '@/components/dialog/LectureTabs/LectureTooManyDetailsTab.vue';
 import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
+
+const lectureTabs = [
+  {
+    id: 'details',
+    icon: 'info',
+    label: 'Allgemein',
+    component: LectureDetailsTab,
+    props: lecture => ({lecture}),
+  },
+  {
+    id: 'restrictions',
+    icon: 'folder_limited',
+    label: 'Beschränkungen',
+    component: LectureRestrictionsTab,
+    props: lecture => ({lecture}),
+  },
+  {
+    id: 'firewall',
+    icon: 'local_fire_department',
+    label: 'Firewall',
+    component: LectureFirewallTab,
+    props: lecture => ({lecture}),
+  },
+  {
+    id: 'room-selection',
+    icon: 'room_preferences',
+    label: 'Raumauswahl',
+    component: LectureRoomSelectionTab,
+    props: (lecture, locations) => ({lecture, locations}),
+  },
+  {
+    id: 'vm-start',
+    icon: 'line_start_circle',
+    label: 'VM-Start',
+    component: LectureVMStartTab,
+    props: lecture => ({lecture}),
+  },
+  {
+    id: 'permissions',
+    icon: 'key',
+    label: 'Berechtigungen',
+    component: ImageLecturePermissionsTab,
+    props: (lecture, lecturePermissions) => ({
+      permissions: lecturePermissions,
+      defaultPermissions: lecture?.defaultPermissions,
+    }),
+  },
+  {
+    id: 'network-drives',
+    icon: 'cloud',
+    label: 'Netzlaufwerke',
+    component: LectureNetworkDrivesTab,
+    props: lecture => ({lecture}),
+  },
+  {
+    id: 'ldap-filter',
+    icon: 'filter_alt',
+    label: 'LDAP-Filter',
+    component: LectureLDAPFilterTab,
+    props: lecture => ({lecture}),
+  },
+  {
+    id: 'TooManyDetails',
+    icon: 'info',
+    label: 'TooManyDetails',
+    component: LectureTooManyDetailsTab,
+    props: lecture => ({lecture}),
+  },
+];
+// #endregion Tabs
 
 const router = useRouter();
 const authStore = useAuthStore();
