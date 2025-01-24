@@ -1,11 +1,17 @@
 <template>
   <div>
-    <h2>Edit {{ itemData.imageName }}</h2>
+    <span v-if="error" class="large-text bold error">
+      {{ error.message || 'Unable to load or update image' }}
+    </span>
+
+    <h1>Edit {{ itemData.imageName }}</h1>
+
     <form @submit.prevent="saveItem">
       <div class="field label border">
         <input v-model="itemData.imageName" />
-        <label>Label</label>
+        <label>Image Name</label>
       </div>
+
       <button type="submit">Save</button>
     </form>
   </div>
@@ -34,15 +40,31 @@ const sat = new SatelliteServerClient(proto2);
 
 const itemData = ref({});
 
+const error = ref(null);
+
 onMounted(async () => {
-  itemData.value = await sat.getImageDetails(
-    authStore.authToken,
-    route.params.id,
-  );
+  try {
+    itemData.value = await sat.getImageDetails(
+      authStore.authToken,
+      route.params.id,
+    );
+  } catch (err) {
+    console.error('Failed to fetch image details:', err);
+    error.value = err;
+  }
 });
 
 const saveItem = async () => {
-  await updateItem(itemData.value);
-  router.push('/items');
+  try {
+    await sat.updateImageBase(
+      authStore.authToken,
+      itemData.value.imageBaseId,
+      itemData.value,
+    );
+    router.push('/image-list');
+  } catch (err) {
+    console.error('Failed to update image:', err);
+    error.value = err;
+  }
 };
 </script>

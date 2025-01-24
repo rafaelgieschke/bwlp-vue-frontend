@@ -1,11 +1,17 @@
 <template>
   <div>
-    <h2>Edit {{ itemData.lectureName }}</h2>
+    <span v-if="error" class="large-text bold error">
+      {{ error.message || 'Unable to load or update lecture' }}
+    </span>
+
+    <h1>Edit {{ itemData.lectureName }}</h1>
+
     <form @submit.prevent="saveItem">
       <div class="field label border">
         <input v-model="itemData.lectureName" />
-        <label>Label</label>
+        <label>Lecture Name</label>
       </div>
+
       <button type="submit">Save</button>
     </form>
   </div>
@@ -33,16 +39,31 @@ const proto2 = new Thrift.Protocol(
 const sat = new SatelliteServerClient(proto2);
 
 const itemData = ref({});
+const error = ref(null);
 
 onMounted(async () => {
-  itemData.value = await sat.getLectureDetails(
-    authStore.authToken,
-    route.params.id,
-  );
+  try {
+    itemData.value = await sat.getLectureDetails(
+      authStore.authToken,
+      route.params.id,
+    );
+  } catch (err) {
+    console.error('Failed to fetch lecture details:', err);
+    error.value = err;
+  }
 });
 
 const saveItem = async () => {
-  await sat.updateLecture(itemData.value, route.params.id);
-  router.push('/items');
+  try {
+    await sat.updateLecture(
+      authStore.authToken,
+      itemData.value.lectureId,
+      itemData.value,
+    );
+    router.push('/lecture-list');
+  } catch (err) {
+    console.error('Failed to update lecture:', err);
+    error.value = err;
+  }
 };
 </script>
