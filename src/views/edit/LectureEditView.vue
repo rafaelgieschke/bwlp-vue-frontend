@@ -1,8 +1,11 @@
 <template>
   <div>
-    <span v-if="error" class="large-text bold error">
-      {{ error.message || 'Unable to load or update lecture' }}
-    </span>
+    <ErrorMessage
+      :error="error"
+      defaultMessage="Unable to load or update lecture"
+    />
+
+    <pre>{{ itemData }}</pre>
 
     <h1>Edit {{ itemData.lectureName }}</h1>
 
@@ -24,6 +27,8 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
+
+import ErrorMessage from '@/components/error/ErrorMessage.vue';
 
 const route = useRoute();
 const router = useRouter();
