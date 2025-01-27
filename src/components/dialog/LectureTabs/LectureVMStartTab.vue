@@ -9,6 +9,7 @@
   Audio: {{ getAudioSetting(parseString(lecture.runscript).soundMuted) }}
   <br />
 
+  <span class="pre-title">{{ parseString(lecture.runscript).ext }}</span>
   <pre><code>{{ parseString(lecture.runscript).script }}</code></pre>
 </template>
 
@@ -83,3 +84,20 @@ function getVisibilitySetting(setting) {
   }
 }
 </script>
+
+<style scoped>
+.pre-title {
+  display: block;
+  padding-left: 0.5rem;
+  border-bottom: 1px solid var(--primary);
+  border-left: var(--primary) 4px solid;
+  border-radius: 0;
+  background-color: var(--surface-container);
+  font-weight: bold;
+  font-size: 1.2em;
+
+  & + pre {
+    margin-top: 0;
+  }
+}
+</style>
