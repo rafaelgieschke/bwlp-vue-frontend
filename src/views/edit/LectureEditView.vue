@@ -17,7 +17,7 @@
       </div>
       <div class="field label border">
         <input v-model="itemData.description" />
-        <label>Lecture Name</label>
+        <label>Lecture Description</label>
       </div>
       <button type="submit">Save</button>
     </form>
@@ -69,7 +69,7 @@ const saveItem = async () => {
       itemData.value.lectureId,
       itemData.value,
     );
-    router.push('/lecture-list');
+    router.push('/lecture');
   } catch (err) {
     console.error('Failed to update lecture:', err);
     error.value = err;
