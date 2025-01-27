@@ -37,7 +37,12 @@
     Wenn Sie Internetzugriff aktivieren, hat diese Liste den gegenteiligen
     Effekt (Blacklist).
   </p>
-  <!-- Add the edit thing -->
+
+  <ul v-if="lecture.networkExceptions.length > 0">
+    <li v-for="exception in lecture.networkExceptions" :key="exception">
+      {{ exception }}
+    </li>
+  </ul>
 </template>
 
 <script setup>
