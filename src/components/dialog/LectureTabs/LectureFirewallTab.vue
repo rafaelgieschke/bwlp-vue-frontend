@@ -38,7 +38,7 @@
     Effekt (Blacklist).
   </p>
 
-  <ul v-if="lecture.networkExceptions.length > 0">
+  <ul>
     <li v-for="exception in lecture.networkExceptions" :key="exception">
       {{ exception }}
     </li>

@@ -9,8 +9,16 @@
   Audio: {{ getAudioSetting(parseString(lecture.runscript).soundMuted) }}
   <br />
 
-  <span class="pre-title">{{ parseString(lecture.runscript).ext }}</span>
-  <pre><code>{{ parseString(lecture.runscript).script }}</code></pre>
+  <div v-if="parseString(lecture.runscript).script">
+    <nav class="pre-title left-padding">
+      <div class="max">Run script</div>
+      <div class="ext bold text-monospace min left-padding right-padding">
+        {{ parseString(lecture.runscript).ext }}
+      </div>
+    </nav>
+
+    <pre><code>{{ parseString(lecture.runscript).script }}</code></pre>
+  </div>
 </template>
 
 <script setup>
@@ -22,6 +30,15 @@ defineProps({
 });
 
 function parseString(input) {
+  if (!input) {
+    return {
+      ext: '',
+      visibility: null,
+      soundMuted: null,
+      script: '',
+    };
+  }
+
   const result = {
     ext: '',
     visibility: null,
@@ -87,14 +104,15 @@ function getVisibilitySetting(setting) {
 
 <style scoped>
 .pre-title {
-  display: block;
-  padding-left: 0.5rem;
   border-bottom: 1px solid var(--primary);
   border-left: var(--primary) 4px solid;
-  border-radius: 0;
   background-color: var(--surface-container);
-  font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1rem;
+
+  & .ext {
+    background-color: var(--secondary-container);
+    color: var(--secondary);
+  }
 
   & + pre {
     margin-top: 0;
