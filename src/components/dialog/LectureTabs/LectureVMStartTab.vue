@@ -76,12 +76,12 @@ function parseString(input) {
 }
 
 function getAudioSetting(setting) {
-  switch (setting.toString()) {
-    case '-1':
+  switch (setting) {
+    case -1:
       return 'Vorgabe des Pools';
-    case '0':
+    case 0:
       return 'Aktivieren';
-    case '1':
+    case 1:
       return 'Stummschalten';
     default:
       return 'Unbekannt';
