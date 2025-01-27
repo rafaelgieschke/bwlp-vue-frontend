@@ -1,13 +1,30 @@
 <template>
-  Dateinamenserweiterung: {{ parseString(lecture.runscript).ext }}
-  <br />
-
-  Sichtbarkeit:
-  {{ getVisibilitySetting(parseString(lecture.runscript).visibility) }}
-  <br />
-
-  Audio: {{ getAudioSetting(parseString(lecture.runscript).soundMuted) }}
-  <br />
+  <table class="stripes bottom-margin">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="min">Dateinamenserweiterung</td>
+        <td class="bold">{{ parseString(lecture.runscript).ext }}</td>
+      </tr>
+      <tr>
+        <td class="min">Sichtbarkeit</td>
+        <td class="bold">
+          {{ getVisibilitySetting(parseString(lecture.runscript).visibility) }}
+        </td>
+      </tr>
+      <tr>
+        <td class="min">Audio</td>
+        <td class="bold">
+          {{ getAudioSetting(parseString(lecture.runscript).soundMuted) }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <div v-if="parseString(lecture.runscript).script">
     <nav class="pre-title left-padding">
