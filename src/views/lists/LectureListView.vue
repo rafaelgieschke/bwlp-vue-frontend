@@ -159,8 +159,8 @@ const lectureTabs = [
 const router = useRouter();
 const authStore = useAuthStore();
 
-// const sat1Server = 'bwlp-pxe.ruf.uni-freiburg.de';
-const sat1Server = '10.4.9.57';
+import {useSat1Server} from '@/composables/useSat1Server';
+const sat1Server = useSat1Server();
 
 const proto2 = new Thrift.Protocol(
   new Thrift.Transport(`https://${sat1Server}/thrift/`),
