@@ -1,5 +1,6 @@
 <template>
   <RouterLink
+    class="wave"
     to="/image"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -7,6 +8,7 @@
     <span class="max">Image List</span>
   </RouterLink>
   <RouterLink
+    class="wave"
     to="/lecture"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -16,6 +18,7 @@
 
   <SeparatingLabel text="Legal stuff" />
   <RouterLink
+    class="wave"
     to="/privacy-policy"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -23,6 +26,7 @@
     <span>Datenschutzerklärung</span>
   </RouterLink>
   <RouterLink
+    class="wave"
     to="/user-agreement"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -32,6 +36,7 @@
 
   <SeparatingLabel text="Miscellaneous" />
   <a
+    class="wave"
     href="https://www.bwlehrpool.de/wiki/doku.php/start"
     target="_blank"
     rel="noopener noreferrer"
@@ -39,6 +44,16 @@
   >
     <i>developer_guide</i>
     <span>bwLehrpool Wiki</span>
+  </a>
+  <a
+    class="wave"
+    href="https://github.com/Khoding/bwlp-vue-frontend"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>code</i>
+    <span>BWLP Vue Frontend Repository</span>
   </a>
 </template>
 
