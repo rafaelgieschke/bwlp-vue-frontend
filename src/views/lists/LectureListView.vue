@@ -127,7 +127,7 @@ const lectureTabs = [
     icon: 'key',
     label: 'Berechtigungen',
     component: ImageLecturePermissionsTab,
-    props: (lecture, lecturePermissions) => ({
+    props: (lecture, _, lecturePermissions) => ({
       permissions: lecturePermissions,
       defaultPermissions: lecture?.defaultPermissions,
     }),
