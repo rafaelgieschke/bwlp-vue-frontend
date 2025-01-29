@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="networkShare in lecture.networkShares" :key="user_info">
+        <tr v-for="networkShare in lecture.networkShares">
           <td v-for="element in networkShare">
             <!-- No idea if that works as there seems to be no data? -->
             {{ element }}
