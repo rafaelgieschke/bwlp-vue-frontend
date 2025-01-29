@@ -83,7 +83,6 @@ import LectureRoomSelectionTab from '@/components/dialog/LectureTabs/LectureRoom
 import LectureVMStartTab from '@/components/dialog/LectureTabs/LectureVMStartTab.vue';
 import LectureNetworkDrivesTab from '@/components/dialog/LectureTabs/LectureNetworkDrivesTab.vue';
 import LectureLDAPFilterTab from '@/components/dialog/LectureTabs/LectureLDAPFilterTab.vue';
-import LectureTooManyDetailsTab from '@/components/dialog/LectureTabs/LectureTooManyDetailsTab.vue';
 import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
 
 const lectureTabs = [
@@ -144,13 +143,6 @@ const lectureTabs = [
     icon: 'filter_alt',
     label: 'LDAP-Filter',
     component: LectureLDAPFilterTab,
-    props: lecture => ({lecture}),
-  },
-  {
-    id: 'TooManyDetails',
-    icon: 'info',
-    label: 'TooManyDetails',
-    component: LectureTooManyDetailsTab,
     props: lecture => ({lecture}),
   },
 ];
