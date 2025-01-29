@@ -4,7 +4,12 @@
       <nav>
         <h5 class="max">{{ title }}</h5>
 
-        <RouterLink v-if="editRoute" :to="editRoute" class="m l button small">
+        <RouterLink
+          v-if="editRoute"
+          :to="editRoute"
+          class="m l button small"
+          @click="sendCloseEvent"
+        >
           <i>edit</i>
           <span>Edit</span>
         </RouterLink>
