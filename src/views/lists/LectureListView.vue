@@ -74,7 +74,6 @@ const columns = [
   },
 ];
 
-// #region Tabs
 import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import LectureDetailsTab from '@/components/dialog/LectureTabs/LectureDetailsTab.vue';
 import LectureRestrictionsTab from '@/components/dialog/LectureTabs/LectureRestrictionsTab.vue';
@@ -146,7 +145,6 @@ const lectureTabs = [
     props: lecture => ({lecture}),
   },
 ];
-// #endregion Tabs
 
 const router = useRouter();
 const authStore = useAuthStore();
