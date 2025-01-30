@@ -28,6 +28,7 @@
           >
             <template v-if="column.formatter">
               {{ column.formatter(item[column.field], item) }}
+              <!-- make the color red if the date < currentTime in case it applies -->
             </template>
             <template v-else-if="column.field === 'ownerId'">
               {{ getUserFullName(item[column.field]) }}
