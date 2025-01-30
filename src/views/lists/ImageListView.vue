@@ -45,7 +45,6 @@ import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import $dayjs from 'dayjs';
-import {humanFileSize} from '@/utils/fileSize';
 
 import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
 import {Thrift} from '@/assets/js/thrift/thrift.js';
@@ -54,11 +53,11 @@ import ErrorMessage from '@/components/error/ErrorMessage.vue';
 
 import SortableTable from '@/components/SortableTable.vue';
 
+// TODO: But for in a long time, we could make it a setting that the user can decide for themselves
 const columns = [
   {
     field: 'imageName',
     label: 'Image Name',
-    class: 'min',
   },
   {
     field: 'osId',
@@ -71,22 +70,14 @@ const columns = [
     class: 'min',
   },
   {
-    field: 'updateTime',
-    label: 'Update Time',
-    class: 'min',
-    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY HH:mm:ss'),
-  },
-  {
     field: 'expireTime',
     label: 'Expire Time',
     class: 'min',
-    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY HH:mm:ss'),
+    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY HH:mm'),
   },
   {
-    field: 'fileSize',
-    label: 'File Size',
+    field: 'virtId',
     class: 'min',
-    formatter: value => humanFileSize(value),
   },
 ];
 

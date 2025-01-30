@@ -35,6 +35,14 @@
             <template v-else-if="column.field === 'osId'">
               {{ getOSName(item[column.field]) }}
             </template>
+            <template v-else-if="column.field === 'virtId'">
+              <div
+                class="virt-logo"
+                width="16px"
+                height="16px"
+                :class="item[column.field]"
+              ></div>
+            </template>
             <template v-else>
               {{ item[column.field] }}
             </template>
@@ -152,5 +160,21 @@ const sortedItems = computed(() => {
 .sort-icon {
   display: inline-block;
   margin-left: 4px;
+}
+
+.virt-logo {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.vmware {
+  background-image: url('@/assets/img/virt-logo/vmware.png');
+}
+
+.qemukvm {
+  background-image: url('@/assets/img/virt-logo/qemukvm.png');
 }
 </style>
