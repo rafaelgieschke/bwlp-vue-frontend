@@ -29,6 +29,12 @@
             <template v-if="column.formatter">
               {{ column.formatter(item[column.field], item) }}
             </template>
+            <template v-else-if="column.field === 'ownerId'">
+              {{ getUserFullName(item[column.field]) }}
+            </template>
+            <template v-else-if="column.field === 'osId'">
+              {{ getOSName(item[column.field]) }}
+            </template>
             <template v-else>
               {{ item[column.field] }}
             </template>
@@ -45,7 +51,18 @@
 </template>
 
 <script setup>
-import {ref, computed} from 'vue';
+import {ref, computed, onMounted} from 'vue';
+import {useUsers} from '@/composables/useUsers';
+import {useOperatingSystems} from '@/composables/useOperatingSystems';
+
+const {fetchUsers, getUserFullName} = useUsers();
+const {fetchOperatingSystems, getOSName} = useOperatingSystems();
+
+// Initialize users data
+onMounted(async () => {
+  await fetchUsers();
+  await fetchOperatingSystems();
+});
 
 const props = defineProps({
   items: {

@@ -58,10 +58,28 @@ const columns = [
   {
     field: 'imageName',
     label: 'Image Name',
+    class: 'min',
   },
   {
-    field: 'createTime',
-    label: 'Creation Time',
+    field: 'osId',
+    label: 'OS',
+    class: 'min',
+  },
+  {
+    field: 'ownerId',
+    label: 'Owner',
+    class: 'min',
+  },
+  {
+    field: 'updateTime',
+    label: 'Update Time',
+    class: 'min',
+    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY HH:mm:ss'),
+  },
+  {
+    field: 'expireTime',
+    label: 'Expire Time',
+    class: 'min',
     formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY HH:mm:ss'),
   },
   {
@@ -69,11 +87,6 @@ const columns = [
     label: 'File Size',
     class: 'min',
     formatter: value => humanFileSize(value),
-  },
-  {
-    field: 'ownerId',
-    label: 'Owner',
-    class: 'min',
   },
 ];
 
