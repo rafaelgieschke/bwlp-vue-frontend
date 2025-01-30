@@ -8,7 +8,7 @@
         </tr>
         <tr>
           <td>Besitzer</td>
-          <td colspan="3">{{ lecture.ownerId }}</td>
+          <td colspan="3">{{ ownerName }}</td>
         </tr>
         <tr>
           <td>Erstellt am</td>
@@ -22,7 +22,7 @@
             {{ $dayjs(lecture.updateTime * 1000).format('DD.MM.YYYY, HH:mm') }}
           </td>
           <td><strong>durch</strong></td>
-          <td>{{ lecture.updaterId }}</td>
+          <td>{{ updaterName }}</td>
         </tr>
         <tr>
           <td>Verknüpfte VM</td>
@@ -77,10 +77,48 @@
 </template>
 
 <script setup>
-defineProps({
+import {ref, watch, onMounted} from 'vue';
+
+const props = defineProps({
   lecture: {
     type: Object,
     required: true,
   },
 });
+
+const ownerName = ref('');
+const updaterName = ref('');
+
+import {useUsers} from '@/composables/useUsers';
+
+const {fetchUsers, getUserFullName} = useUsers();
+
+const refreshUserDetails = () => {
+  getOwnerName();
+  getUpdaterName();
+};
+
+watch(
+  () => props.lecture,
+  newValue => {
+    if (newValue) {
+      refreshUserDetails();
+    }
+  },
+  {immediate: false},
+);
+
+onMounted(() => {
+  refreshUserDetails();
+});
+
+const getOwnerName = async () => {
+  await fetchUsers();
+  ownerName.value = getUserFullName(props.lecture.ownerId);
+};
+
+const getUpdaterName = async () => {
+  await fetchUsers();
+  updaterName.value = getUserFullName(props.lecture.updaterId);
+};
 </script>
