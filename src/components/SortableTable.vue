@@ -37,12 +37,12 @@
               {{ getOSName(item[column.field]) }}
             </template>
             <template v-else-if="column.field === 'virtId'">
-              <div
+              <span
                 class="virt-logo"
                 width="16px"
                 height="16px"
                 :class="item[column.field]"
-              ></div>
+              ></span>
             </template>
             <template v-else>
               {{ item[column.field] }}
