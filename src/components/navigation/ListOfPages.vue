@@ -4,7 +4,7 @@
     to="/image"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
-    <i>inbox</i>
+    <i>aspect_ratio</i>
     <span class="max">Image List</span>
   </RouterLink>
   <RouterLink
@@ -12,7 +12,7 @@
     to="/lecture"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
-    <i>send</i>
+    <i>school</i>
     <span>Lecture List</span>
   </RouterLink>
 
