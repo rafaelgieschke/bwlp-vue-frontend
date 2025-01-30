@@ -15,7 +15,6 @@ export function useOperatingSystems() {
     if (!operatingSystems.value.length) {
       try {
         operatingSystems.value = await sat.getOperatingSystems();
-        console.log('Operating systems:', operatingSystems.value);
       } catch (err) {
         console.error('Failed to fetch operating systems:', err);
         return [];
