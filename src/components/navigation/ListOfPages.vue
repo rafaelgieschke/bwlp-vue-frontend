@@ -46,6 +46,7 @@
     <span>bwLehrpool Wiki</span>
   </a>
   <a
+    v-if="showGithub"
     class="wave"
     href="https://github.com/Khoding/bwlp-vue-frontend"
     target="_blank"
@@ -58,8 +59,11 @@
 </template>
 
 <script setup>
+import {ref} from 'vue';
 import {RouterLink} from 'vue-router';
 import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
+
+const showGithub = ref(import.meta.env.VITE_SHOW_GITHUB === 'true');
 
 const props = defineProps({
   mobile_nav: {
