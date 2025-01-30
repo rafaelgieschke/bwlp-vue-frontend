@@ -61,10 +61,18 @@ const columns = [
   {
     field: 'lectureName',
     label: 'Lecture Name',
+    class: 'min',
   },
   {
-    field: 'description',
-    label: 'Description',
+    field: 'ownerId',
+    label: 'Owner',
+    class: 'min',
+  },
+  {
+    field: 'startTime',
+    label: 'Start Time',
+    class: 'min',
+    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm'),
   },
   {
     field: 'endTime',
