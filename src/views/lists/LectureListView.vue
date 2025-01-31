@@ -6,14 +6,16 @@
       default-message="There's been an error of some kind"
     />
 
-    <SortableTable
-      v-if="lectureList.length > 0"
-      :items="lectureList"
-      :columns="columns"
-      item-key="lectureId"
-      item-label="lectures"
-      @row-click="openModal"
-    />
+    <Transition name="slide-fade">
+      <SortableTable
+        v-if="lectureList.length > 0"
+        :items="lectureList"
+        :columns="columns"
+        item-key="lectureId"
+        item-label="lectures"
+        @row-click="openModal"
+      />
+    </Transition>
 
     <DetailDialog
       v-if="selectedLecture"

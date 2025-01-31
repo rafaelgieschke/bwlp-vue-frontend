@@ -6,14 +6,16 @@
       default-message="There's been an error of some kind"
     />
 
-    <SortableTable
-      v-if="imageList.length > 0"
-      :items="imageList"
-      :columns="columns"
-      item-key="imageBaseId"
-      item-label="Images"
-      @row-click="openModal"
-    />
+    <Transition name="slide-fade">
+      <SortableTable
+        v-if="imageList.length > 0"
+        :items="imageList"
+        :columns="columns"
+        item-key="imageBaseId"
+        item-label="Images"
+        @row-click="openModal"
+      />
+    </Transition>
 
     <DetailDialog
       v-if="selectedImage"
