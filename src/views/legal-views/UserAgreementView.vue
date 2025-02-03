@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <template #header>Nutzungsvereinbarung</template>
+    <template #header>{{ $t('userAgreement.title') }}</template>
     <template #content>
       <p class="subtitle">bwLehrpool-Suite (Dozentenmodul)</p>
       <p class="subtitle">Copyright © 2016 Universität Freiburg</p>

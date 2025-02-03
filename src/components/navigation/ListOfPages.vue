@@ -5,7 +5,7 @@
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>aspect_ratio</i>
-    <span class="max">Image List</span>
+    <span class="max">{{ $t('imageList') }}</span>
   </RouterLink>
   <RouterLink
     class="wave"
@@ -13,17 +13,17 @@
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>school</i>
-    <span>Lecture List</span>
+    <span>{{ $t('lectureList') }}</span>
   </RouterLink>
 
-  <SeparatingLabel text="Legal stuff" />
+  <SeparatingLabel :text="$t('legalStuff')" />
   <RouterLink
     class="wave"
     to="/privacy-policy"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>policy</i>
-    <span>Datenschutzerklärung</span>
+    <span>{{ $t('privacyPolicy') }}</span>
   </RouterLink>
   <RouterLink
     class="wave"
@@ -31,10 +31,10 @@
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>handshake</i>
-    <span>Nutzungsvereinbarung</span>
+    <span>{{ $t('userAgreement.title') }}</span>
   </RouterLink>
 
-  <SeparatingLabel text="Miscellaneous" />
+  <SeparatingLabel :text="$t('miscellaneous')" />
   <a
     class="wave"
     href="https://www.bwlehrpool.de/wiki/doku.php/start"
