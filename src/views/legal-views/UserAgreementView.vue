@@ -30,6 +30,7 @@
         2 (GPL2) kann hier
         <a
           href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+          class="link underline wave"
           target="_blank"
           rel="noopener noreferrer"
           >https://www.gnu.org/licenses/old-licenses/gpl-2.0.html</a

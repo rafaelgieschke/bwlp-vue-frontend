@@ -89,7 +89,9 @@
           der Satellitenserver, mit dem sich Ihre bwLehrpool-Suite standardmäßig
           verbindet, betrieben. Falls Sie dort keinen Ansprechpartner finden,
           können Sie sich an das
-          <a href="mailto:bwlehrpool@hs-offenburg.de"
+          <a
+            href="mailto:bwlehrpool@hs-offenburg.de"
+            class="link underline wave"
             >Entwickler-Team von bwLehrpool</a
           >
           wenden.
