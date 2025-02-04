@@ -25,3 +25,5 @@ We need a Title, it's the same in the menu and on the page, so we could do
   },
 }
 ```
+
+For the Tables, since we're hoping to give the user the ability to show the columnns they want (as in toggle them on and off), we should make the columns not strictly columns names but "types" kinda, meaning they'd be in the same parent as every other translatable text part of an object (objects being Images or Lectures)
