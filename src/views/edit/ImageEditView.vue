@@ -24,9 +24,6 @@ import {ref, onMounted} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
-import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
-import {Thrift} from '@/assets/js/thrift/thrift.js';
-
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 
 const route = useRoute();
@@ -34,13 +31,8 @@ const router = useRouter();
 
 const authStore = useAuthStore();
 
-import {useSat1Server} from '@/composables/useSat1Server';
-const sat1Server = useSat1Server();
-
-const proto2 = new Thrift.Protocol(
-  new Thrift.Transport(`https://${sat1Server}/thrift/`),
-);
-const sat = new SatelliteServerClient(proto2);
+import {useSatServer} from '@/composables/useSatServer';
+const sat = useSatServer();
 
 const itemData = ref({});
 

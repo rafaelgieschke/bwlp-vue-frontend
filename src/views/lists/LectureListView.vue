@@ -160,13 +160,8 @@ const lectureTabs = [
 const router = useRouter();
 const authStore = useAuthStore();
 
-import {useSat1Server} from '@/composables/useSat1Server';
-const sat1Server = useSat1Server();
-
-const proto2 = new Thrift.Protocol(
-  new Thrift.Transport(`https://${sat1Server}/thrift/`),
-);
-const sat = new SatelliteServerClient(proto2);
+import {useSatServer} from '@/composables/useSatServer';
+const sat = useSatServer();
 
 const lectureList = ref([]);
 const error = ref('');
