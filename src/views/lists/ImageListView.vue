@@ -55,7 +55,7 @@ import ErrorMessage from '@/components/error/ErrorMessage.vue';
 
 import SortableTable from '@/components/SortableTable.vue';
 
-// TODO: But for in a long time, we could make it a setting that the user can decide for themselves
+/// TODO: But for in a long time, we could make it a setting that the user can decide for themselves
 const columns = [
   {
     field: 'imageName',

@@ -69,7 +69,7 @@ const props = defineProps({
   tabs: {
     type: Array,
     default: () => [],
-    // Each tab should have: { id, icon, label, component, props }
+    /// Each tab should have: { id, icon, label, component, props }
   },
   isOpen: {
     type: Boolean,
@@ -94,14 +94,12 @@ onMounted(() => {
   toggleDOM(props.isOpen);
 });
 
-// Handle escape key
 useEventListener('keydown', e => {
   if (e.key === 'Escape' && props.isOpen) {
     sendCloseEvent();
   }
 });
 
-// Handle click outside
 useEventListener('click', e => {
   if (dialogRef.value && !dialogRef.value.contains(e.target)) {
     sendCloseEvent();

@@ -47,10 +47,8 @@ const login = async () => {
       password.value,
     );
 
-    // Use the store to set the token
     authStore.setToken(response.authToken);
 
-    // Navigate to list view
     router.push('/list');
   } catch (e) {
     error.value = e.message;

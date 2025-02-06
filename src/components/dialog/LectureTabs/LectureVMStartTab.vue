@@ -66,10 +66,8 @@ function parseString(input) {
   const parts = input.split('\n');
   const firstLine = parts[0];
 
-  // Get settings part (everything before the first space)
   const settings = firstLine.split(' ')[0];
 
-  // Parse settings
   settings.split(';').forEach(setting => {
     const [key, value] = setting.split('=');
     if (key === 'ext') {
@@ -81,7 +79,6 @@ function parseString(input) {
     }
   });
 
-  // Get script if exists
   const scriptInFirstLine = firstLine.slice(settings.length).trim();
   if (scriptInFirstLine) {
     result.script = scriptInFirstLine;

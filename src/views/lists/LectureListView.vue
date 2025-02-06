@@ -94,7 +94,7 @@ import LectureNetworkDrivesTab from '@/components/dialog/LectureTabs/LectureNetw
 import LectureLDAPFilterTab from '@/components/dialog/LectureTabs/LectureLDAPFilterTab.vue';
 import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
 
-// TODO: But for in a long time, we could make it a setting that the user can decide for themselves
+/// TODO: But for in a long time, we could make it a setting that the user can decide for themselves
 const lectureTabs = [
   {
     id: 'details',

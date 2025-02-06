@@ -67,7 +67,6 @@ import {useOperatingSystems} from '@/composables/useOperatingSystems';
 const {fetchUsers, getUserFullName} = useUsers();
 const {fetchOperatingSystems, getOSName} = useOperatingSystems();
 
-// Initialize users data
 onMounted(async () => {
   await fetchUsers();
   await fetchOperatingSystems();
@@ -98,7 +97,6 @@ const props = defineProps({
 
 const emit = defineEmits(['row-click']);
 
-// Sorting state
 const sortField = ref(props.defaultSort.field);
 const sortOrder = ref(props.defaultSort.order);
 
@@ -134,7 +132,6 @@ const sortedItems = computed(() => {
     let compareValue = 0;
     const field = sortField.value;
 
-    // Handle different data types
     if (typeof a[field] === 'number') {
       compareValue = a[field] - b[field];
     } else {
