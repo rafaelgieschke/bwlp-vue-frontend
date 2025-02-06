@@ -1,11 +1,8 @@
 import {ref} from 'vue';
+
 import {useAuthStore} from '@/stores/auth-store';
 import {useSatServer} from '@/composables/useSatServer';
 
-/**
- * Composable for managing user operations
- * @returns {Object} User operations and state
- */
 export function useUsers() {
   const authStore = useAuthStore();
   const sat = useSatServer();
