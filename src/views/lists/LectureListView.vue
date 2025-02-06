@@ -52,9 +52,6 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import $dayjs from 'dayjs';
 
-import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
-import {Thrift} from '@/assets/js/thrift/thrift.js';
-
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 
 import SortableTable from '@/components/SortableTable.vue';
