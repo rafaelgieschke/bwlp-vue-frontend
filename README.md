@@ -2,7 +2,9 @@
 
 ## The repo (quick link)
 
-https://github.com/Khoding/bwlp-vue-frontend
+[New Repo (Khoding)](https://github.com/Khoding/bwlp-vue-frontend)
+
+[Old Repo (Khoding, Archived) in case we need info](https://github.com/Khoding/bwlp-frontend)
 
 ## Info
 
