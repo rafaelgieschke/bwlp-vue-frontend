@@ -1,5 +1,5 @@
 <template>
-  <section class="top-margin bottom-margin left-margin">
+  <section class="top-margin bottom-margin location-item">
     <details v-if="location.children?.length > 0">
       <summary class="none">
         <article class="round border primary-border no-elevate">
@@ -40,3 +40,9 @@ defineProps({
   },
 });
 </script>
+
+<style scoped>
+.location-item .location-item {
+  margin-inline-start: 0.5rem;
+}
+</style>

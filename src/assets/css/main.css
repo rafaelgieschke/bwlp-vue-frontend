@@ -1,10 +1,18 @@
 @layer reset-fonts-root, baselayout, components, utilities, animations;
 
+/* For CSS, always use logical properties (like margin-inline-start instead of margin-left),
+  that way, if we ever want to support RTL languages, everything just "works" (on that end anyway)
+  Beer CSS already does that for everything of the sort */
+
 @layer components {
 }
 
 @layer baselayout {
-  /* Style main scrollbar */
+  /* Uncomment this to test RTL */
+  /* html {
+    direction: rtl;
+  } */
+
   html {
     overflow-y: scroll;
     scrollbar-color: var(--surface) var(--on-surface);

@@ -157,7 +157,7 @@ const sortedItems = computed(() => {
 
 .sort-icon {
   display: inline-block;
-  margin-left: 4px;
+  margin-inline-start: 4px;
 }
 
 .virt-logo {

@@ -1,6 +1,6 @@
 <template>
   <section class="grid">
-    <table class="stripes bottom-margin s12 l5">
+    <table class="s12 l5 stripes bottom-margin">
       <thead>
         <tr>
           <th>Data</th>
@@ -124,7 +124,7 @@ function getVisibilitySetting(setting) {
 <style scoped>
 .pre-title {
   border-bottom: 1px solid var(--primary);
-  border-left: var(--primary) 4px solid;
+  border-inline-start: var(--primary) 4px solid;
   background-color: var(--surface-container);
   font-size: 1rem;
 
