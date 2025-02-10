@@ -1,5 +1,5 @@
 <template>
-  <dialog ref="dialogRef" class="top">
+  <dialog ref="dialogRef" :class="dialogStyling" class="fill">
     <header class="fixed">
       <nav>
         <h5 class="max">{{ title }}</h5>
@@ -28,7 +28,7 @@
       </nav>
     </header>
 
-    <article class="padding">
+    <article>
       <div>
         <div class="tabs scroll">
           <a
@@ -78,6 +78,13 @@ const props = defineProps({
   editRoute: {
     type: [String, Object],
     default: null,
+  },
+  dialogStyling: {
+    type: String,
+    default: 'top',
+    /// TODO-MAYBE: Maybe give the user the ability to choose which kind of dialog they want,
+    /// different sizes and stuff can be found there:
+    /// https://github.com/beercss/beercss/blob/1f53933c3861430da54a87237a44609cef5adbe4/docs/DIALOG.md
   },
 });
 

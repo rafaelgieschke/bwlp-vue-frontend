@@ -11,7 +11,12 @@
     <section class="s12 l6">
       <div>
         <label class="radio">
-          <input type="radio" name="exclusive_priority_radio" disabled />
+          <input
+            type="radio"
+            name="exclusive_priority_radio"
+            :checked="lecture.limitToLocations"
+            disabled
+          />
           <span class="wrap">
             Veranstaltung ausschließlich in den ausgewählten Räumen anzeigen
           </span>
@@ -20,6 +25,8 @@
       <div>
         <label class="radio">
           <input type="radio" name="exclusive_priority_radio" disabled />
+          <!-- TODO: It must be unchecked if the user is a dumbass or whatever and checked otherwise -->
+          <!-- If one radio is on, the other cannot be on -->
           <span class="wrap">
             Veranstaltung mit höherer Priorität in den ausgewählten Räumen
             anzeigen
