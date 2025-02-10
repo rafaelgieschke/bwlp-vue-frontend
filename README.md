@@ -30,7 +30,7 @@ Vue.js is inconsistent in their documentation and different websites and will so
 1. template `<template></template>`
 2. (optional) script `<script setup></script>`
 
-   - [Composition API](https://vuejs.org/api/composition-api-setup.html) The reason for the use of Composition API is that it's cleaner than the whole Options API's export default in terms of code, it's also the most modern of the two methods, and it's therefore more readable
+   - [Composition API](https://vuejs.org/api/composition-api-setup.html) The reason for the use of Composition API is that it's cleaner than the whole Options API's export default in terms of code, it's also the most modern of the two methods, and it's therefore more readable (yeah, they weren't gonna make the same mistake twice)
 
 3. (optional) style `<style scoped></style>`
 
