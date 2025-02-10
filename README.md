@@ -36,8 +36,8 @@ Vue.js is inconsistent in their documentation and different websites and will so
 
    [CSS Features in SFCs](https://vuejs.org/api/sfc-css-features.html)
 
-   - Use scoped styles in 99.9% of cases, if you need global CSS, put it in the main CSS file, if you have one of the specific cases where the CSS works weird within an SFC, use [`:global`](https://vuejs.org/api/sfc-css-features.html#deep-selectors) on that specific rule, not on the entirety of the SFC's CSS, and give it a very specific class so it's not applied to divs project-wide or something
-   - Try learning about [deep](https://vuejs.org/api/sfc-css-features.html#deep-selectors) and [slotted](https://vuejs.org/api/sfc-css-features.html#deep-selectors) selectors
+   - Use scoped styles in 99.9% of cases, if you need global CSS, put it in the main CSS file, if you have one of the specific cases where the CSS works weird within an SFC, use [`:global`](https://vuejs.org/api/sfc-css-features.html#global-selectors) on that specific rule, not on the entirety of the SFC's CSS, and give it a very specific class so it's not applied to divs project-wide or something
+   - Try learning about [deep](https://vuejs.org/api/sfc-css-features.html#deep-selectors) and [slotted](https://vuejs.org/api/sfc-css-features.html#slotted-selectors) selectors
    - style can just be last because it has the least impact on an SFC
    - Note the following: [Scoped styles do not eliminate the need for classes](https://vuejs.org/api/sfc-css-features.html#scoped-style-tips) (giving classes to elements will make the code execute faster, among other advantages like readability)
 
