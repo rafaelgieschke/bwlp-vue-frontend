@@ -1,28 +1,33 @@
 <template>
-  <section class="bottom-margin medium-height surface scroll">
-    <LocationTreeItem
-      v-for="location in locationsTree"
-      :key="location.id"
-      :location="location"
-    />
-  </section>
+  <section class="grid">
+    <section class="bottom-margin medium-height surface scroll s12 l8">
+      <LocationTreeItem
+        v-for="location in locationsTree"
+        :key="location.id"
+        :location="location"
+      />
+    </section>
 
-  <div>
-    <label class="radio">
-      <input type="radio" name="exclusive_priority_radio" />
-      <span class="wrap">
-        Veranstaltung ausschließlich in den ausgewählten Räumen anzeigen
-      </span>
-    </label>
-  </div>
-  <div>
-    <label class="radio">
-      <input type="radio" name="exclusive_priority_radio" />
-      <span class="wrap">
-        Veranstaltung mit höherer Priorität in den ausgewählten Räumen anzeigen
-      </span>
-    </label>
-  </div>
+    <section class="s12 l4">
+      <div>
+        <label class="radio">
+          <input type="radio" name="exclusive_priority_radio" />
+          <span class="wrap">
+            Veranstaltung ausschließlich in den ausgewählten Räumen anzeigen
+          </span>
+        </label>
+      </div>
+      <div>
+        <label class="radio">
+          <input type="radio" name="exclusive_priority_radio" />
+          <span class="wrap">
+            Veranstaltung mit höherer Priorität in den ausgewählten Räumen
+            anzeigen
+          </span>
+        </label>
+      </div>
+    </section>
+  </section>
 </template>
 
 <script setup>

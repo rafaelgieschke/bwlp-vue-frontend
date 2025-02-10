@@ -1,7 +1,18 @@
 <template>
-  <div class="top-margin bottom-margin left-margin">
+  <section class="top-margin bottom-margin left-margin">
     <details v-if="location.children?.length > 0">
-      <summary>{{ location.locationName }}</summary>
+      <summary class="none">
+        <article class="round border primary-border no-elevate">
+          <nav>
+            <div class="max">
+              {{ location.locationName }}
+            </div>
+
+            <i>expand_more</i>
+          </nav>
+        </article>
+      </summary>
+
       <div class="left-margin">
         <LocationTreeItem
           v-for="child in location.children"
@@ -11,8 +22,14 @@
         />
       </div>
     </details>
-    <p v-else>{{ location.locationName }}</p>
-  </div>
+
+    <article v-else class="round border middle-align">
+      <label class="checkbox">
+        <input type="checkbox" disabled />
+        <span>{{ location.locationName }}</span>
+      </label>
+    </article>
+  </section>
 </template>
 
 <script setup>
