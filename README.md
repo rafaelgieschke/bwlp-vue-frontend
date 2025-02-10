@@ -119,7 +119,7 @@ Since we're using Beer CSS, this is handled by the package, the only reset intro
 
 #### @import
 
-Using CSS's `@import` in normal HTML CSS projects is often a bad idea, it introduces Sequential loading, blocks parallel downloads and adds HTTP requests. Vue, however, compiles CSS before serving it, so breaking down the files into smaller ones might be a good idea for long stuff that don't need to be in a single file (good example is the fonts declaration in this project, since it's long and, while somewhat overkill, still good practice (although we might want to introduce LightningCSS later to remove unecessary declarations)).
+Using CSS's `@import` in normal HTML CSS projects is often a bad idea, it introduces Sequential loading, blocks parallel downloads and adds HTTP requests. Vue, however, compiles CSS before serving it, so breaking down the files into smaller ones might be a good idea for long stuff that don't need to be in a single file (good example is the fonts declaration in this project, since it's long and, while somewhat overkill, still good practice (although we might want to introduce [Lightning CSS](https://lightningcss.dev) later to remove unecessary declarations and make the entire CSS work for every browser even weird ones, TODO: just found this while writing this so to remember: https://vuejstips.com/lightningcss-vite)).
 
 #### LTR and RTL
 
