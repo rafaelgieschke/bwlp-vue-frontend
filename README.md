@@ -55,6 +55,8 @@ My (original developer of this particular web app, and following the "pick on an
 
 ### Templates
 
+#### Importing components
+
 Nothing much to say, just when you're importing a component, use the relative `@` path, not relative `.` 'current location' path, it's longer, but that way, we know where the file is called from.
 
 ### JS
@@ -95,11 +97,11 @@ I know it's much easier to just install an NPM package for everything we need, b
 
 ### CSS
 
-### Selectors
+#### Selectors
 
 Use classes for 99% of cases, never IDs (can cause many problems if we use ID in a potentially repeated component. Specific cases require ids (although not CSS), in those cases, just try making the id `name-of-component-${some-dynamic-value (not JS random, it'll fail at some point)}`), and very rarely just the tag (except html, body and main, those are fine, header and footer are often used at different places so not them, give 'em classes).
 
-### !important
+#### !important
 
 For the love of all things holy and Minecraft's Alex character (idek): Don't. Just don't. As Green Arrow would put it: "There is always another way."
 
