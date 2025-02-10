@@ -11,7 +11,7 @@
     <section class="s12 l4">
       <div>
         <label class="radio">
-          <input type="radio" name="exclusive_priority_radio" />
+          <input type="radio" name="exclusive_priority_radio" disabled />
           <span class="wrap">
             Veranstaltung ausschließlich in den ausgewählten Räumen anzeigen
           </span>
@@ -19,7 +19,7 @@
       </div>
       <div>
         <label class="radio">
-          <input type="radio" name="exclusive_priority_radio" />
+          <input type="radio" name="exclusive_priority_radio" disabled />
           <span class="wrap">
             Veranstaltung mit höherer Priorität in den ausgewählten Räumen
             anzeigen
