@@ -25,14 +25,14 @@ I'm a code cleanliness you-know-what, so get ready.
 
 #### SFC parts order
 
-Vue.js is inconsistent in their documentation and different websites and will sometimes use script-template-style order, however, it is recommended to use template-script-style order, so we do the following:
+Vue.js is inconsistent in their documentation and different websites and will sometimes use `script-template-style` order, however, it is recommended to use `template-script-style` order, so we do the following:
 
-1. template `<template></template>
-2. (optional) script `<script setup></script>
+1. template `<template></template>`
+2. (optional) script `<script setup></script>`
 
    - [Composition API](https://vuejs.org/api/composition-api-setup.html) The reason for the use of Composition API is that it's cleaner than the whole Options API's export default in terms of code, it's also the most modern of the two methods, and it's therefore more readable
 
-3. (optional) style `<style scoped></style>
+3. (optional) style `<style scoped></style>`
 
    [CSS Features in SFCs](https://vuejs.org/api/sfc-css-features.html)
 
