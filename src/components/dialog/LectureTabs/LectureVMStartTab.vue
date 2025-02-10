@@ -9,7 +9,9 @@
     <tbody>
       <tr>
         <td class="min">Dateinamenserweiterung</td>
-        <td class="bold">{{ parseString(lecture.runscript).ext }}</td>
+        <td class="bold">
+          {{ parseString(lecture.runscript).ext || 'No script' }}
+        </td>
       </tr>
       <tr>
         <td class="min">Sichtbarkeit</td>
