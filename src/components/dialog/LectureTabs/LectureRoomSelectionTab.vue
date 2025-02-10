@@ -20,8 +20,7 @@
 
   <div>
     <label class="radio">
-      <!-- TODO: Give another name (radio1_ isn't good enough) -->
-      <input type="radio" name="radio1_" />
+      <input type="radio" name="exclusive_priority_radio" />
       <span class="wrap">
         Veranstaltung ausschließlich in den ausgewählten Räumen anzeigen
       </span>
@@ -29,7 +28,7 @@
   </div>
   <div>
     <label class="radio">
-      <input type="radio" name="radio1_" />
+      <input type="radio" name="exclusive_priority_radio" />
       <span class="wrap">
         Veranstaltung mit höherer Priorität in den ausgewählten Räumen anzeigen
       </span>
