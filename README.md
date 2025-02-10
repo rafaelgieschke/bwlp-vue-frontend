@@ -53,6 +53,10 @@ My (original developer of this particular web app, and following the "pick on an
 
 > The script will sometimes be extremely long for a few lines of template, when you open it, you can't understand what will be displayed or how it will be displayed, so you have to scroll to find it, that's too much work in cases where you're just trying to debug and understand code.
 
+### Templates
+
+Nothing much to say, just when you're importing a component, use the relative `@` path, not relative `.` 'current location' path, it's longer, but that way, we know where the file is called from.
+
 ### JS
 
 #### Extracting JS code
