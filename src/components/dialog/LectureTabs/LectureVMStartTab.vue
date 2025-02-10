@@ -1,43 +1,46 @@
 <template>
-  <table class="stripes bottom-margin">
-    <thead>
-      <tr>
-        <th>Data</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="min">Dateinamenserweiterung</td>
-        <td class="bold">
-          {{ parseString(lecture.runscript).ext || 'No script' }}
-        </td>
-      </tr>
-      <tr>
-        <td class="min">Sichtbarkeit</td>
-        <td class="bold">
-          {{ getVisibilitySetting(parseString(lecture.runscript).visibility) }}
-        </td>
-      </tr>
-      <tr>
-        <td class="min">Audio</td>
-        <td class="bold">
-          {{ getAudioSetting(parseString(lecture.runscript).soundMuted) }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <section class="grid">
+    <table class="stripes bottom-margin s12 l5">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="min">Dateinamenserweiterung</td>
+          <td class="bold">
+            {{ parseString(lecture.runscript).ext || 'No script' }}
+          </td>
+        </tr>
+        <tr>
+          <td class="min">Sichtbarkeit</td>
+          <td class="bold">
+            {{
+              getVisibilitySetting(parseString(lecture.runscript).visibility)
+            }}
+          </td>
+        </tr>
+        <tr>
+          <td class="min">Audio</td>
+          <td class="bold">
+            {{ getAudioSetting(parseString(lecture.runscript).soundMuted) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <div v-if="parseString(lecture.runscript).script">
-    <nav class="pre-title left-padding">
-      <div class="max">Run script</div>
-      <div class="ext bold text-monospace min left-padding right-padding">
-        {{ parseString(lecture.runscript).ext }}
-      </div>
-    </nav>
-
-    <pre><code>{{ parseString(lecture.runscript).script }}</code></pre>
-  </div>
+    <section v-if="parseString(lecture.runscript).script" class="s12 l6">
+      <nav class="pre-title left-padding">
+        <div class="max">Run script</div>
+        <div class="ext bold text-monospace min left-padding right-padding">
+          {{ parseString(lecture.runscript).ext }}
+        </div>
+      </nav>
+      <pre><code>{{ parseString(lecture.runscript).script }}</code></pre>
+    </section>
+  </section>
 </template>
 
 <script setup>

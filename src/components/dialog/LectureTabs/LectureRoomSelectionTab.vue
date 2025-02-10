@@ -1,6 +1,6 @@
 <template>
-  <section class="grid">
-    <section class="bottom-margin medium-height surface scroll s12 l8">
+  <section class="grid large-space">
+    <section class="bottom-margin medium-height surface scroll s12 l6">
       <LocationTreeItem
         v-for="location in locationsTree"
         :key="location.id"
@@ -8,7 +8,7 @@
       />
     </section>
 
-    <section class="s12 l4">
+    <section class="s12 l6">
       <div>
         <label class="radio">
           <input type="radio" name="exclusive_priority_radio" disabled />
