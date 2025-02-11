@@ -4,10 +4,12 @@
       <input v-model="modelValue.lectureName" required />
       <label>Lecture Name</label>
     </div>
+
     <div class="field textarea label border">
       <textarea v-model="modelValue.description"></textarea>
       <label>Description</label>
     </div>
+
     <div class="field label border">
       <input
         type="datetime-local"
@@ -15,8 +17,10 @@
         @input="updateStartTime"
         required
       />
+
       <label>Start Time</label>
     </div>
+
     <div class="field label border">
       <input
         type="datetime-local"
@@ -24,6 +28,7 @@
         @input="updateEndTime"
         required
       />
+
       <label>End Time</label>
     </div>
   </div>
@@ -41,6 +46,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
+// Dates are fucked up
 const startDateTime = computed({
   get: () => {
     if (!props.modelValue.startTime) return '';

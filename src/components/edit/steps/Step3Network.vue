@@ -6,6 +6,7 @@
         <span>Internet Access</span>
       </label>
     </div>
+
     <div class="field">
       <label class="switch">
         <input type="checkbox" v-model="modelValue.hasUsbAccess" />

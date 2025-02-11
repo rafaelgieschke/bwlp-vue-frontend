@@ -33,6 +33,7 @@ import Step1BasicInfo from '@/components/edit/steps/Step1BasicInfo.vue';
 import Step2Permissions from '@/components/edit/steps/Step2Permissions.vue';
 import Step3Network from '@/components/edit/steps/Step3Network.vue';
 import Step4Advanced from '@/components/edit/steps/Step4Advanced.vue';
+import EditNavigationButtons from '@/components/edit/EditNavigationButtons.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -40,7 +41,6 @@ const router = useRouter();
 const authStore = useAuthStore();
 
 import {useSatServer} from '@/composables/useSatServer';
-import EditNavigationButtons from '@/components/edit/EditNavigationButtons.vue';
 const sat = useSatServer();
 
 const itemData = ref({});
