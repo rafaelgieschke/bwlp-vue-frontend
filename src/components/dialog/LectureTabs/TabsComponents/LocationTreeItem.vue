@@ -1,8 +1,10 @@
 <template>
-  <section class="top-margin bottom-margin location-item">
+  <section class="location-item">
     <details v-if="location.children?.length > 0">
       <summary class="none">
-        <article class="round border primary-border no-elevate">
+        <article
+          class="round no-elevate small-padding secondary-container wave"
+        >
           <nav>
             <div class="max">
               {{ location.locationName }}
@@ -18,12 +20,12 @@
           v-for="child in location.children"
           :key="child.id"
           :location="child"
-          class="top-margin bottom-margin"
+          class="top-margin"
         />
       </div>
     </details>
 
-    <article v-else class="round border middle-align">
+    <article v-else class="round border middle-align small-padding">
       <label class="checkbox">
         <input type="checkbox" disabled />
         <span>{{ location.locationName }}</span>
@@ -42,7 +44,15 @@ defineProps({
 </script>
 
 <style scoped>
-.location-item .location-item {
-  margin-inline-start: 0.5rem;
+.location-item {
+  user-select: none;
+
+  .location-item {
+    margin-inline-start: 0.5rem;
+  }
+
+  + .location-item {
+    margin-block-start: 0.5rem;
+  }
 }
 </style>

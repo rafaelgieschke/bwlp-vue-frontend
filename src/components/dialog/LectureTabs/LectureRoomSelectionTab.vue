@@ -1,6 +1,6 @@
 <template>
   <section class="grid large-space">
-    <section class="s12 l6 medium-height surface scroll padding">
+    <section class="s12 l6 medium-height surface scroll small-padding">
       <LocationTreeItem
         v-for="location in locationsTree"
         :key="location.id"
