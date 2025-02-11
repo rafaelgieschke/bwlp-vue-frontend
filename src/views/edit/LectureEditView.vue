@@ -47,25 +47,7 @@ const authStore = useAuthStore();
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();
 
-const itemData = ref({
-  // Basic info defaults (Step 1)
-  name: '',
-  description: '',
-
-  // Permissions defaults (Step 2)
-  isEnabled: false,
-  isExam: false,
-  defaultPermissions: false,
-  adminPermissions: false,
-
-  // Network defaults (Step 3)
-  hasInternetAccess: false,
-  hasUsbAccess: false,
-
-  // Advanced defaults (Step 4)
-  autoUpdate: false,
-  limitToLocations: false,
-});
+const itemData = ref({});
 const error = ref(null);
 const currentStep = ref(1);
 
