@@ -1,22 +1,17 @@
 <template>
   <div class="step-network">
-    <div class="field">
-      <label class="switch">
-        <input type="checkbox" v-model="modelValue.hasInternetAccess" />
-        <span>Internet Access</span>
-      </label>
-    </div>
+    <SwitchTitle
+      title="Internet Access"
+      :modelValue="modelValue.hasInternetAccess"
+    />
 
-    <div class="field">
-      <label class="switch">
-        <input type="checkbox" v-model="modelValue.hasUsbAccess" />
-        <span>USB Access</span>
-      </label>
-    </div>
+    <SwitchTitle title="USB Access" :modelValue="modelValue.hasUsbAccess" />
   </div>
 </template>
 
 <script setup>
+import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
+
 defineProps({
   modelValue: {
     type: Object,

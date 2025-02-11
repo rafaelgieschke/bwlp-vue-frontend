@@ -1,22 +1,22 @@
 <template>
   <div class="step-advanced">
-    <div class="field">
-      <label class="switch">
-        <input type="checkbox" v-model="modelValue.autoUpdate" />
-        <span>Auto Update</span>
-      </label>
-    </div>
+    <SwitchTitle
+      title="Auto Update"
+      description="Should the lecture auto update?"
+      :modelValue="modelValue.autoUpdate"
+    />
 
-    <div class="field">
-      <label class="switch">
-        <input type="checkbox" v-model="modelValue.limitToLocations" />
-        <span>Limit to Locations</span>
-      </label>
-    </div>
+    <SwitchTitle
+      title="Limit to Locations"
+      description="Should the lecture be limited to locations?"
+      :modelValue="modelValue.limitToLocations"
+    />
   </div>
 </template>
 
 <script setup>
+import SwitchTitle from './SwitchTitle.vue';
+
 defineProps({
   modelValue: {
     type: Object,

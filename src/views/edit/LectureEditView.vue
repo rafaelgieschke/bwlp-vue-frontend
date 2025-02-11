@@ -9,10 +9,12 @@
   <form @submit.prevent="saveItem">
     <ProgressIndicator v-model:currentStep="currentStep" />
 
-    <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
-    <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
-    <Step3Network v-show="currentStep === 3" v-model="itemData" />
-    <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
+    <article class="medium-height">
+      <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
+      <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
+      <Step3Network v-show="currentStep === 3" v-model="itemData" />
+      <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
+    </article>
 
     <EditNavigationButtons
       :prevStep="prevStep"

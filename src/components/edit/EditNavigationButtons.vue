@@ -1,5 +1,5 @@
 <template>
-  <div class="buttons">
+  <div class="buttons top-margin">
     <button
       type="button"
       class="no-margin border secondary-border"
