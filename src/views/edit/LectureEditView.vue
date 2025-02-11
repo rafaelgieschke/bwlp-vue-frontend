@@ -10,10 +10,12 @@
     <ProgressIndicator v-model:currentStep="currentStep" />
 
     <article class="medium-height">
-      <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
-      <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
-      <Step3Network v-show="currentStep === 3" v-model="itemData" />
-      <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
+      <div>
+        <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
+        <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
+        <Step3Network v-show="currentStep === 3" v-model="itemData" />
+        <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
+      </div>
     </article>
 
     <EditNavigationButtons
@@ -45,7 +47,25 @@ const authStore = useAuthStore();
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();
 
-const itemData = ref({});
+const itemData = ref({
+  // Basic info defaults (Step 1)
+  name: '',
+  description: '',
+
+  // Permissions defaults (Step 2)
+  isEnabled: false,
+  isExam: false,
+  defaultPermissions: false,
+  adminPermissions: false,
+
+  // Network defaults (Step 3)
+  hasInternetAccess: false,
+  hasUsbAccess: false,
+
+  // Advanced defaults (Step 4)
+  autoUpdate: false,
+  limitToLocations: false,
+});
 const error = ref(null);
 const currentStep = ref(1);
 

@@ -6,7 +6,11 @@
         <div v-if="description">{{ description }}</div>
       </div>
       <label class="switch">
-        <input type="checkbox" v-model="modelValue.isExam" />
+        <input
+          type="checkbox"
+          :checked="modelValue"
+          @change="$emit('update:modelValue', $event.target.checked)"
+        />
         <span></span>
       </label>
     </nav>
@@ -16,7 +20,7 @@
 <script setup>
 defineProps({
   modelValue: {
-    type: Object,
+    type: Boolean,
     required: true,
   },
   title: {
@@ -28,4 +32,6 @@ defineProps({
     default: '',
   },
 });
+
+defineEmits(['update:modelValue']);
 </script>
