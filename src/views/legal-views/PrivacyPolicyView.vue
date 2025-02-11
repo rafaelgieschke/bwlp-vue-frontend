@@ -110,7 +110,7 @@ import Card from '@/components/Card.vue';
   padding-block: 1rem;
 
   &:last-of-type {
-    padding-bottom: 0;
+    padding-block-end: 0;
   }
 }
 </style>

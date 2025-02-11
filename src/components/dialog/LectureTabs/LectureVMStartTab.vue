@@ -123,8 +123,8 @@ function getVisibilitySetting(setting) {
 
 <style scoped>
 .pre-title {
-  border-bottom: 1px solid var(--primary);
   border-inline-start: var(--primary) 4px solid;
+  border-block-end: 1px solid var(--primary);
   background-color: var(--surface-container);
   font-size: 1rem;
 
@@ -134,7 +134,7 @@ function getVisibilitySetting(setting) {
   }
 
   & + pre {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 </style>

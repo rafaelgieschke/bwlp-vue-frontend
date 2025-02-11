@@ -104,6 +104,6 @@ onMounted(() => {
 
 <style scoped>
 h6.small:first-of-type {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 </style>
