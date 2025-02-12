@@ -11,17 +11,11 @@
     <form @submit.prevent="saveItem">
       <ProgressIndicator v-model:currentStep="currentStep" />
 
-      <article class="medium-height">
-        <div v-show="currentStep === 1">Step 1</div>
-        <div v-show="currentStep === 2">Step 2</div>
-        <div v-show="currentStep === 3">Step 3</div>
-        <div v-show="currentStep === 4">Step 4</div>
-        <!-- <div>
-          <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
-          <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
-          <Step3Network v-show="currentStep === 3" v-model="itemData" />
-          <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
-        </div> -->
+      <article class="large scroll">
+        <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
+        <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
+        <Step3Network v-show="currentStep === 3" v-model="itemData" />
+        <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
       </article>
 
       <EditNavigationButtons
