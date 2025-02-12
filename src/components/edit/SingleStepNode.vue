@@ -1,6 +1,10 @@
 <template>
   <div class="center-align">
-    <button @click.prevent="currentStep = stepNumber" class="circle small">
+    <button
+      type="button"
+      @click="currentStep = stepNumber"
+      class="circle small"
+    >
       <i v-if="currentStep > stepNumber">done</i>
       <div v-else="currentStep === stepNumber">
         {{ stepNumber }}

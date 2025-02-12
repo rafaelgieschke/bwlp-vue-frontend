@@ -1,8 +1,8 @@
 <template>
-  <div class="buttons top-margin">
+  <nav class="top-margin">
     <button
       type="button"
-      class="no-margin border secondary-border"
+      class="border secondary-border"
       @click="prevStep"
       :disabled="currentStep <= 1"
     >
@@ -12,7 +12,7 @@
 
     <button
       type="button"
-      class="no-margin border primary-border"
+      class="border primary-border"
       @click="nextStep"
       :disabled="currentStep >= 4"
     >
@@ -20,11 +20,13 @@
       <i>arrow_forward</i>
     </button>
 
+    <div class="max"></div>
+
     <button type="submit" class="primary">
       <i>save</i>
       <span>Save</span>
     </button>
-  </div>
+  </nav>
 </template>
 
 <script setup>
