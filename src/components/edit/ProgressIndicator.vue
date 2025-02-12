@@ -1,9 +1,33 @@
 <template>
   <nav>
     <SingleStepNode
-      v-for="index in 4"
       v-model:currentStep="currentStep"
-      :step-number="index"
+      :step-number="1"
+      text="Basic Info"
+    />
+
+    <hr class="max" />
+
+    <SingleStepNode
+      v-model:currentStep="currentStep"
+      :step-number="2"
+      text="Permissions"
+    />
+
+    <hr class="max" />
+
+    <SingleStepNode
+      v-model:currentStep="currentStep"
+      :step-number="3"
+      text="Network"
+    />
+
+    <hr class="max" />
+
+    <SingleStepNode
+      v-model:currentStep="currentStep"
+      :step-number="4"
+      text="Advanced"
     />
   </nav>
 </template>
