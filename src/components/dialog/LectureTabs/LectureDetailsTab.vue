@@ -4,7 +4,9 @@
       <tbody>
         <tr>
           <td>Beschreibung</td>
-          <td colspan="3">{{ lecture.description }}</td>
+          <td colspan="3">
+            <BasicPre :text="lecture.description" />
+          </td>
         </tr>
         <tr>
           <td>Besitzer</td>
@@ -78,6 +80,8 @@
 
 <script setup>
 import {ref, watch, onMounted} from 'vue';
+
+import BasicPre from '@/components/BasicPre.vue';
 
 const props = defineProps({
   lecture: {
