@@ -10,14 +10,14 @@
 
     <form @submit.prevent="saveItem">
       <ProgressIndicator v-model:currentStep="currentStep" />
-      <!-- <article class="medium-height">
-        <div>
+      <article class="medium-height">
+        <!-- <div>
           <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
           <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
           <Step3Network v-show="currentStep === 3" v-model="itemData" />
           <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
-        </div>
-      </article> -->
+        </div> -->
+      </article>
       <EditNavigationButtons
         :prevStep="prevStep"
         :nextStep="nextStep"
