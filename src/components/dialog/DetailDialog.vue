@@ -7,7 +7,7 @@
         <RouterLink
           v-if="editRoute"
           :to="editRoute"
-          class="m l button small"
+          class="m l button small border secondary-border secondary-text"
           @click="sendCloseEvent"
         >
           <i>edit</i>
