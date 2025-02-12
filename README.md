@@ -6,13 +6,11 @@
 
 [Old Repo (Khoding, Archived) in case we need info](https://github.com/Khoding/bwlp-frontend)
 
-## Info
+## Tools used
 
 This app uses [Vue.js](https://vuejs.org), [Vite](https://vite.dev) and [Beer CSS](https://www.beercss.com)
 
-- Vue is Vue
-- Vite is Vite
-- and Beer CSS is a [Material UI](https://m3.material.io) CSS Library, it allows for quick Material designing, and it supports [Material You](https://m3.material.io/blog/announcing-material-you) customisation (theming color based off images and stuff like that, it's pointless, but cool for the user)
+- Beer CSS is a [Material UI](https://m3.material.io) CSS Library, it allows for quick Material designing, and it supports [Material You](https://m3.material.io/blog/announcing-material-you) customisation (theming color based off images and stuff like that, it's pointless, but cool for the user)
 - The icons can be found at [Google Fonts](https://fonts.google.com/icons)
 
 ## Development rules (to keep the project clean)
@@ -21,25 +19,28 @@ I'm a code cleanliness you-know-what, so get ready.
 
 ### Vue SFCs (Single File Components), we love 'em
 
-[SFC on vue.js documentation](https://vuejs.org/api/sfc-spec.html)
+You can find most of the information needed here: [SFC on vue.js documentation](https://vuejs.org/api/sfc-spec.html)
 
-#### SFC parts order
+#### SFC blocks order
 
 Vue.js is inconsistent in their documentation and different websites and will sometimes use `script-template-style` order, however, it is recommended to use `template-script-style` order, so we do the following:
 
 1. template `<template></template>`
 2. (optional) script `<script setup></script>`
 
-   - [Composition API](https://vuejs.org/api/composition-api-setup.html) The reason for the use of Composition API is that it's cleaner than the whole Options API's export default in terms of code, it's also the most modern of the two methods, and it's therefore more readable (yeah, they weren't gonna make the same mistake twice)
+   - We use the [Composition API](https://vuejs.org/api/composition-api-setup.html)
+     - The reason is it's the new way of doing things and it's proven easier to work with than the Options API
+   - Small components that were extracted for readability and reusability might not have scripts, and that's okay, don't keep the empty tag
 
 3. (optional) style `<style scoped></style>`
 
-   [CSS Features in SFCs](https://vuejs.org/api/sfc-css-features.html)
+   You can read [CSS Features in SFCs](https://vuejs.org/api/sfc-css-features.html) on Vue's official documentation for more information
 
-   - style can just be last because it has the least impact on an SFC's readability
-   - Use scoped styles in 99.9% of cases, if you need global CSS, put it in the main CSS file, if you have one of the specific cases where the CSS works weird within an SFC, use [`:global`](https://vuejs.org/api/sfc-css-features.html#global-selectors) on that specific rule, not on the entirety of the SFC's CSS, and give it a very specific class so it's not applied to divs project-wide or something
+   - style can be last because it has the least impact on an SFC's readability
    - Try learning about [deep](https://vuejs.org/api/sfc-css-features.html#deep-selectors) and [slotted](https://vuejs.org/api/sfc-css-features.html#slotted-selectors) selectors
+   - Use scoped styles in 99.9% of cases, if you need global CSS, put it in the main CSS file, if you have one of the specific cases where the CSS works weird within an SFC but it clearly belongs as part of the SFC, first try using deep and slotted selectors, and if all fails, use [`:global`](https://vuejs.org/api/sfc-css-features.html#global-selectors) on that specific rule. Do not make the entirety of the SFC's CSS global, and give the element a very specific class so that it's not applied to random elements project-wide
    - Note the following: [Scoped styles do not eliminate the need for classes](https://vuejs.org/api/sfc-css-features.html#scoped-style-tips) (giving classes to elements will make the code execute faster, among other advantages like readability)
+   - Small components that were extracted for readability and reusability might not have styles, and that's okay, don't keep the empty tag
 
 The reasons this order works are as follows:
 
@@ -57,13 +58,13 @@ My (original developer of this particular web app, and following the "pick on an
 
 #### Importing components
 
-Nothing much to say, just when you're importing a component, use the relative `@` path, not relative `.` 'current location' path, it's longer, but that way, we know where the file is called from.
+When you're importing a component, use the relative `@` path, not relative `.` 'current location' path, it's longer, but that way, we know where the file comes from.
 
-### JS
+### Javascript
 
-#### Extracting JS code
+#### Extracting Javascript code
 
-For the JS, if code gets too long in an SFC, it might be a good idea to extract it.
+For the Javascript, if code gets too long in an SFC, it might be a good idea to extract it.
 
 If the code is shared between many SFCs, try extracting it to a composable (for Vue-related code) or a utility (utils, for anything non Vue-related)
 
@@ -93,21 +94,21 @@ export function useCounter() {
 
 #### NPM Packages
 
-I know it's much easier to just install an NPM package for everything we need, but it creates weird dependencies that usually have no use and just make a mess in our package file, when something big is needed, go for it (site-wide stuff like i18n for example), but for small code, even if there is most likely a 10 LOC package that does it out there, try just making an 11 LOC file with basically the same logic (don't steal code though).
+I know it's much easier to just install an NPM package for everything we need, but it creates weird dependencies that usually have no use and just make a mess in our package file, when something big is needed, go for it (site-wide stuff like i18n for example), but for small code, even if there is most likely a 10 LOC package that does it out there, try just making an 11 LOC file with basically the same logic (don't steal code though, you're better than that).
 
 ### CSS
 
 #### Selectors
 
-Use classes for 99% of cases, never IDs (can cause many problems if we use ID in a potentially repeated component. Specific cases require ids (although not CSS), in those cases, just try making the id `name-of-component-${some-dynamic-value (not JS random, it'll fail at some point)}`), and very rarely just the tag (except html, body and main, those are fine, header and footer are often used at different places so not them, give 'em classes).
+Use classes for 99% of cases, never IDs (can cause many problems if we use ID in a potentially repeated component. Specific cases require ids (although not CSS, but forms for example), in those cases, just try making the id `name-of-component-${some-dynamic-value (don't use random, or it WILL fail at some point)}`), and very rarely just the tag (except html, body and main, those are fine, header and footer are often used at different places so not them, give 'em classes).
 
 #### !important
 
-For the love of all things holy and Minecraft's Alex character (idek): Don't. Just don't. As Green Arrow would put it: "There is always another way."
+For the love of all things holy and Minecraft's Alex character (idke): Don't. Just don't. As Oliver Jonas "Ollie" (The Green Arrow / Spectre) Queen would put it: "There is always another way."
 
 #### CSS Reset and CSS Normalizer
 
-Since we're using Beer CSS, this is handled by the package, the only reset introduced is the `border-box` rule because Beer only does it on `*`, not on `*::before` and `*::after` for some reason (not that I can see anyway), so just to be sure, I just added it again (also brings me peace knowing it's there, even if unfortunately repeated).
+Since we're using Beer CSS, this is handled by the package, the only reset introduced is the `border-box` thing because Beer only does it on `*`, not on `*::before` and `*::after` for some reason (not that I can see anyway), so just to be sure, I just added it again (also brings me peace knowing it's there, even if unfortunately repeated).
 
 ```css
 *,
@@ -123,16 +124,18 @@ Using CSS's `@import` in normal HTML CSS projects is often a bad idea, it introd
 
 #### LTR and RTL
 
-For CSS, always use logical properties (like `margin-inline-start` instead of `margin-left`), that way, if we ever want to support RTL languages, everything just "works" (on that end anyway, the rest is your problem).  
+For CSS, always use logical properties (like `margin-inline-start` instead of `margin-left` and `border-block-start` instead of `border-top`), that way, if we ever want to support RTL languages, everything just "works" (on that end anyway, the rest is your problem, young Padawan).  
 Beer CSS already does that for everything of the sort, so it's only in cases where you add some CSS.
 
 #### Use of modern CSS
 
-That's not a problem for me, although, I haven't used any feature that aren't supported on the latest versions of Evergreen Browsers (2022 and after (I cheated a little because who can not use `:has()` nowadays?)) (Google Chrome (and all Chromium, like Vivaldi (yaaa), Brave (why?), Opera GX (ew), Microsoft Edge (eh), etc.), Mozilla Firefox, Apple Safari. If it doesn't work on Internet Explorer, the old Edge or Opera (not GX), that's not our problem, anyway the chances of someone using them at the Uni are basically zero, and they probably have Chrome installed for the millions of websites not supporting their shitty choices in life).
+That's not too much of a problem in this particular case since we're not making an app for two billion people, although, I haven't used any feature that aren't supported on the latest versions of every Evergreen Browsers (2022 and after CSS features (I cheated a little because who can not use `:has()` nowadays?)) (Google Chrome (and all Chromium, like Vivaldi (yaaa), Brave (why?), Opera GX (ew), Microsoft Edge (eh), etc.), Mozilla Firefox, Apple Safari. If it doesn't work on Internet Explorer, the old Edge or Opera (not GX), that's not our problem, anyway the chances of someone using them in the Uni are basically zero, and they probably have Chrome installed for the millions of websites not supporting their shitty choices in life).
 
-##### Speaking of modern CSS, CSS Layers!
+That being said, when `@supports` comes in all major Evergreen browsers, it could be a good idea to tell people "Hey bro, you should really update your browsers" when some feature isn't supported.
 
-Okay, I know they are cool, and I planned on using them, but I don't want to force them on anyone, and since they can change the way Specificity works, I'd rather not confuse anyone with them.
+##### Speaking of modern CSS, [CSS Layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)!
+
+Okay, I know they are cool, and I planned on using them, but I don't want to force them on anyone, and since they can change the way Specificity works, I'd rather not confuse anyone who already hates CSS with them (although if you hate CSS, you should look into them, they look scary but they really fix a lot of issues you probably hate with this wonderful language).
 
 ## Recommended IDE Setup
 
