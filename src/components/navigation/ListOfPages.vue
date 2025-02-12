@@ -45,6 +45,9 @@
     <i>developer_guide</i>
     <span>bwLehrpool Wiki</span>
   </a>
+
+  <SeparatingLabel v-if="showGithub" text="For the devs" />
+
   <a
     v-if="showGithub"
     class="wave"
@@ -55,6 +58,72 @@
   >
     <i>code</i>
     <span>BWLP Vue Frontend Repository</span>
+  </a>
+  <a
+    v-if="showGithub"
+    class="wave"
+    href="https://github.com/Khoding/bwlp-frontend"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>code</i>
+    <span>Old Frontend Repo (archive)</span>
+  </a>
+  <a
+    v-if="showGithub"
+    class="wave"
+    href="https://vuejs.org/guide/introduction.html"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>visibility</i>
+    <span>Vue.js documentation</span>
+  </a>
+  <a
+    v-if="showGithub"
+    class="wave"
+    href="https://vite.dev/guide/"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>speed</i>
+    <span>Vite documentation</span>
+  </a>
+  <a
+    v-if="showGithub"
+    class="wave"
+    href="https://www.beercss.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>sports_bar</i>
+    <span>Beer CSS official website</span>
+  </a>
+  <a
+    v-if="showGithub"
+    class="wave"
+    href="https://github.com/beercss/beercss/blob/main/docs/INDEX.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>sports_bar</i>
+    <span>Beer CSS documentation</span>
+  </a>
+  <a
+    v-if="showGithub"
+    class="wave"
+    href="https://fonts.google.com/icons"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>emoticon</i>
+    <span>Material Symbols & Icons</span>
   </a>
 </template>
 
