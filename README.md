@@ -137,6 +137,18 @@ That being said, when `@supports` comes in all major Evergreen browsers, it coul
 
 Okay, I know they are cool, and I planned on using them, but I don't want to force them on anyone, and since they can change the way Specificity works, I'd rather not confuse anyone who already hates CSS with them (although if you hate CSS, you should look into them, they look scary but they really fix a lot of issues you probably hate with this wonderful language).
 
+##### [Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+
+Beer CSS only has three levels of responsive: `.s`, `.m` and `.l`, this is enough in most cases, but it can be limiting. If you need an element to be more responsive, try using Container Queries.
+
+Container Queries allow for WAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY simpler responsive, so don't get annoyed with Responsive Media Queries, they're rendered practically irrelevant.
+
+Articles teaching their use:
+
+- [Really small introduction](https://www.joshwcomeau.com/css/container-queries-introduction/)
+- [Probably best article online, visualise their use](https://ishadeed.com/article/css-container-query-guide/)
+- [Go further](https://www.joshwcomeau.com/css/container-queries-unleashed/)
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
