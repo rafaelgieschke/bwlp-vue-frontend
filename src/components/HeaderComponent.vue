@@ -17,7 +17,7 @@
         <i>palette</i>
       </button>
 
-      <button class="m l">
+      <button class="m l border secondary-border secondary-text">
         Menu
         <i>arrow_drop_down</i>
         <menu>

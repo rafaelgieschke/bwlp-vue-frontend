@@ -2,7 +2,7 @@
   <nav class="top-margin">
     <button
       type="button"
-      class="border secondary-border"
+      class="border secondary-border secondary-text"
       @click="prevStep"
       :disabled="currentStep <= 1"
     >

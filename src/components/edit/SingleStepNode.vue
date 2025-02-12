@@ -4,6 +4,11 @@
       type="button"
       @click="currentStep = stepNumber"
       class="circle small"
+      :class="{
+        primary: currentStep === stepNumber,
+        secondary: currentStep < stepNumber,
+        tertiary: currentStep > stepNumber,
+      }"
     >
       <i v-if="currentStep > stepNumber">done</i>
       <div v-else="currentStep === stepNumber">
