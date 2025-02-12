@@ -1,5 +1,5 @@
 <template>
-  <nav class="m l left drawer">
+  <nav class="m l left drawer scroll">
     <NavigationHeader />
     <ListOfPages />
   </nav>

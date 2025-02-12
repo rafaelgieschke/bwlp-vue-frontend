@@ -125,11 +125,27 @@
     <i>emoticon</i>
     <span>Material Symbols & Icons</span>
   </a>
+
+  <SeparatingLabel only-mobile-class="s" text="Account" />
+
+  <a class="s">Profile</a>
+
+  <a
+    class="s wave"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+    @click.prevent="logout"
+  >
+    Logout
+  </a>
 </template>
 
 <script setup>
 import {ref} from 'vue';
-import {RouterLink} from 'vue-router';
+import {RouterLink, useRouter} from 'vue-router';
+import {useAuthStore} from '@/stores/auth-store';
+
 import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
 
 const showGithub = ref(import.meta.env.VITE_SHOW_GITHUB === 'true');
@@ -140,6 +156,14 @@ const props = defineProps({
     default: false,
   },
 });
+
+const router = useRouter();
+const authStore = useAuthStore();
+
+const logout = () => {
+  authStore.clearToken();
+  router.push('/login');
+};
 </script>
 
 <style scoped>

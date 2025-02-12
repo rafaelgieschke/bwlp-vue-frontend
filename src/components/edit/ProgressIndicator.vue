@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="scroll">
     <SingleStepNode
       v-model:currentStep="currentStep"
       :step-number="1"

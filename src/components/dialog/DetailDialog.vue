@@ -7,7 +7,7 @@
         <RouterLink
           v-if="editRoute"
           :to="editRoute"
-          class="m l button small border secondary-border secondary-text"
+          class="m l button small border secondary"
           @click="sendCloseEvent"
         >
           <i>edit</i>
@@ -17,7 +17,7 @@
         <RouterLink
           v-if="editRoute"
           :to="editRoute"
-          class="s button circle small"
+          class="s button circle small border secondary"
         >
           <i>edit</i>
         </RouterLink>
