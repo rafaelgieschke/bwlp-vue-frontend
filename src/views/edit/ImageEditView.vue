@@ -6,6 +6,8 @@
       default-message="Unable to load or update image"
     />
 
+    <ItemDataPre v-if="devMode" :itemData="itemData" />
+
     <h1>Edit {{ itemData.imageName }}</h1>
 
     <form @submit.prevent="saveItem">
@@ -25,11 +27,14 @@ import {useRoute, useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
+import ItemDataPre from '@/components/ItemDataPre.vue';
 
 const route = useRoute();
 const router = useRouter();
 
 const authStore = useAuthStore();
+
+const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();

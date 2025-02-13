@@ -46,10 +46,10 @@
     <span>bwLehrpool Wiki</span>
   </a>
 
-  <SeparatingLabel v-if="showGithub" text="For the devs" />
+  <SeparatingLabel v-if="devMode" text="For the devs" />
 
   <a
-    v-if="showGithub"
+    v-if="devMode"
     class="wave"
     href="https://github.com/Khoding/bwlp-vue-frontend"
     target="_blank"
@@ -60,7 +60,7 @@
     <span>BWLP Vue Frontend Repository</span>
   </a>
   <a
-    v-if="showGithub"
+    v-if="devMode"
     class="wave"
     href="https://github.com/Khoding/bwlp-frontend"
     target="_blank"
@@ -71,7 +71,7 @@
     <span>Old Frontend Repo (archive)</span>
   </a>
   <a
-    v-if="showGithub"
+    v-if="devMode"
     class="wave"
     href="https://vuejs.org/guide/introduction.html"
     target="_blank"
@@ -82,7 +82,7 @@
     <span>Vue.js documentation</span>
   </a>
   <a
-    v-if="showGithub"
+    v-if="devMode"
     class="wave"
     href="https://vite.dev/guide/"
     target="_blank"
@@ -93,7 +93,7 @@
     <span>Vite documentation</span>
   </a>
   <a
-    v-if="showGithub"
+    v-if="devMode"
     class="wave"
     href="https://www.beercss.com"
     target="_blank"
@@ -104,7 +104,7 @@
     <span>Beer CSS official website</span>
   </a>
   <a
-    v-if="showGithub"
+    v-if="devMode"
     class="wave"
     href="https://github.com/beercss/beercss/blob/main/docs/INDEX.md"
     target="_blank"
@@ -115,7 +115,7 @@
     <span>Beer CSS documentation</span>
   </a>
   <a
-    v-if="showGithub"
+    v-if="devMode"
     class="wave"
     href="https://fonts.google.com/icons"
     target="_blank"
@@ -148,7 +148,7 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
 
-const showGithub = ref(import.meta.env.VITE_SHOW_GITHUB === 'true');
+const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
 const props = defineProps({
   mobile_nav: {

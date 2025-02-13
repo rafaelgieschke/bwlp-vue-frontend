@@ -6,6 +6,8 @@
       default-message="Unable to load or update lecture"
     />
 
+    <ItemDataPre v-if="devMode" :itemData="itemData" />
+
     <h1>Edit {{ itemData.lectureName }}</h1>
 
     <form @submit.prevent="saveItem">
@@ -33,6 +35,8 @@ import {useRoute, useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
+import ItemDataPre from '@/components/ItemDataPre.vue';
+
 import ProgressIndicator from '@/components/edit/ProgressIndicator.vue';
 import Step1BasicInfo from '@/components/edit/steps/Step1BasicInfo.vue';
 import Step2Permissions from '@/components/edit/steps/Step2Permissions.vue';
@@ -44,6 +48,8 @@ const route = useRoute();
 const router = useRouter();
 
 const authStore = useAuthStore();
+
+const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();
