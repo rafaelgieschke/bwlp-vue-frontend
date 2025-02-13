@@ -92,6 +92,7 @@ import LectureLDAPFilterTab from '@/components/dialog/LectureTabs/LectureLDAPFil
 import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
 
 /// TODO: But for in a long time, we could make it a setting that the user can decide for themselves
+/// Use Pinia for it? it's per browser but we could make it somehow easily syncable
 const lectureTabs = [
   {
     id: 'details',
