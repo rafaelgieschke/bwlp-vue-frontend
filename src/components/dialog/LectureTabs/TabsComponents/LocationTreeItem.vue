@@ -3,7 +3,7 @@
     <details v-if="location.children?.length > 0">
       <summary class="none">
         <article
-          class="round no-elevate small-padding secondary-container wave"
+          class="round no-elevate small-padding border primary-border wave"
         >
           <nav>
             <div class="max">
