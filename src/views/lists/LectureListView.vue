@@ -60,7 +60,6 @@ const columns = [
   {
     field: 'lectureName',
     label: 'Lecture Name',
-    class: 'min',
   },
   {
     field: 'ownerId',
@@ -71,13 +70,15 @@ const columns = [
     field: 'startTime',
     label: 'Start Time',
     class: 'min',
-    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm'),
+    formatter: value =>
+      value > 0 ? $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm') : '-',
   },
   {
     field: 'endTime',
     label: 'End Time',
     class: 'min',
-    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm'),
+    formatter: value =>
+      value > 0 ? $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm') : '-',
   },
 ];
 

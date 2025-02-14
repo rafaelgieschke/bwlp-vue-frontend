@@ -1,6 +1,18 @@
 <template>
   <section class="large-height surface scroll">
-    <table v-if="items.length > 0" class="stripes">
+    <div class="search field label suffix border top-margin round">
+      <input
+        type="text"
+        v-model="searchQuery"
+        class="search-input"
+        placeholder="Search..."
+        @input="filterItems"
+      />
+      <label>Filter the {{ itemLabel.toLowerCase() }}</label>
+      <i>search</i>
+    </div>
+
+    <table v-if="filteredItems.length > 0" class="stripes">
       <thead class="fixed">
         <tr>
           <th
@@ -14,9 +26,10 @@
           </th>
         </tr>
       </thead>
+
       <tbody>
         <tr
-          v-for="item in sortedItems"
+          v-for="item in filteredAndSortedItems"
           :key="getItemKey(item)"
           :id="getItemKey(item)"
           @click="$emit('row-click', item)"
@@ -30,12 +43,15 @@
               {{ column.formatter(item[column.field], item) }}
               <!-- make the color red if the date < currentTime in case it applies -->
             </template>
+
             <template v-else-if="column.field === 'ownerId'">
               {{ getUserFullName(item[column.field]) }}
             </template>
+
             <template v-else-if="column.field === 'osId'">
               {{ getOSName(item[column.field]) }}
             </template>
+
             <template v-else-if="column.field === 'virtId'">
               <span
                 class="virt-logo"
@@ -44,23 +60,29 @@
                 :class="item[column.field]"
               ></span>
             </template>
+
             <template v-else>
               {{ item[column.field] }}
             </template>
           </td>
         </tr>
       </tbody>
+
       <tfoot class="fixed">
         <tr>
-          <th colspan="100%">Total {{ itemLabel }}: {{ items.length }}</th>
+          <th colspan="100%">
+            Showing {{ filteredItems.length }} of {{ items.length }}
+            {{ itemLabel }}
+          </th>
         </tr>
       </tfoot>
     </table>
+    <article v-else class="error">0 matches found</article>
   </section>
 </template>
 
 <script setup>
-import {ref, computed, onMounted} from 'vue';
+import {ref, computed, onMounted, watch} from 'vue';
 import {useUsers} from '@/composables/useUsers';
 import {useOperatingSystems} from '@/composables/useOperatingSystems';
 
@@ -123,12 +145,45 @@ const getItemKey = item => {
   return item[props.itemKey];
 };
 
-const sortedItems = computed(() => {
-  if (sortField.value === 'default') {
-    return props.items;
+const searchQuery = ref('');
+const filteredItems = ref([]);
+
+const filterItems = () => {
+  if (!searchQuery.value) {
+    filteredItems.value = props.items;
+    return;
   }
 
-  return [...props.items].sort((a, b) => {
+  const query = searchQuery.value.toLowerCase();
+  filteredItems.value = props.items.filter(item => {
+    return props.columns.some(column => {
+      const value = item[column.field];
+      if (!value) return false;
+
+      if (column.field === 'ownerId') {
+        return getUserFullName(value).toLowerCase().includes(query);
+      }
+      if (column.field === 'osId') {
+        return getOSName(value).toLowerCase().includes(query);
+      }
+      if (column.formatter) {
+        return column.formatter(value, item).toLowerCase().includes(query);
+      }
+      if (column.field === 'virtId') {
+        return String(value).toLowerCase().includes(query);
+      }
+
+      return String(value).toLowerCase().includes(query);
+    });
+  });
+};
+
+const filteredAndSortedItems = computed(() => {
+  if (sortField.value === 'default') {
+    return filteredItems.value;
+  }
+
+  return [...filteredItems.value].sort((a, b) => {
     let compareValue = 0;
     const field = sortField.value;
 
@@ -143,6 +198,17 @@ const sortedItems = computed(() => {
     return sortOrder.value === 'asc' ? compareValue : -compareValue;
   });
 });
+
+onMounted(() => {
+  filteredItems.value = props.items;
+});
+
+watch(
+  () => props.items,
+  () => {
+    filterItems();
+  },
+);
 </script>
 
 <style scoped>
@@ -158,6 +224,10 @@ const sortedItems = computed(() => {
 .sort-icon {
   display: inline-block;
   margin-inline-start: 4px;
+}
+
+.search input:not(:focus)::placeholder {
+  color: transparent;
 }
 
 .virt-logo {

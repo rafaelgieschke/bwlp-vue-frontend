@@ -72,7 +72,8 @@ const columns = [
     field: 'expireTime',
     label: 'Expire Time',
     class: 'min',
-    formatter: value => $dayjs(value * 1000).format('DD.MM.YYYY HH:mm'),
+    formatter: value =>
+      value > 0 ? $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm') : '-',
   },
   {
     field: 'virtId',
