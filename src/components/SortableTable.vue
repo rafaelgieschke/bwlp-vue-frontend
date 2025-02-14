@@ -77,6 +77,7 @@
         </tr>
       </tfoot>
     </table>
+
     <article v-else class="error">0 matches found</article>
   </section>
 </template>

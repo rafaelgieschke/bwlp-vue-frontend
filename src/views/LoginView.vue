@@ -7,10 +7,12 @@
         <input type="text" id="username" v-model="username" required />
         <label>Username</label>
       </div>
+
       <div class="field label round border">
         <input type="password" id="password" v-model="password" required />
         <label>Password</label>
       </div>
+
       <button type="submit">Login</button>
 
       <p v-if="error" class="error-message">{{ error }}</p>
