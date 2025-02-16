@@ -20,7 +20,7 @@ const routes: RouteRecordRaw[] = [
 
       if (authStore.authToken) {
         // If logged in, redirect to list
-        next('/image-list');
+        next('/image');
       } else {
         // If not logged in, redirect to login
         next('/login');
@@ -36,23 +36,41 @@ const routes: RouteRecordRaw[] = [
 
       if (authStore.authToken) {
         // If already logged in, redirect to list
-        next('/image-list');
+        next('/image');
       } else {
         next();
       }
     },
   },
   {
-    path: '/image-list',
+    path: '/image',
     name: 'ImageList',
     component: ImageListView,
     meta: {requiresAuth: true, title: 'Image List'},
+    children: [
+      {
+        path: '/image/:id/edit',
+        name: 'ImageEdit',
+        component: ImageEditView,
+        props: true,
+        meta: {requiresAuth: true, title: 'Edit Image'},
+      },
+    ],
   },
   {
-    path: '/lecture-list',
+    path: '/lecture',
     name: 'LectureList',
     component: LectureListView,
     meta: {requiresAuth: true, title: 'Lecture List'},
+    children: [
+      {
+        path: '/lecture/:id/edit',
+        name: 'LectureEdit',
+        component: LectureEditView,
+        props: true,
+        meta: {requiresAuth: true, title: 'Edit Lecture'},
+      },
+    ],
   },
   {
     path: '/user-agreement',
@@ -66,23 +84,10 @@ const routes: RouteRecordRaw[] = [
     component: PrivacyPolicyView,
     meta: {requiresAuth: true, title: 'Privacy Policy'},
   },
-  {
-    path: '/image/:id/edit',
-    name: 'ImageEdit',
-    component: ImageEditView,
-    props: true,
-    meta: {requiresAuth: true, title: 'Edit Image'},
-  },
-  {
-    path: '/lecture/:id/edit',
-    name: 'LectureEdit',
-    component: LectureEditView,
-    props: true,
-    meta: {requiresAuth: true, title: 'Edit Lecture'},
-  },
+
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/image-list',
+    redirect: '/image',
   },
 ];
 

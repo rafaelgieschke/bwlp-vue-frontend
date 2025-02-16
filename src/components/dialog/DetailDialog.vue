@@ -1,5 +1,5 @@
 <template>
-  <dialog ref="dialogRef" class="top">
+  <dialog ref="dialogRef" :class="dialogStyling" class="fill">
     <header class="fixed">
       <nav>
         <h5 class="max">{{ title }}</h5>
@@ -7,7 +7,17 @@
         <RouterLink
           v-if="editRoute"
           :to="editRoute"
-          class="transparent circle small"
+          class="m l button small border secondary"
+          @click="sendCloseEvent"
+        >
+          <i>edit</i>
+          <span>Edit</span>
+        </RouterLink>
+
+        <RouterLink
+          v-if="editRoute"
+          :to="editRoute"
+          class="s button circle small border secondary"
         >
           <i>edit</i>
         </RouterLink>
@@ -18,7 +28,7 @@
       </nav>
     </header>
 
-    <article class="padding">
+    <article>
       <div>
         <div class="tabs scroll">
           <a
@@ -59,7 +69,7 @@ const props = defineProps({
   tabs: {
     type: Array,
     default: () => [],
-    // Each tab should have: { id, icon, label, component, props }
+    /// Each tab should have: { id, icon, label, component, props }
   },
   isOpen: {
     type: Boolean,
@@ -68,6 +78,13 @@ const props = defineProps({
   editRoute: {
     type: [String, Object],
     default: null,
+  },
+  dialogStyling: {
+    type: String,
+    default: 'top',
+    /// TODO-MAYBE: Maybe give the user the ability to choose which kind of dialog they want,
+    /// different sizes and stuff can be found there:
+    /// https://github.com/beercss/beercss/blob/1f53933c3861430da54a87237a44609cef5adbe4/docs/DIALOG.md
   },
 });
 
@@ -84,14 +101,12 @@ onMounted(() => {
   toggleDOM(props.isOpen);
 });
 
-// Handle escape key
 useEventListener('keydown', e => {
   if (e.key === 'Escape' && props.isOpen) {
     sendCloseEvent();
   }
 });
 
-// Handle click outside
 useEventListener('click', e => {
   if (dialogRef.value && !dialogRef.value.contains(e.target)) {
     sendCloseEvent();

@@ -20,7 +20,7 @@ import NavigationHeader from '@/components/navigation/NavigationHeader.vue';
 @media (min-width: 601px) {
   #mobile-navigation-dialog.active,
   :global([data-ui='#mobile-navigation-dialog'].active + .overlay.active) {
-    display: none;
+    display: none !important;
   }
 }
 </style>

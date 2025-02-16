@@ -1,13 +1,30 @@
 <template>
   <div>
-    <h2>Edit {{ itemData.lectureName }}</h2>
-    <form @submit.prevent="saveItem">
-      <div class="field label border">
-        <input v-model="itemData.lectureName" />
-        <label>Label</label>
-      </div>
+    <ErrorMessage
+      v-if="error"
+      :error="error"
+      default-message="Unable to load or update lecture"
+    />
 
-      <button type="submit">Save</button>
+    <ItemDataPre v-if="devMode" :itemData="itemData" />
+
+    <h1>Edit {{ itemData.lectureName }}</h1>
+
+    <form @submit.prevent="saveItem">
+      <ProgressIndicator v-model:currentStep="currentStep" />
+
+      <article class="large scroll">
+        <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
+        <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
+        <Step3Network v-show="currentStep === 3" v-model="itemData" />
+        <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
+      </article>
+
+      <EditNavigationButtons
+        :prevStep="prevStep"
+        :nextStep="nextStep"
+        :currentStep="currentStep"
+      />
     </form>
   </div>
 </template>
@@ -17,34 +34,68 @@ import {ref, onMounted} from '@vue/runtime-core';
 import {useRoute, useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
-import {SatelliteServerClient} from '@/assets/js/bwlp/bwlp.js';
-import {Thrift} from '@/assets/js/thrift/thrift.js';
+import ErrorMessage from '@/components/error/ErrorMessage.vue';
+import ItemDataPre from '@/components/ItemDataPre.vue';
+
+import ProgressIndicator from '@/components/edit/ProgressIndicator.vue';
+import Step1BasicInfo from '@/components/edit/steps/Step1BasicInfo.vue';
+import Step2Permissions from '@/components/edit/steps/Step2Permissions.vue';
+import Step3Network from '@/components/edit/steps/Step3Network.vue';
+import Step4Advanced from '@/components/edit/steps/Step4Advanced.vue';
+import EditNavigationButtons from '@/components/edit/EditNavigationButtons.vue';
 
 const route = useRoute();
 const router = useRouter();
 
 const authStore = useAuthStore();
 
-// const sat1Server = 'bwlp-pxe.ruf.uni-freiburg.de';
-const sat1Server = '10.4.9.57';
+const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
-const proto2 = new Thrift.Protocol(
-  new Thrift.Transport(`https://${sat1Server}/thrift/`),
-);
-const sat = new SatelliteServerClient(proto2);
+import {useSatServer} from '@/composables/useSatServer';
+const sat = useSatServer();
 
 const itemData = ref({});
+const error = ref(null);
+const currentStep = ref(1);
+
+const nextStep = () => {
+  if (currentStep.value < 4) currentStep.value++;
+};
+
+const prevStep = () => {
+  if (currentStep.value > 1) currentStep.value--;
+};
 
 onMounted(async () => {
-  // Fetch item data based on ID
-  itemData.value = await sat.getLectureDetails(
-    authStore.authToken,
-    route.params.id,
-  );
+  try {
+    itemData.value = await sat.getLectureDetails(
+      authStore.authToken,
+      route.params.id,
+    );
+  } catch (err) {
+    console.error('Failed to fetch lecture details:', err);
+    error.value = err;
+  }
 });
 
 const saveItem = async () => {
-  await updateItem(itemData.value);
-  router.push('/items'); // Return to list
+  try {
+    await sat.updateLecture(
+      authStore.authToken,
+      itemData.value.lectureId,
+      itemData.value,
+    );
+    router.push('/lecture');
+  } catch (err) {
+    console.error('Failed to update lecture:', err);
+    error.value = err;
+  }
 };
 </script>
+
+<style scoped>
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+</style>

@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts" setup>
-import {humanFileSize} from '@/utils/fileSize';
+import {humanFileSize} from '@/assets/js/utils/fileSize';
 
 defineProps({
   versions: {

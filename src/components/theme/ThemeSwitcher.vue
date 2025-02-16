@@ -41,12 +41,12 @@
 
   <h6 class="small">Recommended themes</h6>
   <nav class="wrap">
-    <button @click="setDarkAmber" class="amber">
+    <button @click="setDarkAmber" class="amber black-text">
       <i>dark_mode</i>
       <span>Dark Amber</span>
     </button>
 
-    <button @click="setLightRed" class="red">
+    <button @click="setLightRed" class="red white-text">
       <i>light_mode</i>
       <span>Light Red</span>
     </button>
@@ -104,6 +104,6 @@ onMounted(() => {
 
 <style scoped>
 h6.small:first-of-type {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 </style>

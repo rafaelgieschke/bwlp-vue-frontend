@@ -1,37 +1,42 @@
 <template>
   <RouterLink
-    to="/image-list"
+    class="wave"
+    to="/image"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
-    <i>inbox</i>
-    <span class="max">Image List</span>
+    <i>aspect_ratio</i>
+    <span class="max">{{ $t('imageList') }}</span>
   </RouterLink>
   <RouterLink
-    to="/lecture-list"
+    class="wave"
+    to="/lecture"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
-    <i>send</i>
-    <span>Lecture List</span>
+    <i>school</i>
+    <span>{{ $t('lectureList') }}</span>
   </RouterLink>
 
-  <SeparatingLabel text="Legal stuff" />
+  <SeparatingLabel :text="$t('legalStuff')" />
   <RouterLink
+    class="wave"
     to="/privacy-policy"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>policy</i>
-    <span>Datenschutzerklärung</span>
+    <span>{{ $t('privacyPolicy') }}</span>
   </RouterLink>
   <RouterLink
+    class="wave"
     to="/user-agreement"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>handshake</i>
-    <span>Nutzungsvereinbarung</span>
+    <span>{{ $t('userAgreement.title') }}</span>
   </RouterLink>
 
-  <SeparatingLabel text="Miscellaneous" />
+  <SeparatingLabel :text="$t('miscellaneous')" />
   <a
+    class="wave"
     href="https://www.bwlehrpool.de/wiki/doku.php/start"
     target="_blank"
     rel="noopener noreferrer"
@@ -40,11 +45,110 @@
     <i>developer_guide</i>
     <span>bwLehrpool Wiki</span>
   </a>
+
+  <SeparatingLabel v-if="devMode" text="For the devs" />
+
+  <a
+    v-if="devMode"
+    class="wave"
+    href="https://github.com/Khoding/bwlp-vue-frontend"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>code</i>
+    <span>BWLP Vue Frontend Repository</span>
+  </a>
+  <a
+    v-if="devMode"
+    class="wave"
+    href="https://github.com/Khoding/bwlp-frontend"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>code</i>
+    <span>Old Frontend Repo (archive)</span>
+  </a>
+  <a
+    v-if="devMode"
+    class="wave"
+    href="https://vuejs.org/guide/introduction.html"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>visibility</i>
+    <span>Vue.js documentation</span>
+  </a>
+  <a
+    v-if="devMode"
+    class="wave"
+    href="https://vite.dev/guide/"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>speed</i>
+    <span>Vite documentation</span>
+  </a>
+  <a
+    v-if="devMode"
+    class="wave"
+    href="https://www.beercss.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>sports_bar</i>
+    <span>Beer CSS official website</span>
+  </a>
+  <a
+    v-if="devMode"
+    class="wave"
+    href="https://github.com/beercss/beercss/blob/main/docs/INDEX.md"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>sports_bar</i>
+    <span>Beer CSS documentation</span>
+  </a>
+  <a
+    v-if="devMode"
+    class="wave"
+    href="https://fonts.google.com/icons"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+  >
+    <i>emoticon</i>
+    <span>Material Symbols & Icons</span>
+  </a>
+
+  <SeparatingLabel only-mobile-class="s" text="Account" />
+
+  <a class="s">Profile</a>
+
+  <a
+    class="s wave"
+    target="_blank"
+    rel="noopener noreferrer"
+    :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
+    @click.prevent="logout"
+  >
+    Logout
+  </a>
 </template>
 
 <script lang="ts" setup>
-import {RouterLink} from 'vue-router';
+import {ref} from '@vue/runtime-core';
+import {RouterLink, useRouter} from 'vue-router';
+import {useAuthStore} from '@/stores/auth-store';
+
 import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
+
+const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
 const props = defineProps({
   mobile_nav: {
@@ -52,6 +156,14 @@ const props = defineProps({
     default: false,
   },
 });
+
+const router = useRouter();
+const authStore = useAuthStore();
+
+const logout = () => {
+  authStore.clearToken();
+  router.push('/login');
+};
 </script>
 
 <style scoped>

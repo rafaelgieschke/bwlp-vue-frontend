@@ -17,14 +17,16 @@
         <i>palette</i>
       </button>
 
-      <button class="m l">
+      <button class="m l border secondary-border secondary-text">
         Menu
         <i>arrow_drop_down</i>
         <menu>
-          <a>Profile</a>
-          <a v-if="authStore.authToken" href="#" @click.prevent="logout">
-            Logout
-          </a>
+          <li><a>Profile</a></li>
+          <li>
+            <a v-if="authStore.authToken" href="#" @click.prevent="logout">
+              Logout
+            </a>
+          </li>
         </menu>
       </button>
     </nav>
