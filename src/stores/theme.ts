@@ -41,7 +41,7 @@ export const useThemeStore = defineStore('theme', {
   },
 
   actions: {
-    async setTheme(name) {
+    async setTheme(name: string) {
       this.currentTheme = name;
       this.customColor = null;
       this.customImage = null;
@@ -49,7 +49,7 @@ export const useThemeStore = defineStore('theme', {
       this.persistState();
     },
 
-    async setCustomColor(color) {
+    async setCustomColor(color: string) {
       this.customColor = color;
       this.currentTheme = 'custom';
       this.customImage = null;
@@ -57,7 +57,7 @@ export const useThemeStore = defineStore('theme', {
       this.persistState();
     },
 
-    async setCustomImage(imageUrl) {
+    async setCustomImage(imageUrl: string) {
       this.customImage = imageUrl;
       this.currentTheme = 'custom';
       this.customColor = null;

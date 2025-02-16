@@ -2,7 +2,7 @@
   <EmptyTest text="Not yet implemented" />
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import EmptyTest from '@/components/EmptyTest.vue';
 
 defineProps({

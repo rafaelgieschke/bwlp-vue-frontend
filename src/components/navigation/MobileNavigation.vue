@@ -11,7 +11,7 @@
   </dialog>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import ListOfPages from '@/components/navigation/ListOfPages.vue';
 import NavigationHeader from '@/components/navigation/NavigationHeader.vue';
 </script>

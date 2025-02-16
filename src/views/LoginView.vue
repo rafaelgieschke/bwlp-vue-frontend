@@ -18,8 +18,8 @@
   </div>
 </template>
 
-<script setup>
-import {ref} from 'vue';
+<script lang="ts" setup>
+import {ref} from '@vue/runtime-core';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 

@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router';
+import {createRouter, createWebHistory, RouteRecord, RouteRecordNormalized, RouteRecordRaw} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import LoginView from '@/views/LoginView.vue';
@@ -12,10 +12,10 @@ import LectureEditView from '@/views/edit/LectureEditView.vue';
 import UserAgreementView from '@/views/legal-views/UserAgreementView.vue';
 import PrivacyPolicyView from '@/views/legal-views/PrivacyPolicyView.vue';
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    beforeEnter: (to, from, next) => {
+    beforeEnter: (_to, _from, next) => {
       const authStore = useAuthStore();
 
       if (authStore.authToken) {
@@ -26,12 +26,12 @@ const routes = [
         next('/login');
       }
     },
-  },
+  } as RouteRecordRaw,
   {
     path: '/login',
     name: 'Login',
     component: LoginView,
-    beforeEnter: (to, from, next) => {
+    beforeEnter: (_to, _from, next) => {
       const authStore = useAuthStore();
 
       if (authStore.authToken) {
@@ -88,11 +88,12 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
+  
   routes,
 });
 
 // Global navigation guard
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const authStore = useAuthStore();
 
   if (to.meta.requiresAuth && !authStore.authToken) {

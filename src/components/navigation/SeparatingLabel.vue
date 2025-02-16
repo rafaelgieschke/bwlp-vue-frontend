@@ -5,7 +5,7 @@
   <label>{{ props.text }}</label>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 const props = defineProps({
   text: {
     type: String,

@@ -14,7 +14,7 @@
   </header>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 const props = defineProps({
   mobile_nav: {
     type: Boolean,

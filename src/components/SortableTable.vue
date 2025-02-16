@@ -44,8 +44,8 @@
   </section>
 </template>
 
-<script setup>
-import {ref, computed} from 'vue';
+<script lang="ts" setup>
+import {ref, computed} from '@vue/runtime-core';
 
 const props = defineProps({
   items: {

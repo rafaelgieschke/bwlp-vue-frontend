@@ -76,7 +76,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 defineProps({
   lecture: {
     type: Object,

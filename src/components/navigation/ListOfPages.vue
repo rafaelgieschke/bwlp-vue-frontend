@@ -42,7 +42,7 @@
   </a>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import {RouterLink} from 'vue-router';
 import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
 
