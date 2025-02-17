@@ -2,14 +2,14 @@
   <div class="step-network">
     <SwitchTitle
       title="Internet Access"
-      :modelValue="modelValue.hasInternetAccess"
-      @update:modelValue="updateField('hasInternetAccess', $event)"
+      :model-value="modelValue.hasInternetAccess"
+      @update:model-value="updateField('hasInternetAccess', $event)"
     />
 
     <SwitchTitle
       title="USB Access"
-      :modelValue="modelValue.hasUsbAccess"
-      @update:modelValue="updateField('hasUsbAccess', $event)"
+      :model-value="modelValue.hasUsbAccess"
+      @update:model-value="updateField('hasUsbAccess', $event)"
     />
   </div>
 </template>

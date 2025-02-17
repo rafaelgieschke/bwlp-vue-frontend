@@ -6,7 +6,7 @@
       default-message="Unable to load or update lecture"
     />
 
-    <ItemDataPre v-if="devMode" :itemData="itemData" />
+    <ItemDataPre v-if="devMode" :item-data="itemData" />
 
     <h1>Edit {{ itemData.lectureName }}</h1>
 
@@ -21,9 +21,9 @@
       </article>
 
       <EditNavigationButtons
-        :prevStep="prevStep"
-        :nextStep="nextStep"
-        :currentStep="currentStep"
+        :prev-step="prevStep"
+        :next-step="nextStep"
+        :current-step="currentStep"
       />
     </form>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <nav class="scroll">
     <SingleStepNode
-      v-model:currentStep="currentStep"
+      v-model:current-step="currentStep"
       :step-number="1"
       text="Basic Info"
     />
@@ -9,7 +9,7 @@
     <hr class="max" />
 
     <SingleStepNode
-      v-model:currentStep="currentStep"
+      v-model:current-step="currentStep"
       :step-number="2"
       text="Permissions"
     />
@@ -17,7 +17,7 @@
     <hr class="max" />
 
     <SingleStepNode
-      v-model:currentStep="currentStep"
+      v-model:current-step="currentStep"
       :step-number="3"
       text="Network"
     />
@@ -25,7 +25,7 @@
     <hr class="max" />
 
     <SingleStepNode
-      v-model:currentStep="currentStep"
+      v-model:current-step="currentStep"
       :step-number="4"
       text="Advanced"
     />

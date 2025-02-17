@@ -6,7 +6,7 @@
       default-message="Unable to load or update image"
     />
 
-    <ItemDataPre v-if="devMode" :itemData="itemData" />
+    <ItemDataPre v-if="devMode" :item-data="itemData" />
 
     <h1>Edit {{ itemData.imageName }}</h1>
 

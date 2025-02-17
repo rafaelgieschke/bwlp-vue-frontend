@@ -21,7 +21,7 @@
       v-if="selectedImage"
       id="image-dialog"
       :title="selectedImage?.imageName"
-      :editRoute="{
+      :edit-route="{
         name: 'ImageEdit',
         params: {id: selectedImage?.imageBaseId},
       }"

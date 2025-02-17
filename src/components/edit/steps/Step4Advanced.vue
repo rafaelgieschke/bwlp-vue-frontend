@@ -3,15 +3,15 @@
     <SwitchTitle
       title="Auto Update"
       description="Should the lecture auto update?"
-      :modelValue="modelValue.autoUpdate"
-      @update:modelValue="updateField('autoUpdate', $event)"
+      :model-value="modelValue.autoUpdate"
+      @update:model-value="updateField('autoUpdate', $event)"
     />
 
     <SwitchTitle
       title="Limit to Locations"
       description="Should the lecture be limited to locations?"
-      :modelValue="modelValue.limitToLocations"
-      @update:modelValue="updateField('limitToLocations', $event)"
+      :model-value="modelValue.limitToLocations"
+      @update:model-value="updateField('limitToLocations', $event)"
     />
   </div>
 </template>

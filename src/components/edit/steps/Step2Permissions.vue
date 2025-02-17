@@ -2,25 +2,25 @@
   <div class="step-permissions">
     <SwitchTitle
       title="Enabled"
-      :modelValue="modelValue.isEnabled"
-      @update:modelValue="updateField('isEnabled', $event)"
+      :model-value="modelValue.isEnabled"
+      @update:model-value="updateField('isEnabled', $event)"
     />
     <SwitchTitle
       title="Exam mode"
-      :modelValue="modelValue.isExam"
-      @update:modelValue="updateField('isExam', $event)"
+      :model-value="modelValue.isExam"
+      @update:model-value="updateField('isExam', $event)"
     />
     <SwitchTitle
       title="Allow edit"
       description="Can users edit the lecture?"
-      :modelValue="modelValue.defaultPermissions"
-      @update:modelValue="updateField('defaultPermissions', $event)"
+      :model-value="modelValue.defaultPermissions"
+      @update:model-value="updateField('defaultPermissions', $event)"
     />
     <SwitchTitle
       title="Allow admin"
       description="Can admins edit the lecture?"
-      :modelValue="modelValue.adminPermissions"
-      @update:modelValue="updateField('adminPermissions', $event)"
+      :model-value="modelValue.adminPermissions"
+      @update:model-value="updateField('adminPermissions', $event)"
     />
   </div>
 </template>

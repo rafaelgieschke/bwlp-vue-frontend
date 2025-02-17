@@ -21,7 +21,7 @@
       v-if="selectedLecture"
       id="lecture-dialog"
       :title="selectedLecture?.lectureName"
-      :editRoute="{
+      :edit-route="{
         name: 'LectureEdit',
         params: {id: selectedLecture?.lectureId},
       }"
