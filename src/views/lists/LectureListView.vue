@@ -45,8 +45,8 @@
   </template>
 </template>
 
-<script setup>
-import {ref, onMounted} from 'vue';
+<script lang="ts" setup>
+import {ref, onMounted} from '@vue/runtime-core';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 

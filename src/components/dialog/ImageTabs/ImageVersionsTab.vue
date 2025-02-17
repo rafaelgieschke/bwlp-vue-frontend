@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import {humanFileSize} from '@/assets/js/utils/fileSize';
 
 defineProps({

@@ -53,7 +53,7 @@
   </section>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 defineProps({
   permissions: {
     type: Object,

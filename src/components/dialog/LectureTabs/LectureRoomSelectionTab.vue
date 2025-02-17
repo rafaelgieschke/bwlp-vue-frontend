@@ -37,8 +37,8 @@
   </section>
 </template>
 
-<script setup>
-import {computed} from 'vue';
+<script lang="ts" setup>
+import {computed} from '@vue/runtime-core';
 import LocationTreeItem from '@/components/dialog/LectureTabs/TabsComponents/LocationTreeItem.vue';
 
 const props = defineProps({

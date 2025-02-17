@@ -82,8 +82,8 @@
   </section>
 </template>
 
-<script setup>
-import {ref, computed, onMounted, watch} from 'vue';
+<script lang="ts" setup>
+import {ref, computed, onMounted, watch} from '@vue/runtime-core';
 import {useUsers} from '@/composables/useUsers';
 import {useOperatingSystems} from '@/composables/useOperatingSystems';
 

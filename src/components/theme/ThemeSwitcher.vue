@@ -65,8 +65,8 @@
   </nav>
 </template>
 
-<script setup>
-import {onMounted} from 'vue';
+<script lang="ts" setup>
+import {onMounted} from '@vue/runtime-core';
 import {useThemeStore} from '@/stores/theme';
 
 const store = useThemeStore();

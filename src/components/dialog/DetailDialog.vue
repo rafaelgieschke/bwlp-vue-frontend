@@ -57,8 +57,8 @@
   </dialog>
 </template>
 
-<script setup>
-import {ref, watch, onMounted, useTemplateRef} from 'vue';
+<script lang="ts" setup>
+import {ref, watch, onMounted, useTemplateRef} from '@vue/runtime-core';
 import {useEventListener} from '@vueuse/core';
 
 const props = defineProps({

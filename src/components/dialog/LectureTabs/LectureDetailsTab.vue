@@ -78,8 +78,8 @@
   </div>
 </template>
 
-<script setup>
-import {ref, watch, onMounted} from 'vue';
+<script lang="ts" setup>
+import {ref, watch, onMounted} from '@vue/runtime-core';
 
 import BasicPre from '@/components/BasicPre.vue';
 
