@@ -47,16 +47,16 @@
 </template>
 
 <script setup lang="ts">
-import {useRouter} from 'vue-router';
+import {useRouter, Router} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import MobileNavigation from '@/components/navigation/MobileNavigation.vue';
 import ThemeSwitcher from '@/components/theme/ThemeSwitcher.vue';
 
-const router = useRouter();
+const router: Router = useRouter();
 const authStore = useAuthStore();
 
-const logout = () => {
+const logout = (): void => {
   authStore.clearToken();
   router.push('/login');
 };
