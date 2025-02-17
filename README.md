@@ -26,10 +26,12 @@ You can find most of the information needed here: [SFC on vue.js documentation](
 Vue.js is inconsistent in their documentation and different websites and will sometimes use `script-template-style` order, however, it is recommended to use `template-script-style` order, so we do the following:
 
 1. template `<template></template>`
-2. (optional) script `<script setup></script>`
+2. (optional) script `<script setup lang="ts"></script>`
 
    - We use the [Composition API](https://vuejs.org/api/composition-api-setup.html)
      - The reason is it's the new way of doing things and it's proven easier to work with than the Options API
+   - We first set that it's Composition API `setup` and then set the language `lang="ts"`
+     - The idea behind this being that the language isn't as important as which API we use. That's a tiny difference, but what are you gonna do? fight me? That's what I thought.
    - Small components that were extracted for readability and reusability might not have scripts, and that's okay, don't keep the empty tag
 
 3. (optional) style `<style scoped></style>`
@@ -60,7 +62,7 @@ My (original developer of this particular web app, and following the "pick on an
 
 When you're importing a component, use the relative `@` path, not relative `.` 'current location' path, it's longer, but that way, we know where the file comes from.
 
-### Javascript
+### Javascript / TypeScript
 
 #### Extracting Javascript code
 
@@ -95,6 +97,8 @@ export function useCounter() {
 #### NPM Packages
 
 I know it's much easier to just install an NPM package for everything we need, but it creates weird dependencies that usually have no use and just make a mess in our package file, when something big is needed, go for it (site-wide stuff like i18n for example), but for small code, even if there is most likely a 10 LOC package that does it out there, try just making an 11 LOC file with basically the same logic (don't steal code though, you're better than that).
+
+Keeping the number of packages to a minimum more easily allows us to keep them all updated in the future, if we have 10 dependencies all pointing to each other, at some point, they'll clash and we'll have to keep one in an outdated state which might cause problems.
 
 ### CSS
 
@@ -141,7 +145,7 @@ Okay, I know they are cool, and I planned on using them, but I don't want to for
 
 Beer CSS only has three levels of responsive: `.s`, `.m` and `.l`, this is enough in most cases, but it can be limiting. If you need an element to be more responsive, try using Container Queries.
 
-Container Queries allow for WAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY simpler responsive, so don't get annoyed with Responsive Media Queries, they're rendered practically irrelevant.
+Container Queries allow for WAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY simpler responsive, so don't get annoyed with Responsive Media Queries, they're rendered practically irrelevant (except for full-site responsive, but even then, when you make your container properly, you usually don't need full-site responsive as nothing needs to go anywhere, or it goes by itself).
 
 Articles teaching their use:
 
@@ -166,7 +170,7 @@ For easier development, you can add these snippets to VS Code for the "Vue" lang
       "  $1",
       "</template>",
       "",
-      "<script setup>",
+      "<script setup lang=\"ts\">",
       "  $2",
       "</script>",
       "",
@@ -205,7 +209,7 @@ For easier development, you can add these snippets to VS Code for the "Vue" lang
   },
   "Vue Script Setup": {
     "prefix": "setup",
-    "body": ["<script setup>", "  $0", "</script>"],
+    "body": ["<script setup lang=\"ts\">", "  $0", "</script>"],
     "description": "Create a vue script setup block"
   },
   "Vue Scoped": {
