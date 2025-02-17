@@ -2,13 +2,14 @@
   <section class="large-height surface scroll">
     <div class="search field label suffix border top-margin round">
       <input
+        id="search"
         type="text"
         v-model="searchQuery"
         class="search-input"
         placeholder="Search..."
         @input="filterItems"
       />
-      <label>Filter the {{ itemLabel.toLowerCase() }}</label>
+      <label for="search">Filter the {{ itemLabel.toLowerCase() }}</label>
       <i>search</i>
     </div>
 

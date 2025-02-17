@@ -26,7 +26,11 @@
 
     <article v-else class="round border middle-align small-padding">
       <label class="checkbox">
-        <input type="checkbox" disabled />
+        <input
+          :id="`checkbox_${location.locationName}`"
+          type="checkbox"
+          disabled
+        />
         <span>{{ location.locationName }}</span>
       </label>
     </article>

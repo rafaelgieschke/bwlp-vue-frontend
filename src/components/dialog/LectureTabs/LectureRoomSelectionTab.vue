@@ -12,6 +12,7 @@
       <div>
         <label class="radio">
           <input
+            :id="`exclusive_priority_radio_${lecture.id}`"
             type="radio"
             name="exclusive_priority_radio"
             :checked="lecture.limitToLocations"
@@ -52,19 +53,31 @@ const props = defineProps({
   },
 });
 
+interface LocationNode {
+  locationId: string | number;
+  parentLocationId?: string | number;
+  children: LocationNode[];
+  [key: string]: any;
+}
+
 const locationsTree = computed(() => {
-  const tree = {};
+  const tree: Record<string | number, LocationNode> = {};
 
   // First pass: Create all nodes
-  Object.values(props.locations).forEach(location => {
-    tree[location.locationId] = {
-      ...location,
-      children: [],
-    };
-  });
+  Object.values(props.locations).forEach(
+    (location: {
+      locationId: string | number;
+      parentLocationId?: string | number;
+    }) => {
+      tree[location.locationId] = {
+        ...location,
+        children: [],
+      };
+    },
+  );
 
   // Second pass: Build parent-child relationships
-  Object.values(tree).forEach(node => {
+  Object.values(tree).forEach((node: LocationNode) => {
     if (node.parentLocationId && tree[node.parentLocationId]) {
       tree[node.parentLocationId].children.push(node);
     }
