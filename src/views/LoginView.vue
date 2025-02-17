@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import {ref} from '@vue/runtime-core';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';

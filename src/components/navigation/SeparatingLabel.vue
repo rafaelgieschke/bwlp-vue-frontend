@@ -6,11 +6,11 @@
   />
 
   <!-- We use a Label despite it being a weird choice because this is how Beer CSS does it for some reason ¯\_(ツ)_/¯ -->
-  <label :class="onlyMobileClass">{{ props.text }}</label>
+  <label :class="onlyMobileClass">{{ text }}</label>
 </template>
 
-<script lang="ts" setup>
-const props = defineProps({
+<script setup lang="ts">
+defineProps({
   text: {
     type: String,
     required: true,

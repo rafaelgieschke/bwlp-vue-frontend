@@ -7,7 +7,7 @@
   </main>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import {onMounted} from '@vue/runtime-core';
 import {useAuthStore} from '@/stores/auth-store';
 import {useThemeStore} from '@/stores/theme';
@@ -21,5 +21,4 @@ const themeStore = useThemeStore();
 onMounted(() => {
   themeStore.loadPersistedState();
 });
-
 </script>

@@ -57,7 +57,7 @@
   </dialog>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import {ref, watch, onMounted, useTemplateRef} from '@vue/runtime-core';
 import {useEventListener} from '@vueuse/core';
 

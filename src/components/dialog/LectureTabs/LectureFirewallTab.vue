@@ -45,7 +45,7 @@
   </ul>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 defineProps({
   lecture: {
     type: Object,

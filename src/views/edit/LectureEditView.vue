@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import {ref, onMounted} from '@vue/runtime-core';
 import {useRoute, useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';

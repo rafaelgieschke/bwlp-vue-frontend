@@ -37,7 +37,7 @@
   </section>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import {computed} from '@vue/runtime-core';
 import LocationTreeItem from '@/components/dialog/LectureTabs/TabsComponents/LocationTreeItem.vue';
 

@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   error: {
     type: [Object, String],
     required: true,
