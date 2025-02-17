@@ -20,7 +20,6 @@
           v-for="child in location.children"
           :key="child.id"
           :location="child"
-          class="top-margin"
         />
       </div>
     </details>
@@ -51,7 +50,8 @@ defineProps({
     margin-inline-start: 0.5rem;
   }
 
-  + .location-item {
+  + .location-item,
+  .location-item {
     margin-block-start: 0.5rem;
   }
 }
