@@ -43,10 +43,12 @@
           >
             <template v-if="column.formatter">
               {{ column.formatter(item[column.field], item) }}
-              <!-- make the color red if the date < currentTime in case it applies -->
+              <!-- TODO: make the color red if the date < currentTime in case it applies -->
             </template>
 
             <template v-else-if="column.field === 'ownerId'">
+              <!-- TODO: make the text bold if the ownerId matches the currently logged in user's id -->
+              <!-- also do it for everywhere else that has ownerId, or updaterId, etc. -->
               {{ getUserFullName(item[column.field]) }}
             </template>
 

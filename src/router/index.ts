@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory, RouteRecord, RouteRecordNormalized, RouteRecordRaw} from 'vue-router';
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import LoginView from '@/views/LoginView.vue';
@@ -93,7 +93,7 @@ const routes: RouteRecordRaw[] = [
 
 const router = createRouter({
   history: createWebHistory(),
-  
+
   routes,
 });
 
