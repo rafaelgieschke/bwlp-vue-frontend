@@ -2,15 +2,10 @@
   <div class="step-network">
     <SwitchTitle
       title="Internet Access"
-      :model-value="modelValue.hasInternetAccess"
-      @update:model-value="updateField('hasInternetAccess', $event)"
+      v-model="modelValue.hasInternetAccess"
     />
 
-    <SwitchTitle
-      title="USB Access"
-      :model-value="modelValue.hasUsbAccess"
-      @update:model-value="updateField('hasUsbAccess', $event)"
-    />
+    <SwitchTitle title="USB Access" v-model="modelValue.hasUsbAccess" />
   </div>
 </template>
 
@@ -25,11 +20,4 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:modelValue']);
-
-const updateField = (field, value) => {
-  emit('update:modelValue', {
-    ...props.modelValue,
-    [field]: value,
-  });
-};
 </script>

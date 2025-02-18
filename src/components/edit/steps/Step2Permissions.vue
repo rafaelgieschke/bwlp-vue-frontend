@@ -1,26 +1,16 @@
 <template>
   <div class="step-permissions">
-    <SwitchTitle
-      title="Enabled"
-      :model-value="modelValue.isEnabled"
-      @update:model-value="updateField('isEnabled', $event)"
-    />
-    <SwitchTitle
-      title="Exam mode"
-      :model-value="modelValue.isExam"
-      @update:model-value="updateField('isExam', $event)"
-    />
+    <SwitchTitle title="Enabled" v-model="modelValue.isEnabled" />
+    <SwitchTitle title="Exam mode" v-model="modelValue.isExam" />
     <SwitchTitle
       title="Allow edit"
       description="Can users edit the lecture?"
-      :model-value="modelValue.defaultPermissions"
-      @update:model-value="updateField('defaultPermissions', $event)"
+      v-model="modelValue.defaultPermissions"
     />
     <SwitchTitle
       title="Allow admin"
       description="Can admins edit the lecture?"
-      :model-value="modelValue.adminPermissions"
-      @update:model-value="updateField('adminPermissions', $event)"
+      v-model="modelValue.adminPermissions"
     />
   </div>
 </template>
@@ -44,11 +34,4 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:modelValue']);
-
-const updateField = (field, value) => {
-  emit('update:modelValue', {
-    ...props.modelValue,
-    [field]: value,
-  });
-};
 </script>
