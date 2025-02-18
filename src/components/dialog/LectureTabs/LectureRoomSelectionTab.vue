@@ -13,8 +13,8 @@
         <label class="radio">
           <input
             type="radio"
-            id="exclusive_priority_radio"
-            name="exclusive_priority_radio"
+            :id="`exclusive_priority_radio_${lecture.lectureId}`"
+            :name="`exclusive_priority_radio_${lecture.lectureId}`"
             :checked="lecture.limitToLocations"
             disabled
           />
