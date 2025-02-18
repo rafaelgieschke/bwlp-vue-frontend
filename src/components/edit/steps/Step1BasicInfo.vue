@@ -1,35 +1,48 @@
 <template>
   <div class="step-basic-info">
     <div class="field label border">
-      <input v-model="modelValue.lectureName" required />
-      <label>Lecture Name</label>
+      <input
+        v-model="modelValue.lectureName"
+        id="lectureName"
+        name="lectureName"
+        required
+      />
+      <label for="lectureName">Lecture Name</label>
     </div>
 
     <div class="field textarea label border">
-      <textarea v-model="modelValue.description"></textarea>
-      <label>Description</label>
+      <textarea
+        v-model="modelValue.description"
+        id="description"
+        name="description"
+      ></textarea>
+      <label for="description">Description</label>
     </div>
 
     <div class="field label border">
       <input
         type="datetime-local"
+        id="startDateTime"
+        name="startDateTime"
         :value="startDateTime"
         @input="updateStartTime"
         required
       />
 
-      <label>Start Time</label>
+      <label for="startDateTime">Start Time</label>
     </div>
 
     <div class="field label border">
       <input
         type="datetime-local"
+        id="endDateTime"
+        name="endDateTime"
         :value="endDateTime"
         @input="updateEndTime"
         required
       />
 
-      <label>End Time</label>
+      <label for="endDateTime">End Time</label>
     </div>
   </div>
 </template>

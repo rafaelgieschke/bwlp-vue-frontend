@@ -12,8 +12,8 @@
       <div>
         <label class="radio">
           <input
-            :id="`exclusive_priority_radio_${lecture.id}`"
             type="radio"
+            id="exclusive_priority_radio"
             name="exclusive_priority_radio"
             :checked="lecture.limitToLocations"
             disabled
@@ -25,7 +25,12 @@
       </div>
       <div>
         <label class="radio">
-          <input type="radio" name="exclusive_priority_radio" disabled />
+          <input
+            type="radio"
+            id="exclusive_priority_radio"
+            name="exclusive_priority_radio"
+            disabled
+          />
           <!-- TODO: It must be unchecked if the user is a dumbass or whatever and checked otherwise -->
           <!-- If one radio is on, the other cannot be on -->
           <span class="wrap">

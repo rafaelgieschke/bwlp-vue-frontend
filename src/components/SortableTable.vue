@@ -3,6 +3,7 @@
     <div class="search field label suffix border top-margin round">
       <input
         id="search"
+        name="search"
         type="text"
         v-model="searchQuery"
         class="search-input"
