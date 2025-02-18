@@ -2,7 +2,8 @@
   <div class="step-permissions">
     <SwitchTitle title="Enabled" v-model="modelValue.isEnabled" />
     <SwitchTitle title="Exam mode" v-model="modelValue.isExam" />
-    <SwitchTitle
+    <!-- TODO: Ask Simon what is supposed to happen here -->
+    <!-- <SwitchTitle
       title="Allow edit"
       description="Can users edit the lecture?"
       v-model="modelValue.defaultPermissions"
@@ -11,7 +12,7 @@
       title="Allow admin"
       description="Can admins edit the lecture?"
       v-model="modelValue.adminPermissions"
-    />
+    /> -->
   </div>
 </template>
 
@@ -22,14 +23,6 @@ const props = defineProps({
   modelValue: {
     type: Object,
     required: true,
-    validator: value => {
-      return [
-        'isEnabled',
-        'isExam',
-        'defaultPermissions',
-        'adminPermissions',
-      ].every(key => typeof value[key] === 'boolean');
-    },
   },
 });
 

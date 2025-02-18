@@ -54,7 +54,18 @@ const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();
 
-const itemData = ref({});
+const itemData = ref({
+  lectureName: '',
+  description: '',
+  startTime: null,
+  endTime: null,
+  isEnabled: false,
+  isExam: false,
+  hasInternetAccess: false,
+  hasUsbAccess: false,
+  autoUpdate: false,
+  limitToLocations: false,
+});
 const error = ref(null);
 const currentStep = ref(1);
 
