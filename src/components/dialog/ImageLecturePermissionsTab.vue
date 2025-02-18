@@ -1,5 +1,5 @@
 <template>
-  <div v-if="permissions" class="auto-height surface scroll">
+  <div v-if="permissions.length > 0" class="auto-height surface scroll">
     <table class="stripes">
       <thead class="fixed">
         <tr>
