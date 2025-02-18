@@ -58,6 +58,10 @@ My (original developer of this particular web app, and following the "pick on an
 
 ### Templates
 
+#### Props and Events naming
+
+we define them in camelCase and we call them in templates in kebab-case
+
 #### Importing components
 
 When you're importing a component, use the relative `@` path, not relative `.` 'current location' path, it's longer, but that way, we know where the file comes from.
