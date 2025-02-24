@@ -106,7 +106,7 @@ const saveItem = async () => {
 
 <style scoped>
 form {
-  max-width: 600px;
+  max-inline-size: 860px;
   margin: 0 auto;
 }
 </style>
