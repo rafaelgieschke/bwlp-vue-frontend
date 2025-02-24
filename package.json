@@ -11,26 +11,25 @@
   "dependencies": {
     "@vue/runtime-core": "^3.5.13",
     "@vue/runtime-dom": "^3.5.13",
-    "@vueuse/core": "^12.5.0",
-    "beercss": "^3.9.0",
+    "@vueuse/core": "^12.7.0",
+    "beercss": "^3.9.4",
     "dayjs": "^1.11.13",
     "material-dynamic-colors": "^1.1.2",
-    "pinia": "^3.0.0",
+    "pinia": "^3.0.1",
     "vue": "^3.5.13",
     "vue-i18n": "^11.1.1",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@types/node": "^22.13.1",
-    "@types/vue": "^1.0.31",
     "@intlify/unplugin-vue-i18n": "^6.0.3",
+    "@types/node": "^22.13.5",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
-    "prettier": "^3.5.0",
+    "prettier": "^3.5.2",
     "prettier-plugin-css-order": "^2.1.2",
     "typescript": "^5.7.3",
-    "vite": "^6.1.0",
-    "vite-plugin-vue-devtools": "^7.7.1"
+    "vite": "^6.1.1",
+    "vite-plugin-vue-devtools": "^7.7.2"
   },
   "prettier": {
     "bracketSpacing": false,
