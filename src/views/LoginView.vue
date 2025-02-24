@@ -63,7 +63,7 @@ const login = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 320px;
+  inline-size: 320px;
   margin-inline: auto;
 
   button {

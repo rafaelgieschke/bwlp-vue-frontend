@@ -13,8 +13,8 @@ defineProps({
 
 <style scoped>
 .basic-pre {
-  height: 20%;
-  max-height: 8rem;
+  block-size: 20%;
+  max-block-size: 8rem;
   padding: 0;
   overflow: auto;
   border: none;
