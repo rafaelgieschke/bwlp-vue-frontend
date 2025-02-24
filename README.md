@@ -108,7 +108,7 @@ Keeping the number of packages to a minimum more easily allows us to keep them a
 
 #### Selectors
 
-Use classes for 99% of cases, never IDs (can cause many problems if we use ID in a potentially repeated component. Specific cases require ids (although not CSS, but forms for example), in those cases, just try making the id `name-of-component-${some-dynamic-value (don't use random, or it WILL fail at some point)}`), and very rarely just the tag (except html, body and main, those are fine, header and footer are often used at different places so not them, give 'em classes).
+Use classes for 99% of cases, never IDs (can cause many problems if we use ID in a potentially repeated component. Specific cases require ids (although not CSS, but forms for example), in those cases, just try making the id `name-of-component-${some-dynamic-value}`, don't use random, or it WILL fail at some point), and very rarely just the tag (except html, body and main, those are fine, header and footer are often used at different places so not them, give 'em classes).
 
 #### !important
 

@@ -41,12 +41,12 @@
 
   <h6 class="small">Recommended themes</h6>
   <nav class="wrap">
-    <button @click="setDarkAmber" class="amber black-text">
+    <button @click="setModeTheme('dark', 'amber')" class="amber black-text">
       <i>dark_mode</i>
       <span>Dark Amber</span>
     </button>
 
-    <button @click="setLightRed" class="red white-text">
+    <button @click="setModeTheme('light', 'red')" class="red white-text">
       <i>light_mode</i>
       <span>Light Red</span>
     </button>
@@ -65,23 +65,16 @@
   </nav>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {onMounted} from '@vue/runtime-core';
 import {useThemeStore} from '@/stores/theme';
 
 const store = useThemeStore();
 
-const setLightRed = async () => {
-  store.isDark = false;
-  await store.setTheme('red');
-  ui('mode', 'light');
-  store.persistState();
-};
-
-const setDarkAmber = async () => {
-  store.isDark = true;
-  await store.setTheme('amber');
-  ui('mode', 'dark');
+const setModeTheme = async (mode, theme) => {
+  store.isDark = mode === 'light' ? false : true;
+  await store.setTheme(theme);
+  ui('mode', mode);
   store.persistState();
 };
 
