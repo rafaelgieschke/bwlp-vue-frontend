@@ -19,7 +19,9 @@
       <label for="description">Description</label>
     </div>
 
-    <section class="date">
+    <!-- TODO: Put the lang code of the current user's language
+     so that it's a format they know and love -->
+    <section class="date" lang="en">
       <div class="field label border">
         <input
           type="datetime-local"
@@ -59,7 +61,6 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-// Dates are fucked up
 const startDateTime = computed({
   get: () => {
     if (!props.modelValue.startTime) return '';
