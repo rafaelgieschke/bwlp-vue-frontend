@@ -19,7 +19,7 @@
         <tr>
           <th
             v-for="column in columns"
-            :key="column.field"
+            :key="(column as Column).field"
             @click="sort(column.field)"
             :class="['sortable', column.class]"
           >
@@ -99,13 +99,20 @@ onMounted(async () => {
   await fetchOperatingSystems();
 });
 
+interface Column {
+  field: string;
+  label: string;
+  class?: string;
+  formatter?: (value: any, item: any) => string;
+}
+
 const props = defineProps({
   items: {
     type: Array,
     required: true,
   },
   columns: {
-    type: Array,
+    type: Array as () => Column[],
     required: true,
   },
   itemKey: {
