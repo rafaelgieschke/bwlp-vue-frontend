@@ -104,16 +104,6 @@ const removeTag = index => {
 </script>
 
 <style scoped>
-.step-basic-info {
-  padding: 1rem;
-}
-
-.tag-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
 .tag {
   display: inline-flex;
   align-items: center;

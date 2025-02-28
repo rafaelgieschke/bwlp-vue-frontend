@@ -83,16 +83,6 @@ const updateVersion = (index, property, value) => {
 </script>
 
 <style scoped>
-.step-versions {
-  padding: 1rem;
-}
-
-.version-card {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 4px;
-}
-
 .no-versions {
   padding: 2rem;
   border-radius: 4px;

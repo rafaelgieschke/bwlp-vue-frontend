@@ -85,10 +85,6 @@ const updatePermission = (permission, value) => {
 </script>
 
 <style scoped>
-.step-sharing {
-  padding: 1rem;
-}
-
 .permissions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
