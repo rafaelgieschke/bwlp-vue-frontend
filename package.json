@@ -12,7 +12,7 @@
     "@vue/runtime-core": "^3.5.13",
     "@vue/runtime-dom": "^3.5.13",
     "@vueuse/core": "^12.7.0",
-    "beercss": "^3.9.4",
+    "beercss": "^3.9.6",
     "dayjs": "^1.11.13",
     "material-dynamic-colors": "^1.1.2",
     "pinia": "^3.0.1",
@@ -28,7 +28,7 @@
     "prettier": "^3.5.2",
     "prettier-plugin-css-order": "^2.1.2",
     "typescript": "^5.7.3",
-    "vite": "^6.1.1",
+    "vite": "^6.2.0",
     "vite-plugin-vue-devtools": "^7.7.2"
   },
   "prettier": {
