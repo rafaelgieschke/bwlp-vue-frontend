@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import SwitchTitle from './SwitchTitle.vue';
+import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
 const props = defineProps({
   modelValue: {
