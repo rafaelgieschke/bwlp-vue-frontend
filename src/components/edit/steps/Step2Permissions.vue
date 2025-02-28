@@ -2,6 +2,7 @@
   <div class="step-permissions">
     <SwitchTitle title="Enabled" v-model="modelValue.isEnabled" />
     <SwitchTitle title="Exam mode" v-model="modelValue.isExam" />
+
     <SwitchTitle
       title="Default edit permission"
       description="Can users edit the lecture?"
