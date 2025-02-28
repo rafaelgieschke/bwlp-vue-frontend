@@ -74,7 +74,8 @@
 
       <tfoot class="fixed">
         <tr>
-          <th colspan="100%">
+          <th colspan="42">
+            <!-- We give this a colspan of 42 so that it always fully colspans: https://stackoverflow.com/questions/398734/colspan-all-columns#comment19907221_398778 this guy says "why tf not", and I find it funny because 42 so here we are -->
             Showing {{ filteredItems.length }} of {{ items.length }}
             {{ itemLabel }}
           </th>
