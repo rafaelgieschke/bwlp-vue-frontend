@@ -1,7 +1,5 @@
 <template>
   <div class="step-basic-info">
-    <h2>Basic Information</h2>
-
     <div class="field label border">
       <input v-model="modelValue.imageName" required />
       <label>Image Name</label>

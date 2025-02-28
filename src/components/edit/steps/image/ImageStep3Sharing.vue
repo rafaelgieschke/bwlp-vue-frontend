@@ -1,7 +1,5 @@
 <template>
   <div class="step-sharing">
-    <h2>Sharing Options</h2>
-
     <div class="field label border">
       <select v-model="modelValue.shareMode" @change="updateShareMode">
         <option :value="0">Private</option>

@@ -11,7 +11,10 @@
     <h1>Edit {{ itemData.lectureName }}</h1>
 
     <form @submit.prevent="saveItem">
-      <ProgressIndicator v-model:currentStep="currentStep" />
+      <ProgressIndicator
+        v-model:currentStep="currentStep"
+        :steps="['Basic Info', 'Permissions', 'Network', 'Advanced']"
+      />
 
       <article class="large scroll">
         <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />

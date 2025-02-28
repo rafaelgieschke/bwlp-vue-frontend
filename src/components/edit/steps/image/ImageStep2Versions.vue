@@ -1,7 +1,5 @@
 <template>
   <div class="step-versions">
-    <h2>Version Information</h2>
-
     <div v-if="modelValue.versions && modelValue.versions.length">
       <div
         v-for="(version, index) in modelValue.versions"

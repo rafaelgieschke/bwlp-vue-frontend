@@ -11,7 +11,10 @@
     <h1>Edit {{ itemData.imageName }}</h1>
 
     <form @submit.prevent="saveItem">
-      <ProgressIndicator v-model:currentStep="currentStep" />
+      <ProgressIndicator
+        v-model:currentStep="currentStep"
+        :steps="['Basic Info', 'Version', 'Sharing']"
+      />
 
       <article class="large scroll">
         <ImageStep1BasicInfo v-show="currentStep === 1" v-model="itemData" />
