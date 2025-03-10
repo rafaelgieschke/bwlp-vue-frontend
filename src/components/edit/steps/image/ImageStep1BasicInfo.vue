@@ -12,8 +12,8 @@
 
     <div class="field label border">
       <select v-model="modelValue.osId">
-        <option v-for="os in osList" :key="os.id" :value="os.id">
-          {{ os.name }}
+        <option v-for="os in osList" :key="os.osId" :value="os.osId">
+          {{ os.osName }}
         </option>
       </select>
       <label>Operating System</label>
@@ -28,15 +28,16 @@
       <label>Virtualization Type</label>
     </div>
 
-    <div class="field checkbox border">
-      <input type="checkbox" id="isTemplate" v-model="modelValue.isTemplate" />
-      <label for="isTemplate">Template Image</label>
-    </div>
+    <SwitchTitle title="Is template" v-model="modelValue.isTemplate" />
 
-    <div class="field border">
+    <!-- <div class="field border">
       <label>Tags</label>
       <div class="tag-container">
-        <div v-for="(tag, index) in modelValue.tags" :key="index" class="tag">
+        <div
+          v-for="(tag, index) in modelValue.tags"
+          :key="index"
+          class="tag secondary"
+        >
           {{ tag }}
           <button type="button" @click="removeTag(index)">×</button>
         </div>
@@ -49,12 +50,14 @@
           <button type="button" @click="addTag">+</button>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref, onMounted, computed} from 'vue';
+
+import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
 const props = defineProps({
   modelValue: {
@@ -65,51 +68,53 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-// Simulated OS list - replace with actual data from API
-const osList = ref([
-  {id: 18, name: 'Windows 10'},
-  {id: 19, name: 'Windows 11'},
-  {id: 10, name: 'Ubuntu 20.04'},
-  {id: 11, name: 'Ubuntu 22.04'},
-  {id: 5, name: 'macOS Monterey'},
-  {id: 6, name: 'macOS Ventura'},
-]);
+import {useOperatingSystems} from '@/composables/useOperatingSystems';
 
-const newTag = ref('');
+const {fetchOperatingSystems, getOSName} = useOperatingSystems();
 
-const addTag = () => {
-  if (
-    newTag.value.trim() &&
-    !props.modelValue.tags.includes(newTag.value.trim())
-  ) {
-    const updatedData = {
-      ...props.modelValue,
-      tags: [...props.modelValue.tags, newTag.value.trim()],
-    };
-    emit('update:modelValue', updatedData);
-    newTag.value = '';
-  }
-};
+// Initialize osList ref with empty array
+const osList = ref([]);
 
-const removeTag = index => {
-  const updatedTags = [...props.modelValue.tags];
-  updatedTags.splice(index, 1);
+onMounted(async () => {
+  osList.value = await fetchOperatingSystems();
+  console.log(osList.value);
+});
 
-  const updatedData = {
-    ...props.modelValue,
-    tags: updatedTags,
-  };
-  emit('update:modelValue', updatedData);
-};
+// const newTag = ref('');
+
+// const addTag = () => {
+//   if (
+//     newTag.value.trim() &&
+//     !props.modelValue.tags.includes(newTag.value.trim())
+//   ) {
+//     const updatedData = {
+//       ...props.modelValue,
+//       tags: [...props.modelValue.tags, newTag.value.trim()],
+//     };
+//     emit('update:modelValue', updatedData);
+//     newTag.value = '';	/home/julien/.config/vivaldi/Default
+
+//   }
+// };
+
+// const removeTag = index => {
+//   const updatedTags = [...props.modelValue.tags];
+//   updatedTags.splice(index, 1);
+
+//   const updatedData = {
+//     ...props.modelValue,
+//     tags: updatedTags,
+//   };
+//   emit('update:modelValue', updatedData);
+// };
 </script>
 
-<style scoped>
+<!-- <style scoped>
 .tag {
   display: inline-flex;
   align-items: center;
   padding: 5px 10px;
   border-radius: 16px;
-  background: #eee;
   font-size: 0.9rem;
 }
 
@@ -131,4 +136,4 @@ const removeTag = index => {
   border: 1px dashed #ccc;
   border-radius: 16px;
 }
-</style>
+</style> -->
