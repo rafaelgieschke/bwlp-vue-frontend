@@ -21,16 +21,12 @@ import {computed} from 'vue';
 
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    required: true,
-  },
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
 
 const permissions = computed(() => {
-  return props.modelValue.defaultPermissions || {edit: false, admin: false};
+  return modelValue.value.defaultPermissions || {edit: false, admin: false};
 });
-
-const emit = defineEmits(['update:modelValue']);
 </script>

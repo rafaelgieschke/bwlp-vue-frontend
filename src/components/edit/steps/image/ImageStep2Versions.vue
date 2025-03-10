@@ -45,14 +45,12 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineModel({
   modelValue: {
     type: Object,
     required: true,
   },
 });
-
-const emit = defineEmits(['update:modelValue']);
 
 const formatDate = timestamp => {
   if (!timestamp) return 'N/A';

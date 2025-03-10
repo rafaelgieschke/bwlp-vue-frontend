@@ -52,14 +52,12 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineModel({
   modelValue: {
     type: Object,
     required: true,
   },
 });
-
-const emit = defineEmits(['update:modelValue']);
 
 const updateShareMode = event => {
   const shareMode = parseInt(event.target.value);

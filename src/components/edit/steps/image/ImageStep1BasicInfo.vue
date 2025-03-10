@@ -37,14 +37,11 @@ import {ref, onMounted} from 'vue';
 
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
-const props = defineProps({
+defineModel({
   modelValue: {
     type: Object,
-    required: true,
   },
 });
-
-const emit = defineEmits(['update:modelValue']);
 
 import {useOperatingSystems} from '@/composables/useOperatingSystems';
 
