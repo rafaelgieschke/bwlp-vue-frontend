@@ -11,7 +11,7 @@
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.osId">
+      <select v-model="modelValue.osId" disabled>
         <option v-for="os in osList" :key="os.osId" :value="os.osId">
           {{ os.osName }}
         </option>
@@ -20,16 +20,16 @@
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.shareMode" @change="updateShareMode">
-        <option :value="0">Private</option>
-        <option :value="1">Public</option>
-        <option :value="2">Custom</option>
+      <select v-model="modelValue.shareMode" @change="updateShareMode" disabled>
+        <option v-for="shareMode in shareModes" :value="shareMode.value">
+          {{ shareMode.label }}
+        </option>
       </select>
       <label>Share Mode</label>
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.virtId">
+      <select v-model="modelValue.virtId" disabled>
         <option value="vmware">VMware</option>
         <option value="virtualbox">VirtualBox</option>
         <option value="kvm">KVM</option>
@@ -46,10 +46,9 @@ import {ref, onMounted} from 'vue';
 
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
-defineModel({
-  modelValue: {
-    type: Object,
-  },
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
 
 import {useOperatingSystems} from '@/composables/useOperatingSystems';
@@ -62,12 +61,19 @@ onMounted(async () => {
   osList.value = await fetchOperatingSystems();
 });
 
+const shareModes = ref([
+  {value: 0, label: 'LOCAL'},
+  {value: 1, label: 'PUBLISH'},
+  {value: 2, label: 'DOWNLOAD'},
+  {value: 3, label: 'FROZEN'},
+]);
+
 const updateShareMode = event => {
   const shareMode = parseInt(event.target.value);
   const updatedData = {
-    ...props.modelValue,
+    ...modelValue,
     shareMode,
   };
-  modelValue = updatedData;
+  modelValue.value = updatedData;
 };
 </script>

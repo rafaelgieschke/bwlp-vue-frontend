@@ -55,15 +55,15 @@ defineModel({
 
 const updatePermission = (permission, value) => {
   const updatedPermissions = {
-    ...props.modelValue.defaultPermissions,
+    ...modelValue.value.defaultPermissions,
     [permission]: value,
   };
 
   const updatedData = {
-    ...props.modelValue,
+    ...modelValue,
     defaultPermissions: updatedPermissions,
   };
-  modelValue = updatedData;
+  modelValue.value = updatedData;
 };
 </script>
 
