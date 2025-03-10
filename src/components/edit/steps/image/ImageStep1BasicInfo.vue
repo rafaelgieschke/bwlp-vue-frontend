@@ -1,17 +1,17 @@
 <template>
   <div class="step-basic-info">
     <div class="field label border">
-      <input v-model="modelValue.imageName" required />
+      <input v-model="formData.imageName" required />
       <label>Image Name</label>
     </div>
 
     <div class="field textarea label border">
-      <textarea v-model="modelValue.description" rows="4"></textarea>
+      <textarea v-model="formData.description" rows="4"></textarea>
       <label>Description</label>
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.osId" disabled>
+      <select v-model="formData.osId" disabled>
         <option v-for="os in osList" :key="os.osId" :value="os.osId">
           {{ os.osName }}
         </option>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.shareMode" @change="updateShareMode" disabled>
+      <select v-model="formData.shareMode" @change="updateShareMode" disabled>
         <option v-for="shareMode in shareModes" :value="shareMode.value">
           {{ shareMode.label }}
         </option>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.virtId" disabled>
+      <select v-model="formData.virtId" disabled>
         <option value="vmware">VMware</option>
         <option value="virtualbox">VirtualBox</option>
         <option value="kvm">KVM</option>
@@ -37,7 +37,7 @@
       <label>Virtualization Type</label>
     </div>
 
-    <SwitchTitle title="Is template" v-model="modelValue.isTemplate" />
+    <SwitchTitle title="Is template" v-model="formData.isTemplate" />
   </div>
 </template>
 
@@ -46,7 +46,7 @@ import {ref, onMounted} from 'vue';
 
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
-const modelValue = defineModel({
+const formData = defineModel({
   type: Object,
   required: true,
 });
@@ -71,9 +71,9 @@ const shareModes = ref([
 const updateShareMode = event => {
   const shareMode = parseInt(event.target.value);
   const updatedData = {
-    ...modelValue,
+    ...formData,
     shareMode,
   };
-  modelValue.value = updatedData;
+  formData.value = updatedData;
 };
 </script>

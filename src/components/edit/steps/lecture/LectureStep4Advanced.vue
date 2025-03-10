@@ -3,13 +3,13 @@
     <SwitchTitle
       title="Auto Update"
       description="Should the lecture auto update?"
-      v-model="modelValue.autoUpdate"
+      v-model="formData.autoUpdate"
     />
 
     <SwitchTitle
       title="Limit to Locations"
       description="Should the lecture be limited to locations?"
-      v-model="modelValue.limitToLocations"
+      v-model="formData.limitToLocations"
     />
   </div>
 </template>
@@ -18,7 +18,7 @@
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
 defineModel({
-  modelValue: {
+  formData: {
     type: Object,
     required: true,
   },

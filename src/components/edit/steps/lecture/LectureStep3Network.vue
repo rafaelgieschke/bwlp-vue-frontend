@@ -1,11 +1,8 @@
 <template>
   <div class="step-network">
-    <SwitchTitle
-      title="Internet Access"
-      v-model="modelValue.hasInternetAccess"
-    />
+    <SwitchTitle title="Internet Access" v-model="formData.hasInternetAccess" />
 
-    <SwitchTitle title="USB Access" v-model="modelValue.hasUsbAccess" />
+    <SwitchTitle title="USB Access" v-model="formData.hasUsbAccess" />
   </div>
 </template>
 
@@ -13,7 +10,7 @@
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
 defineModel({
-  modelValue: {
+  formData: {
     type: Object,
     required: true,
   },
