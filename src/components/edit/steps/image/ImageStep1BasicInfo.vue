@@ -20,6 +20,15 @@
     </div>
 
     <div class="field label border">
+      <select v-model="modelValue.shareMode" @change="updateShareMode">
+        <option :value="0">Private</option>
+        <option :value="1">Public</option>
+        <option :value="2">Custom</option>
+      </select>
+      <label>Share Mode</label>
+    </div>
+
+    <div class="field label border">
       <select v-model="modelValue.virtId">
         <option value="vmware">VMware</option>
         <option value="virtualbox">VirtualBox</option>
@@ -52,4 +61,13 @@ const osList = ref([]);
 onMounted(async () => {
   osList.value = await fetchOperatingSystems();
 });
+
+const updateShareMode = event => {
+  const shareMode = parseInt(event.target.value);
+  const updatedData = {
+    ...props.modelValue,
+    shareMode,
+  };
+  modelValue = updatedData;
+};
 </script>

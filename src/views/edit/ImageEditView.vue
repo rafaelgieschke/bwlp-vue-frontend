@@ -15,8 +15,7 @@
 
       <article class="large scroll">
         <ImageStep1BasicInfo v-show="currentStep === 1" v-model="itemData" />
-        <!-- <ImageStep2Versions v-show="currentStep === 2" v-model="itemData" /> -->
-        <ImageStep3Sharing v-show="currentStep === 2" v-model="itemData" />
+        <ImageStep2Permissions v-show="currentStep === 2" v-model="itemData" />
       </article>
 
       <EditNavigationButtons
@@ -40,8 +39,7 @@ import ProgressIndicator from '@/components/edit/ProgressIndicator.vue';
 import EditNavigationButtons from '@/components/edit/EditNavigationButtons.vue';
 
 import ImageStep1BasicInfo from '@/components/edit/steps/image/ImageStep1BasicInfo.vue';
-// import ImageStep2Versions from '@/components/edit/steps/image/ImageStep2Versions.vue';
-import ImageStep3Sharing from '@/components/edit/steps/image/ImageStep3Sharing.vue';
+import ImageStep2Permissions from '@/components/edit/steps/image/ImageStep2Permissions.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -53,7 +51,7 @@ const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();
 
-const steps = ref(['Basic Info', 'Sharing']);
+const steps = ref(['Basic Info', 'Permissions']);
 
 const itemData = ref({
   imageBaseId: '',
