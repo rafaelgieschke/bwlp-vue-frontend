@@ -46,11 +46,9 @@
 </template>
 
 <script setup>
-defineModel({
-  modelValue: {
-    type: Object,
-    required: true,
-  },
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
 
 const updatePermission = (permission, value) => {

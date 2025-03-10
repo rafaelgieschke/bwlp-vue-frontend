@@ -12,10 +12,8 @@
 <script setup>
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
-defineModel({
-  modelValue: {
-    type: Object,
-    required: true,
-  },
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
 </script>
