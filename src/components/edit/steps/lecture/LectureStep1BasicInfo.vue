@@ -57,8 +57,6 @@ const modelValue = defineModel({
   required: true,
 });
 
-console.log(modelValue.value.startTime);
-
 const startDateTime = computed({
   get: () => {
     if (!modelValue.value.startTime) return '';
