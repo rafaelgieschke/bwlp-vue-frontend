@@ -11,10 +11,7 @@
     <h1>Edit {{ itemData.lectureName }}</h1>
 
     <form @submit.prevent="saveItem">
-      <ProgressIndicator
-        v-model:currentStep="currentStep"
-        :steps="['Basic Info', 'Permissions', 'Network', 'Advanced']"
-      />
+      <ProgressIndicator v-model:currentStep="currentStep" :steps="steps" />
 
       <article class="large scroll">
         <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
@@ -27,6 +24,7 @@
         :prev-step="prevStep"
         :next-step="nextStep"
         :current-step="currentStep"
+        :total-steps="steps.length"
       />
     </form>
   </div>
@@ -57,6 +55,8 @@ const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();
 
+const steps = ref(['Basic Info', 'Permissions', 'Network', 'Advanced']);
+
 const itemData = ref({
   lectureName: '',
   description: '',
@@ -73,7 +73,7 @@ const error = ref(null);
 const currentStep = ref(1);
 
 const nextStep = () => {
-  if (currentStep.value < 4) currentStep.value++;
+  if (currentStep.value < steps.value.length) currentStep.value++;
 };
 
 const prevStep = () => {

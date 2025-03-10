@@ -77,7 +77,6 @@ const osList = ref([]);
 
 onMounted(async () => {
   osList.value = await fetchOperatingSystems();
-  console.log(osList.value);
 });
 
 // const newTag = ref('');
