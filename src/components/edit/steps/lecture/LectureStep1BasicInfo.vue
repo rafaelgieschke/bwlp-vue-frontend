@@ -67,7 +67,7 @@ const startDateTime = computed({
   set: value => {
     const data = {...modelValue.value};
     data.startTime = Math.floor(new Date(value).getTime() / 1000);
-    emit('update:modelValue', data);
+    modelValue.value = data;
   },
 });
 
@@ -79,7 +79,7 @@ const endDateTime = computed({
   set: value => {
     const data = {...modelValue.value};
     data.endTime = Math.floor(new Date(value).getTime() / 1000);
-    emit('update:modelValue', data);
+    modelValue.value = data;
   },
 });
 
