@@ -70,9 +70,8 @@ const emit = defineEmits(['update:modelValue']);
 
 import {useOperatingSystems} from '@/composables/useOperatingSystems';
 
-const {fetchOperatingSystems, getOSName} = useOperatingSystems();
+const {fetchOperatingSystems} = useOperatingSystems();
 
-// Initialize osList ref with empty array
 const osList = ref([]);
 
 onMounted(async () => {
