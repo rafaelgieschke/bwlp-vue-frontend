@@ -2,7 +2,7 @@
   <div class="step-basic-info">
     <div class="field label border">
       <input
-        v-model="formData.lectureName"
+        v-model="modelValue.lectureName"
         id="lectureName"
         name="lectureName"
         required
@@ -12,7 +12,7 @@
 
     <div class="field textarea label border">
       <textarea
-        v-model="formData.description"
+        v-model="modelValue.description"
         id="description"
         name="description"
       ></textarea>
@@ -52,32 +52,34 @@
 <script setup>
 import {computed} from 'vue';
 
-const formData = defineModel({
+const modelValue = defineModel({
   type: Object,
   required: true,
 });
 
 const startDateTime = computed({
   get: () => {
-    if (!formData.value.startTime) return '';
-    return new Date(formData.value.startTime * 1000).toISOString().slice(0, 16);
+    if (!modelValue.value.startTime) return '';
+    return new Date(modelValue.value.startTime * 1000)
+      .toISOString()
+      .slice(0, 16);
   },
   set: value => {
-    const data = {...formData.value};
+    const data = {...modelValue.value};
     data.startTime = Math.floor(new Date(value).getTime() / 1000);
-    formData.value = data;
+    modelValue.value = data;
   },
 });
 
 const endDateTime = computed({
   get: () => {
-    if (!formData.value.endTime) return '';
-    return new Date(formData.value.endTime * 1000).toISOString().slice(0, 16);
+    if (!modelValue.value.endTime) return '';
+    return new Date(modelValue.value.endTime * 1000).toISOString().slice(0, 16);
   },
   set: value => {
-    const data = {...formData.value};
+    const data = {...modelValue.value};
     data.endTime = Math.floor(new Date(value).getTime() / 1000);
-    formData.value = data;
+    modelValue.value = data;
   },
 });
 

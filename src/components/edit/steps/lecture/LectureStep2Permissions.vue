@@ -1,7 +1,7 @@
 <template>
   <div class="step-permissions">
-    <SwitchTitle title="Enabled" v-model="formData.isEnabled" />
-    <SwitchTitle title="Exam mode" v-model="formData.isExam" />
+    <SwitchTitle title="Enabled" v-model="modelValue.isEnabled" />
+    <SwitchTitle title="Exam mode" v-model="modelValue.isExam" />
 
     <SwitchTitle
       title="Default edit permission"
@@ -21,12 +21,12 @@ import {computed} from 'vue';
 
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
-const formData = defineModel({
+const modelValue = defineModel({
   type: Object,
   required: true,
 });
 
 const permissions = computed(() => {
-  return formData.value.defaultPermissions || {edit: false, admin: false};
+  return modelValue.value.defaultPermissions || {edit: false, admin: false};
 });
 </script>

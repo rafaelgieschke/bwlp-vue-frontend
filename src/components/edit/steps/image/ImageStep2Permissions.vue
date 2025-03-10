@@ -6,7 +6,7 @@
         <input
           type="checkbox"
           id="def-perm-link"
-          v-model="formData.defaultPermissions.link"
+          v-model="modelValue.defaultPermissions.link"
           @change="updatePermission('link', $event.target.checked)"
         />
         <label for="def-perm-link">Link</label>
@@ -16,7 +16,7 @@
         <input
           type="checkbox"
           id="def-perm-download"
-          v-model="formData.defaultPermissions.download"
+          v-model="modelValue.defaultPermissions.download"
           @change="updatePermission('download', $event.target.checked)"
         />
         <label for="def-perm-download">Download</label>
@@ -26,7 +26,7 @@
         <input
           type="checkbox"
           id="def-perm-edit"
-          v-model="formData.defaultPermissions.edit"
+          v-model="modelValue.defaultPermissions.edit"
           @change="updatePermission('edit', $event.target.checked)"
         />
         <label for="def-perm-edit">Edit</label>
@@ -36,7 +36,7 @@
         <input
           type="checkbox"
           id="def-perm-admin"
-          v-model="formData.defaultPermissions.admin"
+          v-model="modelValue.defaultPermissions.admin"
           @change="updatePermission('admin', $event.target.checked)"
         />
         <label for="def-perm-admin">Admin</label>
@@ -47,7 +47,7 @@
 
 <script setup>
 defineModel({
-  formData: {
+  modelValue: {
     type: Object,
     required: true,
   },
@@ -55,15 +55,15 @@ defineModel({
 
 const updatePermission = (permission, value) => {
   const updatedPermissions = {
-    ...formData.value.defaultPermissions,
+    ...modelValue.value.defaultPermissions,
     [permission]: value,
   };
 
   const updatedData = {
-    ...formData,
+    ...modelValue,
     defaultPermissions: updatedPermissions,
   };
-  formData.value = updatedData;
+  modelValue.value = updatedData;
 };
 </script>
 
