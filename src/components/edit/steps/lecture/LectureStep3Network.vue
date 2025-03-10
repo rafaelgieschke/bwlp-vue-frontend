@@ -12,12 +12,8 @@
 <script setup>
 import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    required: true,
-  },
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
-
-const emit = defineEmits(['update:modelValue']);
 </script>

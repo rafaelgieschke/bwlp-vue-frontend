@@ -52,38 +52,34 @@
 <script setup>
 import {computed} from 'vue';
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    required: true,
-  },
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
-
-const emit = defineEmits(['update:modelValue']);
 
 const startDateTime = computed({
   get: () => {
-    if (!props.modelValue.startTime) return '';
-    return new Date(props.modelValue.startTime * 1000)
+    if (!modelValue.value.startTime) return '';
+    return new Date(modelValue.value.startTime * 1000)
       .toISOString()
       .slice(0, 16);
   },
   set: value => {
-    const data = {...props.modelValue};
+    const data = {...modelValue.value};
     data.startTime = Math.floor(new Date(value).getTime() / 1000);
-    emit('update:modelValue', data);
+    modelValue.value = data;
   },
 });
 
 const endDateTime = computed({
   get: () => {
-    if (!props.modelValue.endTime) return '';
-    return new Date(props.modelValue.endTime * 1000).toISOString().slice(0, 16);
+    if (!modelValue.value.endTime) return '';
+    return new Date(modelValue.value.endTime * 1000).toISOString().slice(0, 16);
   },
   set: value => {
-    const data = {...props.modelValue};
+    const data = {...modelValue.value};
     data.endTime = Math.floor(new Date(value).getTime() / 1000);
-    emit('update:modelValue', data);
+    modelValue.value = data;
   },
 });
 

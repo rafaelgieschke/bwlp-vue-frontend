@@ -1,39 +1,25 @@
 <template>
   <nav class="scroll">
     <SingleStepNode
+      v-for="(step, index) in steps"
       v-model:current-step="currentStep"
-      :step-number="1"
-      text="Basic Info"
-    />
-
-    <hr class="max" />
-
-    <SingleStepNode
-      v-model:current-step="currentStep"
-      :step-number="2"
-      text="Permissions"
-    />
-
-    <hr class="max" />
-
-    <SingleStepNode
-      v-model:current-step="currentStep"
-      :step-number="3"
-      text="Network"
-    />
-
-    <hr class="max" />
-
-    <SingleStepNode
-      v-model:current-step="currentStep"
-      :step-number="4"
-      text="Advanced"
+      :key="step"
+      :step-number="index + 1"
+      :text="step"
+      :steps-count="steps.length"
     />
   </nav>
 </template>
 
 <script setup>
 import SingleStepNode from '@/components/edit/SingleStepNode.vue';
+
+defineProps({
+  steps: {
+    type: Object,
+    required: true,
+  },
+});
 
 const currentStep = defineModel('currentStep', {required: true});
 </script>

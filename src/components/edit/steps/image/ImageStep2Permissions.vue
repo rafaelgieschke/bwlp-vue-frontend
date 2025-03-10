@@ -1,16 +1,5 @@
 <template>
-  <div class="step-sharing">
-    <h2>Sharing Options</h2>
-
-    <div class="field label border">
-      <select v-model="modelValue.shareMode" @change="updateShareMode">
-        <option :value="0">Private</option>
-        <option :value="1">Public</option>
-        <option :value="2">Custom</option>
-      </select>
-      <label>Share Mode</label>
-    </div>
-
+  <div class="step-permissions">
     <h3>Default Permissions</h3>
     <div class="permissions-grid">
       <div class="field checkbox">
@@ -22,6 +11,7 @@
         />
         <label for="def-perm-link">Link</label>
       </div>
+
       <div class="field checkbox">
         <input
           type="checkbox"
@@ -31,6 +21,7 @@
         />
         <label for="def-perm-download">Download</label>
       </div>
+
       <div class="field checkbox">
         <input
           type="checkbox"
@@ -40,6 +31,7 @@
         />
         <label for="def-perm-edit">Edit</label>
       </div>
+
       <div class="field checkbox">
         <input
           type="checkbox"
@@ -54,43 +46,26 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    required: true,
-  },
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
-
-const emit = defineEmits(['update:modelValue']);
-
-const updateShareMode = event => {
-  const shareMode = parseInt(event.target.value);
-  const updatedData = {
-    ...props.modelValue,
-    shareMode,
-  };
-  emit('update:modelValue', updatedData);
-};
 
 const updatePermission = (permission, value) => {
   const updatedPermissions = {
-    ...props.modelValue.defaultPermissions,
+    ...modelValue.value.defaultPermissions,
     [permission]: value,
   };
 
   const updatedData = {
-    ...props.modelValue,
+    ...modelValue,
     defaultPermissions: updatedPermissions,
   };
-  emit('update:modelValue', updatedData);
+  modelValue.value = updatedData;
 };
 </script>
 
 <style scoped>
-.step-sharing {
-  padding: 1rem;
-}
-
 .permissions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

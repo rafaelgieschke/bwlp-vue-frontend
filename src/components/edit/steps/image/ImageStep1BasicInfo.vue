@@ -1,7 +1,5 @@
 <template>
   <div class="step-basic-info">
-    <h2>Basic Information</h2>
-
     <div class="field label border">
       <input v-model="modelValue.imageName" required />
       <label>Image Name</label>
@@ -13,16 +11,25 @@
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.osId">
-        <option v-for="os in osList" :key="os.id" :value="os.id">
-          {{ os.name }}
+      <select v-model="modelValue.osId" disabled>
+        <option v-for="os in osList" :key="os.osId" :value="os.osId">
+          {{ os.osName }}
         </option>
       </select>
       <label>Operating System</label>
     </div>
 
     <div class="field label border">
-      <select v-model="modelValue.virtId">
+      <select v-model="modelValue.shareMode" @change="updateShareMode" disabled>
+        <option v-for="shareMode in shareModes" :value="shareMode.value">
+          {{ shareMode.label }}
+        </option>
+      </select>
+      <label>Share Mode</label>
+    </div>
+
+    <div class="field label border">
+      <select v-model="modelValue.virtId" disabled>
         <option value="vmware">VMware</option>
         <option value="virtualbox">VirtualBox</option>
         <option value="kvm">KVM</option>
@@ -30,117 +37,43 @@
       <label>Virtualization Type</label>
     </div>
 
-    <div class="field checkbox border">
-      <input type="checkbox" id="isTemplate" v-model="modelValue.isTemplate" />
-      <label for="isTemplate">Template Image</label>
-    </div>
-
-    <div class="field border">
-      <label>Tags</label>
-      <div class="tag-container">
-        <div v-for="(tag, index) in modelValue.tags" :key="index" class="tag">
-          {{ tag }}
-          <button type="button" @click="removeTag(index)">×</button>
-        </div>
-        <div class="add-tag">
-          <input
-            v-model="newTag"
-            @keyup.enter="addTag"
-            placeholder="Add a tag"
-          />
-          <button type="button" @click="addTag">+</button>
-        </div>
-      </div>
-    </div>
+    <SwitchTitle title="Is template" v-model="modelValue.isTemplate" />
   </div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    required: true,
-  },
+import SwitchTitle from '@/components/edit/steps/SwitchTitle.vue';
+
+const modelValue = defineModel({
+  type: Object,
+  required: true,
 });
 
-const emit = defineEmits(['update:modelValue']);
+import {useOperatingSystems} from '@/composables/useOperatingSystems';
 
-// Simulated OS list - replace with actual data from API
-const osList = ref([
-  {id: 18, name: 'Windows 10'},
-  {id: 19, name: 'Windows 11'},
-  {id: 10, name: 'Ubuntu 20.04'},
-  {id: 11, name: 'Ubuntu 22.04'},
-  {id: 5, name: 'macOS Monterey'},
-  {id: 6, name: 'macOS Ventura'},
+const {fetchOperatingSystems} = useOperatingSystems();
+
+const osList = ref([]);
+
+onMounted(async () => {
+  osList.value = await fetchOperatingSystems();
+});
+
+const shareModes = ref([
+  {value: 0, label: 'LOCAL'},
+  {value: 1, label: 'PUBLISH'},
+  {value: 2, label: 'DOWNLOAD'},
+  {value: 3, label: 'FROZEN'},
 ]);
 
-const newTag = ref('');
-
-const addTag = () => {
-  if (
-    newTag.value.trim() &&
-    !props.modelValue.tags.includes(newTag.value.trim())
-  ) {
-    const updatedData = {
-      ...props.modelValue,
-      tags: [...props.modelValue.tags, newTag.value.trim()],
-    };
-    emit('update:modelValue', updatedData);
-    newTag.value = '';
-  }
-};
-
-const removeTag = index => {
-  const updatedTags = [...props.modelValue.tags];
-  updatedTags.splice(index, 1);
-
+const updateShareMode = event => {
+  const shareMode = parseInt(event.target.value);
   const updatedData = {
-    ...props.modelValue,
-    tags: updatedTags,
+    ...modelValue,
+    shareMode,
   };
-  emit('update:modelValue', updatedData);
+  modelValue.value = updatedData;
 };
 </script>
-
-<style scoped>
-.step-basic-info {
-  padding: 1rem;
-}
-
-.tag-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  border-radius: 16px;
-  background: #eee;
-  font-size: 0.9rem;
-}
-
-.tag button {
-  margin-left: 5px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.add-tag {
-  display: flex;
-  align-items: center;
-}
-
-.add-tag input {
-  margin-right: 5px;
-  padding: 5px;
-  border: 1px dashed #ccc;
-  border-radius: 16px;
-}
-</style>

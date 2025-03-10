@@ -14,7 +14,7 @@
       type="button"
       class="border primary-border"
       @click="nextStep"
-      :disabled="currentStep >= 4"
+      :disabled="currentStep >= totalSteps"
     >
       <span>Next</span>
       <i>arrow_forward</i>
@@ -37,6 +37,10 @@ defineProps({
   },
   nextStep: {
     type: Function,
+    required: true,
+  },
+  totalSteps: {
+    type: Number,
     required: true,
   },
 });

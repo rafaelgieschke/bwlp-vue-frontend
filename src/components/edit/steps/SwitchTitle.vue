@@ -10,8 +10,8 @@
           type="checkbox"
           :id="`switch-${slugify(title)}`"
           :name="`switch-${slugify(title)}`"
-          :checked="modelValue"
-          @change="$emit('update:modelValue', $event.target.checked)"
+          :checked="model"
+          @change="model = $event.target.checked"
         />
         <span></span>
       </label>
@@ -20,11 +20,12 @@
 </template>
 
 <script setup>
+const model = defineModel({
+  required: true,
+  type: Boolean,
+});
+
 defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-  },
   title: {
     type: String,
     required: true,
@@ -45,6 +46,4 @@ function slugify(str) {
     .replace(/-+/g, '-'); // remove consecutive hyphens
   return str;
 }
-
-defineEmits(['update:modelValue']);
 </script>

@@ -18,6 +18,8 @@
 
     <div class="small-margin">{{ text }}</div>
   </div>
+
+  <hr v-if="stepNumber < stepsCount" class="max" />
 </template>
 
 <script setup>
@@ -31,6 +33,10 @@ defineProps({
   text: {
     type: String,
     default: '',
+  },
+  stepsCount: {
+    type: Number,
+    required: true,
   },
 });
 </script>
