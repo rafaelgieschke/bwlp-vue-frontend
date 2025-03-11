@@ -15,13 +15,13 @@
         <tr>
           <td>Erstellt am</td>
           <td colspan="3">
-            {{ $dayjs(image.createTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(image.createTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
         </tr>
         <tr>
           <td>Geändert am</td>
           <td>
-            {{ $dayjs(image.updateTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(image.updateTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
           <td><strong>durch</strong></td>
           <td>{{ updaterName }}</td>
@@ -65,6 +65,7 @@
 
 <script setup lang="ts">
 import {ref, watch, onMounted} from '@vue/runtime-core';
+import {useDateFormat} from '@vueuse/core';
 
 const props = defineProps({
   image: {
@@ -79,6 +80,10 @@ const updaterName = ref('');
 import {useUsers} from '@/composables/useUsers';
 
 const {fetchUsers, getUserFullName} = useUsers();
+
+const formatDate = (timestamp: number, format: string) => {
+  return useDateFormat(timestamp, format).value;
+};
 
 const refreshUserDetails = () => {
   getOwnerName();

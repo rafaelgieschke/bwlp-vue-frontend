@@ -49,12 +49,14 @@
 import {ref, onMounted} from '@vue/runtime-core';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
-
-import $dayjs from 'dayjs';
+import {useDateFormat} from '@vueuse/core';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
-
 import SortableTable from '@/components/SortableTable.vue';
+
+const formatDate = (timestamp: number, format: string) => {
+  return useDateFormat(timestamp, format).value;
+};
 
 const columns = [
   {
@@ -71,14 +73,14 @@ const columns = [
     label: 'Start Time',
     class: 'min',
     formatter: value =>
-      value > 0 ? $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm') : '-',
+      value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-',
   },
   {
     field: 'endTime',
     label: 'End Time',
     class: 'min',
     formatter: value =>
-      value > 0 ? $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm') : '-',
+      value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-',
   },
 ];
 

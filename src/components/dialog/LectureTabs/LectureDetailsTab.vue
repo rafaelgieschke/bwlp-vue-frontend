@@ -15,13 +15,13 @@
         <tr>
           <td>Erstellt am</td>
           <td colspan="3">
-            {{ $dayjs(lecture.createTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(lecture.createTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
         </tr>
         <tr>
           <td>Geändert am</td>
           <td>
-            {{ $dayjs(lecture.updateTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(lecture.updateTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
           <td><strong>durch</strong></td>
           <td>{{ updaterName }}</td>
@@ -37,13 +37,13 @@
         <tr>
           <td>Startdatum</td>
           <td colspan="3">
-            {{ $dayjs(lecture.startTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(lecture.startTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
         </tr>
         <tr>
           <td>Enddatum</td>
           <td colspan="2">
-            {{ $dayjs(lecture.endTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(lecture.endTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
           <td>
             <label class="checkbox">
@@ -80,7 +80,7 @@
 
 <script setup lang="ts">
 import {ref, watch, onMounted} from '@vue/runtime-core';
-
+import {useDateFormat} from '@vueuse/core';
 import BasicPre from '@/components/BasicPre.vue';
 
 const props = defineProps({
@@ -96,6 +96,10 @@ const updaterName = ref('');
 import {useUsers} from '@/composables/useUsers';
 
 const {fetchUsers, getUserFullName} = useUsers();
+
+const formatDate = (timestamp: number, format: string) => {
+  return useDateFormat(timestamp, format).value;
+};
 
 const refreshUserDetails = () => {
   getOwnerName();

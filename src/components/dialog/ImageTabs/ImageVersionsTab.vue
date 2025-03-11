@@ -14,10 +14,10 @@
       <tbody>
         <tr v-for="(version, index) in versions" :key="version.versionId">
           <td>
-            {{ $dayjs(version.createTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(version.createTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
           <td>
-            {{ $dayjs(version.expireTime * 1000).format('DD.MM.YYYY, HH:mm') }}
+            {{ formatDate(version.expireTime * 1000, 'DD.MM.YYYY, HH:mm') }}
           </td>
           <td>{{ version.uploaderId }}</td>
           <td>
@@ -44,6 +44,7 @@
 
 <script setup lang="ts">
 import {humanFileSize} from '@/assets/js/utils/fileSize';
+import {useDateFormat} from '@vueuse/core';
 
 defineProps({
   versions: {
@@ -51,4 +52,8 @@ defineProps({
     required: true,
   },
 });
+
+const formatDate = (timestamp: number, format: string) => {
+  return useDateFormat(timestamp, format).value;
+};
 </script>

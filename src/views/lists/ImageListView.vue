@@ -45,11 +45,9 @@
 import {ref, onMounted} from '@vue/runtime-core';
 import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
-
-import $dayjs from 'dayjs';
+import {useDateFormat} from '@vueuse/core';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
-
 import SortableTable from '@/components/SortableTable.vue';
 
 /// TODO: But for in a long time, we could make it a setting that the user can decide for themselves
@@ -73,7 +71,7 @@ const columns = [
     label: 'Expire Time',
     class: 'min',
     formatter: value =>
-      value > 0 ? $dayjs(value * 1000).format('DD.MM.YYYY, HH:mm') : '-',
+      value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-',
   },
   {
     field: 'virtId',
@@ -85,6 +83,10 @@ import DetailDialog from '@/components/dialog/DetailDialog.vue';
 import ImageDetailsTab from '@/components/dialog/ImageTabs/ImageDetailsTab.vue';
 import ImageVersionsTab from '@/components/dialog/ImageTabs/ImageVersionsTab.vue';
 import ImageLecturePermissionsTab from '@/components/dialog/ImageLecturePermissionsTab.vue';
+
+const formatDate = (timestamp: number, format: string) => {
+  return useDateFormat(timestamp, format).value;
+};
 
 const imageTabs = [
   {
