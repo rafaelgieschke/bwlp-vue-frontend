@@ -104,6 +104,11 @@ I know it's much easier to just install an NPM package for everything we need, b
 
 Keeping the number of packages to a minimum more easily allows us to keep them all updated in the future, if we have 10 dependencies all pointing to each other, at some point, they'll clash and we'll have to keep one in an outdated state which might cause problems.
 
+##### Potential exceptions
+
+- [VueUse](https://vueuse.org) helps with a lot of tiny utilities and it's a really common tool in the Vue community, so in case one of their tool could simplify the implementation of something, I think it's not a big issue to make use of it.
+- Vue has a large ecosystem, but a very clean one, unlike others (looking at you, React and Django), I think this means for most "big tasks" (like i18n), you'll find a "recommended package" that's either basically the only one available at that scale (like vue-i18n) or the list of possibilities is only packages with a good and appreciated background and all of them might help one specific use more than the other, but there's no wrong choice, so no big deal if you make the "wrong" one.
+
 ### CSS
 
 #### Selectors
