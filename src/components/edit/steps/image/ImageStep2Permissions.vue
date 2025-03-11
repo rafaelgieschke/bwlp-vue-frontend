@@ -2,45 +2,28 @@
   <div class="step-permissions">
     <h3>Default Permissions</h3>
     <div class="permissions-grid">
-      <div class="field checkbox">
-        <input
-          type="checkbox"
-          id="def-perm-link"
-          v-model="modelValue.defaultPermissions.link"
-          @change="updatePermission('link', $event.target.checked)"
-        />
-        <label for="def-perm-link">Link</label>
-      </div>
+      <label class="checkbox">
+        <input type="checkbox" v-model="modelValue.defaultPermissions.link" />
+        <span>Link</span>
+      </label>
 
-      <div class="field checkbox">
+      <label class="checkbox">
         <input
           type="checkbox"
-          id="def-perm-download"
           v-model="modelValue.defaultPermissions.download"
-          @change="updatePermission('download', $event.target.checked)"
         />
-        <label for="def-perm-download">Download</label>
-      </div>
+        <span>Download</span>
+      </label>
 
-      <div class="field checkbox">
-        <input
-          type="checkbox"
-          id="def-perm-edit"
-          v-model="modelValue.defaultPermissions.edit"
-          @change="updatePermission('edit', $event.target.checked)"
-        />
-        <label for="def-perm-edit">Edit</label>
-      </div>
+      <label class="checkbox">
+        <input type="checkbox" v-model="modelValue.defaultPermissions.edit" />
+        <span>Edit</span>
+      </label>
 
-      <div class="field checkbox">
-        <input
-          type="checkbox"
-          id="def-perm-admin"
-          v-model="modelValue.defaultPermissions.admin"
-          @change="updatePermission('admin', $event.target.checked)"
-        />
-        <label for="def-perm-admin">Admin</label>
-      </div>
+      <label class="checkbox">
+        <input type="checkbox" v-model="modelValue.defaultPermissions.admin" />
+        <span>Admin</span>
+      </label>
     </div>
   </div>
 </template>
@@ -50,19 +33,6 @@ const modelValue = defineModel({
   type: Object,
   required: true,
 });
-
-const updatePermission = (permission, value) => {
-  const updatedPermissions = {
-    ...modelValue.value.defaultPermissions,
-    [permission]: value,
-  };
-
-  const updatedData = {
-    ...modelValue,
-    defaultPermissions: updatedPermissions,
-  };
-  modelValue.value = updatedData;
-};
 </script>
 
 <style scoped>
