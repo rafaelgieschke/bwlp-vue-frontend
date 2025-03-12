@@ -29,7 +29,7 @@ Vue.js is inconsistent in their documentation and different websites and will so
 2. (optional) script `<script setup lang="ts"></script>`
 
    - We use the [Composition API](https://vuejs.org/api/composition-api-setup.html)
-     - The reason is it's the new way of doing things and it's proven easier to work with than the Options API
+     - The reason is it's the new way of doing things and it's proven easier to work with than the Options API (as it allows the use of [`<script setup>`](https://vuejs.org/api/sfc-script-setup.html)). They also say somewhere on the documentation (can't remember where, saw it the other day) that it removed a lot of limitations Vue had with the Options API, basically saying that Composition API is the reason something as powerful as [VueUse](https://vueuse.org) is even possible in the first place, so it's a no brainer.
    - We first set that it's Composition API `setup` and then set the language `lang="ts"`
      - The idea behind this being that the language isn't as important as which API we use. That's a tiny difference, but what are you gonna do? fight me? That's what I thought.
    - Small components that were extracted for readability and reusability might not have scripts, and that's okay, don't keep the empty tag
