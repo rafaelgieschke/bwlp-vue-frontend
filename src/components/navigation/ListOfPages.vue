@@ -26,6 +26,7 @@
   >
     <i>policy</i>
     <span>{{ $t('privacyPolicy') }}</span>
+    <OpenInBlank />
   </RouterLink>
   <RouterLink
     class="wave"
@@ -61,7 +62,7 @@
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>code</i>
-    <span>Vue frontend repo</span>
+    <span>BWLP Vue Frontend Repository</span>
     <OpenInBlank />
   </a>
   <a
@@ -73,7 +74,7 @@
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>code</i>
-    <span>Old frontend repo (archive)</span>
+    <span>Old Frontend Repo (archive)</span>
     <OpenInBlank />
   </a>
   <a
@@ -189,7 +190,7 @@ const logout = () => {
 }
 
 /* To make sure not to forget, they all have it, but only the target="blank" ones have it visible */
-a:not([target='_blank']) .open_in_blank {
+a:not([target='_blank']) .tooltip {
   display: none;
 }
 </style>
