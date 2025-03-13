@@ -33,8 +33,9 @@
           class="link underline wave"
           target="_blank"
           rel="noopener noreferrer"
-          >https://www.gnu.org/licenses/old-licenses/gpl-2.0.html</a
-        >
+          >https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+          <OpenInBlank />
+        </a>
         eingesehen werden.
       </p>
       <p class="big-paragraph">
@@ -48,13 +49,14 @@
         aus Benutzung oder Unbenutzbarkeit des Programms folgen (einschließlich
         Datenverlusten oder fehlerhafter Verarbeitung von Daten) liegt auf
         Seiten des Anwenders / der Anwenderin.
-      </p></template
-    >
+      </p>
+    </template>
   </Card>
 </template>
 
 <script setup>
 import Card from '@/components/Card.vue';
+import OpenInBlank from '@/components/OpenInBlank.vue';
 </script>
 
 <style scoped>

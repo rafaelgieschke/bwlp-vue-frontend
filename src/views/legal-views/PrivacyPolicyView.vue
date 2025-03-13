@@ -92,8 +92,9 @@
           <a
             href="mailto:bwlehrpool@hs-offenburg.de"
             class="link underline wave"
-            >Entwickler-Team von bwLehrpool</a
-          >
+            >Entwickler-Team von bwLehrpool
+            <OpenInBlank />
+          </a>
           wenden.
         </p>
       </section>
@@ -103,6 +104,7 @@
 
 <script setup>
 import Card from '@/components/Card.vue';
+import OpenInBlank from '@/components/OpenInBlank.vue';
 </script>
 
 <style scoped>

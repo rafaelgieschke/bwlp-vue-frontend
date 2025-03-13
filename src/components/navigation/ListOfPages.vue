@@ -159,7 +159,7 @@ import {RouterLink, useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
-import OpenInBlank from '@/components/navigation/OpenInBlank.vue';
+import OpenInBlank from '@/components/OpenInBlank.vue';
 
 const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
