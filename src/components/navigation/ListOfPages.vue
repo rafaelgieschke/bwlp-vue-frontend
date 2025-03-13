@@ -6,6 +6,7 @@
   >
     <i>aspect_ratio</i>
     <span class="max">{{ $t('imageList') }}</span>
+    <OpenInBlank />
   </RouterLink>
   <RouterLink
     class="wave"
@@ -14,6 +15,7 @@
   >
     <i>school</i>
     <span>{{ $t('lectureList') }}</span>
+    <OpenInBlank />
   </RouterLink>
 
   <SeparatingLabel :text="$t('legalStuff')" />
@@ -32,6 +34,7 @@
   >
     <i>handshake</i>
     <span>{{ $t('userAgreement.title') }}</span>
+    <OpenInBlank />
   </RouterLink>
 
   <SeparatingLabel :text="$t('miscellaneous')" />
@@ -44,6 +47,7 @@
   >
     <i>developer_guide</i>
     <span>bwLehrpool Wiki</span>
+    <OpenInBlank />
   </a>
 
   <SeparatingLabel v-if="devMode" text="For the devs" />
@@ -57,7 +61,8 @@
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>code</i>
-    <span>BWLP Vue Frontend Repository</span>
+    <span>Vue frontend repo</span>
+    <OpenInBlank />
   </a>
   <a
     v-if="devMode"
@@ -68,7 +73,8 @@
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
     <i>code</i>
-    <span>Old Frontend Repo (archive)</span>
+    <span>Old frontend repo (archive)</span>
+    <OpenInBlank />
   </a>
   <a
     v-if="devMode"
@@ -80,6 +86,7 @@
   >
     <i>visibility</i>
     <span>Vue.js documentation</span>
+    <OpenInBlank />
   </a>
   <a
     v-if="devMode"
@@ -91,6 +98,7 @@
   >
     <i>speed</i>
     <span>Vite documentation</span>
+    <OpenInBlank />
   </a>
   <a
     v-if="devMode"
@@ -102,6 +110,7 @@
   >
     <i>sports_bar</i>
     <span>Beer CSS official website</span>
+    <OpenInBlank />
   </a>
   <a
     v-if="devMode"
@@ -113,6 +122,7 @@
   >
     <i>sports_bar</i>
     <span>Beer CSS documentation</span>
+    <OpenInBlank />
   </a>
   <a
     v-if="devMode"
@@ -124,6 +134,7 @@
   >
     <i>emoticon</i>
     <span>Material Symbols & Icons</span>
+    <OpenInBlank />
   </a>
 
   <SeparatingLabel only-mobile-class="s" text="Account" />
@@ -147,6 +158,7 @@ import {RouterLink, useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import SeparatingLabel from '@/components/navigation/SeparatingLabel.vue';
+import OpenInBlank from '@/components/navigation/OpenInBlank.vue';
 
 const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
@@ -174,5 +186,10 @@ const logout = () => {
   &:hover {
     color: var(--on-primary-container);
   }
+}
+
+/* To make sure not to forget, they all have it, but only the target="blank" ones have it visible */
+a:not([target='_blank']) .open_in_blank {
+  display: none;
 }
 </style>
