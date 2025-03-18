@@ -1,5 +1,5 @@
 <template>
-  <div class="tooltip bottom">
+  <div class="tooltip">
     <p>This link will open in a new tab</p>
     <i>open_in_new</i>
   </div>
