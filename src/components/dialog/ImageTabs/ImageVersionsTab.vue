@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import {humanFileSize} from '@/assets/js/utils/fileSize';
+import {humanFileSize} from '@/utils/fileSize';
 import {useDateFormat} from '@vueuse/core';
 
 defineProps({
