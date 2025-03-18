@@ -19,6 +19,11 @@
       <label>Operating System</label>
     </div>
 
+    <!-- TODO: Since we use this specific structure so often in so many files,
+          maybe we could extract it the way we extracted SwitchTitle
+          that would greatly shorten the amount of code without affecting readability too much.
+          By the way, with VSCode you can select the piece of code you want to extract
+          and then CTRL+SHIFT+R and "Extract into new dumb component" -->
     <div class="field label border">
       <select v-model="modelValue.shareMode" @change="updateShareMode" disabled>
         <option v-for="shareMode in shareModes" :value="shareMode.value">
@@ -26,15 +31,6 @@
         </option>
       </select>
       <label>Share Mode</label>
-    </div>
-
-    <div class="field label border">
-      <select v-model="modelValue.virtId" disabled>
-        <option value="vmware">VMware</option>
-        <option value="virtualbox">VirtualBox</option>
-        <option value="kvm">KVM</option>
-      </select>
-      <label>Virtualization Type</label>
     </div>
 
     <SwitchTitle title="Is template" v-model="modelValue.isTemplate" />
