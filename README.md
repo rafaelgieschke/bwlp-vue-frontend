@@ -19,7 +19,16 @@ I'm a code cleanliness you-know-what, so get ready.
 
 ### Vue SFCs (Single File Components), we love 'em
 
-You can find most of the information needed here: [SFC on vue.js documentation](https://vuejs.org/api/sfc-spec.html)
+You can find most of the information needed here: [SFC on vue.js documentation](https://vuejs.org/api/sfc-spec.html).
+
+I don't remember exactly what I've said after this point, but this is what should be done for components, note that at this state of the app, this hasn't been applied properly because it's still changing too often and it's pointless to do this process ten times.
+
+Basically, a component should be extracted for one main reason, and one technical reason:
+
+- The main reason is that a component represents a piece of the app, whether it requires 50 lines of CSS, 150 of JS, and 283 of HTML, or 5 lines of HTML, no CSS and no JS, whether it's reused 10 times or simply in one place, it represents a piece of the page, and should be extracted to its own component. While working, you can create a new component in a View (or another component), and then extract it and its internal logic and styling to an SFC when it's done, that way, most file only contain a few lines of code, and the actual pieces of the UI are properly organised in a logical tree under `@/components`. That means pieces of code will be shared between components, leading to extracting those to composables or utils files. It creates A LOT of changing files ten times to find out what's going on, but with modern IDEs (or even good ol' VSCode), it's not a pain to navigate files using the variants of "go to definition".
+- The other reason is for readability of the main holding Views and SFCs, if all the components are in plain in the parent files, they become impossible to go through and finding what's broken is a pain.
+  - Someone who's familiar with the project should be able to deduce that the `SortableTable` component is the main component of the page on List views, and that applies for every other component, as long as they're properly named, you don't need to explore them to know what's happening in them, so you don't lost time going through them if you know the bug comes from someplace else.
+  - A good exemple of that is the `DetailDialog` component, it started rather simple and was in the page, then it became too long so I extracted it, then the tabs became a mess so I extracted them, now I have 13 whole files just for everything in that component, but when I see a bug in one of the tabs, I simply go there, I don't need to go through the parent component `DetailDialog` or any of the other files related to them. Even better, they're all under the `@/components/dialog` folder, so I can just open that folder, look inside of it, and I'll usually find my bug in a few seconds to a short few minutes.
 
 #### SFC blocks order
 
