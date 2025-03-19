@@ -38,7 +38,9 @@
           {{ parseString(lecture.runscript).ext }}
         </div>
       </nav>
-      <pre><code>{{ parseString(lecture.runscript).script }}</code></pre>
+      <pre
+        class="code-pre scroll"
+      ><code>{{ parseString(lecture.runscript).script }}</code></pre>
     </section>
   </section>
 </template>
@@ -136,5 +138,9 @@ function getVisibilitySetting(setting) {
   & + pre {
     margin-block-start: 0;
   }
+}
+
+.code-pre {
+  max-block-size: 7rem;
 }
 </style>
