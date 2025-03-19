@@ -140,6 +140,10 @@ Using CSS's `@import` in normal HTML CSS projects is often a bad idea, it introd
 For CSS, always use logical properties (like `margin-inline-start` instead of `margin-left` and `border-block-start` instead of `border-top`), that way, if we ever want to support RTL languages, everything just "works" (on that end anyway, the rest is your problem, young Padawan).  
 Beer CSS already does that for everything of the sort, so it's only in cases where you add some CSS.
 
+#### Accessibility
+
+Read [Josh Comeau's article about which units to use](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility) to make the right choice when using custom CSS. Since we're using Beer CSS, we're unfortunately obligated to use their "use rem everywhere" approach for the part Beer CSS takes care of, fortunately though, from the current state of the website, it still seems to be working somewhat well, althougn it might not be enough to allow for the [200% rule](https://www.w3.org/TR/WCAG21/#resize-text) in every way, and Josh himself says we should aim for more than 200% zoom, but we don't have billions of users, so it should be okay for now.
+
 #### Use of modern CSS
 
 That's not too much of a problem in this particular case since we're not making an app for two billion people, although, I haven't used any feature that aren't supported on the latest versions of every Evergreen Browsers (2022 and after CSS features (I cheated a little because who can not use `:has()` nowadays?)) (Google Chrome (and all Chromium, like Vivaldi (yaaa), Brave (why?), Opera GX (ew), Microsoft Edge (eh), etc.), Mozilla Firefox, Apple Safari. If it doesn't work on Internet Explorer, the old Edge or Opera (not GX), that's not our problem, anyway the chances of someone using them in the Uni are basically zero, and they probably have Chrome installed for the millions of websites not supporting their shitty choices in life).
