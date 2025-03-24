@@ -1,9 +1,8 @@
 <template>
   <p>
-    Hier können Sie Netzlaufwerke angeben, die automatisch beim Start der
-    Veranstaltung eingebunden werden sollen. Der Platzhalter
-    <code>%loginuser%</code> wird im Pfad durch den Loginnamen des Nutzers
-    ersetzt.
+    Hier können Sie Netzlaufwerke angeben, die automatisch beim Start der Veranstaltung eingebunden
+    werden sollen. Der Platzhalter
+    <code>%loginuser%</code> wird im Pfad durch den Loginnamen des Nutzers ersetzt.
   </p>
   <div v-if="lecture.ldapFilters.length > 0" class="auto-height surface scroll">
     <table class="stripes">

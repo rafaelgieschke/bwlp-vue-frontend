@@ -1,11 +1,7 @@
 <template>
   <header>
     <nav>
-      <img
-        class="small"
-        src="@/assets/img/bwLogo/bwLehrpool_small.png"
-        alt="BW Lehrpool logo"
-      />
+      <img class="small" src="@/assets/img/bwLogo/bwLehrpool_small.png" alt="BW Lehrpool logo" />
       <h6 class="max">BW Lehrpool</h6>
       <button
         v-if="mobile_nav"

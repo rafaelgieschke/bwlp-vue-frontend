@@ -2,13 +2,9 @@
   <section class="location-item">
     <details v-if="location.children?.length > 0">
       <summary class="none">
-        <article
-          class="round no-elevate small-padding border primary-border wave"
-        >
+        <article class="round no-elevate small-padding border primary-border wave">
           <nav>
-            <div class="max">
-              {{ location.locationName }}
-            </div>
+            <div class="max">{{ location.locationName }}</div>
 
             <i>expand_more</i>
           </nav>
@@ -16,21 +12,13 @@
       </summary>
 
       <div class="left-margin">
-        <LocationTreeItem
-          v-for="child in location.children"
-          :key="child.id"
-          :location="child"
-        />
+        <LocationTreeItem v-for="child in location.children" :key="child.id" :location="child" />
       </div>
     </details>
 
     <article v-else class="round border middle-align small-padding">
       <label class="checkbox">
-        <input
-          :id="`checkbox_${location.locationName}`"
-          type="checkbox"
-          disabled
-        />
+        <input :id="`checkbox_${location.locationName}`" type="checkbox" disabled />
         <span>{{ location.locationName }}</span>
       </label>
     </article>

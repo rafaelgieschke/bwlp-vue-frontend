@@ -1,21 +1,12 @@
 <template>
   <div class="step-basic-info">
     <div class="field label border">
-      <input
-        v-model="modelValue.lectureName"
-        id="lectureName"
-        name="lectureName"
-        required
-      />
+      <input v-model="modelValue.lectureName" id="lectureName" name="lectureName" required />
       <label for="lectureName">Lecture Name</label>
     </div>
 
     <div class="field textarea label border">
-      <textarea
-        v-model="modelValue.description"
-        id="description"
-        name="description"
-      ></textarea>
+      <textarea v-model="modelValue.description" id="description" name="description"></textarea>
       <label for="description">Description</label>
     </div>
 
@@ -60,9 +51,7 @@ const modelValue = defineModel({
 const startDateTime = computed({
   get: () => {
     if (!modelValue.value.startTime) return '';
-    return new Date(modelValue.value.startTime * 1000)
-      .toISOString()
-      .slice(0, 16);
+    return new Date(modelValue.value.startTime * 1000).toISOString().slice(0, 16);
   },
   set: value => {
     const data = {...modelValue.value};

@@ -198,11 +198,7 @@ Thrift.TApplicationException = function (message, code) {
   this.message = message;
   this.code = typeof code === 'number' ? code : 0;
 };
-Thrift.inherits(
-  Thrift.TApplicationException,
-  Thrift.TException,
-  'TApplicationException',
-);
+Thrift.inherits(Thrift.TApplicationException, Thrift.TException, 'TApplicationException');
 
 /**
  * Read a TApplicationException from the supplied protocol.
@@ -297,11 +293,7 @@ Thrift.TProtocolException = function TProtocolException(type, message) {
   this.type = type;
   this.message = message;
 };
-Thrift.inherits(
-  Thrift.TProtocolException,
-  Thrift.TException,
-  'TProtocolException',
-);
+Thrift.inherits(Thrift.TProtocolException, Thrift.TException, 'TProtocolException');
 
 /**
  * Constructor Function for the XHR transport.
@@ -322,11 +314,7 @@ Thrift.Transport = Thrift.TXHRTransport = function (url, options) {
   this.wpos = 0;
   this.rpos = 0;
   this.useCORS = options && options.useCORS;
-  this.customHeaders = options
-    ? options.customHeaders
-      ? options.customHeaders
-      : {}
-    : {};
+  this.customHeaders = options ? (options.customHeaders ? options.customHeaders : {}) : {};
   this.send_buf = '';
   this.recv_buf = '';
 };
@@ -369,9 +357,7 @@ Thrift.TXHRTransport.prototype = {
     var xreq = this.getXmlHttpRequestObject();
 
     if (xreq.overrideMimeType) {
-      xreq.overrideMimeType(
-        'application/vnd.apache.thrift.json; charset=utf-8',
-      );
+      xreq.overrideMimeType('application/vnd.apache.thrift.json; charset=utf-8');
     }
 
     if (callback) {
@@ -404,14 +390,8 @@ Thrift.TXHRTransport.prototype = {
     });
 
     if (xreq.setRequestHeader) {
-      xreq.setRequestHeader(
-        'Accept',
-        'application/vnd.apache.thrift.json; charset=utf-8',
-      );
-      xreq.setRequestHeader(
-        'Content-Type',
-        'application/vnd.apache.thrift.json; charset=utf-8',
-      );
+      xreq.setRequestHeader('Accept', 'application/vnd.apache.thrift.json; charset=utf-8');
+      xreq.setRequestHeader('Content-Type', 'application/vnd.apache.thrift.json; charset=utf-8');
     }
 
     xreq.send(this.send_buf);
@@ -443,10 +423,7 @@ Thrift.TXHRTransport.prototype = {
    * @throws {string} If the jQuery version is prior to 1.5 or if jQuery is not found.
    */
   jqRequest: function (client, postData, args, recv_method) {
-    if (
-      typeof jQuery === 'undefined' ||
-      typeof jQuery.Deferred === 'undefined'
-    ) {
+    if (typeof jQuery === 'undefined' || typeof jQuery.Deferred === 'undefined') {
       throw 'Thrift.js requires jQuery 1.5+ to use asynchronous requests';
     }
 
@@ -831,12 +808,7 @@ Thrift.Protocol.prototype = {
     this.tstack = [];
     this.tpos = [];
 
-    this.tstack.push([
-      Thrift.Protocol.Version,
-      '"' + name + '"',
-      messageType,
-      seqid,
-    ]);
+    this.tstack.push([Thrift.Protocol.Version, '"' + name + '"', messageType, seqid]);
   },
 
   /**
@@ -925,11 +897,7 @@ Thrift.Protocol.prototype = {
    */
   writeMapBegin: function (keyType, valType, size) {
     this.tpos.push(this.tstack.length);
-    this.tstack.push([
-      Thrift.Protocol.Type[keyType],
-      Thrift.Protocol.Type[valType],
-      0,
-    ]);
+    this.tstack.push([Thrift.Protocol.Type[keyType], Thrift.Protocol.Type[valType], 0]);
   },
 
   /**
@@ -1127,15 +1095,9 @@ Thrift.Protocol.prototype = {
 
     received = this.transport.readAll();
 
-    if (
-      typeof JSONInt64 !== 'undefined' &&
-      typeof JSONInt64.parse === 'function'
-    ) {
+    if (typeof JSONInt64 !== 'undefined' && typeof JSONInt64.parse === 'function') {
       this.robj = JSONInt64.parse(received);
-    } else if (
-      typeof JSON !== 'undefined' &&
-      typeof JSON.parse === 'function'
-    ) {
+    } else if (typeof JSON !== 'undefined' && typeof JSON.parse === 'function') {
       this.robj = JSON.parse(received);
     } else if (typeof jQuery !== 'undefined') {
       this.robj = jQuery.parseJSON(received);
@@ -1232,8 +1194,7 @@ Thrift.Protocol.prototype = {
         }
 
         ftype = Thrift.Protocol.RType[i];
-        this.rstack[this.rstack.length - 1] =
-          this.rstack[this.rstack.length - 1][i];
+        this.rstack[this.rstack.length - 1] = this.rstack[this.rstack.length - 1][i];
       }
     }
 
@@ -1544,9 +1505,7 @@ Thrift.Protocol.prototype = {
         return null;
 
       default:
-        throw new Thrift.TProtocolException(
-          Thrift.TProtocolExceptionType.INVALID_DATA,
-        );
+        throw new Thrift.TProtocolException(Thrift.TProtocolExceptionType.INVALID_DATA);
     }
   },
 };
@@ -1562,11 +1521,7 @@ Thrift.MultiplexProtocol = function (srvName, trans, strictRead, strictWrite) {
 Thrift.inherits(Thrift.MultiplexProtocol, Thrift.Protocol, 'multiplexProtocol');
 
 /** Override writeMessageBegin method of prototype*/
-Thrift.MultiplexProtocol.prototype.writeMessageBegin = function (
-  name,
-  type,
-  seqid,
-) {
+Thrift.MultiplexProtocol.prototype.writeMessageBegin = function (name, type, seqid) {
   if (type === Thrift.MessageType.CALL || type === Thrift.MessageType.ONEWAY) {
     Thrift.Protocol.prototype.writeMessageBegin.call(
       this,
@@ -1594,11 +1549,7 @@ Thrift.Multiplexer = function () {
  *    var protocol = new Thrift.Protocol(transport);
  *    var client = mp.createClient('AuthService', AuthServiceClient, transport);
  */
-Thrift.Multiplexer.prototype.createClient = function (
-  serviceName,
-  SCl,
-  transport,
-) {
+Thrift.Multiplexer.prototype.createClient = function (serviceName, SCl, transport) {
   if (SCl.Client) {
     SCl = SCl.Client;
   }

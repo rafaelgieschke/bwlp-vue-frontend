@@ -17,9 +17,7 @@
         <tr>
           <td class="min">Sichtbarkeit</td>
           <td class="bold">
-            {{
-              getVisibilitySetting(parseString(lecture.runscript).visibility)
-            }}
+            {{ getVisibilitySetting(parseString(lecture.runscript).visibility) }}
           </td>
         </tr>
         <tr>
@@ -38,9 +36,7 @@
           {{ parseString(lecture.runscript).ext }}
         </div>
       </nav>
-      <pre
-        class="code-pre scroll"
-      ><code>{{ parseString(lecture.runscript).script }}</code></pre>
+      <pre class="code-pre scroll"><code>{{ parseString(lecture.runscript).script }}</code></pre>
     </section>
   </section>
 </template>

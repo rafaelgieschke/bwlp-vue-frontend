@@ -57,9 +57,7 @@ const RTL_LANGUAGES = [
   'ur', // Urdu
   'yi', // Yiddish
 ];
-document.documentElement.dir = RTL_LANGUAGES.includes(i18n.global.locale.value)
-  ? 'rtl'
-  : 'ltr';
+document.documentElement.dir = RTL_LANGUAGES.includes(i18n.global.locale.value) ? 'rtl' : 'ltr';
 
 const app = createApp(App);
 const pinia = createPinia();

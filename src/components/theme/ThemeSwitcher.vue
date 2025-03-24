@@ -11,19 +11,11 @@
 
     <button class="s circle small border">
       <i>palette</i>
-      <input
-        type="color"
-        :value="store.currentColor"
-        @input="handleColorPick"
-      />
+      <input type="color" :value="store.currentColor" @input="handleColorPick" />
     </button>
     <button class="m l border small">
       <i class="small">palette</i>
-      <input
-        type="color"
-        :value="store.currentColor"
-        @input="handleColorPick"
-      />
+      <input type="color" :value="store.currentColor" @input="handleColorPick" />
       <span>Color picker</span>
     </button>
 

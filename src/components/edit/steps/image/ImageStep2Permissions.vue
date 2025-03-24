@@ -8,10 +8,7 @@
       </label>
 
       <label class="checkbox s3">
-        <input
-          type="checkbox"
-          v-model="modelValue.defaultPermissions.download"
-        />
+        <input type="checkbox" v-model="modelValue.defaultPermissions.download" />
         <span>Download</span>
       </label>
 

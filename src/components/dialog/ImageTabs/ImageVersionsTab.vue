@@ -29,9 +29,7 @@
                 :name="`version-${version.versionId}-${index}`"
                 disabled
               />
-              <span>{{
-                version.isRestricted ? 'Verwendbar' : 'Nicht verwendbar'
-              }}</span>
+              <span>{{ version.isRestricted ? 'Verwendbar' : 'Nicht verwendbar' }}</span>
             </label>
           </td>
           <td>{{ humanFileSize(version.fileSize) }}</td>

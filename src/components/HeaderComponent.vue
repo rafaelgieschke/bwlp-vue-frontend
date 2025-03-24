@@ -6,11 +6,7 @@
       <h5 class="l max center-align">Baden-Württemberg Lehrpool</h5>
       <div class="m max center-align"></div>
       <nav class="s max center-align">
-        <img
-          class="small"
-          src="@/assets/img/bwLogo/bwLehrpool_small.png"
-          alt="BWLP Logo"
-        />
+        <img class="small" src="@/assets/img/bwLogo/bwLehrpool_small.png" alt="BWLP Logo" />
         <h5>BW Lehrpool</h5>
       </nav>
       <button data-ui="#theme-dialog" class="circle transparent">
@@ -23,9 +19,7 @@
         <menu class="border">
           <li><a>Profile</a></li>
           <li>
-            <a v-if="authStore.authToken" href="#" @click.prevent="logout">
-              Logout
-            </a>
+            <a v-if="authStore.authToken" href="#" @click.prevent="logout"> Logout </a>
           </li>
         </menu>
       </button>

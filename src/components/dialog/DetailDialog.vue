@@ -14,11 +14,7 @@
           <span>Edit</span>
         </RouterLink>
 
-        <RouterLink
-          v-if="editRoute"
-          :to="editRoute"
-          class="s button circle small border secondary"
-        >
+        <RouterLink v-if="editRoute" :to="editRoute" class="s button circle small border secondary">
           <i>edit</i>
         </RouterLink>
 

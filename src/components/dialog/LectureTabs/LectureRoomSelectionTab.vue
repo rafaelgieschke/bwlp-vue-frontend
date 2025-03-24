@@ -1,11 +1,7 @@
 <template>
   <section class="grid large-space">
     <section class="s12 l6 medium-height surface scroll small-padding">
-      <LocationTreeItem
-        v-for="location in locationsTree"
-        :key="location.id"
-        :location="location"
-      />
+      <LocationTreeItem v-for="location in locationsTree" :key="location.id" :location="location" />
     </section>
 
     <section class="s12 l6">
@@ -34,8 +30,7 @@
           <!-- TODO: It must be unchecked if the user is a dumbass or whatever and checked otherwise -->
           <!-- If one radio is on, the other cannot be on -->
           <span class="wrap">
-            Veranstaltung mit höherer Priorität in den ausgewählten Räumen
-            anzeigen
+            Veranstaltung mit höherer Priorität in den ausgewählten Räumen anzeigen
           </span>
         </label>
       </div>
@@ -70,10 +65,7 @@ const locationsTree = computed(() => {
 
   // First pass: Create all nodes
   Object.values(props.locations).forEach(
-    (location: {
-      locationId: string | number;
-      parentLocationId?: string | number;
-    }) => {
+    (location: {locationId: string | number; parentLocationId?: string | number}) => {
       tree[location.locationId] = {
         ...location,
         children: [],

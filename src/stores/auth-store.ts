@@ -4,7 +4,7 @@ import {ref} from '@vue/runtime-core';
 export const useAuthStore = defineStore('auth', () => {
   const authToken = ref(localStorage.getItem('authToken') || '');
 
-  function setToken(token : any) {
+  function setToken(token: any) {
     authToken.value = token;
     localStorage.setItem('authToken', token);
   }

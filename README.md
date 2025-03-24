@@ -209,13 +209,7 @@ For easier development, you can add these snippets to VS Code for the "Vue" lang
   },
   "Vue Computed Property": {
     "prefix": "vue-computed",
-    "body": [
-      "computed: {",
-      "  ${1:computedProperty}() {",
-      "    return ${2:value};",
-      "  }",
-      "}"
-    ],
+    "body": ["computed: {", "  ${1:computedProperty}() {", "    return ${2:value};", "  }", "}"],
     "description": "Create a Vue computed property"
   },
   "Vue Watcher": {

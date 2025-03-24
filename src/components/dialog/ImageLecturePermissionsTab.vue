@@ -32,10 +32,7 @@
 
   <section v-if="defaultPermissions">
     <h6>Andere Nutzer</h6>
-    <p>
-      Hier können Sie die Rechte für nicht in der Liste angegebene Nutzer
-      festlegen
-    </p>
+    <p>Hier können Sie die Rechte für nicht in der Liste angegebene Nutzer festlegen</p>
     <label
       v-for="(defaultPermission, label, index) in defaultPermissions"
       :key="label"

@@ -36,11 +36,7 @@
           :id="getItemKey(item)"
           @click="$emit('row-click', item)"
         >
-          <td
-            v-for="column in columns"
-            :key="column.field"
-            :class="column.class"
-          >
+          <td v-for="column in columns" :key="column.field" :class="column.class">
             <template v-if="column.formatter">
               {{ column.formatter(item[column.field], item) }}
               <!-- TODO: make the color red if the date < currentTime in case it applies -->
@@ -57,12 +53,7 @@
             </template>
 
             <template v-else-if="column.field === 'virtId'">
-              <span
-                class="virt-logo"
-                width="16px"
-                height="16px"
-                :class="item[column.field]"
-              ></span>
+              <span class="virt-logo" width="16px" height="16px" :class="item[column.field]"></span>
             </template>
 
             <template v-else>

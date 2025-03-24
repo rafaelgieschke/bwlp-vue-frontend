@@ -19,9 +19,7 @@ export function useOperatingSystems() {
   };
 
   const getOSName = operatingSystemId => {
-    const operatingSystem = operatingSystems.value.find(
-      o => o.osId === operatingSystemId,
-    );
+    const operatingSystem = operatingSystems.value.find(o => o.osId === operatingSystemId);
     return operatingSystem ? `${operatingSystem.osName}` : 'Unbekannt';
   };
 

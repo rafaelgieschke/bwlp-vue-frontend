@@ -1,8 +1,8 @@
 <template>
   <p>
     <strong>
-      Legen Sie hier fest, ob die Veranstaltung den Zugriff auf Speichermedien
-      (CD, USB, ...) erlauben soll.
+      Legen Sie hier fest, ob die Veranstaltung den Zugriff auf Speichermedien (CD, USB, ...)
+      erlauben soll.
     </strong>
   </p>
   <label class="checkbox">
@@ -19,9 +19,8 @@
   <p><strong>Markieren Sie diese Veranstaltung als E-Prüfung.</strong></p>
 
   <p>
-    Die Prüfung wird nur dann startbar sein, wenn Leerpool.nrw in den
-    Prüfungsmodus versetzt wird. Kontaktieren Sie dazu Ihren lokalen
-    Leerpool.nrw-Administrator.
+    Die Prüfung wird nur dann startbar sein, wenn Leerpool.nrw in den Prüfungsmodus versetzt wird.
+    Kontaktieren Sie dazu Ihren lokalen Leerpool.nrw-Administrator.
   </p>
   <label class="checkbox">
     <input
