@@ -14,6 +14,8 @@
         item-key="imageBaseId"
         item-label="Images"
         @row-click="openModal"
+        :footer-colspan="columns.length - 2"
+        create-route="ImageCreate"
       />
     </Transition>
 
@@ -36,7 +38,7 @@
     />
   </template>
 
-  <template v-if="$route.name === 'ImageEdit'">
+  <template v-if="$route.name !== 'ImageList'">
     <router-view></router-view>
   </template>
 </template>
@@ -70,8 +72,7 @@ const columns = [
     field: 'expireTime',
     label: 'Expire Time',
     class: 'min',
-    formatter: value =>
-      value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-',
+    formatter: value => (value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-'),
   },
   {
     field: 'virtId',
@@ -146,15 +147,9 @@ const fetchImages = async () => {
 
 const openModal = async image => {
   try {
-    selectedImage.value = await sat.getImageDetails(
-      authStore.authToken,
-      image.imageBaseId,
-    );
+    selectedImage.value = await sat.getImageDetails(authStore.authToken, image.imageBaseId);
 
-    imagePermissions.value = await sat.getImagePermissions(
-      authStore.authToken,
-      image.imageBaseId,
-    );
+    imagePermissions.value = await sat.getImagePermissions(authStore.authToken, image.imageBaseId);
 
     showModal.value = true;
   } catch (e) {
