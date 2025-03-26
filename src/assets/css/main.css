@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords; /* This is a new keyword that's not fully supported yet, but pretty cool, read about it here https://www.joshwcomeau.com/email/2025-03-24-animating-height-auto-wham/ */
+  }
+}
+
 /* Uncomment this to test RTL */
 /* html {
   direction: rtl;
