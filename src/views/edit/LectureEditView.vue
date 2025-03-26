@@ -34,12 +34,12 @@ import {useAuthStore} from '@/stores/auth-store';
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 import ItemDataPre from '@/components/ItemDataPre.vue';
 
-import ProgressIndicator from '@/components/edit-create/ProgressIndicator.vue';
+import ProgressIndicator from '@/components/edit-create/steps/steps-components/ProgressIndicator.vue';
 import Step1BasicInfo from '@/components/edit-create/steps/edit/lecture/LectureStep1BasicInfo.vue';
 import Step2Permissions from '@/components/edit-create/steps/edit/lecture/LectureStep2Permissions.vue';
 import Step3Network from '@/components/edit-create/steps/edit/lecture/LectureStep3Network.vue';
 import Step4Advanced from '@/components/edit-create/steps/edit/lecture/LectureStep4Advanced.vue';
-import EditNavigationButtons from '@/components/edit-create/EditNavigationButtons.vue';
+import EditNavigationButtons from '@/components/edit-create/steps/steps-components/EditNavigationButtons.vue';
 
 const route = useRoute();
 const router = useRouter();

@@ -31,9 +31,9 @@ import {useAuthStore} from '@/stores/auth-store';
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 import ItemDataPre from '@/components/ItemDataPre.vue';
 
-import ProgressIndicator from '@/components/edit-create/ProgressIndicator.vue';
+import ProgressIndicator from '@/components/edit-create/steps/steps-components/ProgressIndicator.vue';
 import Step1BasicInfo from '@/components/edit-create/steps/create/lecture/LectureStep1BasicInfo.vue';
-import EditNavigationButtons from '@/components/edit-create/EditNavigationButtons.vue';
+import EditNavigationButtons from '@/components/edit-create/steps/steps-components/EditNavigationButtons.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();

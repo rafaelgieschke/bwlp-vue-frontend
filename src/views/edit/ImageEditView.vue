@@ -31,8 +31,8 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 import ItemDataPre from '@/components/ItemDataPre.vue';
-import ProgressIndicator from '@/components/edit-create/ProgressIndicator.vue';
-import EditNavigationButtons from '@/components/edit-create/EditNavigationButtons.vue';
+import ProgressIndicator from '@/components/edit-create/steps/steps-components/ProgressIndicator.vue';
+import EditNavigationButtons from '@/components/edit-create/steps/steps-components/EditNavigationButtons.vue';
 
 import ImageStep1BasicInfo from '@/components/edit-create/steps/edit/image/ImageStep1BasicInfo.vue';
 import ImageStep2Permissions from '@/components/edit-create/steps/edit/image/ImageStep2Permissions.vue';
