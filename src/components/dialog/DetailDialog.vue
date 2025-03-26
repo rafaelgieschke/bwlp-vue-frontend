@@ -50,6 +50,15 @@
         </div>
       </div>
     </article>
+
+    <footer class="fixed">
+      <button
+        class="border secondary-border secondary-text small-round no-margin"
+        @click="copyLinkToClipboard"
+      >
+        Share "{{ title }}" (copy link to clipboard)
+      </button>
+    </footer>
   </dialog>
 </template>
 
@@ -121,12 +130,16 @@ const toggleDOM = show => {
 
   try {
     if (show) {
-      dialog.showModal();
+      if (!dialog.open) {
+        dialog.showModal();
+      }
       if (!dialog.open) {
         throw new Error('Failed to open dialog');
       }
     } else {
-      dialog.close();
+      if (dialog.open) {
+        dialog.close();
+      }
       if (dialog.open) {
         throw new Error('Failed to close dialog');
       }
@@ -138,4 +151,9 @@ const toggleDOM = show => {
 };
 
 watch(() => props.isOpen, toggleDOM);
+
+const copyLinkToClipboard = () => {
+  const url = window.location.href;
+  navigator.clipboard.writeText(url);
+};
 </script>
