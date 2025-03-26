@@ -65,16 +65,28 @@
 
       <tfoot class="fixed">
         <tr>
-          <th colspan="42">
+          <th :colspan="createRoute !== '' ? footerColspan : columns.length">
             <!-- We give this a colspan of 42 so that it always fully colspans: https://stackoverflow.com/questions/398734/colspan-all-columns#comment19907221_398778 this guy says "why tf not", and I find it funny because 42 so here we are -->
             Showing {{ filteredItems.length }} of {{ items.length }}
             {{ itemLabel }}
+          </th>
+          <th v-if="createRoute" :colspan="columns.length - footerColspan">
+            <RouterLink :to="{name: createRoute}" class="link"
+              >Create {{ itemLabel.toLowerCase().replace('s', '') }}</RouterLink
+            >
           </th>
         </tr>
       </tfoot>
     </table>
 
-    <article v-else class="error">0 matches found</article>
+    <article v-else class="error">
+      <nav>
+        0 matches found
+        <RouterLink :to="{name: createRoute}" class="underline"
+          >Create {{ itemLabel.toLowerCase().replace('s', '') }}</RouterLink
+        >
+      </nav>
+    </article>
   </section>
 </template>
 
@@ -118,6 +130,13 @@ const props = defineProps({
   defaultSort: {
     type: Object,
     default: () => ({field: 'default', order: 'asc'}),
+  },
+  footerColspan: {
+    type: Number,
+  },
+  createRoute: {
+    type: String,
+    default: '',
   },
 });
 
