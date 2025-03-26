@@ -70,10 +70,18 @@
             Showing {{ filteredItems.length }} of {{ items.length }}
             {{ itemLabel }}
           </th>
-          <th v-if="createRoute" :colspan="columns.length - footerColspan">
-            <RouterLink :to="{name: createRoute}" class="link"
-              >Create {{ itemLabel.toLowerCase().replace('s', '') }}</RouterLink
+          <th
+            v-if="createRoute"
+            :colspan="columns.length - footerColspan"
+            class="right-align no-padding"
+          >
+            <RouterLink
+              :to="{name: createRoute}"
+              class="button small small-padding large-round border tertiary-border tertiary-text no-margin wave"
             >
+              <i>add</i>
+              Create {{ itemLabel.toLowerCase().replace('s', '') }}
+            </RouterLink>
           </th>
         </tr>
       </tfoot>
