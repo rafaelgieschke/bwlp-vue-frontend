@@ -1,19 +1,16 @@
 <template>
   <div>
-    <ErrorMessage v-if="error" :error="error" default-message="Unable to load or update lecture" />
+    <ErrorMessage v-if="error" :error="error" default-message="Unable to create lecture" />
 
     <ItemDataPre v-if="devMode" :item-data="itemData" />
 
-    <h1>Edit {{ itemData.lectureName }}</h1>
+    <h1>Create Lecture</h1>
 
     <form @submit.prevent="saveItem">
       <ProgressIndicator v-model:currentStep="currentStep" :steps="steps" />
 
       <article class="large scroll">
         <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
-        <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
-        <Step3Network v-show="currentStep === 3" v-model="itemData" />
-        <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
       </article>
 
       <EditNavigationButtons
@@ -27,25 +24,19 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted} from '@vue/runtime-core';
-import {useRoute, useRouter} from 'vue-router';
+import {ref} from '@vue/runtime-core';
+import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 import ItemDataPre from '@/components/ItemDataPre.vue';
 
 import ProgressIndicator from '@/components/edit-create/ProgressIndicator.vue';
-import Step1BasicInfo from '@/components/edit-create/steps/edit/lecture/LectureStep1BasicInfo.vue';
-import Step2Permissions from '@/components/edit-create/steps/edit/lecture/LectureStep2Permissions.vue';
-import Step3Network from '@/components/edit-create/steps/edit/lecture/LectureStep3Network.vue';
-import Step4Advanced from '@/components/edit-create/steps/edit/lecture/LectureStep4Advanced.vue';
+import Step1BasicInfo from '@/components/edit-create/steps/create/lecture/LectureStep1BasicInfo.vue';
 import EditNavigationButtons from '@/components/edit-create/EditNavigationButtons.vue';
 
-const route = useRoute();
 const router = useRouter();
-
 const authStore = useAuthStore();
-
 const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
 import {useSatServer} from '@/composables/useSatServer';
@@ -76,21 +67,12 @@ const prevStep = () => {
   if (currentStep.value > 1) currentStep.value--;
 };
 
-onMounted(async () => {
-  try {
-    itemData.value = await sat.getLectureDetails(authStore.authToken, route.params.id);
-  } catch (err) {
-    console.error('Failed to fetch lecture details:', err);
-    error.value = err;
-  }
-});
-
 const saveItem = async () => {
   try {
-    await sat.updateLecture(authStore.authToken, itemData.value.lectureId, itemData.value);
+    await sat.createLecture(authStore.authToken, itemData.value);
     router.push('/lecture');
   } catch (err) {
-    console.error('Failed to update lecture:', err);
+    console.error('Failed to create lecture:', err);
     error.value = err;
   }
 };

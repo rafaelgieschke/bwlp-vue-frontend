@@ -7,6 +7,7 @@ import ImageListView from '@/views/lists/ImageListView.vue';
 import LectureListView from '@/views/lists/LectureListView.vue';
 
 import ImageCreateView from '@/views/create/ImageCreateView.vue';
+import LectureCreateView from '@/views/create/LectureCreateView.vue';
 
 import ImageEditView from '@/views/edit/ImageEditView.vue';
 import LectureEditView from '@/views/edit/LectureEditView.vue';
@@ -79,6 +80,15 @@ const routes: RouteRecordRaw[] = [
       title: 'Lecture List',
     },
     children: [
+      {
+        path: '/lecture/create',
+        name: 'LectureCreate',
+        component: LectureCreateView,
+        meta: {
+          requiresAuth: true,
+          title: 'Create Lecture',
+        },
+      },
       {
         path: '/lecture/:id/edit',
         name: 'LectureEdit',

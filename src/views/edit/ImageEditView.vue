@@ -1,10 +1,6 @@
 <template>
   <div>
-    <ErrorMessage
-      v-if="error"
-      :error="error"
-      default-message="Unable to load or update image"
-    />
+    <ErrorMessage v-if="error" :error="error" default-message="Unable to load or update image" />
 
     <ItemDataPre v-if="devMode" :item-data="itemData" />
 
@@ -35,11 +31,11 @@ import {useAuthStore} from '@/stores/auth-store';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 import ItemDataPre from '@/components/ItemDataPre.vue';
-import ProgressIndicator from '@/components/edit/ProgressIndicator.vue';
-import EditNavigationButtons from '@/components/edit/EditNavigationButtons.vue';
+import ProgressIndicator from '@/components/edit-create/ProgressIndicator.vue';
+import EditNavigationButtons from '@/components/edit-create/EditNavigationButtons.vue';
 
-import ImageStep1BasicInfo from '@/components/edit/steps/image/ImageStep1BasicInfo.vue';
-import ImageStep2Permissions from '@/components/edit/steps/image/ImageStep2Permissions.vue';
+import ImageStep1BasicInfo from '@/components/edit-create/steps/edit/image/ImageStep1BasicInfo.vue';
+import ImageStep2Permissions from '@/components/edit-create/steps/edit/image/ImageStep2Permissions.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -95,10 +91,7 @@ const prevStep = () => {
 
 onMounted(async () => {
   try {
-    itemData.value = await sat.getImageDetails(
-      authStore.authToken,
-      route.params.id,
-    );
+    itemData.value = await sat.getImageDetails(authStore.authToken, route.params.id);
   } catch (err) {
     console.error('Failed to fetch image details:', err);
     error.value = err;
@@ -107,11 +100,7 @@ onMounted(async () => {
 
 const saveItem = async () => {
   try {
-    await sat.updateImageBase(
-      authStore.authToken,
-      itemData.value.imageBaseId,
-      itemData.value,
-    );
+    await sat.updateImageBase(authStore.authToken, itemData.value.imageBaseId, itemData.value);
     router.push('/image');
   } catch (err) {
     console.error('Failed to update image:', err);
