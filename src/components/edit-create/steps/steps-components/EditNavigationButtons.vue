@@ -47,10 +47,3 @@ defineProps({
 
 const currentStep = defineModel('currentStep', {required: true});
 </script>
-
-<style scoped>
-.buttons {
-  display: flex;
-  gap: 1rem;
-}
-</style>

@@ -1,10 +1,6 @@
 <template>
   <div>
-    <ErrorMessage
-      v-if="error"
-      :error="error"
-      default-message="Unable to load or update lecture"
-    />
+    <ErrorMessage v-if="error" :error="error" default-message="Unable to load or update lecture" />
 
     <ItemDataPre v-if="devMode" :item-data="itemData" />
 
@@ -38,12 +34,12 @@ import {useAuthStore} from '@/stores/auth-store';
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 import ItemDataPre from '@/components/ItemDataPre.vue';
 
-import ProgressIndicator from '@/components/edit/ProgressIndicator.vue';
-import Step1BasicInfo from '@/components/edit/steps/lecture/LectureStep1BasicInfo.vue';
-import Step2Permissions from '@/components/edit/steps/lecture/LectureStep2Permissions.vue';
-import Step3Network from '@/components/edit/steps/lecture/LectureStep3Network.vue';
-import Step4Advanced from '@/components/edit/steps/lecture/LectureStep4Advanced.vue';
-import EditNavigationButtons from '@/components/edit/EditNavigationButtons.vue';
+import ProgressIndicator from '@/components/edit-create/steps/steps-components/ProgressIndicator.vue';
+import Step1BasicInfo from '@/components/edit-create/steps/edit/lecture/LectureStep1BasicInfo.vue';
+import Step2Permissions from '@/components/edit-create/steps/edit/lecture/LectureStep2Permissions.vue';
+import Step3Network from '@/components/edit-create/steps/edit/lecture/LectureStep3Network.vue';
+import Step4Advanced from '@/components/edit-create/steps/edit/lecture/LectureStep4Advanced.vue';
+import EditNavigationButtons from '@/components/edit-create/steps/steps-components/EditNavigationButtons.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -82,10 +78,7 @@ const prevStep = () => {
 
 onMounted(async () => {
   try {
-    itemData.value = await sat.getLectureDetails(
-      authStore.authToken,
-      route.params.id,
-    );
+    itemData.value = await sat.getLectureDetails(authStore.authToken, route.params.id);
   } catch (err) {
     console.error('Failed to fetch lecture details:', err);
     error.value = err;
@@ -94,11 +87,7 @@ onMounted(async () => {
 
 const saveItem = async () => {
   try {
-    await sat.updateLecture(
-      authStore.authToken,
-      itemData.value.lectureId,
-      itemData.value,
-    );
+    await sat.updateLecture(authStore.authToken, itemData.value.lectureId, itemData.value);
     router.push('/lecture');
   } catch (err) {
     console.error('Failed to update lecture:', err);

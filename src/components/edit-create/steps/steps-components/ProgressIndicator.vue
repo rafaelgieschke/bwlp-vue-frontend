@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import SingleStepNode from '@/components/edit/SingleStepNode.vue';
+import SingleStepNode from '@/components/edit-create/steps/steps-components/SingleStepNode.vue';
 
 defineProps({
   steps: {

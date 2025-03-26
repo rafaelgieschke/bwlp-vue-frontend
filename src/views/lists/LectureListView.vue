@@ -14,6 +14,8 @@
         item-key="lectureId"
         item-label="lectures"
         @row-click="openModal"
+        :footer-colspan="columns.length - 2"
+        create-route="LectureCreate"
       />
     </Transition>
 
@@ -29,18 +31,14 @@
       :tabs="
         lectureTabs.map(tab => ({
           ...tab,
-          props: tab.props(
-            selectedLecture,
-            lectureLocations,
-            lecturePermissions,
-          ),
+          props: tab.props(selectedLecture, lectureLocations, lecturePermissions),
         }))
       "
       @close-wanted="showModal = false"
     />
   </template>
 
-  <template v-if="$route.name === 'LectureEdit'">
+  <template v-if="$route.name !== 'LectureList'">
     <router-view></router-view>
   </template>
 </template>
@@ -72,15 +70,13 @@ const columns = [
     field: 'startTime',
     label: 'Start Time',
     class: 'min',
-    formatter: value =>
-      value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-',
+    formatter: value => (value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-'),
   },
   {
     field: 'endTime',
     label: 'End Time',
     class: 'min',
-    formatter: value =>
-      value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-',
+    formatter: value => (value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-'),
   },
 ];
 
@@ -190,14 +186,8 @@ const fetchLectures = async () => {
 
 const openModal = async lecture => {
   try {
-    selectedLecture.value = await sat.getLectureDetails(
-      authStore.authToken,
-      lecture.lectureId,
-    );
-    lectureLocations.value = await sat.getLocations(
-      authStore.authToken,
-      lecture.lectureId,
-    );
+    selectedLecture.value = await sat.getLectureDetails(authStore.authToken, lecture.lectureId);
+    lectureLocations.value = await sat.getLocations(authStore.authToken, lecture.lectureId);
     lecturePermissions.value = await sat.getLecturePermissions(
       authStore.authToken,
       lecture.lectureId,

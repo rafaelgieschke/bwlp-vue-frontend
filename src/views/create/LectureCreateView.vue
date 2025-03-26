@@ -1,17 +1,16 @@
 <template>
   <div>
-    <ErrorMessage v-if="error" :error="error" default-message="Unable to load or update image" />
+    <ErrorMessage v-if="error" :error="error" default-message="Unable to create lecture" />
 
     <ItemDataPre v-if="devMode" :item-data="itemData" />
 
-    <h1>Edit {{ itemData.imageName }}</h1>
+    <h1>Create Lecture</h1>
 
     <form @submit.prevent="saveItem">
       <ProgressIndicator v-model:currentStep="currentStep" :steps="steps" />
 
       <article class="large scroll">
-        <ImageStep1BasicInfo v-show="currentStep === 1" v-model="itemData" />
-        <ImageStep2Permissions v-show="currentStep === 2" v-model="itemData" />
+        <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
       </article>
 
       <EditNavigationButtons
@@ -25,59 +24,38 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted} from '@vue/runtime-core';
-import {useRoute, useRouter} from 'vue-router';
+import {ref} from '@vue/runtime-core';
+import {useRouter} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 
 import ErrorMessage from '@/components/error/ErrorMessage.vue';
 import ItemDataPre from '@/components/ItemDataPre.vue';
+
 import ProgressIndicator from '@/components/edit-create/steps/steps-components/ProgressIndicator.vue';
+import Step1BasicInfo from '@/components/edit-create/steps/create/lecture/LectureStep1BasicInfo.vue';
 import EditNavigationButtons from '@/components/edit-create/steps/steps-components/EditNavigationButtons.vue';
 
-import ImageStep1BasicInfo from '@/components/edit-create/steps/edit/image/ImageStep1BasicInfo.vue';
-import ImageStep2Permissions from '@/components/edit-create/steps/edit/image/ImageStep2Permissions.vue';
-
-const route = useRoute();
 const router = useRouter();
-
 const authStore = useAuthStore();
-
 const devMode = ref(import.meta.env.VITE_DEVELOPMENT_MODE === 'true');
 
 import {useSatServer} from '@/composables/useSatServer';
 const sat = useSatServer();
 
-const steps = ref(['Basic Info', 'Permissions']);
+const steps = ref(['Basic Info', 'Permissions', 'Network', 'Advanced']);
 
 const itemData = ref({
-  imageBaseId: '',
-  latestVersionId: null,
-  versions: [],
-  imageName: '',
+  lectureName: '',
   description: '',
-  tags: [],
-  osId: 0,
-  virtId: 'vmware',
-  createTime: 0,
-  updateTime: 0,
-  ownerId: '',
-  updaterId: '',
-  shareMode: 0,
-  isTemplate: false,
-  defaultPermissions: {
-    link: true,
-    download: true,
-    edit: false,
-    admin: false,
-  },
-  userPermissions: {
-    link: true,
-    download: true,
-    edit: true,
-    admin: true,
-  },
+  startTime: null,
+  endTime: null,
+  isEnabled: false,
+  isExam: false,
+  hasInternetAccess: false,
+  hasUsbAccess: false,
+  autoUpdate: false,
+  limitToLocations: false,
 });
-
 const error = ref(null);
 const currentStep = ref(1);
 
@@ -89,21 +67,12 @@ const prevStep = () => {
   if (currentStep.value > 1) currentStep.value--;
 };
 
-onMounted(async () => {
-  try {
-    itemData.value = await sat.getImageDetails(authStore.authToken, route.params.id);
-  } catch (err) {
-    console.error('Failed to fetch image details:', err);
-    error.value = err;
-  }
-});
-
 const saveItem = async () => {
   try {
-    await sat.updateImageBase(authStore.authToken, itemData.value.imageBaseId, itemData.value);
-    router.push('/image');
+    await sat.createLecture(authStore.authToken, itemData.value);
+    router.push('/lecture');
   } catch (err) {
-    console.error('Failed to update image:', err);
+    console.error('Failed to create lecture:', err);
     error.value = err;
   }
 };
