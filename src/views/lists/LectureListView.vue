@@ -1,5 +1,5 @@
 <template>
-  <template v-if="$route.name === 'LectureList'">
+  <template v-if="['LectureList', 'LectureDetail'].includes($route.name as string)">
     <ErrorMessage
       v-if="error"
       :error="error"
@@ -34,18 +34,18 @@
           props: tab.props(selectedLecture, lectureLocations, lecturePermissions),
         }))
       "
-      @close-wanted="showModal = false"
+      @close-wanted="handleCloseDialog"
     />
   </template>
 
-  <template v-if="$route.name !== 'LectureList'">
+  <template v-if="!['LectureList', 'LectureDetail'].includes($route.name as string)">
     <router-view></router-view>
   </template>
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted} from '@vue/runtime-core';
-import {useRouter} from 'vue-router';
+import {ref, onMounted, watch} from '@vue/runtime-core';
+import {useRouter, useRoute} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 import {useDateFormat} from '@vueuse/core';
 
@@ -155,6 +155,7 @@ const lectureTabs = [
 ];
 
 const router = useRouter();
+const route = useRoute();
 const authStore = useAuthStore();
 
 import {useSatServer} from '@/composables/useSatServer';
@@ -171,7 +172,12 @@ onMounted(() => {
   if (!authStore.authToken) {
     router.push('/login');
   } else {
-    fetchLectures();
+    fetchLectures().then(() => {
+      // Check if we're on a direct lecture URL
+      if (route.name === 'LectureDetail' && route.params.id) {
+        loadLectureById(route.params.id as string);
+      }
+    });
   }
 });
 
@@ -179,6 +185,27 @@ const fetchLectures = async () => {
   try {
     const response = await sat.getLectureList(authStore.authToken, 0);
     lectureList.value = response;
+    return response;
+  } catch (e) {
+    error.value = e.message;
+    return [];
+  }
+};
+
+const loadLectureById = async (lectureId: string) => {
+  try {
+    // Find the lecture in the list to confirm it exists
+    const lecture = lectureList.value.find(lec => lec.lectureId === lectureId);
+
+    if (lecture) {
+      await openModal(lecture);
+    } else {
+      // Try to fetch it directly if not found in the list
+      selectedLecture.value = await sat.getLectureDetails(authStore.authToken, lectureId);
+      lectureLocations.value = await sat.getLocations(authStore.authToken, lectureId);
+      lecturePermissions.value = await sat.getLecturePermissions(authStore.authToken, lectureId);
+      showModal.value = true;
+    }
   } catch (e) {
     error.value = e.message;
   }
@@ -194,8 +221,38 @@ const openModal = async lecture => {
     );
 
     showModal.value = true;
+
+    // Update URL to reflect the selected lecture (if not already on it)
+    if (route.name !== 'LectureDetail' || route.params.id !== lecture.lectureId) {
+      router.push({
+        name: 'LectureDetail',
+        params: {id: lecture.lectureId},
+      });
+    }
   } catch (e) {
     error.value = e.message;
   }
 };
+
+const handleCloseDialog = () => {
+  showModal.value = false;
+
+  // If we were on a direct lecture URL, navigate back to the main list
+  if (route.name === 'LectureDetail') {
+    router.push({name: 'LectureList'});
+  }
+};
+
+// Watch for route changes to handle navigation
+watch(
+  () => route.params,
+  newParams => {
+    if (route.name === 'LectureDetail' && newParams.id) {
+      const lectureId = newParams.id as string;
+      if (!showModal.value || selectedLecture.value?.lectureId !== lectureId) {
+        loadLectureById(lectureId);
+      }
+    }
+  },
+);
 </script>

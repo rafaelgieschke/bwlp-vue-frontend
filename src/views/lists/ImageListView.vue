@@ -1,5 +1,5 @@
 <template>
-  <template v-if="$route.name === 'ImageList'">
+  <template v-if="['ImageList', 'ImageDetail'].includes($route.name as string)">
     <ErrorMessage
       v-if="error"
       :error="error"
@@ -34,18 +34,18 @@
           props: tab.props(selectedImage, imagePermissions),
         }))
       "
-      @close-wanted="showModal = false"
+      @close-wanted="handleCloseDialog"
     />
   </template>
 
-  <template v-if="$route.name !== 'ImageList'">
+  <template v-if="!['ImageList', 'ImageDetail'].includes($route.name as string)">
     <router-view></router-view>
   </template>
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted} from '@vue/runtime-core';
-import {useRouter} from 'vue-router';
+import {ref, onMounted, watch} from '@vue/runtime-core';
+import {useRouter, useRoute} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 import {useDateFormat} from '@vueuse/core';
 
@@ -117,6 +117,7 @@ const imageTabs = [
 ];
 
 const router = useRouter();
+const route = useRoute();
 const authStore = useAuthStore();
 
 import {useSatServer} from '@/composables/useSatServer';
@@ -132,7 +133,11 @@ onMounted(() => {
   if (!authStore.authToken) {
     router.push('/login');
   } else {
-    fetchImages();
+    fetchImages().then(() => {
+      if (route.name === 'ImageDetail' && route.params.id) {
+        loadImageById(route.params.id as string);
+      }
+    });
   }
 });
 
@@ -140,6 +145,24 @@ const fetchImages = async () => {
   try {
     const response = await sat.getImageList(authStore.authToken, [], 0);
     imageList.value = response;
+    return response;
+  } catch (e) {
+    error.value = e.message;
+    return [];
+  }
+};
+
+const loadImageById = async (imageId: string) => {
+  try {
+    const image = imageList.value.find(img => img.imageBaseId === imageId);
+
+    if (image) {
+      await openModal(image);
+    } else {
+      selectedImage.value = await sat.getImageDetails(authStore.authToken, imageId);
+      imagePermissions.value = await sat.getImagePermissions(authStore.authToken, imageId);
+      showModal.value = true;
+    }
   } catch (e) {
     error.value = e.message;
   }
@@ -148,12 +171,37 @@ const fetchImages = async () => {
 const openModal = async image => {
   try {
     selectedImage.value = await sat.getImageDetails(authStore.authToken, image.imageBaseId);
-
     imagePermissions.value = await sat.getImagePermissions(authStore.authToken, image.imageBaseId);
-
     showModal.value = true;
+
+    if (route.name !== 'ImageDetail' || route.params.id !== image.imageBaseId) {
+      router.push({
+        name: 'ImageDetail',
+        params: {id: image.imageBaseId},
+      });
+    }
   } catch (e) {
     error.value = e.message;
   }
 };
+
+const handleCloseDialog = () => {
+  showModal.value = false;
+
+  if (route.name === 'ImageDetail') {
+    router.push({name: 'ImageList'});
+  }
+};
+
+watch(
+  () => route.params,
+  newParams => {
+    if (route.name === 'ImageDetail' && newParams.id) {
+      const imageId = newParams.id as string;
+      if (!showModal.value || selectedImage.value?.imageBaseId !== imageId) {
+        loadImageById(imageId);
+      }
+    }
+  },
+);
 </script>
