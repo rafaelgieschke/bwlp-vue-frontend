@@ -20,7 +20,7 @@
     </Transition>
 
     <DetailDialog
-      v-if="selectedImage && showModal"
+      v-if="selectedImage"
       id="image-dialog"
       :title="selectedImage?.imageName"
       :edit-route="{
@@ -188,8 +188,7 @@ const openModal = async image => {
 const handleCloseDialog = () => {
   showModal.value = false;
 
-  // Only navigate back to the list if we're not already navigating to the edit page
-  if (route.name === 'ImageDetail' && !route.meta.navigatingToEdit) {
+  if (route.name === 'ImageDetail') {
     router.push({name: 'ImageList'});
   }
 };

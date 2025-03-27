@@ -19,11 +19,8 @@
       />
     </Transition>
 
-    <!-- we do && showModal right now because of a bug
-          when we go to EditPage and then come back on the list view,
-          the Dialog pops up for one second -->
     <DetailDialog
-      v-if="selectedLecture && showModal"
+      v-if="selectedLecture"
       id="lecture-dialog"
       :title="selectedLecture?.lectureName"
       :edit-route="{
@@ -176,7 +173,6 @@ onMounted(() => {
     router.push('/login');
   } else {
     fetchLectures().then(() => {
-      // Check if we're on a direct lecture URL
       if (route.name === 'LectureDetail' && route.params.id) {
         loadLectureById(route.params.id as string);
       }
@@ -225,7 +221,6 @@ const openModal = async lecture => {
 
     showModal.value = true;
 
-    // Update URL to reflect the selected lecture (if not already on it)
     if (route.name !== 'LectureDetail' || route.params.id !== lecture.lectureId) {
       router.push({
         name: 'LectureDetail',
@@ -240,7 +235,6 @@ const openModal = async lecture => {
 const handleCloseDialog = () => {
   showModal.value = false;
 
-  // If we were on a direct lecture URL, navigate back to the main list
   if (route.name === 'LectureDetail') {
     router.push({name: 'LectureList'});
   }
