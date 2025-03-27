@@ -101,7 +101,7 @@ onMounted(async () => {
 const saveItem = async () => {
   try {
     await sat.updateImageBase(authStore.authToken, itemData.value.imageBaseId, itemData.value);
-    router.push('/image');
+    router.push(`/image/${itemData.value.imageBaseId}`);
   } catch (err) {
     console.error('Failed to update image:', err);
     error.value = err;

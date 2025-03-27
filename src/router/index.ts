@@ -60,16 +60,6 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
-        path: '/image/:id/edit',
-        name: 'ImageEdit',
-        component: ImageEditView,
-        props: true,
-        meta: {
-          requiresAuth: true,
-          title: 'Edit Image',
-        },
-      },
-      {
         path: '/image/:id',
         name: 'ImageDetail',
         component: ImageListView,
@@ -77,6 +67,16 @@ const routes: RouteRecordRaw[] = [
         meta: {
           requiresAuth: true,
           title: 'Image Detail',
+        },
+      },
+      {
+        path: '/image/:id/edit',
+        name: 'ImageEdit',
+        component: ImageEditView,
+        props: true,
+        meta: {
+          requiresAuth: true,
+          title: 'Edit Image',
         },
       },
     ],
@@ -100,16 +100,6 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
-        path: '/lecture/:id/edit',
-        name: 'LectureEdit',
-        component: LectureEditView,
-        props: true,
-        meta: {
-          requiresAuth: true,
-          title: 'Edit Lecture',
-        },
-      },
-      {
         path: '/lecture/:id',
         name: 'LectureDetail',
         component: LectureListView,
@@ -117,6 +107,16 @@ const routes: RouteRecordRaw[] = [
         meta: {
           requiresAuth: true,
           title: 'Lecture Detail',
+        },
+      },
+      {
+        path: '/lecture/:id/edit',
+        name: 'LectureEdit',
+        component: LectureEditView,
+        props: true,
+        meta: {
+          requiresAuth: true,
+          title: 'Edit Lecture',
         },
       },
     ],

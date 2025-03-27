@@ -19,8 +19,11 @@
       />
     </Transition>
 
+    <!-- we do && showModal right now because of a bug
+          when we go to EditPage and then come back on the list view,
+          the Dialog pops up for one second -->
     <DetailDialog
-      v-if="selectedLecture"
+      v-if="selectedLecture && showModal"
       id="lecture-dialog"
       :title="selectedLecture?.lectureName"
       :edit-route="{

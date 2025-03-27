@@ -88,7 +88,7 @@ onMounted(async () => {
 const saveItem = async () => {
   try {
     await sat.updateLecture(authStore.authToken, itemData.value.lectureId, itemData.value);
-    router.push('/lecture');
+    router.push(`/lecture/${itemData.value.lectureId}`);
   } catch (err) {
     console.error('Failed to update lecture:', err);
     error.value = err;
