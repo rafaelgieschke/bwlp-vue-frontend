@@ -1,5 +1,5 @@
 <template>
-  <dialog ref="dialogRef" :class="dialogStyling" class="fill">
+  <dialog ref="dialogRef" :class="dialogStyling" class="detail-dialog fill">
     <header>
       <nav>
         <h5 class="max">{{ title }}</h5>
@@ -83,10 +83,11 @@ const props = defineProps({
   },
   dialogStyling: {
     type: String,
-    default: 'top',
+    default: 'top', /// right large-width, bottom jumbo-height, etc.
     /// TODO-MAYBE: Maybe give the user the ability to choose which kind of dialog they want,
     /// different sizes and stuff can be found there:
     /// https://github.com/beercss/beercss/blob/1f53933c3861430da54a87237a44609cef5adbe4/docs/DIALOG.md
+    /// https://github.com/beercss/beercss/blob/1f53933c3861430da54a87237a44609cef5adbe4/docs/HELPERS.md
   },
 });
 
@@ -156,7 +157,11 @@ const copyLinkToClipboard = () => {
 </script>
 
 <style scoped>
-dialog {
+.detail-dialog {
   padding-block: 0;
+
+  &.jumbo-height {
+    block-size: 42rem;
+  }
 }
 </style>
