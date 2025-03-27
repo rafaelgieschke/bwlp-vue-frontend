@@ -1,6 +1,6 @@
 <template>
   <dialog ref="dialogRef" :class="dialogStyling" class="fill">
-    <header class="fixed">
+    <header>
       <nav>
         <h5 class="max">{{ title }}</h5>
 
@@ -51,11 +51,8 @@
       </div>
     </article>
 
-    <footer class="fixed">
-      <button
-        class="border secondary-border secondary-text small-round no-margin"
-        @click="copyLinkToClipboard"
-      >
+    <footer>
+      <button class="secondary-container small-round no-margin" @click="copyLinkToClipboard">
         Share "{{ title }}" (copy link to clipboard)
       </button>
     </footer>
@@ -157,3 +154,9 @@ const copyLinkToClipboard = () => {
   navigator.clipboard.writeText(url);
 };
 </script>
+
+<style scoped>
+dialog {
+  padding-block: 0;
+}
+</style>
