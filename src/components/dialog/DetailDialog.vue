@@ -1,5 +1,5 @@
 <template>
-  <dialog ref="dialogRef" :class="dialogStyling" class="detail-dialog fill">
+  <dialog ref="dialogRef" :class="dialogStyling" class="detail-dialog">
     <header>
       <nav>
         <h5 class="max">{{ title }}</h5>
@@ -19,37 +19,43 @@
       </nav>
     </header>
 
-    <article>
-      <div>
-        <div class="tabs scroll">
-          <a
+    <main>
+      <article>
+        <div>
+          <div class="tabs scroll">
+            <a
+              v-for="tab in tabs"
+              :key="tab.id"
+              :data-ui="`#${tab.id}`"
+              class="vertical"
+              :class="{active: activeTab === tab.id}"
+              @click="setActiveTab(tab.id)"
+            >
+              <i>{{ tab.icon }}</i>
+              <span>{{ tab.label }}</span>
+            </a>
+          </div>
+          <div
             v-for="tab in tabs"
             :key="tab.id"
-            :data-ui="`#${tab.id}`"
-            class="vertical"
+            :id="tab.id"
+            class="page padding scroll"
             :class="{active: activeTab === tab.id}"
-            @click="setActiveTab(tab.id)"
           >
-            <i>{{ tab.icon }}</i>
-            <span>{{ tab.label }}</span>
-          </a>
+            <component :is="tab.component" v-bind="tab.props" />
+          </div>
         </div>
-        <div
-          v-for="tab in tabs"
-          :key="tab.id"
-          :id="tab.id"
-          class="page padding scroll"
-          :class="{active: activeTab === tab.id}"
-        >
-          <component :is="tab.component" v-bind="tab.props" />
-        </div>
-      </div>
-    </article>
+      </article>
+    </main>
 
     <footer>
-      <button class="secondary-container small-round no-margin" @click="copyLinkToClipboard">
-        Share "{{ title }}" (copy link to clipboard)
-      </button>
+      <nav>
+        <button class="tertiary" @click="copyLinkToClipboard">
+          <i class="small">share</i>
+          Share "{{ title }}"
+          <span class="tooltip">Copy link to clipboard</span>
+        </button>
+      </nav>
     </footer>
   </dialog>
 </template>
@@ -152,11 +158,10 @@ const copyLinkToClipboard = () => {
 </script>
 
 <style scoped>
-.detail-dialog {
-  padding-block: 0;
-
-  &.jumbo-height {
-    block-size: 42rem;
-  }
+/* This is an example of a height that isn't available by default
+      (to give users more abilities to customize,
+        we can add an infinite amount of them) */
+.detail-dialog .jumbo-height {
+  block-size: 42rem;
 }
 </style>
