@@ -78,6 +78,11 @@ const columns = [
     class: 'min',
     formatter: value => (value > 0 ? formatDate(value * 1000, 'DD.MM.YYYY, HH:mm') : '-'),
   },
+  {
+    field: 'isEnabled',
+    label: 'Activated',
+    class: 'min',
+  },
 ];
 
 import DetailDialog from '@/components/dialog/DetailDialog.vue';

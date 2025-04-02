@@ -34,6 +34,7 @@
           v-for="item in filteredAndSortedItems"
           :key="getItemKey(item)"
           :id="getItemKey(item)"
+          class="ripple pointer"
           @click="$emit('row-click', item)"
         >
           <td v-for="column in columns" :key="column.field" :class="column.class">
@@ -54,6 +55,13 @@
 
             <template v-else-if="column.field === 'virtId'">
               <span class="virt-logo" width="16px" height="16px" :class="item[column.field]"></span>
+            </template>
+
+            <template v-else-if="column.field === 'isEnabled'">
+              <label class="checkbox center">
+                <input type="checkbox" :checked="column.field" disabled />
+                <span></span>
+              </label>
             </template>
 
             <template v-else>
@@ -275,5 +283,9 @@ watch(
 
 .qemukvm {
   background-image: url('@/assets/img/virt-logo/qemukvm.png');
+}
+
+.pointer {
+  cursor: pointer;
 }
 </style>
