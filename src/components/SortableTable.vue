@@ -85,7 +85,7 @@
           >
             <RouterLink
               :to="{name: createRoute}"
-              class="button small small-padding large-round border tertiary-border tertiary-text no-margin wave"
+              class="button small small-padding large-round border tertiary-border tertiary-text no-margin ripple"
             >
               <i>add</i>
               Create {{ itemLabel.toLowerCase().replace('s', '') }}

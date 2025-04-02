@@ -2,7 +2,7 @@
   <section class="location-item">
     <details v-if="location.children?.length > 0">
       <summary class="none">
-        <article class="round no-elevate small-padding border primary-border wave">
+        <article class="round no-elevate small-padding border primary-border ripple">
           <nav>
             <div class="max">{{ location.locationName }}</div>
 

@@ -1,6 +1,6 @@
 <template>
   <RouterLink
-    class="wave"
+    class="ripple"
     to="/image"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -9,7 +9,7 @@
     <OpenInBlank />
   </RouterLink>
   <RouterLink
-    class="wave"
+    class="ripple"
     to="/lecture"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -20,7 +20,7 @@
 
   <SeparatingLabel :text="$t('legalStuff')" />
   <RouterLink
-    class="wave"
+    class="ripple"
     to="/privacy-policy"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -29,7 +29,7 @@
     <OpenInBlank />
   </RouterLink>
   <RouterLink
-    class="wave"
+    class="ripple"
     to="/user-agreement"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
   >
@@ -40,7 +40,7 @@
 
   <SeparatingLabel :text="$t('miscellaneous')" />
   <a
-    class="wave"
+    class="ripple"
     href="https://www.bwlehrpool.de/wiki/doku.php/start"
     target="_blank"
     rel="noopener noreferrer"
@@ -55,7 +55,7 @@
 
   <a
     v-if="devMode"
-    class="wave"
+    class="ripple"
     href="https://github.com/Khoding/bwlp-vue-frontend"
     target="_blank"
     rel="noopener noreferrer"
@@ -67,7 +67,7 @@
   </a>
   <a
     v-if="devMode"
-    class="wave"
+    class="ripple"
     href="https://github.com/Khoding/bwlp-frontend"
     target="_blank"
     rel="noopener noreferrer"
@@ -79,7 +79,7 @@
   </a>
   <a
     v-if="devMode"
-    class="wave"
+    class="ripple"
     href="https://vuejs.org/guide/introduction.html"
     target="_blank"
     rel="noopener noreferrer"
@@ -91,7 +91,7 @@
   </a>
   <a
     v-if="devMode"
-    class="wave"
+    class="ripple"
     href="https://vite.dev/guide/"
     target="_blank"
     rel="noopener noreferrer"
@@ -103,7 +103,7 @@
   </a>
   <a
     v-if="devMode"
-    class="wave"
+    class="ripple"
     href="https://www.beercss.com"
     target="_blank"
     rel="noopener noreferrer"
@@ -115,7 +115,7 @@
   </a>
   <a
     v-if="devMode"
-    class="wave"
+    class="ripple"
     href="https://github.com/beercss/beercss/blob/main/docs/INDEX.md"
     target="_blank"
     rel="noopener noreferrer"
@@ -127,7 +127,7 @@
   </a>
   <a
     v-if="devMode"
-    class="wave"
+    class="ripple"
     href="https://fonts.google.com/icons"
     target="_blank"
     rel="noopener noreferrer"
@@ -143,7 +143,7 @@
   <a class="s">Profile</a>
 
   <a
-    class="s wave"
+    class="s ripple"
     target="_blank"
     rel="noopener noreferrer"
     :data-ui="props.mobile_nav ? '#mobile-navigation-dialog' : ''"
