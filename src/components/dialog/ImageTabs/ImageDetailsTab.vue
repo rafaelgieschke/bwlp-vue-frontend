@@ -1,7 +1,5 @@
 <template>
   <div v-if="image">
-    <!-- there seems to be an issue with the table? maybe? so TODO: -->
-    <!-- Possibly to do with Betriebssystem -->
     <table class="stripes">
       <tbody>
         <tr>
@@ -47,8 +45,13 @@
           </td>
         </tr>
         <tr>
-          <td>Versions-ID</td>
-          <td colspan="3">{{ image.latestVersionId }}</td>
+          <td>Latest version ID</td>
+          <td colspan="2">{{ image.latestVersionId || 'Expired' }}</td>
+          <td>
+            <a :href="image.versions[image.versions.length - 1].imagePath"
+              >Link to elephant 🐘's situation (idke)</a
+            >
+          </td>
         </tr>
         <tr>
           <td>VM-ID</td>

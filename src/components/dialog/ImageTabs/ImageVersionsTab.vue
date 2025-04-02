@@ -9,6 +9,7 @@
           <th>Verwendbar</th>
           <th>Größe</th>
           <th>Interne ID</th>
+          <th>Elefant</th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +35,7 @@
           </td>
           <td>{{ humanFileSize(version.fileSize) }}</td>
           <td>{{ version.versionId }}</td>
+          <td><a :href="version.imagePath">Link to image</a></td>
         </tr>
       </tbody>
     </table>
