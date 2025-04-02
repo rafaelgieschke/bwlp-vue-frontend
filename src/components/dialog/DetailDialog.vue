@@ -19,7 +19,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="bottom-margin">
       <article>
         <div>
           <div class="tabs scroll">
