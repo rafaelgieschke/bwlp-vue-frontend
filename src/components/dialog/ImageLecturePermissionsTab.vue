@@ -1,5 +1,5 @@
 <template>
-  <div v-if="permissions.length > 0" class="auto-height surface scroll">
+  <div v-if="!isEmpty(permissions)" class="auto-height surface scroll">
     <table class="stripes">
       <thead class="fixed">
         <tr>
@@ -51,6 +51,8 @@
 </template>
 
 <script setup lang="ts">
+import {isEmpty} from '@/utils/isEmpty';
+
 defineProps({
   permissions: {
     type: Object,

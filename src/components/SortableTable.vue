@@ -1,109 +1,118 @@
 <template>
-  <section class="large-height surface scroll">
-    <div class="search field label suffix border top-margin round">
-      <input
-        id="search"
-        name="search"
-        type="text"
-        v-model="searchQuery"
-        class="search-input"
-        placeholder="Search..."
-        @input="filterItems"
-      />
-      <label for="search">Filter the {{ itemLabel.toLowerCase() }}</label>
-      <i>search</i>
-    </div>
+  <div>
+    <header class="transparent no-padding">
+      <div class="search field label suffix border top-margin round">
+        <input
+          id="search"
+          name="search"
+          type="text"
+          v-model="searchQuery"
+          class="search-input"
+          placeholder="Search..."
+          @input="filterItems"
+        />
+        <label for="search">Filter the {{ itemLabel.toLowerCase() }}</label>
+        <i>search</i>
+      </div>
+    </header>
 
-    <table v-if="filteredItems.length > 0" class="stripes">
-      <thead class="fixed">
-        <tr>
-          <th
-            v-for="column in columns"
-            :key="(column as Column).field"
-            @click="sort(column.field)"
-            :class="['sortable', column.class]"
-          >
-            {{ column.label }}
-            <span class="sort-icon">{{ getSortIcon(column.field) }}</span>
-          </th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr
-          v-for="item in filteredAndSortedItems"
-          :key="getItemKey(item)"
-          :id="getItemKey(item)"
-          class="ripple pointer"
-          @click="$emit('row-click', item)"
-        >
-          <td v-for="column in columns" :key="column.field" :class="column.class">
-            <template v-if="column.formatter">
-              {{ column.formatter(item[column.field], item) }}
-              <!-- TODO: make the color red if the date < currentTime in case it applies -->
-            </template>
-
-            <template v-else-if="column.field === 'ownerId'">
-              <!-- TODO: make the text bold if the ownerId matches the currently logged in user's id -->
-              <!-- also do it for everywhere else that has ownerId, or updaterId, etc. -->
-              {{ getUserFullName(item[column.field]) }}
-            </template>
-
-            <template v-else-if="column.field === 'osId'">
-              {{ getOSName(item[column.field]) }}
-            </template>
-
-            <template v-else-if="column.field === 'virtId'">
-              <span class="virt-logo" width="16px" height="16px" :class="item[column.field]"></span>
-            </template>
-
-            <template v-else-if="column.field === 'isEnabled'">
-              <label class="checkbox center">
-                <input type="checkbox" :checked="column.field" disabled />
-                <span></span>
-              </label>
-            </template>
-
-            <template v-else>
-              {{ item[column.field] }}
-            </template>
-          </td>
-        </tr>
-      </tbody>
-
-      <tfoot class="fixed">
-        <tr>
-          <th :colspan="createRoute !== '' ? footerColspan : columns.length">
-            <!-- We give this a colspan of 42 so that it always fully colspans: https://stackoverflow.com/questions/398734/colspan-all-columns#comment19907221_398778 this guy says "why tf not", and I find it funny because 42 so here we are -->
-            Showing {{ filteredItems.length }} of {{ items.length }}
-            {{ itemLabel }}
-          </th>
-          <th
-            v-if="createRoute"
-            :colspan="columns.length - footerColspan"
-            class="right-align no-padding"
-          >
-            <RouterLink
-              :to="{name: createRoute}"
-              class="button small small-padding large-round border tertiary-border tertiary-text no-margin ripple"
+    <section class="large-height surface scroll">
+      <table v-if="filteredItems.length > 0" class="stripes">
+        <thead class="fixed">
+          <tr>
+            <th
+              v-for="column in columns"
+              :key="(column as Column).field"
+              @click="sort(column.field)"
+              :class="['sortable', column.class]"
             >
-              <i>add</i>
-              Create {{ itemLabel.toLowerCase().replace('s', '') }}
-            </RouterLink>
-          </th>
-        </tr>
-      </tfoot>
-    </table>
+              {{ column.label }}
+              <span class="sort-icon">{{ getSortIcon(column.field) }}</span>
+            </th>
+          </tr>
+        </thead>
 
-    <article v-else class="error">
-      <nav>
-        0 matches found
-        <RouterLink :to="{name: createRoute}" class="underline"
-          >Create {{ itemLabel.toLowerCase().replace('s', '') }}</RouterLink
-        >
-      </nav>
-    </article>
-  </section>
+        <tbody>
+          <tr
+            v-for="item in filteredAndSortedItems"
+            :key="getItemKey(item)"
+            :id="getItemKey(item)"
+            class="ripple pointer"
+            @click="$emit('row-click', item)"
+          >
+            <td v-for="column in columns" :key="column.field" :class="column.class">
+              <template v-if="column.formatter">
+                {{ column.formatter(item[column.field], item) }}
+                <!-- TODO: make the color red if the date < currentTime in case it applies -->
+              </template>
+
+              <template v-else-if="column.field === 'ownerId'">
+                <!-- TODO: make the text bold if the ownerId matches the currently logged in user's id -->
+                <!-- also do it for everywhere else that has ownerId, or updaterId, etc. -->
+                {{ getUserFullName(item[column.field]) }}
+              </template>
+
+              <template v-else-if="column.field === 'osId'">
+                {{ getOSName(item[column.field]) }}
+              </template>
+
+              <template v-else-if="column.field === 'virtId'">
+                <span
+                  class="virt-logo"
+                  width="16px"
+                  height="16px"
+                  :class="item[column.field]"
+                ></span>
+              </template>
+
+              <template v-else-if="column.field === 'isEnabled'">
+                <label class="checkbox center">
+                  <input type="checkbox" :checked="column.field" disabled />
+                  <span></span>
+                </label>
+              </template>
+
+              <template v-else>
+                {{ item[column.field] }}
+              </template>
+            </td>
+          </tr>
+        </tbody>
+
+        <tfoot class="fixed">
+          <tr>
+            <th :colspan="createRoute !== '' ? footerColspan : columns.length">
+              <!-- We give this a colspan of 42 so that it always fully colspans: https://stackoverflow.com/questions/398734/colspan-all-columns#comment19907221_398778 this guy says "why tf not", and I find it funny because 42 so here we are -->
+              Showing {{ filteredItems.length }} of {{ items.length }}
+              {{ itemLabel }}
+            </th>
+            <th
+              v-if="createRoute"
+              :colspan="columns.length - footerColspan"
+              class="right-align no-padding"
+            >
+              <RouterLink
+                :to="{name: createRoute}"
+                class="button small small-padding large-round border tertiary-border tertiary-text no-margin ripple"
+              >
+                <i>add</i>
+                Create {{ itemLabel.toLowerCase().replace('s', '') }}
+              </RouterLink>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+
+      <article v-else class="error">
+        <nav>
+          0 matches found
+          <RouterLink :to="{name: createRoute}" class="underline"
+            >Create {{ itemLabel.toLowerCase().replace('s', '') }}</RouterLink
+          >
+        </nav>
+      </article>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">

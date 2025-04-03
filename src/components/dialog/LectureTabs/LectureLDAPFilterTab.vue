@@ -4,7 +4,7 @@
     werden sollen. Der Platzhalter
     <code>%loginuser%</code> wird im Pfad durch den Loginnamen des Nutzers ersetzt.
   </p>
-  <div v-if="lecture.ldapFilters.length > 0" class="auto-height surface scroll">
+  <div v-if="!isEmpty(lecture.ldapFilters)" class="auto-height surface scroll">
     <table class="stripes">
       <thead class="fixed">
         <tr>
@@ -26,6 +26,8 @@
 </template>
 
 <script setup lang="ts">
+import {isEmpty} from '@/utils/isEmpty';
+
 defineProps({
   lecture: {
     type: Object,

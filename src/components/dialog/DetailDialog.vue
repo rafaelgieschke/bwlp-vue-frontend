@@ -1,20 +1,21 @@
 <template>
   <dialog ref="dialogRef" :class="dialogStyling" class="detail-dialog">
-    <header>
-      <nav>
+    <header class="scroll">
+      <nav class="m l">
         <h5 class="max">{{ title }}</h5>
 
-        <RouterLink v-if="editRoute" :to="editRoute" class="m l button small border secondary">
-          <i>edit</i>
-          <span>Edit</span>
-        </RouterLink>
-
-        <RouterLink v-if="editRoute" :to="editRoute" class="s button circle small border secondary">
-          <i>edit</i>
-        </RouterLink>
-
-        <button class="transparent circle small" @click="sendCloseEvent">
+        <button class="inverse-primary" @click="sendCloseEvent">
           <i>close</i>
+          <span>Close dialog</span>
+        </button>
+      </nav>
+
+      <nav class="s vertical">
+        <h5 class="max">{{ title }}</h5>
+
+        <button class="inverse-primary" @click="sendCloseEvent">
+          <i>close</i>
+          <span>Close dialog</span>
         </button>
       </nav>
     </header>
@@ -50,11 +51,18 @@
 
     <footer>
       <nav>
-        <button class="tertiary" @click="copyLinkToClipboard">
-          <i class="small">share</i>
-          Share "{{ title }}"
-          <span class="tooltip">Copy link to clipboard</span>
-        </button>
+        <div class="max">
+          <button class="tertiary" @click="copyLinkToClipboard">
+            <i class="small">share</i>
+            Share "{{ title }}"
+            <span class="tooltip">Copy link to clipboard</span>
+          </button>
+        </div>
+
+        <RouterLink v-if="editRoute" :to="editRoute" class="button border secondary left-">
+          <i>edit</i>
+          <span>Edit {{ title }}</span>
+        </RouterLink>
       </nav>
     </footer>
   </dialog>
