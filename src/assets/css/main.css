@@ -61,3 +61,7 @@ html:not(*) {
   transform: translateX(20px);
   opacity: 0;
 }
+
+.no-break {
+  white-space: nowrap;
+}
