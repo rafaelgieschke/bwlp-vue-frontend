@@ -49,7 +49,7 @@
       </article>
     </main>
 
-    <footer>
+    <footer class="scroll">
       <nav>
         <div class="max">
           <button class="tertiary" @click="copyLinkToClipboard">
