@@ -1,6 +1,6 @@
 <template>
   <dialog ref="dialogRef" :class="dialogStyling" class="detail-dialog">
-    <header class="scroll">
+    <header class="scroll bottom-margin">
       <nav class="m l">
         <h5 class="max">{{ title }}</h5>
 
