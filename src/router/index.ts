@@ -11,6 +11,7 @@ import LectureCreateView from '@/views/create/LectureCreateView.vue';
 
 import ImageEditView from '@/views/edit/ImageEditView.vue';
 import LectureEditView from '@/views/edit/LectureEditView.vue';
+import LectureDuplicateView from '@/views/duplicate/LectureDuplicateView.vue';
 
 import UserAgreementView from '@/views/legal-views/UserAgreementView.vue';
 import PrivacyPolicyView from '@/views/legal-views/PrivacyPolicyView.vue';
@@ -117,6 +118,16 @@ const routes: RouteRecordRaw[] = [
         meta: {
           requiresAuth: true,
           title: 'Edit Lecture',
+        },
+      },
+      {
+        path: '/lecture/:id/duplicate',
+        name: 'LectureDuplicate',
+        component: LectureDuplicateView,
+        props: true,
+        meta: {
+          requiresAuth: true,
+          title: 'Duplicate Lecture',
         },
       },
     ],

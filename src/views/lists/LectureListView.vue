@@ -27,6 +27,10 @@
         name: 'LectureEdit',
         params: {id: selectedLecture?.lectureId},
       }"
+      :duplicate-route="{
+        name: 'LectureDuplicate',
+        params: {id: selectedLecture?.lectureId},
+      }"
       :is-open="showModal"
       :tabs="
         lectureTabs.map(tab => ({

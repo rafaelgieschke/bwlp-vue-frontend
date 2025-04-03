@@ -59,10 +59,20 @@
           </button>
         </div>
 
-        <RouterLink v-if="editRoute" :to="editRoute" class="button border secondary left-">
-          <i>edit</i>
-          <span>Edit {{ title }}</span>
-        </RouterLink>
+        <div class="button-group">
+          <RouterLink
+            v-if="duplicateRoute"
+            :to="duplicateRoute"
+            class="button border tertiary left-"
+          >
+            <i>content_copy</i>
+            <span>Duplicate</span>
+          </RouterLink>
+          <RouterLink v-if="editRoute" :to="editRoute" class="button border secondary left-">
+            <i>edit</i>
+            <span>Edit {{ title }}</span>
+          </RouterLink>
+        </div>
       </nav>
     </footer>
   </dialog>
@@ -87,6 +97,10 @@ const props = defineProps({
     default: false,
   },
   editRoute: {
+    type: [String, Object],
+    default: null,
+  },
+  duplicateRoute: {
     type: [String, Object],
     default: null,
   },
@@ -171,5 +185,10 @@ const copyLinkToClipboard = () => {
         we can add an infinite amount of them) */
 .detail-dialog .jumbo-height {
   block-size: 42rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
 }
 </style>
