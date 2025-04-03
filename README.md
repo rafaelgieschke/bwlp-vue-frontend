@@ -236,6 +236,15 @@ For easier development, you can add these snippets to VS Code for the "Vue" lang
 }
 ```
 
+## Talk with some Users
+
+So, we talked with some users, two things came out: We like the overall app, but we want to be able to edit data in the Dialog. I'm the kind of guy who hates editing data in a Dialog, but the users want what the users want.
+
+So now we have to make a choice:
+
+- Either when the users enter "edit mode", the "dialog" becomes a full page that cannot be accidentally left at any point, it needs user confirmation (only if data was modified though).
+- The other one is, we keep it like it is right now, but we make all the fields enabled (right now they're disabled), and when the user interacts with the thing, it redirects them to the right place in the Edit pages (there were two complaints: I have to break the flow, let's fix that by making the edit page basically work the same as the dialog, just in a more "form" prone environment, the other one was "I have to find the data I'm trying to modify in the form, this can be fixed by redirecting them to the right field in the form and making it flash in front of their eyes").
+
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vite.dev/config/).
