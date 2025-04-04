@@ -57,12 +57,7 @@
               </template>
 
               <template v-else-if="column.field === 'virtId'">
-                <span
-                  class="virt-logo"
-                  width="16px"
-                  height="16px"
-                  :class="item[column.field]"
-                ></span>
+                <VirtLogo :virt="item[column.field]" />
               </template>
 
               <template v-else-if="column.field === 'isEnabled'">
@@ -119,6 +114,7 @@
 import {ref, computed, onMounted, watch} from '@vue/runtime-core';
 import {useUsers} from '@/composables/useUsers';
 import {useOperatingSystems} from '@/composables/useOperatingSystems';
+import VirtLogo from '@/components/VirtLogo.vue';
 
 const {fetchUsers, getUserFullName} = useUsers();
 const {fetchOperatingSystems, getOSName} = useOperatingSystems();
@@ -276,22 +272,6 @@ watch(
 
 .search input:not(:focus)::placeholder {
   color: transparent;
-}
-
-.virt-logo {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.vmware {
-  background-image: url('@/assets/img/virt-logo/vmware.png');
-}
-
-.qemukvm {
-  background-image: url('@/assets/img/virt-logo/qemukvm.png');
 }
 
 .pointer {

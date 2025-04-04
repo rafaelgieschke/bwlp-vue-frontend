@@ -59,7 +59,11 @@
         </tr>
         <tr>
           <td>Virtualisierer</td>
-          <td colspan="3">{{ image.virtId }}</td>
+          <td colspan="3">
+            {{ image.virtId }}
+
+            <VirtLogo :virt="image.virtId" :display-tooltip="false" />
+          </td>
         </tr>
       </tbody>
     </table>
@@ -69,6 +73,8 @@
 <script setup lang="ts">
 import {ref, watch, onMounted} from '@vue/runtime-core';
 import {useDateFormat} from '@vueuse/core';
+
+import VirtLogo from '@/components/VirtLogo.vue';
 
 const props = defineProps({
   image: {
