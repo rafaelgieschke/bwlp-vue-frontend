@@ -55,20 +55,16 @@
           <button class="no-break tertiary" @click="copyLinkToClipboard">
             <i class="small">share</i>
             Share "{{ title }}"
-            <span class="tooltip">Copy link to clipboard</span>
+            <span class="tooltip right">Copy link to clipboard</span>
           </button>
         </div>
 
         <div class="button-group">
-          <RouterLink
-            v-if="duplicateRoute"
-            :to="duplicateRoute"
-            class="button border tertiary left-"
-          >
+          <RouterLink v-if="duplicateRoute" :to="duplicateRoute" class="button border tertiary">
             <i>content_copy</i>
             <span>Duplicate</span>
           </RouterLink>
-          <RouterLink v-if="editRoute" :to="editRoute" class="button border secondary left-">
+          <RouterLink v-if="editRoute" :to="editRoute" class="button border secondary">
             <i>edit</i>
             <span>Edit {{ title }}</span>
           </RouterLink>

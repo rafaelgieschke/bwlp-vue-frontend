@@ -49,7 +49,7 @@
 
 <script setup lang="ts">
 import {ref, onMounted, watch} from '@vue/runtime-core';
-import {useRouter, useRoute} from 'vue-router';
+import {useRouter, useRoute, onBeforeRouteUpdate} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 import {useDateFormat} from '@vueuse/core';
 
@@ -243,10 +243,11 @@ const openModal = async lecture => {
 
 const handleCloseDialog = () => {
   showModal.value = false;
+  selectedLecture.value = null;
 
-  if (route.name === 'LectureDetail') {
-    router.push({name: 'LectureList'});
-  }
+  // if (route.name === 'LectureDetail') {
+  //   router.push({name: 'LectureList'});
+  // }
 };
 
 // Watch for route changes to handle navigation
@@ -261,4 +262,8 @@ watch(
     }
   },
 );
+
+onBeforeRouteUpdate(() => {
+  handleCloseDialog();
+});
 </script>

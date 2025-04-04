@@ -38,6 +38,7 @@
     />
   </template>
 
+  <!-- <template v-if="$route.matched.some(x => x.children && x.children.length > 0)"> -->
   <template v-if="!['ImageList', 'ImageDetail'].includes($route.name as string)">
     <router-view></router-view>
   </template>
@@ -45,7 +46,7 @@
 
 <script setup lang="ts">
 import {ref, onMounted, watch} from '@vue/runtime-core';
-import {useRouter, useRoute} from 'vue-router';
+import {useRouter, useRoute, onBeforeRouteUpdate} from 'vue-router';
 import {useAuthStore} from '@/stores/auth-store';
 import {useDateFormat} from '@vueuse/core';
 
@@ -139,6 +140,7 @@ onMounted(() => {
       }
     });
   }
+  console.log(route);
 });
 
 const fetchImages = async () => {
@@ -187,10 +189,7 @@ const openModal = async image => {
 
 const handleCloseDialog = () => {
   showModal.value = false;
-
-  if (route.name === 'ImageDetail') {
-    router.push({name: 'ImageList'});
-  }
+  selectedImage.value = null;
 };
 
 watch(
@@ -204,4 +203,8 @@ watch(
     }
   },
 );
+
+onBeforeRouteUpdate(() => {
+  handleCloseDialog();
+});
 </script>
