@@ -52,7 +52,7 @@
     <footer class="scroll">
       <nav>
         <div class="max">
-          <button class="no-break tertiary" @click="copyLinkToClipboard">
+          <button class="no-break tertiary ripple" @click="copyLinkToClipboard">
             <i class="small">share</i>
             Share "{{ title }}"
             <span class="tooltip right">Copy link to clipboard</span>
