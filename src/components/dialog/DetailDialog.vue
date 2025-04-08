@@ -102,7 +102,7 @@ const props = defineProps({
   },
   dialogStyling: {
     type: String,
-    default: 'top', /// right large-width, bottom jumbo-height, etc.
+    default: 'max', /// right large-width, bottom jumbo-height, etc.
     /// TODO-MAYBE: Maybe give the user the ability to choose which kind of dialog they want,
     /// different sizes and stuff can be found there:
     /// https://github.com/beercss/beercss/blob/1f53933c3861430da54a87237a44609cef5adbe4/docs/DIALOG.md

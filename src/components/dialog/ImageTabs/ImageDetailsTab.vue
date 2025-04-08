@@ -1,6 +1,12 @@
 <template>
-  <div v-if="image">
+  <div v-if="image" class="surface auto-height scroll">
     <table class="stripes">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th colspan="3">Value</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <td>Beschreibung</td>

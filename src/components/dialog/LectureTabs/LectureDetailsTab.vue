@@ -1,5 +1,5 @@
 <template>
-  <div v-if="lecture">
+  <div v-if="lecture" class="surface auto-height scroll">
     <table class="stripes">
       <tbody>
         <tr>
