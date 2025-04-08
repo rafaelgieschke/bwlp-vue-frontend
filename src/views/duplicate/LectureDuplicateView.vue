@@ -4,37 +4,42 @@
 
     <h1>Duplicate Lecture</h1>
 
-    <div v-if="loading" class="center">
+    <article v-if="loading" class="info">
       <div class="preloader"></div>
       <p>Loading lecture data...</p>
-    </div>
+    </article>
 
-    <div v-else class="confirmation-card">
+    <article v-else>
       <h2>Confirm Duplication</h2>
-      <p>Are you sure you want to duplicate the lecture "{{ itemData.lectureName }}"?</p>
+      <p>
+        Are you sure you want to duplicate the lecture
+        <span class="bold">{{ itemData.lectureName }}</span
+        >?
+      </p>
 
-      <div class="lecture-details">
-        <p><strong>Description:</strong> {{ itemData.description }}</p>
+      <div class="top-margin padding">
+        <p><span class="bold">Description:</span> {{ itemData.description }}</p>
         <p>
-          <strong>Start Time:</strong>
+          <span class="bold">Start Time:</span>
           {{ formatDate(itemData.startTime * 1000, 'DD.MM.YYYY, HH:mm') }}
         </p>
         <p>
-          <strong>End Time:</strong> {{ formatDate(itemData.endTime * 1000, 'DD.MM.YYYY, HH:mm') }}
+          <span class="bold">End Time:</span>
+          {{ formatDate(itemData.endTime * 1000, 'DD.MM.YYYY, HH:mm') }}
         </p>
       </div>
 
-      <div class="action-buttons">
-        <button class="primary" @click="duplicateLecture">
+      <nav class="right-align">
+        <button class="primary ripple" @click="duplicateLecture">
           <i>content_copy</i>
           Duplicate Lecture
         </button>
-        <button class="border" @click="goBack">
+        <button class="border ripple" @click="goBack">
           <i>arrow_back</i>
           Cancel
         </button>
-      </div>
-    </div>
+      </nav>
+    </article>
   </div>
 </template>
 
@@ -70,11 +75,9 @@ const loading = ref(true);
 onMounted(async () => {
   try {
     const lectureData = await sat.getLectureDetails(authStore.authToken, route.params.id);
-    // Set the duplicated lecture data, with a small modification to the name
     itemData.value = {
       ...lectureData,
       lectureName: `${lectureData.lectureName} (Copy)`,
-      // Remove the lectureId property to ensure we create a new lecture
       lectureId: undefined,
     };
     loading.value = false;
@@ -102,41 +105,4 @@ const goBack = () => {
 const formatDate = (timestamp: number, format: string) => {
   return useDateFormat(timestamp, format).value;
 };
-const formatDateTime = dateTime => {
-  if (!dateTime) return 'Not set';
-
-  return new Date(dateTime).toLocaleString();
-};
 </script>
-
-<style scoped>
-.confirmation-card {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.lecture-details {
-  margin: 1.5rem 0;
-  padding: 1rem;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-.action-buttons {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 2rem;
-  gap: 1rem;
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 3rem 0;
-}
-</style>
