@@ -4,14 +4,6 @@
       "path": ".",
       "name": "1. The new stuff",
     },
-    {
-      "path": "../bwlp-frontend",
-      "name": "2. Old frontend",
-    },
-    {
-      "path": "../kho-vue-components",
-      "name": "3. Khodok's Vue Components",
-    },
   ],
   "settings": {
     "explorer.fileNesting.patterns": {
