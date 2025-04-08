@@ -244,13 +244,8 @@ const openModal = async lecture => {
 const handleCloseDialog = () => {
   showModal.value = false;
   selectedLecture.value = null;
-
-  // if (route.name === 'LectureDetail') {
-  //   router.push({name: 'LectureList'});
-  // }
 };
 
-// Watch for route changes to handle navigation
 watch(
   () => route.params,
   newParams => {
@@ -261,6 +256,22 @@ watch(
       }
     }
   },
+);
+
+watch(
+  () => route.name,
+  (newRouteName, oldRouteName) => {
+    if (newRouteName === 'LectureDetail' && route.params.id) {
+      const lectureId = route.params.id as string;
+      if (!showModal.value || selectedLecture.value?.lectureId !== lectureId) {
+        loadLectureById(lectureId);
+      }
+    } else if (newRouteName === 'LectureList' && oldRouteName === 'LectureDetail') {
+      // Only close if we're navigating from detail to list
+      handleCloseDialog();
+    }
+  },
+  {immediate: true},
 );
 
 onBeforeRouteUpdate(() => {

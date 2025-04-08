@@ -77,6 +77,7 @@
 <script setup lang="ts">
 import {ref, watch, onMounted, useTemplateRef} from '@vue/runtime-core';
 import {useEventListener} from '@vueuse/core';
+import {useRouter} from 'vue-router';
 
 const props = defineProps({
   title: {
@@ -114,6 +115,7 @@ const emit = defineEmits(['close-wanted']);
 
 const dialogRef = useTemplateRef('dialogRef');
 const activeTab = ref('');
+const router = useRouter();
 
 onMounted(() => {
   if (props.tabs.length > 0) {
@@ -139,7 +141,16 @@ const setActiveTab = tabId => {
   activeTab.value = tabId;
 };
 
-const sendCloseEvent = () => emit('close-wanted');
+const sendCloseEvent = () => {
+  const route = window.location.pathname;
+  if (route.match(/\/image\/[^\/]+$/)) {
+    router.push({name: 'ImageList', replace: false});
+  } else if (route.match(/\/lecture\/[^\/]+$/)) {
+    router.push({name: 'LectureList', replace: false});
+  } else {
+    emit('close-wanted');
+  }
+};
 
 const toggleDOM = show => {
   const dialog = dialogRef.value;

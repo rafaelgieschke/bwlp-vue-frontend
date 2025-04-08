@@ -37,7 +37,6 @@
       @close-wanted="handleCloseDialog"
     />
   </template>
-
   <!-- <template v-if="$route.matched.some(x => x.children && x.children.length > 0)"> -->
   <template v-if="!['ImageList', 'ImageDetail'].includes($route.name as string)">
     <router-view></router-view>
@@ -140,7 +139,6 @@ onMounted(() => {
       }
     });
   }
-  console.log(route);
 });
 
 const fetchImages = async () => {
@@ -202,6 +200,22 @@ watch(
       }
     }
   },
+);
+
+watch(
+  () => route.name,
+  (newRouteName, oldRouteName) => {
+    if (newRouteName === 'ImageDetail' && route.params.id) {
+      const imageId = route.params.id as string;
+      if (!showModal.value || selectedImage.value?.imageBaseId !== imageId) {
+        loadImageById(imageId);
+      }
+    } else if (newRouteName === 'ImageList' && oldRouteName === 'ImageDetail') {
+      // Only close if we're navigating from detail to list
+      handleCloseDialog();
+    }
+  },
+  {immediate: true},
 );
 
 onBeforeRouteUpdate(() => {
