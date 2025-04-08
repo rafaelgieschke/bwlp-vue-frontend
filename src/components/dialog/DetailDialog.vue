@@ -28,7 +28,7 @@
               v-for="tab in tabs"
               :key="tab.id"
               :data-ui="`#${tab.id}`"
-              class="vertical"
+              class="vertical ripple"
               :class="{active: activeTab === tab.id}"
               @click="setActiveTab(tab.id)"
             >
