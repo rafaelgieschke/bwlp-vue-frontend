@@ -1,7 +1,7 @@
 <template>
   <dialog ref="dialogRef" :class="dialogStyling" class="detail-dialog">
     <header class="scroll bottom-margin">
-      <nav class="m l">
+      <nav class="m l padding">
         <h5 class="max">{{ title }}</h5>
 
         <button class="inverse-primary" @click="sendCloseEvent">
@@ -10,7 +10,7 @@
         </button>
       </nav>
 
-      <nav class="s vertical">
+      <nav class="s vertical padding">
         <h5 class="max">{{ title }}</h5>
 
         <button class="inverse-primary" @click="sendCloseEvent">
@@ -50,7 +50,7 @@
     </main>
 
     <footer class="scroll">
-      <nav>
+      <nav class="padding">
         <div class="max">
           <button class="no-break tertiary ripple" @click="copyLinkToClipboard">
             <i class="small">share</i>
