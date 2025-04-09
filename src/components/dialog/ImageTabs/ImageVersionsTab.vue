@@ -9,7 +9,7 @@
           <th>Verwendbar</th>
           <th>Größe</th>
           <th>Interne ID</th>
-          <th>Elefant</th>
+          <th>OSVDI</th>
         </tr>
       </thead>
       <tbody>
@@ -35,7 +35,12 @@
           </td>
           <td>{{ humanFileSize(version.fileSize) }}</td>
           <td>{{ version.versionId }}</td>
-          <td><a :href="version.imagePath">Link to image</a></td>
+          <td>
+            <a :href="version.imagePath" target="_blank" rel="noopener noreferrer"
+              >Link to OSVDI image
+              <OpenInBlank class="no-space" />
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -45,6 +50,8 @@
 <script setup lang="ts">
 import {humanFileSize} from '@/utils/fileSize';
 import {useDateFormat} from '@vueuse/core';
+
+import OpenInBlank from '@/components/OpenInBlank.vue';
 
 defineProps({
   versions: {

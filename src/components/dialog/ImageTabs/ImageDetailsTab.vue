@@ -54,9 +54,13 @@
           <td>Latest version ID</td>
           <td colspan="2">{{ image.latestVersionId || 'Expired' }}</td>
           <td>
-            <a :href="image.versions[image.versions.length - 1].imagePath"
-              >Link to elephant 🐘's situation (idke)</a
-            >
+            <a
+              :href="image.versions[image.versions.length - 1].imagePath"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Link to OSVDI image
+              <OpenInBlank />
+            </a>
           </td>
         </tr>
         <tr>
@@ -81,6 +85,7 @@ import {ref, watch, onMounted} from '@vue/runtime-core';
 import {useDateFormat} from '@vueuse/core';
 
 import VirtLogo from '@/components/VirtLogo.vue';
+import OpenInBlank from '@/components/OpenInBlank.vue';
 
 const props = defineProps({
   image: {
