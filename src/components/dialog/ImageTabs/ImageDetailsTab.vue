@@ -55,7 +55,7 @@
           <td colspan="2">{{ image.latestVersionId || 'Expired' }}</td>
           <td>
             <a
-              :href="image.versions[image.versions.length - 1].imagePath"
+              :href="`${useSatServerOSVDI()}${image.versions[image.versions.length - 1].imagePath}`"
               target="_blank"
               rel="noopener noreferrer"
               >Link to OSVDI image
@@ -98,6 +98,7 @@ const ownerName = ref('');
 const updaterName = ref('');
 
 import {useUsers} from '@/composables/useUsers';
+import {useSatServerOSVDI} from '@/composables/useSatServer';
 
 const {fetchUsers, getUserFullName} = useUsers();
 

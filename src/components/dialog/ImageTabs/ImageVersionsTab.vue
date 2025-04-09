@@ -36,7 +36,10 @@
           <td>{{ humanFileSize(version.fileSize) }}</td>
           <td>{{ version.versionId }}</td>
           <td>
-            <a :href="version.imagePath" target="_blank" rel="noopener noreferrer"
+            <a
+              :href="`${useSatServerOSVDI()}${version.imagePath}`"
+              target="_blank"
+              rel="noopener noreferrer"
               >Link to OSVDI image
               <OpenInBlank class="no-space" />
             </a>
@@ -50,6 +53,8 @@
 <script setup lang="ts">
 import {humanFileSize} from '@/utils/fileSize';
 import {useDateFormat} from '@vueuse/core';
+
+import {useSatServerOSVDI} from '@/composables/useSatServer';
 
 import OpenInBlank from '@/components/OpenInBlank.vue';
 

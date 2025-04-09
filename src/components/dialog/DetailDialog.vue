@@ -43,7 +43,7 @@
             class="page padding scroll"
             :class="{active: activeTab === tab.id}"
           >
-            <component :is="tab.component" v-bind="tab.props" />
+            <component :is="tab.component" v-bind="tab.props" class="vba" />
           </div>
         </div>
       </article>

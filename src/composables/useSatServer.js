@@ -10,3 +10,10 @@ export function useSatServer() {
   const proto2 = new Thrift.Protocol(new Thrift.Transport(`https://${sat1Server}/thrift/`));
   return new SatelliteServerClient(proto2);
 }
+
+export function useSatServerOSVDI() {
+  const app = getCurrentInstance();
+  const sat1Server = app.proxy.$sat1Server;
+
+  return `dndb3://${sat1Server}/`;
+}
