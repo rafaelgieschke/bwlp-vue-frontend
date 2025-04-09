@@ -6,8 +6,6 @@
       default-message="There's been an error of some kind"
     />
 
-    <!-- <article class="slow-ripple large-height"></article> -->
-
     <Transition name="slide-fade">
       <SortableTable
         v-if="imageList.length > 0"

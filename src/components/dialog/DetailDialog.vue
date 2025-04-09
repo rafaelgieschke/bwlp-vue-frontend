@@ -1,7 +1,7 @@
 <template>
   <dialog ref="dialogRef" :class="dialogStyling" class="detail-dialog">
     <header class="scroll bottom-margin">
-      <nav class="m l padding">
+      <nav class="m l">
         <h5 class="max">{{ title }}</h5>
 
         <button class="inverse-primary" @click="sendCloseEvent">
@@ -10,7 +10,7 @@
         </button>
       </nav>
 
-      <nav class="s vertical padding">
+      <nav class="s vertical">
         <h5 class="max">{{ title }}</h5>
 
         <button class="inverse-primary" @click="sendCloseEvent">
@@ -43,14 +43,14 @@
             class="page padding scroll"
             :class="{active: activeTab === tab.id}"
           >
-            <component :is="tab.component" v-bind="tab.props" class="vba" />
+            <component :is="tab.component" v-bind="tab.props" />
           </div>
         </div>
       </article>
     </main>
 
     <footer class="scroll">
-      <nav class="padding">
+      <nav>
         <div class="max">
           <button class="no-break tertiary ripple" @click="copyLinkToClipboard">
             <i class="small">share</i>

@@ -55,13 +55,29 @@
       @click="store.setTheme(name)"
     ></button>
   </nav>
+
+  <hr class="small" />
+
+  <h6 class="small">Easter Eggs</h6>
+  <nav>
+    <button
+      @click="toggleMinigame()"
+      :class="minigame.isMinigameActivated ? 'green' : 'red'"
+      class="white-text"
+    >
+      <i>{{ minigame.isMinigameActivated ? 'videogame_asset' : 'videogame_asset_off' }}</i>
+      <span>{{ minigame.isMinigameActivated ? 'Deactivate Minigame' : 'Activate Minigame' }}</span>
+    </button>
+  </nav>
 </template>
 
 <script setup>
 import {onMounted} from '@vue/runtime-core';
 import {useThemeStore} from '@/stores/theme';
+import {useMinigameActivated} from '@/stores/minigame';
 
 const store = useThemeStore();
+const minigame = useMinigameActivated();
 
 const setModeTheme = async (mode, theme) => {
   store.isDark = mode === 'light' ? false : true;
@@ -80,6 +96,10 @@ const handleFileUpload = async event => {
     const imageUrl = URL.createObjectURL(file);
     await store.setCustomImage(imageUrl);
   }
+};
+
+const toggleMinigame = () => {
+  minigame.setValue(!minigame.isMinigameActivated);
 };
 
 onMounted(() => {
