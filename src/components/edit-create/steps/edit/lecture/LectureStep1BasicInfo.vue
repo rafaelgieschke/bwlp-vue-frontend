@@ -1,18 +1,17 @@
 <template>
-  <div class="step-basic-info">
-    <div class="field label border">
-      <input v-model="modelValue.lectureName" id="lectureName" name="lectureName" required />
-      <label for="lectureName">Lecture Name</label>
+  <div class="step-basic-info grid">
+    <div class="s12 l8">
+      <div class="field label border">
+        <input v-model="modelValue.lectureName" id="lectureName" name="lectureName" required />
+        <label for="lectureName">Lecture Name</label>
+      </div>
+      <div class="field textarea label border">
+        <textarea v-model="modelValue.description" id="description" name="description"></textarea>
+        <label for="description">Description</label>
+      </div>
     </div>
 
-    <div class="field textarea label border">
-      <textarea v-model="modelValue.description" id="description" name="description"></textarea>
-      <label for="description">Description</label>
-    </div>
-
-    <!-- TODO: Put the lang code of the current user's language
-     so that it's a format they know and love -->
-    <section class="date" lang="en">
+    <section class="date s12 l4">
       <div class="field label border">
         <input
           type="datetime-local"
@@ -79,7 +78,7 @@ const updateEndTime = e => (endDateTime.value = e.target.value);
 <style scoped>
 /* Bro modern CSS is so elegant, just look at this */
 
-.step-basic-info {
+/* .step-basic-info {
   container-name: form-container;
   container-type: inline-size;
 
@@ -101,5 +100,5 @@ const updateEndTime = e => (endDateTime.value = e.target.value);
   .date {
     flex-direction: column;
   }
-}
+} */
 </style>
