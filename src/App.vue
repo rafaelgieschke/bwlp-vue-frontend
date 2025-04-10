@@ -2,12 +2,12 @@
   <Navigation v-if="authStore.authToken" />
   <HeaderComponent />
 
-  <Minigame v-if="activateMinigame" />
-
   <main class="responsive">
     <!-- <router-view :key="$route.fullPath"></router-view> -->
     <router-view></router-view>
   </main>
+
+  <Minigame v-if="activateMinigame" />
 </template>
 
 <script setup lang="ts">
