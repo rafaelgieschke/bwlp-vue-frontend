@@ -36,6 +36,7 @@
           {{ parseString(lecture.runscript).ext }}
         </div>
       </nav>
+      <!-- TODO: Maybe use Shiki (https://shiki.style) for this part -->
       <pre class="code-pre scroll"><code>{{ parseString(lecture.runscript).script }}</code></pre>
     </section>
   </section>
