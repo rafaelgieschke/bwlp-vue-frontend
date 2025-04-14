@@ -98,14 +98,15 @@
         </tfoot>
       </table>
 
-      <article v-else class="error">
-        <nav>
-          0 matches found
-          <RouterLink :to="{name: createRoute}" class="underline"
-            >Create {{ itemLabel.toLowerCase().replace('s', '') }}</RouterLink
-          >
-        </nav>
-      </article>
+      <div v-else>
+        <article class="error">
+          <nav>0 matches found</nav>
+        </article>
+
+        <RouterLink :to="{name: createRoute}" class="button top-margin"
+          >Create {{ itemLabel.toLowerCase().replace('s', '') }}</RouterLink
+        >
+      </div>
     </section>
   </div>
 </template>

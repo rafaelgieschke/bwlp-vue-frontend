@@ -1,12 +1,12 @@
 <template>
-  <template v-if="['LectureList', 'LectureDetail'].includes($route.name as string)">
-    <ErrorMessage
-      v-if="error"
-      :error="error"
-      default-message="There's been an error of some kind"
-    />
+  <div>
+    <template v-if="['LectureList', 'LectureDetail'].includes($route.name as string)">
+      <ErrorMessage
+        v-if="error"
+        :error="error"
+        default-message="There's been an error of some kind"
+      />
 
-    <Transition name="slide-fade">
       <SortableTable
         v-if="lectureList.length > 0"
         :items="lectureList"
@@ -17,34 +17,38 @@
         :footer-colspan="columns.length - 2"
         create-route="LectureCreate"
       />
-    </Transition>
 
-    <DetailDialog
-      v-if="selectedLecture"
-      id="lecture-dialog"
-      :title="selectedLecture?.lectureName"
-      :edit-route="{
-        name: 'LectureEdit',
-        params: {id: selectedLecture?.lectureId},
-      }"
-      :duplicate-route="{
-        name: 'LectureDuplicate',
-        params: {id: selectedLecture?.lectureId},
-      }"
-      :is-open="showModal"
-      :tabs="
-        lectureTabs.map(tab => ({
-          ...tab,
-          props: tab.props(selectedLecture, lectureLocations, lecturePermissions),
-        }))
-      "
-      @close-wanted="handleCloseDialog"
-    />
-  </template>
+      <DetailDialog
+        v-if="selectedLecture"
+        id="lecture-dialog"
+        :title="selectedLecture?.lectureName"
+        :edit-route="{
+          name: 'LectureEdit',
+          params: {id: selectedLecture?.lectureId},
+        }"
+        :duplicate-route="{
+          name: 'LectureDuplicate',
+          params: {id: selectedLecture?.lectureId},
+        }"
+        :is-open="showModal"
+        :tabs="
+          lectureTabs.map(tab => ({
+            ...tab,
+            props: tab.props(selectedLecture, lectureLocations, lecturePermissions),
+          }))
+        "
+        @close-wanted="handleCloseDialog"
+      />
+    </template>
 
-  <template v-if="!['LectureList', 'LectureDetail'].includes($route.name as string)">
-    <router-view></router-view>
-  </template>
+    <RouterView v-slot="{Component}">
+      <Transition name="page-slide" mode="out-in">
+        <template v-if="!['LectureList', 'LectureDetail'].includes($route.name as string)">
+          <component :is="Component"></component>
+        </template>
+      </Transition>
+    </RouterView>
+  </div>
 </template>
 
 <script setup lang="ts">

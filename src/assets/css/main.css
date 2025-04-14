@@ -48,18 +48,46 @@ html:not(*) {
   }
 }
 
-.slide-fade-enter-active {
+.page-slide-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.page-slide-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.page-slide-enter-from,
+.page-slide-leave-to {
+  opacity: 0;
+}
+
+.page-slide-enter-from {
+  transform: translateX(60px);
+}
+
+.page-slide-leave-to {
+  transform: translateX(-60px);
+}
+
+.page-slide-fast-enter-active {
   transition: all 0.3s ease-out;
 }
 
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+.page-slide-fast-leave-active {
+  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
+.page-slide-fast-enter-from,
+.page-slide-fast-leave-to {
   opacity: 0;
+}
+
+.page-slide-fast-enter-from {
+  transform: translateX(20px);
+}
+
+.page-slide-fast-leave-to {
+  transform: translateX(-20px);
 }
 
 .no-break {

@@ -1,187 +1,38 @@
-# BW-Lehrpool, but VueJS
+Okay, here is the information about the BW-Lehrpool VueJS project, reorganized for better readability while keeping all the original details.
 
-## The repos (quick links)
+---
 
-[New Repo (Khoding)](https://github.com/Khoding/bwlp-vue-frontend)
+## Project: BW-Lehrpool VueJS Frontend
 
-[Old Repo (Khoding, Archived) in case we need info](https://github.com/Khoding/bwlp-frontend)
+This document outlines the details, development guidelines, and setup for the VueJS-based frontend for BW-Lehrpool.
 
-## Tools used
+**Quick Links:**
 
-This app uses [Vue.js](https://vuejs.org), [Vite](https://vite.dev) and [Beer CSS](https://www.beercss.com)
+- **Active Repository:** [Khoding/bwlp-vue-frontend](https://github.com/Khoding/bwlp-vue-frontend)
+- **Archived Repository (for reference):** [Khoding/bwlp-frontend](https://github.com/Khoding/bwlp-frontend)
 
-- Beer CSS is a [Material UI](https://m3.material.io) CSS Library, it allows for quick Material designing, and it supports [Material You](https://m3.material.io/blog/announcing-material-you) customisation (theming color based off images and stuff like that, it's pointless, but cool for the user)
-- The icons can be found at [Google Fonts](https://fonts.google.com/icons)
+### Technology Stack
 
-## Development rules (to keep the project clean)
+- **Core Framework:** [Vue.js](https://vuejs.org) (v3)
+- **Build Tool:** [Vite](https://vite.dev)
+- **CSS Framework:** [Beer CSS](https://www.beercss.com)
+  - A CSS library based on [Material Design 3 (M3)](https://m3.material.io).
+  - Facilitates rapid Material Design implementation.
+  - Supports [Material You](https://m3.material.io/blog/announcing-material-you) theming (dynamic color theming, e.g., based on images).
+- **Icons:** [Material Symbols via Google Fonts](https://fonts.google.com/icons)
 
-I'm a code cleanliness you-know-what, so get ready.
+---
 
-### Vue SFCs (Single File Components), we love 'em
+## Development Environment Setup
 
-You can find most of the information needed here: [SFC on vue.js documentation](https://vuejs.org/api/sfc-spec.html).
+### Recommended IDE
 
-I don't remember exactly what I've said after this point, but this is what should be done for components, note that at this state of the app, this hasn't been applied properly because it's still changing too often and it's pointless to do this process ten times.
+- [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
+- **Essential Extension:** [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (Ensure the older Vetur extension is disabled if installed).
 
-Basically, a component should be extracted for one main reason, and one technical reason:
+### VS Code Snippets for Vue
 
-- The main reason is that a component represents a piece of the app, whether it requires 50 lines of CSS, 150 of JS, and 283 of HTML, or 5 lines of HTML, no CSS and no JS, whether it's reused 10 times or simply in one place, it represents a piece of the page, and should be extracted to its own component. While working, you can create a new component in a View (or another component), and then extract it and its internal logic and styling to an SFC when it's done, that way, most file only contain a few lines of code, and the actual pieces of the UI are properly organised in a logical tree under `@/components`. That means pieces of code will be shared between components, leading to extracting those to composables or utils files. It creates A LOT of changing files ten times to find out what's going on, but with modern IDEs (or even good ol' VSCode), it's not a pain to navigate files using the variants of "go to definition".
-- The other reason is for readability of the main holding Views and SFCs, if all the components are in plain in the parent files, they become impossible to go through and finding what's broken is a pain.
-  - Someone who's familiar with the project should be able to deduce that the `SortableTable` component is the main component of the page on List views, and that applies for every other component, as long as they're properly named, you don't need to explore them to know what's happening in them, so you don't lost time going through them if you know the bug comes from someplace else.
-  - A good exemple of that is the `DetailDialog` component, it started rather simple and was in the page, then it became too long so I extracted it, then the tabs became a mess so I extracted them, now I have 13 whole files just for everything in that component, but when I see a bug in one of the tabs, I simply go there, I don't need to go through the parent component `DetailDialog` or any of the other files related to them. Even better, they're all under the `@/components/dialog` folder, so I can just open that folder, look inside of it, and I'll usually find my bug in a few seconds to a short few minutes.
-
-#### SFC blocks order
-
-Vue.js is inconsistent in their documentation and different websites and will sometimes use `script-template-style` order, however, it is recommended to use `template-script-style` order, so we do the following:
-
-1. template `<template></template>`
-2. (optional) script `<script setup lang="ts"></script>`
-
-   - We use the [Composition API](https://vuejs.org/api/composition-api-setup.html)
-     - The reason is it's the new way of doing things and it's proven easier to work with than the Options API (as it allows the use of [`<script setup>`](https://vuejs.org/api/sfc-script-setup.html)). They also say somewhere on the documentation (can't remember where, saw it the other day) that it removed a lot of limitations Vue had with the Options API, basically saying that Composition API is the reason something as powerful as [VueUse](https://vueuse.org) is even possible in the first place, so it's a no brainer.
-   - We first set that it's Composition API `setup` and then set the language `lang="ts"`
-     - The idea behind this being that the language isn't as important as which API we use. That's a tiny difference, but what are you gonna do? fight me? That's what I thought.
-   - Small components that were extracted for readability and reusability might not have scripts, and that's okay, don't keep the empty tag
-
-3. (optional) style `<style scoped></style>`
-
-   You can read [CSS Features in SFCs](https://vuejs.org/api/sfc-css-features.html) on Vue's official documentation for more information
-
-   - style can be last because it has the least impact on an SFC's readability
-   - Try learning about [deep](https://vuejs.org/api/sfc-css-features.html#deep-selectors) and [slotted](https://vuejs.org/api/sfc-css-features.html#slotted-selectors) selectors
-   - Use scoped styles in 99.9% of cases, if you need global CSS, put it in the main CSS file, if you have one of the specific cases where the CSS works weird within an SFC but it clearly belongs as part of the SFC, first try using deep and slotted selectors, and if all fails, use [`:global`](https://vuejs.org/api/sfc-css-features.html#global-selectors) on that specific rule. Do not make the entirety of the SFC's CSS global, and give the element a very specific class so that it's not applied to random elements project-wide
-   - Note the following: [Scoped styles do not eliminate the need for classes](https://vuejs.org/api/sfc-css-features.html#scoped-style-tips) (giving classes to elements will make the code execute faster, among other advantages like readability)
-   - Small components that were extracted for readability and reusability might not have styles, and that's okay, don't keep the empty tag
-
-The reasons this order works are as follows:
-
-> Both orders work. Vue officially uses template-script-style in their documentation and examples. This order makes sense semantically since template defines the structure, script adds functionality, and style enhances appearance. But it's ultimately personal preference - pick one and stay consistent.
->
-> - Generated by Claude AI, but check anywhere, it's basically the same reasons listed.
-
-My (original developer of this particular web app, and following the "pick on and stay consistent" statement) reasons are the following:
-
-> When you open an SFC Vue file, in most cases, you just need to read the template to know what's going on, you can guess the rest. If you can't, either your component is too complicated and could be broken down into smaller ones for readability, or it is warranted to be big, but you can easily find answers by scrolling down to the script.
-
-> The script will sometimes be extremely long for a few lines of template, when you open it, you can't understand what will be displayed or how it will be displayed, so you have to scroll to find it, that's too much work in cases where you're just trying to debug and understand code.
-
-### Templates
-
-#### Props and Events naming
-
-we define them in camelCase and we call them in templates in kebab-case
-
-#### Importing components
-
-When you're importing a component, use the relative `@` path, not relative `.` 'current location' path, it's longer, but that way, we know where the file comes from.
-
-### Javascript / TypeScript
-
-#### Extracting Javascript code
-
-For the Javascript, if code gets too long in an SFC, it might be a good idea to extract it.
-
-If the code is shared between many SFCs, try extracting it to a composable (for Vue-related code) or a utility (utils, for anything non Vue-related)
-
-```js
-// Examples of Vue and non-Vue-related codes, not in this project.
-// formatDate.js, utility example
-export function formatDate(date) {
-  return new Date(date).toLocaleDateString();
-}
-
-// useCounter.js, composable example
-import {ref} from 'vue';
-
-export function useCounter() {
-  const count = ref(0);
-
-  function increment() {
-    count.value++;
-  }
-
-  return {
-    count,
-    increment,
-  };
-}
-```
-
-#### NPM Packages
-
-I know it's much easier to just install an NPM package for everything we need, but it creates weird dependencies that usually have no use and just make a mess in our package file, when something big is needed, go for it (site-wide stuff like i18n for example), but for small code, even if there is most likely a 10 LOC package that does it out there, try just making an 11 LOC file with basically the same logic (don't steal code though, you're better than that).
-
-Keeping the number of packages to a minimum more easily allows us to keep them all updated in the future, if we have 10 dependencies all pointing to each other, at some point, they'll clash and we'll have to keep one in an outdated state which might cause problems.
-
-##### Potential exceptions
-
-- [VueUse](https://vueuse.org) helps with a lot of tiny utilities and it's a really common tool in the Vue community, so in case one of their tool could simplify the implementation of something, I think it's not a big issue to make use of it.
-- Vue has a large ecosystem, but a very clean one, unlike others (looking at you, React and Django), I think this means for most "big tasks" (like i18n), you'll find a "recommended package" that's either basically the only one available at that scale (like vue-i18n) or the list of possibilities is only packages with a good and appreciated background and all of them might help one specific use more than the other, but there's no wrong choice, so no big deal if you make the "wrong" one.
-
-### CSS
-
-#### Selectors
-
-Use classes for 99% of cases, never IDs (can cause many problems if we use ID in a potentially repeated component. Specific cases require ids (although not CSS, but forms for example), in those cases, just try making the id `name-of-component-${some-dynamic-value}`, don't use random, or it WILL fail at some point), and very rarely just the tag (except html, body and main, those are fine, header and footer are often used at different places so not them, give 'em classes).
-
-#### !important
-
-For the love of all things holy and Minecraft's Alex character (idke): Don't. Just don't. As Oliver Jonas "Ollie" (The Green Arrow / Spectre) Queen would put it: "There is always another way."
-
-#### CSS Reset and CSS Normalizer
-
-Since we're using Beer CSS, this is handled by the package, the only reset introduced is the `border-box` thing because Beer only does it on `*`, not on `*::before` and `*::after` for some reason (not that I can see anyway), so just to be sure, I just added it again (also brings me peace knowing it's there, even if unfortunately repeated).
-
-```css
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-```
-
-#### @import
-
-Using CSS's `@import` in normal HTML CSS projects is often a bad idea, it introduces Sequential loading, blocks parallel downloads and adds HTTP requests. Vue, however, compiles CSS before serving it, so breaking down the files into smaller ones might be a good idea for long stuff that don't need to be in a single file (good example is the fonts declaration in this project, since it's long and, while somewhat overkill, still good practice (although we might want to introduce [Lightning CSS](https://lightningcss.dev) later to remove unecessary declarations and make the entire CSS work for every browser even weird ones, TODO: just found this while writing this so to remember: https://vuejstips.com/lightningcss-vite)).
-
-#### LTR and RTL
-
-For CSS, always use logical properties (like `margin-inline-start` instead of `margin-left` and `border-block-start` instead of `border-top`), that way, if we ever want to support RTL languages, everything just "works" (on that end anyway, the rest is your problem, young Padawan).  
-Beer CSS already does that for everything of the sort, so it's only in cases where you add some CSS.
-
-#### Accessibility
-
-Read [Josh Comeau's article about which units to use](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility) to make the right choice when using custom CSS. Since we're using Beer CSS, we're unfortunately obligated to use their "use rem everywhere" approach for the part Beer CSS takes care of, fortunately though, from the current state of the website, it still seems to be working somewhat well, althougn it might not be enough to allow for the [200% rule](https://www.w3.org/TR/WCAG21/#resize-text) in every way, and Josh himself says we should aim for more than 200% zoom, but we don't have billions of users, so it should be okay for now.
-
-#### Use of modern CSS
-
-That's not too much of a problem in this particular case since we're not making an app for two billion people, although, I haven't used any feature that aren't supported on the latest versions of every Evergreen Browsers (2022 and after CSS features (I cheated a little because who can not use `:has()` nowadays?)) (Google Chrome (and all Chromium, like Vivaldi (yaaa), Brave (why?), Opera GX (ew), Microsoft Edge (eh), etc.), Mozilla Firefox, Apple Safari. If it doesn't work on Internet Explorer, the old Edge or Opera (not GX), that's not our problem, anyway the chances of someone using them in the Uni are basically zero, and they probably have Chrome installed for the millions of websites not supporting their shitty choices in life).
-
-That being said, when `@supports` comes in all major Evergreen browsers, it could be a good idea to tell people "Hey bro, you should really update your browsers" when some feature isn't supported.
-
-##### Speaking of modern CSS, [CSS Layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)!
-
-Okay, I know they are cool, and I planned on using them, but I don't want to force them on anyone, and since they can change the way Specificity works, I'd rather not confuse anyone who already hates CSS with them (although if you hate CSS, you should look into them, they look scary but they really fix a lot of issues you probably hate with this wonderful language).
-
-##### [Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
-
-Beer CSS only has three levels of responsive: `.s`, `.m` and `.l`, this is enough in most cases, but it can be limiting. If you need an element to be more responsive, try using Container Queries.
-
-Container Queries allow for WAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY simpler responsive, so don't get annoyed with Responsive Media Queries, they're rendered practically irrelevant (except for full-site responsive, but even then, when you make your container properly, you usually don't need full-site responsive as nothing needs to go anywhere, or it goes by itself).
-
-Articles teaching their use:
-
-- [Really small introduction](https://www.joshwcomeau.com/css/container-queries-introduction/)
-- [Probably best article online, visualise their use](https://ishadeed.com/article/css-container-query-guide/)
-- [Go further](https://www.joshwcomeau.com/css/container-queries-unleashed/)
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-### Snippets
-
-For easier development, you can add these snippets to VS Code for the "Vue" language
+Add these snippets to your VS Code user snippets for the `vue` language to speed up development:
 
 ```json
 {
@@ -205,12 +56,12 @@ For easier development, you can add these snippets to VS Code for the "Vue" lang
   "Vue Method": {
     "prefix": "vue-method",
     "body": ["${1:methodName}() {", "  ${2:// method body}", "}"],
-    "description": "Create a Vue method"
+    "description": "Create a Vue method (Note: Less common with Composition API)"
   },
   "Vue Computed Property": {
     "prefix": "vue-computed",
     "body": ["computed: {", "  ${1:computedProperty}() {", "    return ${2:value};", "  }", "}"],
-    "description": "Create a Vue computed property"
+    "description": "Create a Vue computed property (Note: Use `computed()` from Vue with Composition API)"
   },
   "Vue Watcher": {
     "prefix": "vue-watch",
@@ -221,7 +72,7 @@ For easier development, you can add these snippets to VS Code for the "Vue" lang
       "  }",
       "}"
     ],
-    "description": "Create a Vue watcher"
+    "description": "Create a Vue watcher (Note: Use `watch()` or `watchEffect()` from Vue with Composition API)"
   },
   "Vue Script Setup": {
     "prefix": "setup",
@@ -236,34 +87,167 @@ For easier development, you can add these snippets to VS Code for the "Vue" lang
 }
 ```
 
-## Talk with some Users
+_(Note: Some snippets relate more to the Options API, while this project uses the Composition API. The `vue-component`, `setup`, and `scoped` snippets are most relevant)._
 
-So, we talked with some users, two things came out: We like the overall app, but we want to be able to edit data in the Dialog. I'm the kind of guy who hates editing data in a Dialog, but the users want what the users want.
-
-So now we have to make a choice:
-
-- Either when the users enter "edit mode", the "dialog" becomes a full page that cannot be accidentally left at any point, it needs user confirmation (only if data was modified though)
-- We can also keep the dialog a small dialog but that can't be closed by clicking outside and we remove the close button until they click on "save changes" or "cancel edit"
-- Or, we keep it like it is right now, but we make all the fields enabled (right now they're disabled), and when the user interacts with the thing, it redirects them to the right place in the Edit pages (there were two complaints: I have to break the flow, let's fix that by making the edit page basically work the same as the dialog, just in a more "form" prone environment, the other one was "I have to find the data I'm trying to modify in the form, this can be fixed by redirecting them to the right field in the form and making it flash in front of their eyes").
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+### Project Installation
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Running the Project
 
-```sh
-npm run dev
-```
+- **Development (with Hot-Reload):**
+  ```sh
+  npm run dev
+  ```
+- **Production Build (Compile and Minify):**
+  ```sh
+  npm run build
+  ```
 
-### Compile and Minify for Production
+### Configuration
 
-```sh
-npm run build
-```
+For advanced configuration options, refer to the [Vite Configuration Reference](https://vite.dev/config/).
+
+---
+
+## Development Guidelines
+
+A strong emphasis is placed on code cleanliness and maintainability.
+
+### 1\. Vue Single File Components (SFCs - `.vue` files)
+
+Reference: [Vue SFC Specification](https://vuejs.org/api/sfc-spec.html)
+
+**Philosophy:** Components should be extracted frequently.
+
+- **Main Reason:** A component represents a distinct piece of the UI, regardless of its size or reuse frequency. Extracting makes the structure logical and mirrors the UI breakdown. This promotes code sharing via composables or utils. While it can mean navigating more files, modern IDEs facilitate this.
+  - _Example:_ The `DetailDialog` component was initially part of a page, then extracted. Its internal tabs were later extracted into their own components, resulting in a clear structure (`@/components/dialog/`) where related files reside.
+- **Technical Reason:** Improves readability of parent components/views. Well-named components (`SortableTable`) make the template understandable without needing to dive into their implementation immediately.
+
+**SFC Block Order:** Use `template` -\> `script` -\> `style`.
+
+1.  **`<template></template>`:** Defines the component's structure. Comes first as it's often the primary block needed to understand the component's purpose.
+2.  **`<script setup lang="ts"></script>`:** (Optional) Contains the component's logic.
+    - **Must use:** [Composition API](https://vuejs.org/api/composition-api-setup.html) via [`<script setup>`](<https://www.google.com/search?q=%5Bhttps://vuejs.org/api/sfc-script-setup.html%5D(https://vuejs.org/api/sfc-script-setup.html)>). It's the modern standard, enables tools like [VueUse](https://vueuse.org), and removes limitations of the Options API.
+    - Attribute Order: `setup` first (defines API), then `lang="ts"` (defines language).
+    - Omit the `<script>` block if the component has no logic (common for simple presentational components).
+3.  **`<style scoped></style>`:** (Optional) Contains component-specific styles.
+    - Comes last as it has the least impact on understanding the component's core function.
+    - **Scoped by Default:** Use `scoped` in 99.9% of cases to prevent styles from leaking.
+    - **Global Styles:** Place genuinely global styles in the main CSS file (`@/assets/main.css` or similar).
+    - **Targeting Child/Slot Content:** Learn and use `:deep()` and `:slotted()` selectors ([SFC CSS Features](https://vuejs.org/api/sfc-css-features.html)).
+    - **Escaping Scope:** If `scoped`, `:deep`, and `:slotted` fail for a specific rule that clearly belongs to the component, use `:global(.specific-class-name)` for _that rule only_. Do _not_ make the entire `<style>` block global.
+    - **Use Classes:** Scoped styles don't eliminate the need for classes. Classes improve performance and readability ([Scoped Style Tips](https://vuejs.org/api/sfc-css-features.html#scoped-style-tips)).
+    - Omit the `<style>` block if the component has no custom styles.
+
+**Rationale for `template`-`script`-`style` order:**
+
+- Aligns with official Vue documentation examples.
+- Semantic flow: Structure (`template`) -\> Logic (`script`) -\> Appearance (`style`).
+- Developer preference: Often, reading the `template` first is sufficient to grasp the component's role. Scrolling down to the `script` (which can sometimes be long) is only necessary for deeper understanding.
+
+### 2\. Templates (`<template>`)
+
+- **Props & Events Naming:**
+  - Define in `script` using `camelCase`.
+  - Use in `template` using `kebab-case`.
+  - Example: Define `defineProps({ myProp: String })`, use `<MyComponent :my-prop="value" />`.
+- **Component Imports:**
+  - Always use the alias path `@/` (e.g., `import MyComponent from '@/components/MyComponent.vue'`).
+    - `@/` is an alias for `@/`.
+  - Avoid relative paths (`../` or `./`) for better clarity on file location.
+
+### 3\. JavaScript / TypeScript (`<script setup>`)
+
+- **Code Extraction:**
+  - If logic within an SFC becomes too complex, extract it.
+  - **Vue-related Logic (uses refs, computed, lifecycle hooks, etc.):** Extract to a composable function (e.g., `@/composables/useMyLogic.ts`).
+    ```javascript
+    // Example: @/composables/useCounter.js
+    import {ref} from 'vue';
+    export function useCounter() {
+      const count = ref(0);
+      function increment() {
+        count.value++;
+      }
+      return {count, increment};
+    }
+    ```
+  - **Generic JavaScript/TypeScript Logic (no Vue dependencies):** Extract to a utility file (e.g., `@/utils/helpers.ts`).
+    ```javascript
+    // Example: @/utils/formatDate.js
+    export function formatDate(date) {
+      return new Date(date).toLocaleDateString(); // Example implementation
+    }
+    ```
+- **NPM Packages:**
+  - **Minimize Dependencies:** Avoid adding small NPM packages for simple tasks. Writing a few lines of custom utility code is preferred over introducing dependencies that might complicate updates or cause conflicts later. Aim for a lean `package.json`.
+  - **Acceptable Dependencies:**
+    - Large, essential functionalities (e.g., internationalization - `vue-i18n` is a likely candidate).
+    - Well-established, high-quality packages from the Vue ecosystem.
+    - **Potential Exception:** [VueUse](https://vueuse.org) offers many useful composables and is widely adopted; using it can be acceptable if it significantly simplifies implementation.
+
+### 4\. CSS (`<style>`)
+
+- **Selectors:**
+  - **Primarily use Classes:** Apply classes to elements for styling.
+  - **Avoid IDs:** IDs can cause conflicts, especially in reusable components. If an ID is technically needed (e.g., for `aria-labelledby` or form `label`'s `for` attribute), generate it dynamically to ensure uniqueness (e.g., `id="name-of-component-${uniqueId}"`).
+  - **Rarely use Tag Selectors:** Acceptable for base elements like `html`, `body`, `main`. Avoid for potentially reused tags like `header`, `footer` - use classes instead.
+- **`!important`:** **Do not use it.** Find alternative solutions using specificity or restructuring CSS/HTML.
+- **CSS Reset/Normalization:** Handled by Beer CSS. The project adds an explicit `box-sizing: border-box` rule for `*`, `*::before`, `*::after` for robustness, as Beer CSS might only apply it to `*`.
+  ```css
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  ```
+- **`@import`:** Acceptable within Vue SFCs or main CSS files (like `@/assets/main.css`). Vite/Vue compiles the CSS, mitigating the performance issues `@import` causes in traditional CSS (sequential loading, blocking parallel downloads). Useful for organizing large CSS blocks (e.g., font declarations).
+  - _Future Consideration:_ Explore [Lightning CSS](https://lightningcss.dev) via Vite integration ([Example Article](https://vuejstips.com/lightningcss-vite)) for CSS optimization and transpilation.
+- **Logical Properties (LTR/RTL Support):**
+  - **Always use logical properties:** `margin-inline-start` instead of `margin-left`, `padding-block-end` instead of `padding-bottom`, `border-inline-start` instead of `border-left`, etc.
+  - This ensures layout adapts correctly if Right-to-Left (RTL) language support is added later.
+  - Beer CSS already uses logical properties for its components. Apply this rule to all custom CSS.
+- **Accessibility (Units):**
+  - Consider accessibility when choosing CSS units for custom styles. Read [Josh Comeau's article on Pixels and Accessibility](https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility).
+  - Beer CSS primarily uses `rem`, which might affect achieving perfect text resizing according to WCAG guidelines (like the [200% rule](https://www.w3.org/TR/WCAG21/#resize-text)). While sufficient for now, be mindful of this limitation.
+- **Modern CSS Features:**
+  - Feel free to use modern CSS features supported by the latest versions of Evergreen Browsers (Chrome, Firefox, Safari, Edge - roughly features from 2022 onwards). `:has()` is considered required.
+  - Compatibility with older browsers (IE, legacy Edge, old Opera) is not a priority.
+  - _Future Idea:_ Use `@supports` queries to detect unsupported features in a user's browser and potentially display a message suggesting an update.
+- **CSS Layers (`@layer`):** Acknowledged as a powerful feature for managing specificity, but **currently not used** in this project to avoid adding complexity for developers unfamiliar with them.
+- **Container Queries:**
+  - Beer CSS provides basic responsive classes (`.s`, `.m`, `.l`), which might be insufficient for complex components.
+  - **Use Container Queries** for fine-grained, element-based responsiveness instead of relying solely on viewport-based Media Queries.
+  - **Learning Resources:**
+    - [Introduction](https://www.joshwcomeau.com/css/container-queries-introduction/)
+    - [Comprehensive Guide](https://ishadeed.com/article/css-container-query-guide/)
+    - [Advanced Use Cases](https://www.joshwcomeau.com/css/container-queries-unleashed/)
+
+---
+
+## User Feedback & Design Considerations
+
+Recent user feedback highlighted a desire to **edit data directly within the detail dialog**, rather than navigating to a separate edit page. While the lead developer dislikes editing in dialogs due to potential data loss, user needs are paramount.
+
+**Proposed Solutions for Inline Editing:**
+
+1.  **Full-Page Modal:** The fields are disabled until Edit mode is entered:
+    - When the "Edit" button is clicked, the dialog transforms into a full-page view that cannot be accidentally closed (e.g., by clicking outside).
+    - Closing requires explicit action ("Save Changes" or "Cancel" buttons at the bottom of the Dialog).
+    - A confirmation prompt should appear if changes were made before cancelling/closing.
+2.  **Locked Dialog:** The dialog remains a dialog but becomes locked (impossible to close without confirmation) in edit mode:
+    - Edit mode is activated from interacting with a field.
+    - Cannot be closed by clicking the overlay/backdrop.
+    - The standard close button (e.g., 'X') is hidden or disabled.
+    - Users must explicitly click "Save Changes" or "Cancel Edit" buttons to exit the edit mode.
+3.  **Enhanced Current Dialog + Redirect:** Keep the current dialog structure but:
+    - Enable form fields within the dialog when "Edit" is toggled (they are currently disabled in view mode).
+    - When a user interacts with an enabled field (e.g., clicks/focuses), **immediately redirect them to the main Edit Page**.
+    - **Crucially:** Scroll the Edit Page to the _corresponding field_ and provide a visual cue (e.g., brief highlight/flash) so the user knows exactly where to continue editing. This addresses the user complaints about "breaking the flow" and "having to find the data again."
+
+A decision needs to be made on which approach best balances user convenience and data integrity. Leaning towards Full-Page Modal.
+
+---

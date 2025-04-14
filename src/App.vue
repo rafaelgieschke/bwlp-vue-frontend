@@ -3,8 +3,12 @@
   <HeaderComponent />
 
   <main class="responsive">
-    <!-- <router-view :key="$route.fullPath"></router-view> -->
-    <router-view></router-view>
+    <!-- <RouterView :key="$route.fullPath"></RouterView> -->
+    <RouterView v-slot="{Component}">
+      <Transition name="page-slide" mode="in-out">
+        <component :is="Component"></component>
+      </Transition>
+    </RouterView>
   </main>
 
   <Minigame v-if="activateMinigame" />

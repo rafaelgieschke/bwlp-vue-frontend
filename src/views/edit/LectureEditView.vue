@@ -10,10 +10,12 @@
       <ProgressIndicator v-model:currentStep="currentStep" :steps="steps" />
 
       <article class="large scroll">
-        <Step1BasicInfo v-show="currentStep === 1" v-model="itemData" />
-        <Step2Permissions v-show="currentStep === 2" v-model="itemData" />
-        <Step3Network v-show="currentStep === 3" v-model="itemData" />
-        <Step4Advanced v-show="currentStep === 4" v-model="itemData" />
+        <Transition name="page-slide-fast" mode="out-in">
+          <Step1BasicInfo v-if="currentStep === 1" v-model="itemData" />
+          <Step2Permissions v-else-if="currentStep === 2" v-model="itemData" />
+          <Step3Network v-else-if="currentStep === 3" v-model="itemData" />
+          <Step4Advanced v-else-if="currentStep === 4" v-model="itemData" />
+        </Transition>
       </article>
 
       <EditNavigationButtons

@@ -1,12 +1,12 @@
 <template>
-  <template v-if="['ImageList', 'ImageDetail'].includes($route.name as string)">
-    <ErrorMessage
-      v-if="error"
-      :error="error"
-      default-message="There's been an error of some kind"
-    />
+  <div>
+    <template v-if="['ImageList', 'ImageDetail'].includes($route.name as string)">
+      <ErrorMessage
+        v-if="error"
+        :error="error"
+        default-message="There's been an error of some kind"
+      />
 
-    <Transition name="slide-fade">
       <SortableTable
         v-if="imageList.length > 0"
         :items="imageList"
@@ -17,30 +17,35 @@
         :footer-colspan="columns.length - 2"
         create-route="ImageCreate"
       />
-    </Transition>
 
-    <DetailDialog
-      v-if="selectedImage"
-      id="image-dialog"
-      :title="selectedImage?.imageName"
-      :edit-route="{
-        name: 'ImageEdit',
-        params: {id: selectedImage?.imageBaseId},
-      }"
-      :is-open="showModal"
-      :tabs="
-        imageTabs.map(tab => ({
-          ...tab,
-          props: tab.props(selectedImage, imagePermissions),
-        }))
-      "
-      @close-wanted="handleCloseDialog"
-    />
-  </template>
-  <!-- <template v-if="$route.matched.some(x => x.children && x.children.length > 0)"> -->
-  <template v-if="!['ImageList', 'ImageDetail'].includes($route.name as string)">
-    <router-view></router-view>
-  </template>
+      <DetailDialog
+        v-if="selectedImage"
+        id="image-dialog"
+        :title="selectedImage?.imageName"
+        :edit-route="{
+          name: 'ImageEdit',
+          params: {id: selectedImage?.imageBaseId},
+        }"
+        :is-open="showModal"
+        :tabs="
+          imageTabs.map(tab => ({
+            ...tab,
+            props: tab.props(selectedImage, imagePermissions),
+          }))
+        "
+        @close-wanted="handleCloseDialog"
+      />
+    </template>
+
+    <!-- <template v-if="$route.matched.some(x => x.children && x.children.length > 0)"> -->
+    <RouterView v-slot="{Component}">
+      <Transition name="page-slide" mode="out-in">
+        <template v-if="!['ImageList', 'ImageDetail'].includes($route.name as string)">
+          <component :is="Component"></component>
+        </template>
+      </Transition>
+    </RouterView>
+  </div>
 </template>
 
 <script setup lang="ts">
