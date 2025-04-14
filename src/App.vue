@@ -5,7 +5,7 @@
   <main class="responsive">
     <!-- <RouterView :key="$route.fullPath"></RouterView> -->
     <RouterView v-slot="{Component}">
-      <Transition name="page-slide" mode="in-out">
+      <Transition name="page-slide" mode="out-in">
         <component :is="Component"></component>
       </Transition>
     </RouterView>
