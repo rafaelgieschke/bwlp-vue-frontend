@@ -1,7 +1,3 @@
-Okay, here is the information about the BW-Lehrpool VueJS project, reorganized for better readability while keeping all the original details.
-
----
-
 ## Project: BW-Lehrpool VueJS Frontend
 
 This document outlines the details, development guidelines, and setup for the VueJS-based frontend for BW-Lehrpool.
@@ -13,7 +9,7 @@ This document outlines the details, development guidelines, and setup for the Vu
 
 ### Technology Stack
 
-- **Core Framework:** [Vue.js](https://vuejs.org) (v3)
+- **Core Framework:** [Vue.js](https://vuejs.org) (v3.5)
 - **Build Tool:** [Vite](https://vite.dev)
 - **CSS Framework:** [Beer CSS](https://www.beercss.com)
   - A CSS library based on [Material Design 3 (M3)](https://m3.material.io).
@@ -188,6 +184,9 @@ Reference: [Vue SFC Specification](https://vuejs.org/api/sfc-spec.html)
     - Large, essential functionalities (e.g., internationalization - `vue-i18n` is a likely candidate).
     - Well-established, high-quality packages from the Vue ecosystem.
     - **Potential Exception:** [VueUse](https://vueuse.org) offers many useful composables and is widely adopted; using it can be acceptable if it significantly simplifies implementation.
+  - **Keep Dependencies Updated**: Regularly update all project dependencies.
+    - Frequency: Aim to check for and apply updates frequently (e.g., weekly). This usually takes minimal time.
+    - Benefits: Ensures the initial release is modern and secure. Reduces long-term maintenance burden; it's far easier to manage incremental updates (minor and major versions) over time than to face massive, potentially breaking changes after years of neglect. Continue this practice throughout the project's lifecycle.
 
 ### 4\. CSS (`<style>`)
 
@@ -251,3 +250,18 @@ Recent user feedback highlighted a desire to **edit data directly within the det
 A decision needs to be made on which approach best balances user convenience and data integrity. Leaning towards Full-Page Modal.
 
 ---
+
+## Console commands
+
+### Vite
+
+- `npm run dev` runs `vite`, main command
+- `npm run build` runs `vite build`, self explanatory
+- `npm run preview` runs `vite preview`, to view the website as it is in production
+
+### GitHub Pages
+
+You won't need these after I'm gone, you can uninstall the `gh-pages` package altogether.
+
+- `npm run predeploy` runs `npm run build`
+- `npm run deploy` runs `gh-pages -d dist`
