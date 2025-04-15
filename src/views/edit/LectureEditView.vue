@@ -97,10 +97,3 @@ const saveItem = async () => {
   }
 };
 </script>
-
-<!-- <style scoped>
-form {
-  max-inline-size: 860px;
-  margin: 0 auto;
-}
-</style> -->
