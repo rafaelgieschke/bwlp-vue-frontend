@@ -17,8 +17,8 @@
         <span>Menu</span>
         <i>arrow_drop_down</i>
         <menu class="border">
-          <li>
-            <a v-if="authStore.authToken" href="#" @click.prevent="logout"> Logout </a>
+          <li v-if="authStore.authToken">
+            <a href="#" @click.prevent="logout"> Logout </a>
           </li>
         </menu>
       </button>
