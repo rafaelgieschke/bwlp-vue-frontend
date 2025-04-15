@@ -140,8 +140,6 @@
 
   <SeparatingLabel only-mobile-class="s" text="Account" />
 
-  <a class="s">Profile</a>
-
   <a
     class="s ripple"
     target="_blank"

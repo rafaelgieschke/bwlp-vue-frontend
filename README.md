@@ -24,7 +24,13 @@ This document outlines the details, development guidelines, and setup for the Vu
 ### Recommended IDE
 
 - [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
-- **Essential Extension:** [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (Ensure the older Vetur extension is disabled if installed).
+- **Essential Extensions:**
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (Ensure the older Vetur extension is disabled if installed).
+  - [Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite).
+
+### To make sure everything works.
+
+Clone the thing npm install copy paste the `.env.*.example `files and remove the `.example copy` from the name.
 
 ### VS Code Snippets for Vue
 
