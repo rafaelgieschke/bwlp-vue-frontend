@@ -50,6 +50,14 @@ I made respective subfolders for all of the categories to keep the main folder e
 
 The files in the `./public/` folder all get copied in the `./dist` folder at build time, not a lot of file belong there, only ones that need to be accessible from the app in any way but aren't referenced anywhere in the rest of the app. Because let's say you have an image in your assets folder and you don't use it anywhere in the app, it won't be in the build bundle, which means not in the final app, even if you know the exact hypothetical path that it would have.
 
+## code-workspace
+
+So, I use VS Code like a fucking pro :Kappa:, in `./bwlp-vue-frontend.code-workspace`, you find the settings of this specific repository, for some reason it doesn't work on my computer right now but it doesn't matter.
+
+You can read about code-workspaces [on the official VS Code documentation](https://code.visualstudio.com/docs/editing/workspaces/workspaces).
+
+I often make use of [Multi-root workspaces](https://code.visualstudio.com/docs/editing/workspaces/workspaces#_multiroot-workspaces), like I had the original repo from the old frontend referenced there and I could browse the code easily.
+
 ## Promise
 
 I, Julien Rutscho, trust you, Isabela Denisa Mocanu, with My Life's Work, and I know you will be giving it your best, which is probably better than my best, so we're in for a hell of a ride!
