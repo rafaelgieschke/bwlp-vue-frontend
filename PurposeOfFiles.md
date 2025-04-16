@@ -44,3 +44,7 @@ This part holds all the Pinia stuff, for in-browser-saved data.
 ## Finally, assets
 
 This is straighforward, everything that's an asset, you put there. As in every other framework ever.
+
+## Promise
+
+I, Julien Rutscho, trust you, Isabela Denisa Mocanu, with My Life's Work, and I know you will be giving it your best, which is probably better than my best, so we're in for a hell of a ride!
