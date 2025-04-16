@@ -1,10 +1,8 @@
 <template>
   <article>
-    <header class="header">
-      <h3>
-        <slot name="header"></slot>
-      </h3>
-    </header>
+    <h3>
+      <slot name="header"></slot>
+    </h3>
 
     <hr class="small" />
 

@@ -28,9 +28,24 @@ This document outlines the details, development guidelines, and setup for the Vu
   - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (Ensure the older Vetur extension is disabled if installed).
   - [Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite).
 
-### To make sure everything works.
+### Project Installation
 
-Clone the thing npm install copy paste the `.env.*.example `files and remove the `.example copy` from the name.
+```sh
+npm install
+```
+
+- Copy and paste the `.env.*.example` files and remove the `.example copy` from the name.
+
+### Running the Project
+
+- **Development (with Hot-Reload):**
+  ```sh
+  npm run dev
+  ```
+- **Production Build (Compile and Minify):**
+  ```sh
+  npm run build
+  ```
 
 ### VS Code Snippets for Vue
 
@@ -45,7 +60,7 @@ Add these snippets to your VS Code user snippets for the `vue` language to speed
       "  $1",
       "</template>",
       "",
-      "<script setup lang=\"ts\">",
+      "<script setup>",
       "  $2",
       "</script>",
       "",
@@ -55,15 +70,32 @@ Add these snippets to your VS Code user snippets for the `vue` language to speed
     ],
     "description": "Create a Vue component"
   },
+  "Vue Component TypeScript": {
+    "prefix": "vue-component-ts",
+    "body": [
+      "<template>",
+      "  $1",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "  $2",
+      "</script>",
+      "",
+      "<style scoped>",
+      "  $3",
+      "</style>"
+    ],
+    "description": "Create a Vue component with TypeScript"
+  },
   "Vue Method": {
     "prefix": "vue-method",
     "body": ["${1:methodName}() {", "  ${2:// method body}", "}"],
-    "description": "Create a Vue method (Note: Less common with Composition API)"
+    "description": "Create a Vue method"
   },
   "Vue Computed Property": {
     "prefix": "vue-computed",
     "body": ["computed: {", "  ${1:computedProperty}() {", "    return ${2:value};", "  }", "}"],
-    "description": "Create a Vue computed property (Note: Use `computed()` from Vue with Composition API)"
+    "description": "Create a Vue computed property"
   },
   "Vue Watcher": {
     "prefix": "vue-watch",
@@ -74,12 +106,17 @@ Add these snippets to your VS Code user snippets for the `vue` language to speed
       "  }",
       "}"
     ],
-    "description": "Create a Vue watcher (Note: Use `watch()` or `watchEffect()` from Vue with Composition API)"
+    "description": "Create a Vue watcher"
   },
   "Vue Script Setup": {
     "prefix": "setup",
-    "body": ["<script setup lang=\"ts\">", "  $0", "</script>"],
+    "body": ["<script setup>", "  $0", "</script>"],
     "description": "Create a vue script setup block"
+  },
+  "Vue Script Setup TypeScript": {
+    "prefix": "setup",
+    "body": ["<script setup lang=\"ts\">", "  $0", "</script>"],
+    "description": "Create a vue script setup block with TypeScript"
   },
   "Vue Scoped": {
     "prefix": "scoped",
@@ -88,25 +125,6 @@ Add these snippets to your VS Code user snippets for the `vue` language to speed
   }
 }
 ```
-
-_(Note: Some snippets relate more to the Options API, while this project uses the Composition API. The `vue-component`, `setup`, and `scoped` snippets are most relevant)._
-
-### Project Installation
-
-```sh
-npm install
-```
-
-### Running the Project
-
-- **Development (with Hot-Reload):**
-  ```sh
-  npm run dev
-  ```
-- **Production Build (Compile and Minify):**
-  ```sh
-  npm run build
-  ```
 
 ### Configuration
 
@@ -158,7 +176,7 @@ Reference: [Vue SFC Specification](https://vuejs.org/api/sfc-spec.html)
   - Example: Define `defineProps({ myProp: String })`, use `<MyComponent :my-prop="value" />`.
 - **Component Imports:**
   - Always use the alias path `@/` (e.g., `import MyComponent from '@/components/MyComponent.vue'`).
-    - `@/` is an alias for `@/`.
+    - `@/` is an alias for `./src`.
   - Avoid relative paths (`../` or `./`) for better clarity on file location.
 
 ### 3\. JavaScript / TypeScript (`<script setup>`)
@@ -256,11 +274,3 @@ Recent user feedback highlighted a desire to **edit data directly within the det
 A decision needs to be made on which approach best balances user convenience and data integrity. Leaning towards Full-Page Modal.
 
 ---
-
-## Console commands
-
-### Vite
-
-- `npm run dev` runs `vite`, main command
-- `npm run build` runs `vite build`, self explanatory
-- `npm run preview` runs `vite preview`, to view the website as it is in production
