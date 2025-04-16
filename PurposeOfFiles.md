@@ -41,9 +41,14 @@ This part holds all the Pinia stuff, for in-browser-saved data.
 
 - Found under `@/stores`.
 
-## Finally, assets
+## Assets
 
-This is straighforward, everything that's an asset, you put there. As in every other framework ever.
+Assets are where you store scripts, CSS, fonts, images, etc. that don't belong anywhere else, usually static content. (In fact, assets is called static in some web frameworks, as they static are 99% of the time).  
+I made respective subfolders for all of the categories to keep the main folder easy to navigate.
+
+## Public
+
+The files in the `./public/` folder all get copied in the `./dist` folder at build time, not a lot of file belong there, only ones that need to be accessible from the app in any way but aren't referenced anywhere in the rest of the app. Because let's say you have an image in your assets folder and you don't use it anywhere in the app, it won't be in the build bundle, which means not in the final app, even if you know the exact hypothetical path that it would have.
 
 ## Promise
 

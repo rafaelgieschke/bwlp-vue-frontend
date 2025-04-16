@@ -47,6 +47,15 @@ npm install
   npm run build
   ```
 
+## Console commands
+
+### Vite
+
+- `npm run dev` runs `vite`, main command (takes information from `.env.development`)
+- `npm run build` runs `vite build`, self explanatory
+- `npm run preview` runs `vite preview`, to view the website as it is in production (takes information from `.env.production`)
+- `npx vite --port=4000` (the same as `run dev`)
+
 ### VS Code Snippets for Vue
 
 Add these snippets to your VS Code user snippets for the `vue` language to speed up development:
