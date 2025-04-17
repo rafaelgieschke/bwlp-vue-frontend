@@ -33,9 +33,7 @@ const authStore = useAuthStore();
 
 const mainServer = 'bwlp-masterserver.ruf.uni-freiburg.de';
 
-const proto = new Thrift.Protocol(
-  new Thrift.Transport(`https://${mainServer}/thrift/`),
-);
+const proto = new Thrift.Protocol(new Thrift.Transport(`https://${mainServer}/thrift/`));
 const main = new MasterServerClient(proto);
 
 const username = ref('');
@@ -44,14 +42,11 @@ const error = ref('');
 
 const login = async () => {
   try {
-    const response = await main.localAccountLogin(
-      username.value,
-      password.value,
-    );
+    const response = await main.localAccountLogin(username.value, password.value);
 
     authStore.setToken(response.authToken);
 
-    router.push('/list');
+    router.push('/image');
   } catch (e) {
     error.value = e.message;
   }

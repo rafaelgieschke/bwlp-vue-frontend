@@ -12,9 +12,10 @@ This document outlines the details, development guidelines, and setup for the Vu
 - **Core Framework:** [Vue.js](https://vuejs.org) (v3.5)
 - **Build Tool:** [Vite](https://vite.dev)
 - **CSS Framework:** [Beer CSS](https://www.beercss.com)
-  - A CSS library based on [Material Design 3 (M3)](https://m3.material.io).
+  - A CSS library based on [Material Design 3 (M3)](https://m3.material.io)
   - Facilitates rapid Material Design implementation.
-  - Supports [Material You](https://m3.material.io/blog/announcing-material-you) theming (dynamic color theming, e.g., based on images).
+  - Supports [Material You](https://m3.material.io/blog/announcing-material-you) theming (dynamic color theming, e.g., based on images)
+  - Read [Helpers documentation on GitHub](https://github.com/beercss/beercss/blob/main/docs/HELPERS.md).
 - **Icons:** [Material Symbols via Google Fonts](https://fonts.google.com/icons)
 
 ---
